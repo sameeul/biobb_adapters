@@ -3,7 +3,7 @@ from pycompss.api.task import task
 from pycompss.api.constraint import constraint
 from pycompss.api.parameter import FILE_IN, FILE_OUT
 from biobb_common.tools import file_utils as fu
-from gromacs import genion
+from biobb_md.gromacs import genion
 
 @task(input_tpr_path=FILE_IN, output_gro_path=FILE_OUT, input_top_zip_path=FILE_IN, output_top_zip_path=FILE_OUT)
 def pdb2gmx_pc(input_tpr_path, output_gro_path, input_top_zip_path, output_top_zip_path, properties, **kwargs):

@@ -3,7 +3,7 @@ from pycompss.api.task import task
 from pycompss.api.constraint import constraint
 from pycompss.api.parameter import FILE_IN, FILE_OUT
 from biobb_common.tools import file_utils as fu
-from gromacs import make_ndx
+from biobb_md.gromacs import make_ndx
 
 @task(input_structure_path=FILE_IN, output_ndx_path=FILE_OUT)
 def make_ndx_pc(input_structure_path, output_ndx_path, properties, **kwargs):

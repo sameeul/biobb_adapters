@@ -3,7 +3,7 @@ from pycompss.api.task import task
 from pycompss.api.constraint import constraint
 from pycompss.api.parameter import FILE_IN, FILE_OUT
 from biobb_common.tools import file_utils as fu
-from gromacs import genrestr
+from biobb_md.gromacs import genrestr
 
 @task(input_structure_path=FILE_IN, input_ndx_path=FILE_IN, input_top_zip_path=FILE_IN, output_top_zip_path=FILE_OUT)
 def genrestr_pc(input_structure_path, input_ndx_path, input_top_zip_path,

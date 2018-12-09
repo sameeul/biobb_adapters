@@ -3,7 +3,7 @@ from pycompss.api.task import task
 from pycompss.api.constraint import constraint
 from pycompss.api.parameter import FILE_IN, FILE_OUT
 from biobb_common.tools import file_utils as fu
-from gromacs import editconf
+from biobb_md.gromacs import editconf
 
 @task(input_gro_path=FILE_IN, output_gro_path=FILE_OUT)
 def editconf_pc(input_gro_path, output_gro_path, properties, **kwargs):

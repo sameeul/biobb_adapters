@@ -3,7 +3,7 @@ from pycompss.api.task import task
 from pycompss.api.constraint import constraint
 from pycompss.api.parameter import FILE_IN, FILE_OUT
 from biobb_common.tools import file_utils as fu
-from gromacs import grompp
+from biobb_md.gromacs import grompp
 
 @task(input_gro_path=FILE_IN, input_top_zip_path=FILE_IN, input_cpt_path=FILE_IN, output_tpr_path=FILE_OUT)
 def grompp_pc(input_gro_path, input_top_zip_path, input_cpt_path=input_cpt_path,

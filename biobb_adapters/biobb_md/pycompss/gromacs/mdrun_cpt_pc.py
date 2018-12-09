@@ -3,7 +3,7 @@ from pycompss.api.task import task
 from pycompss.api.constraint import constraint
 from pycompss.api.parameter import FILE_IN, FILE_OUT
 from biobb_common.tools import file_utils as fu
-from gromacs import mdrun
+from biobb_md.gromacs import mdrun
 
 @task(input_tpr_path=FILE_IN, output_trr_path=FILE_OUT, output_gro_path=FILE_OUT, output_edr_path=FILE_OUT, output_log_path=FILE_OUT, output_xtc_path=FILE_OUT)
 def mdrun_pc(input_tpr_path, output_trr_path, output_gro_path, output_edr_path,
