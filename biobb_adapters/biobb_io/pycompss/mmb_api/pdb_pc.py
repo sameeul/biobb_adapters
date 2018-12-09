@@ -1,5 +1,7 @@
 import traceback
 from pycompss.api.task import task
+from pycompss.api.constraint import constraint
+from pycompss.api.parameter import FILE_IN, FILE_OUT
 from biobb_common.tools import file_utils as fu
 from mmb_api import pdb
 
