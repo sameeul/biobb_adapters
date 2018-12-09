@@ -9,7 +9,7 @@ from biobb_md.gromacs import grompp
 def grompp_pc(input_gro_path, input_top_zip_path, input_cpt_path=input_cpt_path,
              output_tpr_path, properties, **kwargs):
     try:
-        grompp.Grompp(input_gro_path=input_gro_path, input_top_zip_path=input_top_zip_path, input_cpt_path=input_cpt_path, output_tpr_path=output_tpr_path properties=properties, **kwargs).launch()
+        grompp.Grompp(input_gro_path=input_gro_path, input_top_zip_path=input_top_zip_path, input_cpt_path=input_cpt_path, output_tpr_path=output_tpr_path, properties=properties, **kwargs).launch()
     except Exception:
         traceback.print_exc()
         fu.write_failed_output(output_tpr_path)
