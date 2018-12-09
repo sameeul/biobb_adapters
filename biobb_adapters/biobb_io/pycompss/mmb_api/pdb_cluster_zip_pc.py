@@ -3,7 +3,7 @@ from pycompss.api.task import task
 from pycompss.api.constraint import constraint
 from pycompss.api.parameter import FILE_IN, FILE_OUT
 from biobb_common.tools import file_utils as fu
-from mmb_api import pdb_cluster_zip
+from biobb_md.mmb_api import pdb_cluster_zip
 
 @task(output_pdb_zip_path=FILE_OUT)
 def pdb_cluster_zip_pc(output_pdb_zip_path, properties, **kwargs):

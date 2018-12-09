@@ -3,7 +3,7 @@ from pycompss.api.task import task
 from pycompss.api.constraint import constraint
 from pycompss.api.parameter import FILE_IN, FILE_OUT
 from biobb_common.tools import file_utils as fu
-from mmb_api import pdb_variants
+from biobb_md.mmb_api import pdb_variants
 
 @task(output_mutations_list_txt=FILE_OUT)
 def pdb_variants_pc(output_mutations_list_txt, properties, **kwargs):
