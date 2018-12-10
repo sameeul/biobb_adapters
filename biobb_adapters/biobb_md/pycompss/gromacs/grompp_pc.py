@@ -6,8 +6,7 @@ from biobb_common.tools import file_utils as fu
 from biobb_md.gromacs import grompp
 
 @task(input_gro_path=FILE_IN, input_top_zip_path=FILE_IN, output_tpr_path=FILE_OUT)
-def grompp_pc(input_gro_path, input_top_zip_path,
-             output_tpr_path, properties, **kwargs):
+def grompp_pc(input_gro_path, input_top_zip_path, output_tpr_path, properties, **kwargs):
     try:
         grompp.Grompp(input_gro_path=input_gro_path, input_top_zip_path=input_top_zip_path, output_tpr_path=output_tpr_path, properties=properties, **kwargs).launch()
     except Exception:
