@@ -29,7 +29,7 @@ setuptools.setup(
     packages=setuptools.find_packages(exclude=['docs', 'test',]),
     include_package_data=True,
     zip_safe=False,
-    install_requires=['biobb_common', 'biobb_io', 'biobb_model', 'biobb_md', 'biopython', 'cwlref-runner', 'jupyter', 'nglview==1.1.6', ],
+    install_requires=['biobb_common>=0.0.9' ],
     python_requires='>=3',
     cmdclass={
         'install': PostInstallCommand,
