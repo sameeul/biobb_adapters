@@ -4,7 +4,7 @@ class: CommandLineTool
 baseCommand: pdb2gmx
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_md:0.1.4--py_0
+    dockerPull: quay.io/biocontainers/biobb_md:0.1.5--py_0
 inputs:
   input_pdb_path:
     type: File
@@ -24,7 +24,7 @@ inputs:
     inputBinding:
       position: 3
       prefix: --output_top_zip_path
-    default: "topology.top"
+    default: "topology.zip"
 
   config:
     type: string?

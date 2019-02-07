@@ -4,7 +4,7 @@ class: CommandLineTool
 baseCommand: editconf
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_md:0.1.4--py_0
+    dockerPull: quay.io/biocontainers/biobb_md:0.1.5--py_0
 inputs:
   input_gro_path:
     type: File
@@ -17,7 +17,7 @@ inputs:
     inputBinding:
       position: 2
       prefix: --output_gro_path
-    default: "struture_box.gro"
+    default: "structure_box.gro"
 
   config:
     type: string?

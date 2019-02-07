@@ -4,7 +4,7 @@ class: CommandLineTool
 baseCommand: genion
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_md:0.1.4--py_0
+    dockerPull: quay.io/biocontainers/biobb_md:0.1.5--py_0
 inputs:
   input_tpr_path:
     type: File
@@ -24,6 +24,7 @@ inputs:
     inputBinding:
       position: 3
       prefix: --input_top_zip_path
+    default: "topology_ions.zip"
 
   output_top_zip_path:
     type: string

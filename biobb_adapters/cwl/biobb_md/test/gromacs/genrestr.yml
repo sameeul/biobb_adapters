@@ -1,6 +1,3 @@
-config:
-    class: File
-    location: ../conf.yml
 input_structure_path:
     class: File
     location: ../data/gromacs/genrestr.gro
@@ -10,4 +7,4 @@ input_ndx_path:
 input_top_zip_path:
     class: File
     location: ../data/gromacs/genrestr.zip
-output_top_zip_path: output_top_zip.zip
+output_top_zip_path: topology_restraint.zip

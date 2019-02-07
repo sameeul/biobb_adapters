@@ -4,7 +4,7 @@ class: CommandLineTool
 baseCommand: solvate.py
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_md:0.1.4--py_0
+    dockerPull: quay.io/biocontainers/biobb_md:0.1.5--py_0
 inputs:
   input_solute_gro_path:
     type: File
@@ -30,7 +30,7 @@ inputs:
     inputBinding:
       position: 4
       prefix: --output_top_zip_path
-    default: "topology_solvated.gro"
+    default: "topology_solvated.zip"
 
   config:
     type: string?
