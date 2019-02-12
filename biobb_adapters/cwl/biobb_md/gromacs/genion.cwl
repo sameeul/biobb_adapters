@@ -26,14 +26,13 @@ inputs:
     inputBinding:
       position: 3
       prefix: --input_top_zip_path
-    default: "topology_ions.zip"
 
   output_top_zip_path:
     type: string
     inputBinding:
       position: 4
       prefix: --output_top_zip_path
-    default: "topology_ions.gro"
+    default: "topology_ions_top.zip"
 
   config:
     type: string?

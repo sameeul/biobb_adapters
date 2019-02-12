@@ -1,7 +1,7 @@
 #!/usr/bin/env cwl-runner
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: solvate.py
+baseCommand: solvate
 hints:
   DockerRequirement:
     dockerPull: quay.io/biocontainers/biobb_md:0.1.5--py_0
