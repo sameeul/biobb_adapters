@@ -8,6 +8,7 @@ hints:
 inputs:
   input_tpr_path:
     type: File
+    format: edam:format_GROMACS_TPR
     inputBinding:
       position: 1
       prefix: --input_tpr_path
@@ -59,25 +60,36 @@ inputs:
 outputs:
   output_trr_file:
     type: File
+    format: edam:format_GROMACS_TRR
     outputBinding:
       glob: $(inputs.output_trr_path)
   output_gro_file:
     type: File
+    format: edam:format_GROMACS_GRO
     outputBinding:
       glob: $(inputs.output_gro_path)
   output_edr_file:
     type: File
+    format: edam:format_GROMACS_EDR
     outputBinding:
       glob: $(inputs.output_edr_path)
   output_log_file:
     type: File
+    format: edam:format_2330
     outputBinding:
       glob: $(inputs.output_log_path)
   output_xtc_file:
     type: File?
+    format: edam:format_3875
     outputBinding:
       glob: $(inputs.output_xtc_path)
   output_cpt_file:
     type: File?
+    format: edam:format_GROMACS_CPT
     outputBinding:
       glob: $(inputs.output_cpt_path)
+
+$namespaces:
+  edam: http://edamontology.org/
+$schemas:
+  - http://edamontology.org/EDAM_1.22_dev.owl

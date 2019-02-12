@@ -8,12 +8,14 @@ hints:
 inputs:
   input_ndx_path:
     type: File
+    format: edam:format_GROMACS_NDX
     inputBinding:
       position: 1
       prefix: --input_ndx_path
 
   input_top_zip_path:
     type: File
+    format: edam:format_TOP_ITP_ZIP
     inputBinding:
       position: 2
       prefix: --input_top_zip_path
@@ -34,5 +36,11 @@ inputs:
 outputs:
   output_top_zip_file:
     type: File
+    format: edam:format_TOP_ITP_ZIP
     outputBinding:
       glob: $(inputs.output_top_zip_path)
+
+$namespaces:
+  edam: http://edamontology.org/
+$schemas:
+  - http://edamontology.org/EDAM_1.22_dev.owl

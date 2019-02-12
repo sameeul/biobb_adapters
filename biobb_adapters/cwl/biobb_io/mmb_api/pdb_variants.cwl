@@ -23,5 +23,11 @@ inputs:
 outputs:
   output_mutations_list_file:
     type: File
+    format: edam:format_MUT_TXT
     outputBinding:
       glob: $(inputs.output_mutations_list_txt)
+
+$namespaces:
+  edam: http://edamontology.org/
+$schemas:
+  - http://edamontology.org/EDAM_1.22_dev.owl

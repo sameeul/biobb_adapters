@@ -8,6 +8,7 @@ hints:
 inputs:
   input_pdb_path:
     type: File
+    format: edam:format_1476
     inputBinding:
       position: 1
       prefix: --input_pdb_path
@@ -35,9 +36,16 @@ inputs:
 outputs:
   output_gro_file:
     type: File
+    format: edam:format_GROMACS_GRO
     outputBinding:
       glob: $(inputs.output_gro_path)
   output_top_zip_file:
     type: File
+    format: edam:format_TOP_ITP_ZIP
     outputBinding:
       glob: $(inputs.output_top_zip_path)
+
+$namespaces:
+  edam: http://edamontology.org/
+$schemas:
+  - http://edamontology.org/EDAM_1.22_dev.owl

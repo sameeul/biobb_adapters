@@ -8,6 +8,7 @@ hints:
 inputs:
   input_pdb_path:
     type: File
+    format: edam:format_1476
     inputBinding:
       position: 1
       prefix: --input_pdb_path
@@ -28,5 +29,11 @@ inputs:
 outputs:
   output_pdb_file:
     type: File
+    format: edam:format_1476
     outputBinding:
       glob: $(inputs.output_pdb_path)
+
+$namespaces:
+  edam: http://edamontology.org/
+$schemas:
+  - http://edamontology.org/EDAM_1.22_dev.owl

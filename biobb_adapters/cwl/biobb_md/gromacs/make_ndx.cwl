@@ -8,6 +8,7 @@ hints:
 inputs:
   input_structure_path:
     type: File
+    format: edam:format_GROMACS_GRO
     inputBinding:
       position: 1
       prefix: --input_structure_path
@@ -21,6 +22,7 @@ inputs:
 
   input_ndx_path:
     type: File?
+    format: edam:format_GROMACS_NDX
     inputBinding:
       prefix: --input_ndx_path
 
@@ -32,5 +34,11 @@ inputs:
 outputs:
   output_ndx_file:
     type: File
+    format: edam:format_GROMACS_NDX
     outputBinding:
       glob: $(inputs.output_ndx_path)
+
+$namespaces:
+  edam: http://edamontology.org/
+$schemas:
+  - http://edamontology.org/EDAM_1.22_dev.owl

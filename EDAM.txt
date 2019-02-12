@@ -1,0 +1,57 @@
+#Generic Trajectory
+format: edam:format_3866
+
+#XTC
+format: edam:format_3875
+
+#TNG
+format: edam:format_3876
+
+#Binpos
+format: edam:format_3885
+
+#PDB
+format: edam:format_1476
+
+
+#To be added to EDAM
+
+#ZIP File PDBs
+format: edam:format_PDB_ZIP
+
+#ZIP gromacs top
+format: edam:format_TOP_ITP_ZIP
+
+#TXT list mutations
+format: edam:format_MUT_TXT
+
+#Textual
+format: edam:format_2330
+
+
+#XVG
+format: edam:format_XVG
+
+#Amber Topology
+format: edam:format_AMBER_TOPOLOGY
+
+#Amber DAT File
+format: edam:format_AMBER_DAT
+
+#Gromacs structure file GRO
+format: edam:format_GROMACS_GRO
+
+Gromacs energy file edr
+format: edam:format_GROMACS_EDR
+
+#Gromacs trajectory portable running file
+format: edam:format_GROMACS_TPR
+
+#Gromacs trajectory
+format: edam:format_GROMACS_TRR
+
+#Gromacs index file
+format: edam:format_GROMACS_NDX
+
+#Gromacs checkpoing file
+format: edam:format_GROMACS_CPT
