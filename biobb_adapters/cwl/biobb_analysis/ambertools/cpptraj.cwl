@@ -8,7 +8,7 @@ hints:
 inputs:
   input_top_path:
     type: File
-    format: edam:format_AMBER_TOPOLOGY
+    format: edam:format_3881
     inputBinding:
       position: 1
       prefix: --input_top_path

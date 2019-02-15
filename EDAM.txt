@@ -1,42 +1,26 @@
+#Amber Topology
+format: edam:format_3881
+
 #Generic Trajectory
 format: edam:format_3866
 
 #XTC
 format: edam:format_3875
 
-#TNG
-format: edam:format_3876
-
-#Binpos
-format: edam:format_3885
-
 #PDB
 format: edam:format_1476
 
+#Binary
+format: edam:format_2333
 
-#To be added to EDAM
-
-#ZIP File PDBs
-format: edam:format_PDB_ZIP
-
-#ZIP gromacs top
-format: edam:format_TOP_ITP_ZIP
-
-#TXT list mutations
-format: edam:format_MUT_TXT
-
-#Textual
+#TXT text unformated
 format: edam:format_2330
 
 
+#################### To be added to EDAM ####################
+
 #XVG
 format: edam:format_XVG
-
-#Amber Topology
-format: edam:format_AMBER_TOPOLOGY
-
-#Amber DAT File
-format: edam:format_AMBER_DAT
 
 #Gromacs structure file GRO
 format: edam:format_GROMACS_GRO

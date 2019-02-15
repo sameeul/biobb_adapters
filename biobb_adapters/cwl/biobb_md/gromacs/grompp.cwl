@@ -15,7 +15,7 @@ inputs:
 
   input_top_zip_path:
     type: File
-    format: edam:format_TOP_ITP_ZIP
+    format: edam:format_2333
     inputBinding:
       position: 2
       prefix: --input_top_zip_path
@@ -29,7 +29,7 @@ inputs:
 
   input_cpt_path:
     type: File?
-    format: edam:format_GROMACS_CPT
+    format: edam:format_2333
     inputBinding:
       prefix: --input_cpt_path
 
@@ -41,11 +41,11 @@ inputs:
 outputs:
   output_tpr_file:
     type: File
-    format: edam:format_GROMACS_TPR
+    format: edam:format_GROMACS_2333
     outputBinding:
       glob: $(inputs.output_tpr_path)
 
 $namespaces:
   edam: http://edamontology.org/
 $schemas:
-  - http://edamontology.org/EDAM_1.22_dev.owl
+  - https://raw.githubusercontent.com/edamontology/edamontology/master/EDAM_dev.owl

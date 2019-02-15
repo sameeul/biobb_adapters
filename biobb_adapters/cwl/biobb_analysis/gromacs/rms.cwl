@@ -36,11 +36,11 @@ inputs:
 outputs:
   output_xvg_file:
     type: File
-    format: edam:format_XVG
+    format: edam:format_2330
     outputBinding:
       glob: $(inputs.output_xvg_path)
 
 $namespaces:
   edam: http://edamontology.org/
 $schemas:
-  - http://edamontology.org/EDAM_1.22_dev.owl
+  - https://raw.githubusercontent.com/edamontology/edamontology/master/EDAM_dev.owl

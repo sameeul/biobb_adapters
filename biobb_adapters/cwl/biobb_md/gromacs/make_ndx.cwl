@@ -22,7 +22,8 @@ inputs:
 
   input_ndx_path:
     type: File?
-    format: edam:format_GROMACS_NDX
+    format: edam:format_2330
+format: edam:format_2330
     inputBinding:
       prefix: --input_ndx_path
 
@@ -34,11 +35,12 @@ inputs:
 outputs:
   output_ndx_file:
     type: File
-    format: edam:format_GROMACS_NDX
+    format: edam:format_2330
+format: edam:format_2330
     outputBinding:
       glob: $(inputs.output_ndx_path)
 
 $namespaces:
   edam: http://edamontology.org/
 $schemas:
-  - http://edamontology.org/EDAM_1.22_dev.owl
+  - https://raw.githubusercontent.com/edamontology/edamontology/master/EDAM_dev.owl

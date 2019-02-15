@@ -22,7 +22,7 @@ inputs:
 
   input_top_zip_path:
     type: File
-    format: edam:format_TOP_ITP_ZIP
+    format: edam:format_2333
     inputBinding:
       position: 3
       prefix: --input_top_zip_path
@@ -48,11 +48,11 @@ outputs:
       glob: $(inputs.output_gro_path)
   output_top_zip_file:
     type: File
-    format: edam:format_TOP_ITP_ZIP
+    format: edam:format_2333
     outputBinding:
       glob: $(inputs.output_top_zip_path)
 
 $namespaces:
   edam: http://edamontology.org/
 $schemas:
-  - http://edamontology.org/EDAM_1.22_dev.owl
+  - https://raw.githubusercontent.com/edamontology/edamontology/master/EDAM_dev.owl
