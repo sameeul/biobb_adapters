@@ -1,1 +1,1 @@
-include biobb_adapters/cwl/*
+recursive-include biobb_adapters/cwl *
