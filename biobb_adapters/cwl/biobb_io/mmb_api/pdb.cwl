@@ -4,7 +4,7 @@ class: CommandLineTool
 baseCommand: pdb
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_io:0.1.3--py_0
+    dockerPull: quay.io/biocontainers/biobb_io:0.1.4--py_0
 inputs:
   output_pdb_path:
     type: string
