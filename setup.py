@@ -14,7 +14,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="biobb_adapters",
-    version="0.1.2",
+    version="0.1.3",
     author="Biobb developers",
     author_email="pau.andrio@bsc.es",
     description="Biobb_adapters is the Biobb module collection to use the building blocks with several workflow managers.",
