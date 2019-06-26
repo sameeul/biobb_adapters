@@ -5,7 +5,7 @@ from pycompss.api.parameter import FILE_IN, FILE_OUT
 from biobb_common.tools import file_utils as fu
 from biobb_model.model import fix_side_chain
 
-@task(input_pdb_path=FILE_IN, output_pdb_path=FILE_OUT)
+@task(input_pdb_path=FILE_IN, output_pdb_path=FILE_OUT, on_failure="IGNORE")
 def fix_side_chain_pc(input_pdb_path, output_pdb_path, properties, **kwargs):
     try:
         fix_side_chain.FixSideChain(input_pdb_path=input_pdb_path, output_pdb_path=output_pdb_path, properties=properties, **kwargs).launch()
