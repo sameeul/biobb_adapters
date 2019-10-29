@@ -29,4 +29,4 @@ outputs:
 $namespaces:
   edam: http://edamontology.org/
 $schemas:
-  - https://raw.githubusercontent.com/edamontology/edamontology/master/EDAM_dev.owl
+  - http://edamontology.org/EDAM_1.22.owl
