@@ -7,10 +7,10 @@ def config_gromacs_multinode( properties , all_mpi=True):
     num_threads = int(os.environ["COMPSS_NUM_THREADS"])
     if all_mpi :
         properties["mpi_np"] = num_nodes * num_threads
-        properties["num_omp_threads"] = 1
+        #properties["num_omp_threads"] = 1
         os.environ["OMP_NUM_THREADS"] = "1"
     else :
-        properties["num_omp_threads"] = num_threads
+        #properties["num_omp_threads"] = num_threads
         properties["mpi_np"] = num_nodes
     hostnames = os.environ["COMPSS_HOSTNAMES"]
     hostlist_file=str(uuid.uuid1())+".hostfile"
