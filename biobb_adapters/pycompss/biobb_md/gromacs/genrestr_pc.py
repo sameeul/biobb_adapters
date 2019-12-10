@@ -5,7 +5,7 @@ from pycompss.api.parameter import FILE_IN, FILE_OUT
 from biobb_common.tools import file_utils as fu
 from biobb_md.gromacs import genrestr
 
-@task(input_structure_path=FILE_IN, input_ndx_path=FILE_IN, input_top_zip_path=FILE_IN, output_top_zip_path=FILE_OUT)
+@task(input_structure_path=FILE_IN, input_ndx_path=FILE_IN, input_top_zip_path=FILE_IN, output_top_zip_path=FILE_OUT, on_failure="IGNORE")
 def genrestr_pc(input_structure_path, input_ndx_path, input_top_zip_path,
                 output_top_zip_path, properties, **kwargs):
     try:
