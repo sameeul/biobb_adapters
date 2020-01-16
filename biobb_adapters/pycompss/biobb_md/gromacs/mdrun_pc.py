@@ -10,11 +10,16 @@ from biobb_adapters.pycompss.biobb_commons import task_config
 import os
 import sys
 
-@constraint(computingUnits=pycompss_properties.get_property("mdrun", "computing_units", "1"))
-@multinode(computing_nodes=pycompss_properties.get_property("mdrun", "computing_nodes", "1"))
+#@constraint(computingUnits=pycompss_properties.get_property("mdrun", "computing_units", "1"))
+@constraint(computingUnits="48")
+@multinode(computing_nodes="2")
 @task(input_tpr_path=FILE_IN, output_trr_path=FILE_OUT, output_gro_path=FILE_OUT, output_edr_path=FILE_OUT, output_xtc_path=FILE_OUT, output_log_path=FILE_OUT, on_failure="IGNORE")
 def mdrun_pc(input_tpr_path, output_trr_path, output_gro_path, output_edr_path, output_xtc_path, output_log_path, properties, **kwargs):
+    print('Using local adapter')
+    sys.stdout.flush()
     task_config.config_gromacs_multinode(properties)
+    print('Using local adapter after taskconfig')
+    sys.stdout.flush()
     try:
         mdrun.Mdrun(input_tpr_path=input_tpr_path, output_trr_path=output_trr_path, output_gro_path=output_gro_path, output_edr_path=output_edr_path, output_xtc_path=output_xtc_path, output_log_path=output_log_path, properties=properties, **kwargs).launch()
         if not os.path.exists(output_trr_path):
