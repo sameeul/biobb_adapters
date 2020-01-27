@@ -9,9 +9,14 @@ import os
 import sys
 
 
+@constraint(computingUnits="1")
 @task(input_top_zip_path=FILE_IN, output_top_zip_path=FILE_OUT, on_failure="IGNORE")
 def gentop_pc(input_top_zip_path, output_top_zip_path, properties, **kwargs):
     try:
+        os.environ.pop('PMI_FD', None)
+        os.environ.pop('PMI_JOBID', None)
+        os.environ.pop('PMI_RANK', None)
+        os.environ.pop('PMI_SIZE', None)
         gentop.Gentop(input_top_zip_path=input_top_zip_path, output_top_zip_path=output_top_zip_path, properties=properties, **kwargs).launch()
         if not os.path.exists(output_top_zip_path):
             fu.write_failed_output(output_top_zip_path)
