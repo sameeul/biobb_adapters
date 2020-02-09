@@ -9,12 +9,18 @@ import os
 import sys
 
 
-# Is constraint decorator needed in this case?
-# @constraint(computingUnits=)
-@task(input_structure_path=FILE_IN, output_structure_path=FILE_OUT, on_failure="IGNORE")
-def mutate_pc(input_structure_path, output_structure_path, properties, **kwargs):
+@constraint(computingUnits="1")
+@task(input_structure_path=FILE_IN, output_structure_path=FILE_OUT,
+      on_failure="IGNORE")
+def mutate_pc(input_structure_path, output_structure_path,
+              properties, **kwargs):
     try:
-        mutate.Mutate(input_structure_path=input_structure_path, output_structure_path=output_structure_path, properties=properties, **kwargs).launch()
+        os.environ.pop('PMI_FD', None)
+        os.environ.pop('PMI_JOBID', None)
+        os.environ.pop('PMI_RANK', None)
+        os.environ.pop('PMI_SIZE', None)
+        mutate.Mutate(input_structure_path=input_structure_path, output_structure_path=output_structure_path,
+                      properties=properties, **kwargs).launch()
         if not os.path.exists(output_structure_path):
             fu.write_failed_output(output_structure_path)
     except Exception:

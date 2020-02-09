@@ -9,11 +9,18 @@ import os
 import sys
 
 
-# Is constraint decorator needed in this case?
-# @constraint(computingUnits=)
-@task(input_a_xvg_zip_path=FILE_IN, input_b_xvg_zip_path=FILE_IN, output_result_path=FILE_OUT, output_work_plot_path=FILE_OUT, on_failure="IGNORE")
-def analyse_pc(input_a_xvg_zip_path, input_b_xvg_zip_path, output_result_path, output_work_plot_path, properties, **kwargs):
+@constraint(computingUnits="1")
+@task(input_a_xvg_zip_path=FILE_IN, input_b_xvg_zip_path=FILE_IN,
+      output_result_path=FILE_OUT, output_work_plot_path=FILE_OUT,
+      on_failure="IGNORE")
+def analyse_pc(input_a_xvg_zip_path, input_b_xvg_zip_path,
+               output_result_path, output_work_plot_path,
+               properties, **kwargs):
     try:
+        os.environ.pop('PMI_FD', None)
+        os.environ.pop('PMI_JOBID', None)
+        os.environ.pop('PMI_RANK', None)
+        os.environ.pop('PMI_SIZE', None)
         analyse.Analyse(input_a_xvg_zip_path=input_a_xvg_zip_path, input_b_xvg_zip_path=input_b_xvg_zip_path,
                         output_result_path=output_result_path, output_work_plot_path=output_work_plot_path,
                         properties=properties, **kwargs).launch()
