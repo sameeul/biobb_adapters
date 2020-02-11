@@ -11,13 +11,14 @@ import sys
 @constraint(computingUnits="1")
 @task(input_file_paths=COLLECTION_FILE_IN, output_zip_path=FILE_OUT,
       on_failure="IGNORE")
-def zip_files_pc(input_file_paths, output_zip_path):
+def zip_files_pc(input_file_paths, output_zip_path, properties):
     try:
         os.environ.pop('PMI_FD', None)
         os.environ.pop('PMI_JOBID', None)
         os.environ.pop('PMI_RANK', None)
         os.environ.pop('PMI_SIZE', None)
-        fu.zip_list(output_zip_path, input_file_paths)
+        out_log, _ = fu.get_logs(path=properties['path'])
+        fu.zip_list(output_zip_path, input_file_paths, out_log=out_log)
     finally:
         sys.stdout.flush()
         sys.stderr.flush()
