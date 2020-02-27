@@ -25,14 +25,10 @@ def mdrun_cpt_pc(input_tpr_path, output_trr_path, output_gro_path, output_edr_pa
             fu.write_failed_output(output_xtc_path)
         if not os.path.exists(output_log_path):
             fu.write_failed_output(output_log_path)
-    except Exception:
+    except Exception as e:
         traceback.print_exc()
-        fu.write_failed_output(output_trr_path)
-        fu.write_failed_output(output_gro_path)
-        fu.write_failed_output(output_edr_path)
-        fu.write_failed_output(output_xtc_path)
-        fu.write_failed_output(output_log_path)
-        fu.write_failed_output(output_cpt_path)
+        raise e
+
     finally:
         sys.stdout.flush()
         sys.stderr.flush()
