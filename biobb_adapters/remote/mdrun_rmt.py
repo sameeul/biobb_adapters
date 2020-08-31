@@ -75,7 +75,7 @@ class MdrunRmt:
         self.prefix = properties.get('prefix', None)
         self.step = properties.get('step', None)
         self.path = properties.get('path', '')
-        self.remove_tmp = properties.get('remove_tmp', True)
+        self.remove_tmp = properties.get('remove_tmp', False)
         self.restart = properties.get('restart', False)
 
         
@@ -119,7 +119,6 @@ class MdrunRmt:
         else:
             slurm = Slurm(host=self.host, userid=self.userid, look_for_keys=True)
         slurm.save(self.io_dict['out']['task_data_path'])
-        #TODO limit data bundle to real input files
         slurm.set_local_data_bundle(self.io_dict['in']['local_path'], add_files=False)
         slurm.task_data['local_data_bundle'].add_file(
             self.io_dict['in']['local_path'] + "/" + self.files['input_tpr_path']
@@ -137,6 +136,8 @@ class MdrunRmt:
             slurm.get_output_data(overwrite=False)
             out_log, err_log = slurm.get_logs()
             slurm.save(self.io_dict['out']['task_data_path'])
+        if self.remove_tmp:
+            slurm.clean_remote()
         #return returncode
 
 
