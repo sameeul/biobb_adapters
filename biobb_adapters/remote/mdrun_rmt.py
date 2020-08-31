@@ -120,7 +120,10 @@ class MdrunRmt:
             slurm = Slurm(host=self.host, userid=self.userid, look_for_keys=True)
         slurm.save(self.io_dict['out']['task_data_path'])
         #TODO limit data bundle to real input files
-        slurm.set_local_data_bundle(self.io_dict['in']['local_path'])
+        slurm.set_local_data_bundle(self.io_dict['in']['local_path'], add_files=False)
+        slurm.task_data['local_data_bundle'].add_file(
+            self.io_dict['in']['local_path'] + "/" + self.files['input_tpr_path']
+        )
         slurm.send_input_data(self.io_dict['in']['remote_path'], overwrite=False)
         
         slurm.submit(
