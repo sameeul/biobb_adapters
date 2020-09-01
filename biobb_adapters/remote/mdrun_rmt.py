@@ -55,6 +55,7 @@ class MdrunRmt:
         self.modules = properties.get('modules', 'biobb')
         self.poll_time = properties.get('poll_time', '10')
         self.wait = properties.get('wait', True)
+        self.re_use_task = properties.get('re_use_task', True)
 
         self.io_dict = {
             "in": {
@@ -62,7 +63,7 @@ class MdrunRmt:
                 'local_path': local_path, 
                 'remote_path': remote_path,
                 },
-            "out": {
+            "inout": {
                 'task_data_path': task_data_path
             }
 
@@ -94,14 +95,6 @@ class MdrunRmt:
             if p in self.properties:
                 del self.properties[p]
 
-        # Create prop dict and inputs/outputs
-
-        if self.io_dict['in']['keys_file']:
-            self.credentials = SSHCredentials()
-            self.credentials.load_from_file(self.io_dict['in']['keys_file'])
-        else:
-            self.credentials = None
-
         # Check the properties
         fu.check_properties(self, properties)
 
@@ -113,12 +106,22 @@ class MdrunRmt:
         out_log = getattr(self, 'out_log', None)
         err_log = getattr(self, 'err_log', None)
         
-        if self.credentials:
+        if self.io_dict['in']['keys_file']:
+            self.credentials = SSHCredentials()
+            self.credentials.load_from_file(self.io_dict['in']['keys_file'])
             slurm = Slurm()
             slurm.set_credentials(self.credentials)
         else:
             slurm = Slurm(host=self.host, userid=self.userid, look_for_keys=True)
-        slurm.save(self.io_dict['out']['task_data_path'])
+        
+        if self.re_use_task:
+            try:
+                slurm.load_data_from_file(self.io_dict['inout']['task_data_path'])
+            except:
+                print("Warning: Task data not found")
+                pass
+        
+        slurm.save(self.io_dict['inout']['task_data_path'])
         slurm.set_local_data_bundle(self.io_dict['in']['local_path'], add_files=False)
         slurm.task_data['local_data_bundle'].add_file(
             self.io_dict['in']['local_path'] + "/" + self.files['input_tpr_path']
@@ -130,12 +133,12 @@ class MdrunRmt:
             self.modules,
             slurm.get_remote_comm_line('biobb_md/gromacs/mdrun.py', self.files, self.properties)
         )
-        slurm.save(self.io_dict['out']['task_data_path'])
+        slurm.save(self.io_dict['inout']['task_data_path'])
         if self.wait:
             slurm.check_job(poll_time=self.poll_time)
             slurm.get_output_data(overwrite=False)
             out_log, err_log = slurm.get_logs()
-            slurm.save(self.io_dict['out']['task_data_path'])
+            slurm.save(self.io_dict['inout']['task_data_path'])
         if self.remove_tmp:
             slurm.clean_remote()
         #return returncode
