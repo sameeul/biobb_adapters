@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Module containing the MDrun class and the command line interface."""
+"""Module containing the MDrunRmt class and the command line interface."""
 import os
 import argparse
 from biobb_common.configuration import settings
@@ -14,18 +14,34 @@ from biobb_remote.ssh_credentials import SSHCredentials
 
 
 class MdrunRmt:
-    """Wrapper of the `GROMACS mdrun <http://manual.gromacs.org/current/onlinehelp/gmx-mdrun.html>`_ module.
+    """Adapter for remote execution of the biobb_md/gromacs/mdrun module.
 
-    Args:
-        input_tpr_path (str): Path to the portable binary run input file TPR. File type: input. `Sample file <https://github.com/bioexcel/biobb_md/raw/master/biobb_md/test/data/gromacs/mdrun.tpr>`_. Accepted formats: tpr.
-        output_trr_path (str): Path to the GROMACS uncompressed raw trajectory file TRR. File type: output. `Sample file <https://github.com/bioexcel/biobb_md/raw/master/biobb_md/test/reference/gromacs/ref_mdrun.trr>`_. Accepted formats: trr.
-        output_gro_path (str): Path to the output GROMACS structure GRO file. File type: output. `Sample file <https://github.com/bioexcel/biobb_md/raw/master/biobb_md/test/reference/gromacs/ref_mdrun.gro>`_. Accepted formats: gro.
-        output_edr_path (str): Path to the output GROMACS portable energy file EDR. File type: output. `Sample file <https://github.com/bioexcel/biobb_md/raw/master/biobb_md/test/reference/gromacs/ref_mdrun.edr>`_. Accepted formats: edr.
-        output_log_path (str): Path to the output GROMACS trajectory log file LOG. File type: output. Accepted formats: log.
-        output_xtc_path (str) (Optional): Path to the GROMACS compressed trajectory file XTC. File type: output. Accepted formats: xtc.
-        output_cpt_path (str) (Optional): Path to the output GROMACS checkpoint file CPT. File type: output. Accepted formats: cpt.
-        output_dhdl_path (str) (Optional): Path to the output dhdl.xvg file only used when free energy calculation is turned on. File type: output. Accepted formats: xvg.
+    Args:   
+        File paths passed to mdrun.
+        input_tpr_path (str): Path to the portable binary run input file TPR. File type: input. `Sample file <https://github.com/bioexcel/biobb_md/raw/master/biobb_md/test/data/gromacs/mdrun.tpr>`_. Accepted formats: tpr. Passed to mdrun.
+        output_trr_path (str): Path to the GROMACS uncompressed raw trajectory file TRR. File type: output. `Sample file <https://github.com/bioexcel/biobb_md/raw/master/biobb_md/test/reference/gromacs/ref_mdrun.trr>`_. Accepted formats: trr. Passed to mdrun
+        output_gro_path (str): Path to the output GROMACS structure GRO file. File type: output. `Sample file <https://github.com/bioexcel/biobb_md/raw/master/biobb_md/test/reference/gromacs/ref_mdrun.gro>`_. Accepted formats: gro. Passed to mdrun.
+        output_edr_path (str): Path to the output GROMACS portable energy file EDR. File type: output. `Sample file <https://github.com/bioexcel/biobb_md/raw/master/biobb_md/test/reference/gromacs/ref_mdrun.edr>`_. Accepted formats: edr. Passed to mdrun.
+        output_log_path (str): Path to the output GROMACS trajectory log file LOG. File type: output. Accepted formats: log. Passed to mdrun.
+        output_xtc_path (str) (Optional): Path to the GROMACS compressed trajectory file XTC. File type: output. Accepted formats: xtc. Passed to mdrun.
+        output_cpt_path (str) (Optional): Path to the output GROMACS checkpoint file CPT. File type: output. Accepted formats: cpt. Passed to mdrun.
+        output_dhdl_path (str) (Optional): Path to the output dhdl.xvg file only used when free energy calculation is turned on. File type: output. Accepted formats: xvg. Passed to mdrun.
+        Adapter files.
+        keys_file (*str*) - Credentials (biobb_remote.ssh_credentials) file (optional, if missing users' own ssh keys are used.
+        local_path (*str*) - Path to local files
+        remote_path (*str*) - Path to remote base folder. Unique working will be created when necessary.
+        task_data_path (*str*) - Path to task metadata file (json format). Used to keep live information of the remote task.
+        
         properties (dic):
+            * **host** (*str*) - Remote host name (optional if keys_file is provided)
+            * **userid** (*str*) - Remote user ida (optional if keys_file is provided) 
+            * **queue_settings** (*str*) - One of queue settings predefined sets (default: whole HPC node open_mp)
+            * **modules** (*str*) - One of modules predifined hpc module setsi (default: Biobb module)
+            * **wait** (*bool*) - Wait for job completion
+            * **poll_time** (*int*) - Time between job status checks (seconds)
+            * **re_use_task** (*bool*) - Reuse remote working dir if available (requires task_data_path)
+            * **remove_tmp** (*bool*) - Remove remote working dir
+       properties passed to mdrun
             * **num_threads** (*int*) - (0) Let GROMACS guess. The number of threads that are going to be used.
             * **gmx_lib** (*str*) - (None) Path set GROMACS GMXLIB environment variable.
             * **gmx_path** (*str*) - ("gmx") Path to the GROMACS executable binary.
@@ -40,7 +56,6 @@ class MdrunRmt:
             * **container_working_dir** (*str*) - (None) Path to the internal CWD in the container.
             * **container_user_id** (*str*) - (None) User number id to be mapped inside the container.
             * **container_shell_path** (*str*) - ("/bin/bash") Path to the binary executable of the container shell.
-    """
 
     def __init__(self, input_tpr_path: str, output_trr_path: str, output_gro_path: str, 
                 output_edr_path: str, output_log_path: str, output_xtc_path: str = None, 
