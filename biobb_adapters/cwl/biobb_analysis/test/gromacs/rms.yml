@@ -1,7 +1,0 @@
-input_structure_path:
-    class: File
-    location: ../data/gromacs/rms.gro
-input_traj_path:
-    class: File
-    location: ../data/gromacs/rms.trr
-output_xvg_path: rms.xvg

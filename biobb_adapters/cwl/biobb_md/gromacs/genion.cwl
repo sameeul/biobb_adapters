@@ -8,7 +8,8 @@ hints:
 inputs:
   input_tpr_path:
     type: File
-    format: edam:format_GROMACS_TPR
+    # TODO: Not yet in EDAM
+    #format: edam:format_GROMACS_TPR
     inputBinding:
       position: 1
       prefix: --input_tpr_path

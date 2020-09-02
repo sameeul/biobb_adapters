@@ -5,7 +5,7 @@ from pycompss.api.parameter import FILE_IN, FILE_OUT
 from biobb_common.tools import file_utils as fu
 from biobb_io.api import pdb
 
-@task(output_pdb_path=FILE_OUT)
+@task(output_pdb_path=FILE_OUT, on_failure="IGNORE")
 def pdb_pc(output_pdb_path, properties, **kwargs):
     try:
         pdb.Pdb(output_pdb_path=output_pdb_path, properties=properties, **kwargs).launch()

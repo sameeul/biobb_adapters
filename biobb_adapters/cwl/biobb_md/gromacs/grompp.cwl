@@ -41,7 +41,9 @@ inputs:
 outputs:
   output_tpr_file:
     type: File
-    format: edam:format_GROMACS_2333
+    # FIXME: Not in EDAM
+    #format: edam:format_GROMACS_2333
+    format: edam:format_2333
     outputBinding:
       glob: $(inputs.output_tpr_path)
 
