@@ -3,6 +3,7 @@
 """Module containing the MDrunRmt class and the command line interface."""
 import os
 import argparse
+import json
 from biobb_common.configuration import settings
 from biobb_common.tools import file_utils as fu
 from biobb_common.tools.file_utils import launchlogger
@@ -57,11 +58,12 @@ class MdrunRmt:
             * **container_working_dir** (*str*) - (None) Path to the internal CWD in the container.
             * **container_user_id** (*str*) - (None) User number id to be mapped inside the container.
             * **container_shell_path** (*str*) - ("/bin/bash") Path to the binary executable of the container shell.
-
+    """
     def __init__(self, input_tpr_path: str, output_trr_path: str, output_gro_path: str, 
                 output_edr_path: str, output_log_path: str, output_xtc_path: str = None, 
                 output_cpt_path: str = None, output_dhdl_path: str = None, 
-                keys_file: str=None, host_config_path: str, local_path: str=None, remote_path: str=None, task_data_path: str= None,
+                keys_file: str = None, host_config_path: str = None, local_path: str = None, 
+                remote_path: str=None, task_data_path: str= None,
                 properties: dict =None, **kwargs) -> None:
         self.properties = properties or {}      
         
@@ -130,7 +132,10 @@ class MdrunRmt:
         else:
             slurm = Slurm(host=self.host, userid=self.userid, look_for_keys=True)
         
-        slurm.load_host_config(self.io_dict['in']['host_config_path']
+        if self.io_dict['in']['host_config_path']:
+            slurm.load_host_config(self.io_dict['in']['host_config_path'])
+        else:
+            sys.exit("Error: Host configuration not provided")
         
         if self.re_use_task:
             try:
@@ -148,9 +153,14 @@ class MdrunRmt:
         
         slurm.submit(
             self.queue_settings,
-            self.modules,"""
+            self.modules,
             #biobb root path taken from host config, here the relative path only
-            slurm.get_remote_comm_line('biobb_md/gromacs/mdrun.py', self.files, self.properties)
+            #slurm.get_remote_comm_line('biobb_md/gromacs/mdrun.py', self.files, self.properties)
+            slurm.get_remote_py_script(
+                'from biobb_md.gromacs.mdrun import Mdrun',
+                self.files, 'Mdrun', 
+                properties=json.dumps(self.properties)
+            )
         )
         slurm.save(self.io_dict['inout']['task_data_path'])
         if self.wait:
@@ -183,7 +193,9 @@ def main():
     parser.add_argument('--output_cpt_path', required=False)
     parser.add_argument('--output_dhdl_path', required=False)
     parser.add_argument('--keys_file', required=False)
+    parser.add_argument('--host_config_path', required=True)
 
+    
     args = parser.parse_args()
     config = args.config if args.config else None
     properties = settings.ConfReader(config=config).get_prop_dic()
@@ -193,7 +205,8 @@ def main():
           output_gro_path=args.output_gro_path, output_edr_path=args.output_edr_path,
           output_log_path=args.output_log_path, output_xtc_path=args.output_xtc_path,
           output_cpt_path=args.output_cpt_path, output_dhdl_path=args.output_dhdl_path,
-          keys_file, host_config_path, local_path, remote_path, task_data_path,
+          keys_file=keys_file, host_config_path=host_config_path, local_path=local_path, 
+          remote_path=remote_path, task_data_path=task_data_path,
           properties=properties).launch()
 
 if __name__ == '__main__':
