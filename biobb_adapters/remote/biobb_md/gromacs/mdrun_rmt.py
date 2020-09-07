@@ -3,7 +3,6 @@
 """Module containing the MDrunRmt class and the command line interface."""
 import os
 import argparse
-import json
 from biobb_common.configuration import settings
 from biobb_common.tools import file_utils as fu
 from biobb_common.tools.file_utils import launchlogger
@@ -29,7 +28,6 @@ class MdrunRmt:
         output_dhdl_path (str) (Optional): Path to the output dhdl.xvg file only used when free energy calculation is turned on. File type: output. Accepted formats: xvg. Passed to mdrun.
         Adapter files.
         keys_file (*str*) - Credentials (biobb_remote.ssh_credentials) file (optional, if missing users' own ssh keys are used.
-        host_config_path (*str*) - Specific configuration data for selected host (Json format)
         local_path (*str*) - Path to local files
         remote_path (*str*) - Path to remote base folder. Unique working will be created when necessary.
         task_data_path (*str*) - Path to task metadata file (json format). Used to keep live information of the remote task.
@@ -43,7 +41,7 @@ class MdrunRmt:
             * **poll_time** (*int*) - Time between job status checks (seconds)
             * **re_use_task** (*bool*) - Reuse remote working dir if available (requires task_data_path)
             * **remove_tmp** (*bool*) - Remove remote working dir
-        properties passed to mdrun
+       properties passed to mdrun
             * **num_threads** (*int*) - (0) Let GROMACS guess. The number of threads that are going to be used.
             * **gmx_lib** (*str*) - (None) Path set GROMACS GMXLIB environment variable.
             * **gmx_path** (*str*) - ("gmx") Path to the GROMACS executable binary.
@@ -58,11 +56,12 @@ class MdrunRmt:
             * **container_working_dir** (*str*) - (None) Path to the internal CWD in the container.
             * **container_user_id** (*str*) - (None) User number id to be mapped inside the container.
             * **container_shell_path** (*str*) - ("/bin/bash") Path to the binary executable of the container shell.
-    """
+        """
+
     def __init__(self, input_tpr_path: str, output_trr_path: str, output_gro_path: str, 
                 output_edr_path: str, output_log_path: str, output_xtc_path: str = None, 
                 output_cpt_path: str = None, output_dhdl_path: str = None, 
-                keys_file: str = None, host_config_path: str = None, local_path: str = None, 
+                host_config_path: str=None, keys_file: str=None, local_path: str=None, 
                 remote_path: str=None, task_data_path: str= None,
                 properties: dict =None, **kwargs) -> None:
         self.properties = properties or {}      
@@ -78,16 +77,16 @@ class MdrunRmt:
         self.io_dict = {
             "in": {
                 'keys_file': keys_file, 
-                'host_config_path' : host_config_path,
                 'local_path': local_path, 
                 'remote_path': remote_path,
+                'host_config_path': host_config_path,
                 },
             "inout": {
                 'task_data_path': task_data_path
             }
 
         }
-
+        
         # Properties common in all BB
         self.can_write_console_log = properties.get('can_write_console_log', True)
         self.global_log = properties.get('global_log', None)
@@ -131,40 +130,32 @@ class MdrunRmt:
             slurm.set_credentials(self.credentials)
         else:
             slurm = Slurm(host=self.host, userid=self.userid, look_for_keys=True)
-        
-        if self.io_dict['in']['host_config_path']:
-            slurm.load_host_config(self.io_dict['in']['host_config_path'])
-        else:
-            sys.exit("Error: Host configuration not provided")
-        
         if self.re_use_task:
             try:
                 slurm.load_data_from_file(self.io_dict['inout']['task_data_path'])
             except:
                 print("Warning: Task data not found")
                 pass
-        
+        slurm.load_host_config(self.io_dict['in']['host_config_path'])
         slurm.save(self.io_dict['inout']['task_data_path'])
         slurm.set_local_data_bundle(self.io_dict['in']['local_path'], add_files=False)
         slurm.task_data['local_data_bundle'].add_file(
             self.io_dict['in']['local_path'] + "/" + self.files['input_tpr_path']
         )
         slurm.send_input_data(self.io_dict['in']['remote_path'], overwrite=False)
-        
+        slurm.save(self.io_dict['inout']['task_data_path'])
         slurm.submit(
             self.queue_settings,
             self.modules,
-            #biobb root path taken from host config, here the relative path only
-            #slurm.get_remote_comm_line('biobb_md/gromacs/mdrun.py', self.files, self.properties)
             slurm.get_remote_py_script(
                 'from biobb_md.gromacs.mdrun import Mdrun',
-                self.files, 'Mdrun', 
-                properties=json.dumps(self.properties)
-            )
+                self.files, 
+                'Mdrun',
+                properties=self.properties)
         )
         slurm.save(self.io_dict['inout']['task_data_path'])
         if self.wait:
-            slurm.check_job(poll_time=self.poll_time)
+            slurm.check_job(poll_time=int(self.poll_time))
             slurm.get_output_data(overwrite=False)
             out_log, err_log = slurm.get_logs()
             slurm.save(self.io_dict['inout']['task_data_path'])
@@ -185,17 +176,10 @@ def main():
     required_args.add_argument('--output_gro_path', required=True)
     required_args.add_argument('--output_edr_path', required=True)
     required_args.add_argument('--output_log_path', required=True)
-    required_args.add_argument('--host_config_path', required=True)
-    required_args.add_argument('--local_path', required=True)
-    required_args.add_argument('--remote_path', required=True)
-    required_args.add_argument('--task_data_path', required=True)
     parser.add_argument('--output_xtc_path', required=False)
     parser.add_argument('--output_cpt_path', required=False)
     parser.add_argument('--output_dhdl_path', required=False)
-    parser.add_argument('--keys_file', required=False)
-    parser.add_argument('--host_config_path', required=True)
 
-    
     args = parser.parse_args()
     config = args.config if args.config else None
     properties = settings.ConfReader(config=config).get_prop_dic()
@@ -205,9 +189,8 @@ def main():
           output_gro_path=args.output_gro_path, output_edr_path=args.output_edr_path,
           output_log_path=args.output_log_path, output_xtc_path=args.output_xtc_path,
           output_cpt_path=args.output_cpt_path, output_dhdl_path=args.output_dhdl_path,
-          keys_file=keys_file, host_config_path=host_config_path, local_path=local_path, 
-          remote_path=remote_path, task_data_path=task_data_path,
           properties=properties).launch()
+
 
 if __name__ == '__main__':
     main()
