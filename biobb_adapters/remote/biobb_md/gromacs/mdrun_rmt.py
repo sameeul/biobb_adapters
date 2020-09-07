@@ -56,11 +56,13 @@ class MdrunRmt:
             * **container_working_dir** (*str*) - (None) Path to the internal CWD in the container.
             * **container_user_id** (*str*) - (None) User number id to be mapped inside the container.
             * **container_shell_path** (*str*) - ("/bin/bash") Path to the binary executable of the container shell.
+        """
 
     def __init__(self, input_tpr_path: str, output_trr_path: str, output_gro_path: str, 
                 output_edr_path: str, output_log_path: str, output_xtc_path: str = None, 
                 output_cpt_path: str = None, output_dhdl_path: str = None, 
-                keys_file: str=None, local_path: str=None, remote_path: str=None, task_data_path: str= None,
+                host_config_path: str=None, keys_file: str=None, local_path: str=None, 
+                remote_path: str=None, task_data_path: str= None,
                 properties: dict =None, **kwargs) -> None:
         self.properties = properties or {}      
         
@@ -77,13 +79,13 @@ class MdrunRmt:
                 'keys_file': keys_file, 
                 'local_path': local_path, 
                 'remote_path': remote_path,
+                'host_config_path': host_config_path,
                 },
             "inout": {
                 'task_data_path': task_data_path
             }
 
         }
-
         
         # Properties common in all BB
         self.can_write_console_log = properties.get('can_write_console_log', True)
@@ -128,29 +130,32 @@ class MdrunRmt:
             slurm.set_credentials(self.credentials)
         else:
             slurm = Slurm(host=self.host, userid=self.userid, look_for_keys=True)
-        
         if self.re_use_task:
             try:
                 slurm.load_data_from_file(self.io_dict['inout']['task_data_path'])
             except:
                 print("Warning: Task data not found")
                 pass
-        
+        slurm.load_host_config(self.io_dict['in']['host_config_path'])
         slurm.save(self.io_dict['inout']['task_data_path'])
         slurm.set_local_data_bundle(self.io_dict['in']['local_path'], add_files=False)
         slurm.task_data['local_data_bundle'].add_file(
             self.io_dict['in']['local_path'] + "/" + self.files['input_tpr_path']
         )
         slurm.send_input_data(self.io_dict['in']['remote_path'], overwrite=False)
-        
+        slurm.save(self.io_dict['inout']['task_data_path'])
         slurm.submit(
             self.queue_settings,
             self.modules,
-            slurm.get_remote_comm_line('biobb_md/gromacs/mdrun.py', self.files, self.properties)
+            slurm.get_remote_py_script(
+                'from biobb_md.gromacs.mdrun import Mdrun',
+                self.files, 
+                'Mdrun',
+                properties=self.properties)
         )
         slurm.save(self.io_dict['inout']['task_data_path'])
         if self.wait:
-            slurm.check_job(poll_time=self.poll_time)
+            slurm.check_job(poll_time=int(self.poll_time))
             slurm.get_output_data(overwrite=False)
             out_log, err_log = slurm.get_logs()
             slurm.save(self.io_dict['inout']['task_data_path'])
