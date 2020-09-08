@@ -8,12 +8,11 @@ doc: |
   dynamics parameters are specified in the mdp section of the configuration YAML
   file. The parameter names and defaults are the same as the ones in the
   official MDP specification.
-  
-
 baseCommand: grompp
 hints:
   DockerRequirement:
     dockerPull: quay.io/biocontainers/biobb_md:0.1.5--py_0
+
 inputs:
   input_gro_path:
     label: Path to GRO file
