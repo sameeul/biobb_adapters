@@ -85,7 +85,7 @@ Check the syntax for the tool parameters at the original library documentation: 
         
 **https://bioexcel.eu**
    </help>
-    </help>
+
     <citations>
         <citation type="bibtex">
             @misc{githubbiobb,
