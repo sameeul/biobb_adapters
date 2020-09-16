@@ -116,6 +116,8 @@ Check the syntax for the tool parameters at the original library documentation: 
             publisher = {GitHub},
             journal = {GitHub repository},
             url = {https://github.com/bioexcel/biobb_md},
-            }</citation>
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
     </citations>
 </tool>
