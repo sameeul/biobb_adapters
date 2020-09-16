@@ -18,6 +18,7 @@ def main():
     parser.add_argument("--containers", default=CONTAINERS, help="Biobb Containers and versions (json)")
     parser.add_argument("--id", help="tool id for Galaxy")
     parser.add_argument("--display_name", help="Tool name to display in Galaxy")
+    parser.add_argument("--create_dir", action="store_true", help="Create biobb directory")
     parser.add_argument(dest="schema", help="Json schema from guilding block")
     
     args = parser.parse_args()
@@ -27,6 +28,9 @@ def main():
     else:
         template_dir = os.path.dirname(args.template)
     
+    if not template_dir:
+        template_dir='.'
+    
     try:
         with open(args.schema, "r") as schema_file:
             schema_data = json.load(schema_file)
@@ -34,7 +38,7 @@ def main():
         sys.exit(err)
     
     if args.containers == CONTAINERS:
-        args.containers = os.path.dirname(__file__) + "/" + args.containers
+        args.containers = template_dir + "/" + args.containers
         
     try:
         with open (args.containers, "r") as containers_lst:
@@ -87,7 +91,12 @@ def main():
         autoescape=select_autoescape(['xml'])
     )
     templ = env.get_template(args.template)
-    with open(data['name'] + ".xml", "w") as xml_file:
+    
+    if args.create_dir:
+        if not os.path.isdir(data['biobb_group']):
+            os.mkdir(data['biobb_group'])
+
+    with open(data['biobb_group'] + "/biobb_" + data['name'] + ".xml", "w") as xml_file:
         xml_file.write(templ.render(data))
         
 if __name__ == '__main__':
