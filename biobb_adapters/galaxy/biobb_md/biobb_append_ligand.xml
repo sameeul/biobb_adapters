@@ -74,15 +74,22 @@
         </test>
     </tests>    
     <help>
-        .. class:: warningmark
-        Check the syntax for setting the tool parameters at the original library documentation: https://biobb-md.readthedocs.io/en/latest/gromacs.html#module-gromacs.pdb2gmx
-        -----
+    <help>
+.. class:: infomark
 
-        .. image:: ${static_path}/images/biobb.png
-        :height: 57
-        :width: 150
 
-        **https://bioexcel.eu**
+Check the syntax for the tool parameters at the original library documentation: https://biobb_md.readthedocs.io/en/latest
+
+-----
+
+.. image:: https://biobb-io.readthedocs.io/en/latest/api.html#module-api.pdb_variants
+    :width: 150
+
+
+**https://mmb.irbbarcelona.org/biobb
+        
+**https://bioexcel.eu**
+   </help>
     </help>
     <citations>
         <citation type="bibtex">
@@ -92,7 +99,7 @@
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},
-            url = {https://github.com/bioexcel/biobb_io},
+            url = {https://github.com/bioexcel/biobb_md},
             }</citation>
     </citations>
 </tool>

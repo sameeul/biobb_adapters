@@ -1,4 +1,4 @@
 #!/bin/csh
-foreach s (/data/DEVEL/BioExcel/biobb/biobb*/*/json_schemas/*json)
+foreach s (../../../biobb*/*/json_schemas/*json)
 python json2galaxy.py --create_dir $s
 end 
