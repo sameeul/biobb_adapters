@@ -40,7 +40,7 @@
     </command>
     <inputs>
         
-        <param name="input_traj_path" type="data" format="xtc"  label="input XTC,TRR,CPT,GRO,G96,PDB,TNG file" help="Path to the GROMACS trajectory file. Format: [input].xtc"/> 
+        <param name="input_traj_path" type="data" format="xtc,trr,cpt,gro,g96,pdb,tng"  label="input XTC,TRR,CPT,GRO,G96,PDB,TNG file" help="Path to the GROMACS trajectory file. Format: [input].xtc"/> 
         
         <param name="input_index_path" type="data" format="ndx"  label="input NDX file" help="Path to the GROMACS index file. Format: [input].ndx"/> 
         
@@ -66,7 +66,7 @@
     </inputs>
     <outputs>
         
-        <data name="output_traj_path" format="xtc" label="${outname_output_traj_path}"/>
+        <data name="output_traj_path" format="xtc,trr,gro,g96,pdb,tng" label="${outname_output_traj_path}"/>
         
     </outputs>
     <tests>

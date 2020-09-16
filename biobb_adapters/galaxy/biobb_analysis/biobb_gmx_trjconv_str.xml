@@ -46,9 +46,9 @@
     </command>
     <inputs>
         
-        <param name="input_structure_path" type="data" format="xtc"  label="input XTC,TRR,CPT,GRO,G96,PDB,TNG file" help="Path to the input structure file. Format: [input].xtc"/> 
+        <param name="input_structure_path" type="data" format="xtc,trr,cpt,gro,g96,pdb,tng"  label="input XTC,TRR,CPT,GRO,G96,PDB,TNG file" help="Path to the input structure file. Format: [input].xtc"/> 
         
-        <param name="input_top_path" type="data" format="tpr"  label="input TPR,GRO,G96,PDB,BRK,ENT file" help="Path to the GROMACS input topology file. Format: [input].tpr"/> 
+        <param name="input_top_path" type="data" format="tpr,gro,g96,pdb,brk,ent"  label="input TPR,GRO,G96,PDB,BRK,ENT file" help="Path to the GROMACS input topology file. Format: [input].tpr"/> 
         
         <param name="input_index_path" type="data" format="ndx"  label="input NDX file" help="Path to the GROMACS index file. Format: [input].ndx"/> 
         
@@ -74,7 +74,7 @@
     </inputs>
     <outputs>
         
-        <data name="output_str_path" format="xtc" label="${outname_output_str_path}"/>
+        <data name="output_str_path" format="xtc,trr,gro,g96,pdb,tng" label="${outname_output_str_path}"/>
         
     </outputs>
     <tests>

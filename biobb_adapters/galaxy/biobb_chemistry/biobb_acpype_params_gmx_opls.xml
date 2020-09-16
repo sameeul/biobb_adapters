@@ -38,7 +38,7 @@
     </command>
     <inputs>
         
-        <param name="input_path" type="data" format="pdb"  label="input PDB,MDL,MOL2 file" help="Path to the input file. Format: [input].pdb"/> 
+        <param name="input_path" type="data" format="pdb,mdl,mol2"  label="input PDB,MDL,MOL2 file" help="Path to the input file. Format: [input].pdb"/> 
         
         
         <param 

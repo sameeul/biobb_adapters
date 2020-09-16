@@ -84,7 +84,8 @@ def main():
             m = re.search(r"\w+", v)
             tool_data['file_types'].append(m.group(0))
         
-        tool_data['label'] = schema_data['properties'][f]['filetype'] + ' ' +  ','.join(tool_data['file_types']).upper()
+        tool_data['format'] = ','.join(tool_data['file_types'])
+        tool_data['label'] = schema_data['properties'][f]['filetype'] + ' ' +  tool_data['format'].upper()
         tool_data['description'] = schema_data['properties'][f]['description']
         data['files'][schema_data['properties'][f]['filetype']][f] = tool_data
     env = Environment(

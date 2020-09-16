@@ -34,7 +34,7 @@
     </command>
     <inputs>
         {% for k, v in files['input'].items() %}
-        <param name="{{ k }}" type="data" format="{{ v['file_types'][0]}}"  label="{{ v['label'] }} file" help="{{ v['description']}}. Format: [input].{{ v['file_types'][0]}}"/> 
+        <param name="{{ k }}" type="data" format="{{ v['format']}}"  label="{{ v['label'] }} file" help="{{ v['description']}}. Format: [input].{{ v['file_types'][0]}}"/> 
         {% endfor %}
         {% for k, v in files['output'].items() %}
         <param 
@@ -58,7 +58,7 @@
     </inputs>
     <outputs>
         {% for k, v in files['output'].items() %}
-        <data name="{{ k }}" format="{{ v['file_types'][0] }}" label="${outname_{{ k }}}"/>
+        <data name="{{ k }}" format="{{ v['format'] }}" label="${outname_{{ k }}}"/>
         {% endfor %}
     </outputs>
     <tests>
