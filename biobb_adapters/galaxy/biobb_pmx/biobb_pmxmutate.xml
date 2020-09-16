@@ -40,13 +40,13 @@
     </command>
     <inputs>
         
-        <param name="input_structure_path" type="data" format="pdb,gro"  label="input PDB,GRO file" help="Path to the input structure file. Format: [input].pdb"/> 
+        <param name="input_structure_path" type="data" format="pdb,gro"  label="input PDB,GRO file" help="Path to the input structure file. Format: [input].[format]"/> 
         
-        <param name="input_b_structure_path" type="data" format="pdb,gro"  label="input PDB,GRO file" help="Path to the mutated input structure file. Format: [input].pdb"/> 
+        <param name="input_b_structure_path" type="data" format="pdb,gro"  label="input PDB,GRO file" help="Path to the mutated input structure file. Format: [input].[format]"/> 
         
         
         <param 
-            name="outname_output_structure_path" type="text" value="mypmxmutate.pdb" label="output PDB,GRO name" help="Path to the output structure file Format: [output].pdb "/>
+            name="outname_output_structure_path" type="text" value="mypmxmutate.pdb" label="output PDB,GRO name" help="Path to the output structure file Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

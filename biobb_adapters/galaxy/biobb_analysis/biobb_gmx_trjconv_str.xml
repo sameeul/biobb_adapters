@@ -46,15 +46,15 @@
     </command>
     <inputs>
         
-        <param name="input_structure_path" type="data" format="xtc,trr,cpt,gro,g96,pdb,tng"  label="input XTC,TRR,CPT,GRO,G96,PDB,TNG file" help="Path to the input structure file. Format: [input].xtc"/> 
+        <param name="input_structure_path" type="data" format="xtc,trr,cpt,gro,g96,pdb,tng"  label="input XTC,TRR,CPT,GRO,G96,PDB,TNG file" help="Path to the input structure file. Format: [input].[format]"/> 
         
-        <param name="input_top_path" type="data" format="tpr,gro,g96,pdb,brk,ent"  label="input TPR,GRO,G96,PDB,BRK,ENT file" help="Path to the GROMACS input topology file. Format: [input].tpr"/> 
+        <param name="input_top_path" type="data" format="tpr,gro,g96,pdb,brk,ent"  label="input TPR,GRO,G96,PDB,BRK,ENT file" help="Path to the GROMACS input topology file. Format: [input].[format]"/> 
         
         <param name="input_index_path" type="data" format="ndx"  label="input NDX file" help="Path to the GROMACS index file. Format: [input].ndx"/> 
         
         
         <param 
-            name="outname_output_str_path" type="text" value="mygmx_trjconv_str.xtc" label="output XTC,TRR,GRO,G96,PDB,TNG name" help="Path to the output file Format: [output].xtc "/>
+            name="outname_output_str_path" type="text" value="mygmx_trjconv_str.xtc" label="output XTC,TRR,GRO,G96,PDB,TNG name" help="Path to the output file Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

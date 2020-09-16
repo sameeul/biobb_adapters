@@ -40,13 +40,13 @@
     </command>
     <inputs>
         
-        <param name="input_top_path" type="data" format="top,pdb,prmtop,parmtop,zip"  label="input TOP,PDB,PRMTOP,PARMTOP,ZIP file" help="Path to the input structure or topology file. Format: [input].top"/> 
+        <param name="input_top_path" type="data" format="top,pdb,prmtop,parmtop,zip"  label="input TOP,PDB,PRMTOP,PARMTOP,ZIP file" help="Path to the input structure or topology file. Format: [input].[format]"/> 
         
-        <param name="input_traj_path" type="data" format="crd,cdf,netcdf,restart,ncrestart,restartnc,dcd,charmm,cor,pdb,mol2,trr,gro,binpos,xtc,cif,arc,sqm,sdf,conflib"  label="input CRD,CDF,NETCDF,RESTART,NCRESTART,RESTARTNC,DCD,CHARMM,COR,PDB,MOL2,TRR,GRO,BINPOS,XTC,CIF,ARC,SQM,SDF,CONFLIB file" help="Path to the input trajectory to be processed. Format: [input].crd"/> 
+        <param name="input_traj_path" type="data" format="crd,cdf,netcdf,restart,ncrestart,restartnc,dcd,charmm,cor,pdb,mol2,trr,gro,binpos,xtc,cif,arc,sqm,sdf,conflib"  label="input CRD,CDF,NETCDF,RESTART,NCRESTART,RESTARTNC,DCD,CHARMM,COR,PDB,MOL2,TRR,GRO,BINPOS,XTC,CIF,ARC,SQM,SDF,CONFLIB file" help="Path to the input trajectory to be processed. Format: [input].[format]"/> 
         
         
         <param 
-            name="outname_output_cpptraj_path" type="text" value="mycpptraj_strip.crd" label="output CRD,NETCDF,RST7,NCRST,DCD,PDB,MOL2,BINPOS,TRR,XTC,SQM name" help="Path to the output processed trajectory Format: [output].crd "/>
+            name="outname_output_cpptraj_path" type="text" value="mycpptraj_strip.crd" label="output CRD,NETCDF,RST7,NCRST,DCD,PDB,MOL2,BINPOS,TRR,XTC,SQM name" help="Path to the output processed trajectory Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
