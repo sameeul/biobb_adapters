@@ -34,11 +34,11 @@
     </command>
     <inputs>
         {% for k, v in files['input'].items() %}
-        <param name="{{ k }}" type="data" format="{{ v['format']}}"  label="{{ v['label'] }} file" help="{{ v['description']}}. Format: [input].{{ v['file_types'][0]}}"/> 
+        <param name="{{ k }}" type="data" format="{{ v['format']}}"  label="{{ v['label'] }} file" help="{{ v['description']}}. Format: [input].{{ v['help_format']}}"/> 
         {% endfor %}
         {% for k, v in files['output'].items() %}
         <param 
-            name="outname_{{ k }}" type="text" value="my{{name}}.{{v['file_types'][0]}}" label="{{v['label']}} name" help="{{v['description']}} Format: [output].{{v['file_types'][0]}} "/>
+            name="outname_{{ k }}" type="text" value="my{{name}}.{{v['file_types'][0]}}" label="{{v['label']}} name" help="{{v['description']}} Format: [output].{{v['help_format']}} "/>
         {% endfor %}
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

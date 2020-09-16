@@ -85,6 +85,10 @@ def main():
             tool_data['file_types'].append(m.group(0))
         
         tool_data['format'] = ','.join(tool_data['file_types'])
+        if len(tool_data['file_types'] > 1:
+            tool_data['help_format'] = '[format]'
+        else:
+            tool_data['help_format'] = tool_data['format']
         tool_data['label'] = schema_data['properties'][f]['filetype'] + ' ' +  tool_data['format'].upper()
         tool_data['description'] = schema_data['properties'][f]['description']
         data['files'][schema_data['properties'][f]['filetype']][f] = tool_data
