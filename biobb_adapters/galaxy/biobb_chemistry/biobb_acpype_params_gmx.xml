@@ -84,19 +84,13 @@
         </test>
     </tests>    
     <help>
-    <help>
 .. class:: infomark
-
-
 Check the syntax for the tool parameters at the original library documentation: https://biobb_chemistry.readthedocs.io/en/latest
-
 -----
-
-.. image:: https://biobb-io.readthedocs.io/en/latest/api.html#module-api.pdb_variants
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png    
     :width: 150
 
-
-**https://mmb.irbbarcelona.org/biobb
+**https://mmb.irbbarcelona.org/biobb**
         
 **https://bioexcel.eu**
    </help>
