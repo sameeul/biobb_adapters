@@ -67,8 +67,11 @@
     </tests>    
     <help>
 .. class:: infomark
+        
 Check the syntax for the tool parameters at the original library documentation: https://biobb_md.readthedocs.io/en/latest
+
 -----
+
 .. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png    
     :width: 150
 
