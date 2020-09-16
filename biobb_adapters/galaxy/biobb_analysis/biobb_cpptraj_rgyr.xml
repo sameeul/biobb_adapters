@@ -40,13 +40,13 @@
     </command>
     <inputs>
         
-        <param name="input_top_path" type="data" format="top"  label="input TOP,PDB,PRMTOP,PARMTOP,ZIP file" help=". Format: [input].top"/> 
+        <param name="input_top_path" type="data" format="top"  label="input TOP,PDB,PRMTOP,PARMTOP,ZIP file" help="Path to the input structure or topology file. Format: [input].top"/> 
         
-        <param name="input_traj_path" type="data" format="crd"  label="input CRD,CDF,NETCDF,RESTART,NCRESTART,RESTARTNC,DCD,CHARMM,COR,PDB,MOL2,TRR,GRO,BINPOS,XTC,CIF,ARC,SQM,SDF,CONFLIB file" help=". Format: [input].crd"/> 
+        <param name="input_traj_path" type="data" format="crd"  label="input CRD,CDF,NETCDF,RESTART,NCRESTART,RESTARTNC,DCD,CHARMM,COR,PDB,MOL2,TRR,GRO,BINPOS,XTC,CIF,ARC,SQM,SDF,CONFLIB file" help="Path to the input trajectory to be processed. Format: [input].crd"/> 
         
         
         <param 
-            name="outname_output_cpptraj_path" type="text" value="mycpptraj_rgyr.dat" label="output DAT,AGR,XMGR,GNU name" help=" Format: [output].dat "/>
+            name="outname_output_cpptraj_path" type="text" value="mycpptraj_rgyr.dat" label="output DAT,AGR,XMGR,GNU name" help="Path to the output analysis Format: [output].dat "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

@@ -40,13 +40,13 @@
     </command>
     <inputs>
         
-        <param name="input_structure1" type="data" format="pdb"  label="input PDB file" help=". Format: [input].pdb"/> 
+        <param name="input_structure1" type="data" format="pdb"  label="input PDB file" help="Input structure 1 file path. Format: [input].pdb"/> 
         
-        <param name="input_structure2" type="data" format="pdb"  label="input PDB file" help=". Format: [input].pdb"/> 
+        <param name="input_structure2" type="data" format="pdb"  label="input PDB file" help="Input structure 2 file path. Format: [input].pdb"/> 
         
         
         <param 
-            name="outname_output_structure_path" type="text" value="mycat_pdb.pdb" label="output PDB name" help=" Format: [output].pdb "/>
+            name="outname_output_structure_path" type="text" value="mycat_pdb.pdb" label="output PDB name" help="Output protein file path Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

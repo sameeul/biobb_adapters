@@ -34,11 +34,11 @@
     </command>
     <inputs>
         
-        <param name="input_energy_path" type="data" format="edr"  label="input EDR file" help=". Format: [input].edr"/> 
+        <param name="input_energy_path" type="data" format="edr"  label="input EDR file" help="Path to the input EDR file. Format: [input].edr"/> 
         
         
         <param 
-            name="outname_output_xvg_path" type="text" value="mygmx_energy.xvg" label="output XVG name" help=" Format: [output].xvg "/>
+            name="outname_output_xvg_path" type="text" value="mygmx_energy.xvg" label="output XVG name" help="Path to the XVG output file Format: [output].xvg "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

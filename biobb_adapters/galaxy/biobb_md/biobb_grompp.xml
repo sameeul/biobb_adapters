@@ -52,17 +52,17 @@
     </command>
     <inputs>
         
-        <param name="input_gro_path" type="data" format="gro"  label="input GRO file" help=". Format: [input].gro"/> 
+        <param name="input_gro_path" type="data" format="gro"  label="input GRO file" help="Path to the input GROMACS structure GRO file. Format: [input].gro"/> 
         
-        <param name="input_top_zip_path" type="data" format="zip"  label="input ZIP file" help=". Format: [input].zip"/> 
+        <param name="input_top_zip_path" type="data" format="zip"  label="input ZIP file" help="Path the input GROMACS topology TOP and ITP files in zip format. Format: [input].zip"/> 
         
-        <param name="input_cpt_path" type="data" format="cpt"  label="input CPT file" help=". Format: [input].cpt"/> 
+        <param name="input_cpt_path" type="data" format="cpt"  label="input CPT file" help="Path to the input GROMACS checkpoint file CPT. Format: [input].cpt"/> 
         
-        <param name="input_ndx_path" type="data" format="ndx"  label="input NDX file" help=". Format: [input].ndx"/> 
+        <param name="input_ndx_path" type="data" format="ndx"  label="input NDX file" help="Path to the input GROMACS index files NDX. Format: [input].ndx"/> 
         
         
         <param 
-            name="outname_output_tpr_path" type="text" value="mygrompp.tpr" label="output TPR name" help=" Format: [output].tpr "/>
+            name="outname_output_tpr_path" type="text" value="mygrompp.tpr" label="output TPR name" help="Path to the output portable binary run file TPR Format: [output].tpr "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

@@ -34,11 +34,11 @@
     </command>
     <inputs>
         
-        <param name="input_path" type="data" format="pdb"  label="input PDB,MOL2 file" help=". Format: [input].pdb"/> 
+        <param name="input_path" type="data" format="pdb"  label="input PDB,MOL2 file" help="Path to the input file. Format: [input].pdb"/> 
         
         
         <param 
-            name="outname_output_path" type="text" value="mybabel_minimize.pdb" label="output PDB,MOL2 name" help=" Format: [output].pdb "/>
+            name="outname_output_path" type="text" value="mybabel_minimize.pdb" label="output PDB,MOL2 name" help="Path to the output file Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

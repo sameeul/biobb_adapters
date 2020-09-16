@@ -40,13 +40,13 @@
     </command>
     <inputs>
         
-        <param name="input_structure_path" type="data" format="gro"  label="input GRO,PDB,TPR file" help=". Format: [input].gro"/> 
+        <param name="input_structure_path" type="data" format="gro"  label="input GRO,PDB,TPR file" help="Path to the input GRO/PDB/TPR file. Format: [input].gro"/> 
         
-        <param name="input_ndx_path" type="data" format="ndx"  label="input NDX file" help=". Format: [input].ndx"/> 
+        <param name="input_ndx_path" type="data" format="ndx"  label="input NDX file" help="Path to the input index NDX file. Format: [input].ndx"/> 
         
         
         <param 
-            name="outname_output_ndx_path" type="text" value="mymake_ndx.ndx" label="output NDX name" help=" Format: [output].ndx "/>
+            name="outname_output_ndx_path" type="text" value="mymake_ndx.ndx" label="output NDX name" help="Path to the output index NDX file Format: [output].ndx "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

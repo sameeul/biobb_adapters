@@ -42,17 +42,17 @@
     </command>
     <inputs>
         
-        <param name="input_path" type="data" format="pdb"  label="input PDB,MDL,MOL2 file" help=". Format: [input].pdb"/> 
+        <param name="input_path" type="data" format="pdb"  label="input PDB,MDL,MOL2 file" help="Path to the input file. Format: [input].pdb"/> 
         
         
         <param 
-            name="outname_output_path_par" type="text" value="myacpype_params_cns.par" label="output PAR name" help=" Format: [output].par "/>
+            name="outname_output_path_par" type="text" value="myacpype_params_cns.par" label="output PAR name" help="Path to the PAR output file Format: [output].par "/>
         
         <param 
-            name="outname_output_path_inp" type="text" value="myacpype_params_cns.inp" label="output INP name" help=" Format: [output].inp "/>
+            name="outname_output_path_inp" type="text" value="myacpype_params_cns.inp" label="output INP name" help="Path to the INP output file Format: [output].inp "/>
         
         <param 
-            name="outname_output_path_top" type="text" value="myacpype_params_cns.top" label="output TOP name" help=" Format: [output].top "/>
+            name="outname_output_path_top" type="text" value="myacpype_params_cns.top" label="output TOP name" help="Path to the TOP output file Format: [output].top "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

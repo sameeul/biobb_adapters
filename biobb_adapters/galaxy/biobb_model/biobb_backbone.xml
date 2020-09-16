@@ -34,11 +34,11 @@
     </command>
     <inputs>
         
-        <param name="input_pdb_path" type="data" format="pdb"  label="input PDB file" help=". Format: [input].pdb"/> 
+        <param name="input_pdb_path" type="data" format="pdb"  label="input PDB file" help="Input PDB file path. Format: [input].pdb"/> 
         
         
         <param 
-            name="outname_output_pdb_path" type="text" value="mybackbone.pdb" label="output PDB name" help=" Format: [output].pdb "/>
+            name="outname_output_pdb_path" type="text" value="mybackbone.pdb" label="output PDB name" help="Output PDB file path Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

@@ -46,15 +46,15 @@
     </command>
     <inputs>
         
-        <param name="input_structure_path" type="data" format="tpr"  label="input TPR,GRO,G96,PDB,BRK,ENT file" help=". Format: [input].tpr"/> 
+        <param name="input_structure_path" type="data" format="tpr"  label="input TPR,GRO,G96,PDB,BRK,ENT file" help="Path to the input structure file. Format: [input].tpr"/> 
         
-        <param name="input_traj_path" type="data" format="xtc"  label="input XTC,TRR,CPT,GRO,G96,PDB,TNG file" help=". Format: [input].xtc"/> 
+        <param name="input_traj_path" type="data" format="xtc"  label="input XTC,TRR,CPT,GRO,G96,PDB,TNG file" help="Path to the GROMACS trajectory file. Format: [input].xtc"/> 
         
-        <param name="input_index_path" type="data" format="ndx"  label="input NDX file" help=". Format: [input].ndx"/> 
+        <param name="input_index_path" type="data" format="ndx"  label="input NDX file" help="Path to the GROMACS index file. Format: [input].ndx"/> 
         
         
         <param 
-            name="outname_output_pdb_path" type="text" value="mygmx_cluster.xtc" label="output XTC,TRR,CPT,GRO,G96,PDB,TNG name" help=" Format: [output].xtc "/>
+            name="outname_output_pdb_path" type="text" value="mygmx_cluster.xtc" label="output XTC,TRR,CPT,GRO,G96,PDB,TNG name" help="Path to the output cluster file Format: [output].xtc "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

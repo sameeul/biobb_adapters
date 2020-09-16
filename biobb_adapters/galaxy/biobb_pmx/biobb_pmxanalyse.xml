@@ -44,16 +44,16 @@
     </command>
     <inputs>
         
-        <param name="input_a_xvg_zip_path" type="data" format="zip"  label="input ZIP file" help=". Format: [input].zip"/> 
+        <param name="input_a_xvg_zip_path" type="data" format="zip"  label="input ZIP file" help="Path the zip file containing the dgdl. Format: [input].zip"/> 
         
-        <param name="input_b_xvg_zip_path" type="data" format="zip"  label="input ZIP file" help=". Format: [input].zip"/> 
+        <param name="input_b_xvg_zip_path" type="data" format="zip"  label="input ZIP file" help="Path the zip file containing the dgdl. Format: [input].zip"/> 
         
-        
-        <param 
-            name="outname_output_result_path" type="text" value="mypmxanalyse.txt" label="output TXT name" help=" Format: [output].txt "/>
         
         <param 
-            name="outname_output_work_plot_path" type="text" value="mypmxanalyse.png" label="output PNG name" help=" Format: [output].png "/>
+            name="outname_output_result_path" type="text" value="mypmxanalyse.txt" label="output TXT name" help="Path to the TXT results file Format: [output].txt "/>
+        
+        <param 
+            name="outname_output_work_plot_path" type="text" value="mypmxanalyse.png" label="output PNG name" help="Path to the PNG plot results file Format: [output].png "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

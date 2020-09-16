@@ -30,7 +30,7 @@
         
         
         <param 
-            name="outname_output_mutations_list_txt" type="text" value="mypdb_variants.txt" label="output TXT name" help=" Format: [output].txt "/>
+            name="outname_output_mutations_list_txt" type="text" value="mypdb_variants.txt" label="output TXT name" help="Path to the TXT file containing an ASCII comma separated values of the mutations Format: [output].txt "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

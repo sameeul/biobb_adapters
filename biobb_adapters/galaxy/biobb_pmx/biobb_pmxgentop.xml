@@ -34,11 +34,11 @@
     </command>
     <inputs>
         
-        <param name="input_top_zip_path" type="data" format="zip"  label="input ZIP file" help=". Format: [input].zip"/> 
+        <param name="input_top_zip_path" type="data" format="zip"  label="input ZIP file" help="Path the input GROMACS topology TOP and ITP files in zip format. Format: [input].zip"/> 
         
         
         <param 
-            name="outname_output_top_zip_path" type="text" value="mypmxgentop.zip" label="output ZIP name" help=" Format: [output].zip "/>
+            name="outname_output_top_zip_path" type="text" value="mypmxgentop.zip" label="output ZIP name" help="Path the output TOP topology in zip format Format: [output].zip "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

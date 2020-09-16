@@ -40,13 +40,13 @@
     </command>
     <inputs>
         
-        <param name="input_top_zip_path" type="data" format="zip"  label="input ZIP file" help=". Format: [input].zip"/> 
+        <param name="input_top_zip_path" type="data" format="zip"  label="input ZIP file" help="Path the input topology TOP and ITP files zipball. Format: [input].zip"/> 
         
-        <param name="input_itp_path" type="data" format="itp"  label="input ITP file" help=". Format: [input].itp"/> 
+        <param name="input_itp_path" type="data" format="itp"  label="input ITP file" help="Path to the ligand ITP file to be inserted in the topology. Format: [input].itp"/> 
         
         
         <param 
-            name="outname_output_top_zip_path" type="text" value="myappend_ligand.zip" label="output ZIP name" help=" Format: [output].zip "/>
+            name="outname_output_top_zip_path" type="text" value="myappend_ligand.zip" label="output ZIP name" help="Path/Name the output topology TOP and ITP files zipball Format: [output].zip "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

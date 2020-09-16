@@ -40,13 +40,13 @@
     </command>
     <inputs>
         
-        <param name="input_structure_path" type="data" format="pdb"  label="input PDB,GRO,TPR file" help=". Format: [input].pdb"/> 
+        <param name="input_structure_path" type="data" format="pdb"  label="input PDB,GRO,TPR file" help="Path to the input structure PDB, GRO or TPR format. Format: [input].pdb"/> 
         
-        <param name="input_ndx_path" type="data" format="ndx"  label="input NDX file" help=". Format: [input].ndx"/> 
+        <param name="input_ndx_path" type="data" format="ndx"  label="input NDX file" help="Path to the input GROMACS index file, NDX format. Format: [input].ndx"/> 
         
         
         <param 
-            name="outname_output_itp_path" type="text" value="mygenrestr.itp" label="output ITP name" help=" Format: [output].itp "/>
+            name="outname_output_itp_path" type="text" value="mygenrestr.itp" label="output ITP name" help="Path the output ITP topology file with restrains Format: [output].itp "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

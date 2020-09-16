@@ -85,6 +85,7 @@ def main():
             tool_data['file_types'].append(m.group(0))
         
         tool_data['label'] = schema_data['properties'][f]['filetype'] + ' ' +  ','.join(tool_data['file_types']).upper()
+        tool_data['description'] = schema_data['properties'][f]['description']
         data['files'][schema_data['properties'][f]['filetype']][f] = tool_data
     env = Environment(
         loader=FileSystemLoader(template_dir),
