@@ -2,3 +2,6 @@
 foreach s (../../../biobb*/*/json_schemas/*json)
 python json2galaxy.py --create_dir $s
 end 
+git add .
+git commit -m "Update"
+git push github
