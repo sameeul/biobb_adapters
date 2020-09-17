@@ -1,44 +1,51 @@
-<tool id="biobb_structure_utils_extract_protein" name="extract_protein" version="3.0.0" >
-    <description>: Class to extract a protein from a 3D structure.</description>
+<tool id="biobb_ml_spectral_coefficient" name="spectral_coefficient" version="3.0.1" >
+    <description>: Clusters a given dataset and calculates best K coefficient for a spectral clustering.</description>
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
     <command detect_errors="aggressive">
         
-        ln -f -s ${input_structure_path} ${input_structure_path}.${input_structure_path.ext};
+        ln -f -s ${input_dataset_path} ${input_dataset_path}.${input_dataset_path.ext};
         
         #if $config.sele == "option1":
         ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
-        docker run -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_structure_utils:3.0.0--py_0 extract_protein
+        docker run -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_ml:3.0.1--py_0 spectral_coefficient
         #if $config.sele == "option1":
         --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
         --config ${config.jsonstr}
         #end if
         
-        --input_structure_path ${input_structure_path}.${input_structure_path.ext}
+        --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
         
         
-        --output_protein_path $__root_dir__/database/files/000/$outname_output_protein_path
+        --output_results_path $__root_dir__/database/files/000/$outname_output_results_path
+        
+        --output_plot_path $__root_dir__/database/files/000/$outname_output_plot_path
         ;         
         #if $config.sele == "option1":
         rm -f ${config.properties}.${config.properties.ext};
         #end if
         
-        rm -f ${input_structure_path}.${input_structure_path.ext};
+        rm -f ${input_dataset_path}.${input_dataset_path.ext};
         
         
-        mv  $__root_dir__/database/files/000/${outname_output_protein_path} ${output_protein_path};
+        mv  $__root_dir__/database/files/000/${outname_output_results_path} ${output_results_path};
+        
+        mv  $__root_dir__/database/files/000/${outname_output_plot_path} ${output_plot_path};
         
     </command>
     <inputs>
         
-        <param name="input_structure_path" type="data" format="pdb"  label="input PDB file" help="Input structure file path. Format: [input].pdb"/> 
+        <param name="input_dataset_path" type="data" format="csv"  label="input CSV file" help="Path to the input dataset. Format: [input].csv"/> 
         
         
         <param 
-            name="outname_output_protein_path" type="text" value="myextract_protein.pdb" label="output PDB name" help="Output protein file path Format: [output].pdb "/>
+            name="outname_output_results_path" type="text" value="myspectral_coefficient.csv" label="output CSV name" help="Table with WCSS (elbow method), Gap and Silhouette coefficients for each cluster Format: [output].csv "/>
+        
+        <param 
+            name="outname_output_plot_path" type="text" value="myspectral_coefficient.png" label="output PNG name" help="Path to the elbow method and gap statistics plot Format: [output].png "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -58,7 +65,9 @@
     </inputs>
     <outputs>
         
-        <data name="output_protein_path" format="pdb" label="${outname_output_protein_path}"/>
+        <data name="output_results_path" format="csv" label="${outname_output_results_path}"/>
+        
+        <data name="output_plot_path" format="png" label="${outname_output_plot_path}"/>
         
     </outputs>
     <tests>
@@ -68,7 +77,7 @@
     <help>
 .. class:: infomark
         
-Check the syntax for the tool parameters at the original library documentation: https://biobb_structure_utils.readthedocs.io/en/latest
+Check the syntax for the tool parameters at the original library documentation: https://biobb_ml.readthedocs.io/en/latest
 
 -----
 
@@ -91,7 +100,7 @@ Check the syntax for the tool parameters at the original library documentation: 
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},
-            url = {https://github.com/bioexcel/biobb_structure_utils},
+            url = {https://github.com/bioexcel/biobb_ml},
             }
         </citation>
         <citation type="doi">10.1038/s41597-019-0177-4</citation>
