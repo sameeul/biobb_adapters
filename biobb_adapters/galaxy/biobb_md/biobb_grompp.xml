@@ -62,7 +62,7 @@
         
         
         <param 
-            name="outname_output_tpr_path" type="text" value="mygrompp.tpr" label="output TPR name" help="Path to the output portable binary run file TPR Format: [output].tpr "/>
+            name="outname_output_tpr_path" type="text" value="mygrompp.tpr" optional="False" label="output TPR name" help="Path to the output portable binary run file TPR Format: [output].tpr "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

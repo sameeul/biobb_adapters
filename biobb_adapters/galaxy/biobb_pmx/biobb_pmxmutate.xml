@@ -46,7 +46,7 @@
         
         
         <param 
-            name="outname_output_structure_path" type="text" value="mypmxmutate.pdb" label="output PDB,GRO name" help="Path to the output structure file Format: [output].[format] "/>
+            name="outname_output_structure_path" type="text" value="mypmxmutate.pdb" optional="False" label="output PDB,GRO name" help="Path to the output structure file Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

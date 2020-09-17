@@ -50,10 +50,10 @@
         
         
         <param 
-            name="outname_output_gro_path" type="text" value="mygenion.gro" label="output GRO name" help="Path to the input structure GRO file Format: [output].gro "/>
+            name="outname_output_gro_path" type="text" value="mygenion.gro" optional="False" label="output GRO name" help="Path to the input structure GRO file Format: [output].gro "/>
         
         <param 
-            name="outname_output_top_zip_path" type="text" value="mygenion.zip" label="output ZIP name" help="Path the output topology TOP and ITP files zipball Format: [output].zip "/>
+            name="outname_output_top_zip_path" type="text" value="mygenion.zip" optional="False" label="output ZIP name" help="Path the output topology TOP and ITP files zipball Format: [output].zip "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

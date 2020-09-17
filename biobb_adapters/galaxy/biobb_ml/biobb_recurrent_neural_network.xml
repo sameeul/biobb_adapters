@@ -46,13 +46,13 @@
         
         
         <param 
-            name="outname_output_model_path" type="text" value="myrecurrent_neural_network.h5" label="output H5 name" help="Path to the output model file Format: [output].h5 "/>
+            name="outname_output_model_path" type="text" value="myrecurrent_neural_network.h5" optional="False" label="output H5 name" help="Path to the output model file Format: [output].h5 "/>
         
         <param 
-            name="outname_output_test_table_path" type="text" value="myrecurrent_neural_network.csv" label="output CSV name" help="Path to the test table file Format: [output].csv "/>
+            name="outname_output_test_table_path" type="text" value="myrecurrent_neural_network.csv" optional="True" label="output CSV name" help="Path to the test table file Format: [output].csv "/>
         
         <param 
-            name="outname_output_plot_path" type="text" value="myrecurrent_neural_network.png" label="output PNG name" help="Loss, accuracy and MSE plots Format: [output].png "/>
+            name="outname_output_plot_path" type="text" value="myrecurrent_neural_network.png" optional="True" label="output PNG name" help="Loss, accuracy and MSE plots Format: [output].png "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

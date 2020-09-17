@@ -42,10 +42,10 @@
         
         
         <param 
-            name="outname_output_path_itp" type="text" value="myacpype_params_gmx_opls.itp" label="output ITP name" help="Path to the ITP output file Format: [output].itp "/>
+            name="outname_output_path_itp" type="text" value="myacpype_params_gmx_opls.itp" optional="False" label="output ITP name" help="Path to the ITP output file Format: [output].itp "/>
         
         <param 
-            name="outname_output_path_top" type="text" value="myacpype_params_gmx_opls.top" label="output TOP name" help="Path to the TOP output file Format: [output].top "/>
+            name="outname_output_path_top" type="text" value="myacpype_params_gmx_opls.top" optional="False" label="output TOP name" help="Path to the TOP output file Format: [output].top "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

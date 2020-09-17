@@ -38,7 +38,7 @@
         
         
         <param 
-            name="outname_output_dataset_path" type="text" value="mydummy_variables.csv" label="output CSV name" help="Path to the output dataset Format: [output].csv "/>
+            name="outname_output_dataset_path" type="text" value="mydummy_variables.csv" optional="False" label="output CSV name" help="Path to the output dataset Format: [output].csv "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

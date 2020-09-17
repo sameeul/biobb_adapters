@@ -46,13 +46,13 @@
         
         
         <param 
-            name="outname_output_model_path" type="text" value="myrandom_forest_regressor.pkl" label="output PKL name" help="Path to the output model file Format: [output].pkl "/>
+            name="outname_output_model_path" type="text" value="myrandom_forest_regressor.pkl" optional="False" label="output PKL name" help="Path to the output model file Format: [output].pkl "/>
         
         <param 
-            name="outname_output_test_table_path" type="text" value="myrandom_forest_regressor.csv" label="output CSV name" help="Path to the test table file Format: [output].csv "/>
+            name="outname_output_test_table_path" type="text" value="myrandom_forest_regressor.csv" optional="True" label="output CSV name" help="Path to the test table file Format: [output].csv "/>
         
         <param 
-            name="outname_output_plot_path" type="text" value="myrandom_forest_regressor.png" label="output PNG name" help="Residual plot checks the error between actual values and predicted values Format: [output].png "/>
+            name="outname_output_plot_path" type="text" value="myrandom_forest_regressor.png" optional="True" label="output PNG name" help="Residual plot checks the error between actual values and predicted values Format: [output].png "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

@@ -38,7 +38,7 @@
         
         
         <param 
-            name="outname_output_structure_path" type="text" value="mystr_check_add_hydrogens.pdb" label="output PDB,PDBQT name" help="Output structure file path Format: [output].[format] "/>
+            name="outname_output_structure_path" type="text" value="mystr_check_add_hydrogens.pdb" optional="False" label="output PDB,PDBQT name" help="Output structure file path Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

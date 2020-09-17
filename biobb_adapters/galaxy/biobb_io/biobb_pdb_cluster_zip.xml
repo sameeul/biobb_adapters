@@ -30,7 +30,7 @@
         
         
         <param 
-            name="outname_output_pdb_zip_path" type="text" value="mypdb_cluster_zip.pdb" label="output PDB,ZIP name" help="Path to the ZIP or PDB file containing the output PDB files Format: [output].[format] "/>
+            name="outname_output_pdb_zip_path" type="text" value="mypdb_cluster_zip.pdb" optional="False" label="output PDB,ZIP name" help="Path to the ZIP or PDB file containing the output PDB files Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

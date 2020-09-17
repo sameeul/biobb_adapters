@@ -42,10 +42,10 @@
         
         
         <param 
-            name="outname_output_structure_path" type="text" value="myrenumber_structure.pdb" label="output PDB,GRO name" help="Output structure file path Format: [output].[format] "/>
+            name="outname_output_structure_path" type="text" value="myrenumber_structure.pdb" optional="False" label="output PDB,GRO name" help="Output structure file path Format: [output].[format] "/>
         
         <param 
-            name="outname_output_mapping_json_path" type="text" value="myrenumber_structure.json" label="output JSON name" help="Output mapping json file path Format: [output].json "/>
+            name="outname_output_mapping_json_path" type="text" value="myrenumber_structure.json" optional="False" label="output JSON name" help="Output mapping json file path Format: [output].json "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

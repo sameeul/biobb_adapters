@@ -46,7 +46,7 @@
         
         
         <param 
-            name="outname_output_traj_path" type="text" value="mygmx_trjconv_trj.xtc" label="output XTC,TRR,GRO,G96,PDB,TNG name" help="Path to the output file Format: [output].[format] "/>
+            name="outname_output_traj_path" type="text" value="mygmx_trjconv_trj.xtc" optional="False" label="output XTC,TRR,GRO,G96,PDB,TNG name" help="Path to the output file Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

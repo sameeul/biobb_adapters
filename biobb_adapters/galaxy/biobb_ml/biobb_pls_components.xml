@@ -42,10 +42,10 @@
         
         
         <param 
-            name="outname_output_results_path" type="text" value="mypls_components.csv" label="output CSV name" help="Table with R2 and MSE for calibration and cross-validation data for the best number of components Format: [output].csv "/>
+            name="outname_output_results_path" type="text" value="mypls_components.csv" optional="False" label="output CSV name" help="Table with R2 and MSE for calibration and cross-validation data for the best number of components Format: [output].csv "/>
         
         <param 
-            name="outname_output_plot_path" type="text" value="mypls_components.png" label="output PNG name" help="Path to the Mean Square Error plot Format: [output].png "/>
+            name="outname_output_plot_path" type="text" value="mypls_components.png" optional="True" label="output PNG name" help="Path to the Mean Square Error plot Format: [output].png "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

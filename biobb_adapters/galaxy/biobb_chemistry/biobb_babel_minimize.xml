@@ -38,7 +38,7 @@
         
         
         <param 
-            name="outname_output_path" type="text" value="mybabel_minimize.pdb" label="output PDB,MOL2 name" help="Path to the output file Format: [output].[format] "/>
+            name="outname_output_path" type="text" value="mybabel_minimize.pdb" optional="False" label="output PDB,MOL2 name" help="Path to the output file Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

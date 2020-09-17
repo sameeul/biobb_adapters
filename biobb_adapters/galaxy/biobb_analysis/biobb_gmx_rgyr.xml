@@ -54,7 +54,7 @@
         
         
         <param 
-            name="outname_output_xvg_path" type="text" value="mygmx_rgyr.xvg" label="output XVG name" help="Path to the XVG output file Format: [output].xvg "/>
+            name="outname_output_xvg_path" type="text" value="mygmx_rgyr.xvg" optional="False" label="output XVG name" help="Path to the XVG output file Format: [output].xvg "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

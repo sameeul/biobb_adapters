@@ -46,7 +46,7 @@
         
         
         <param 
-            name="outname_output_ndx_path" type="text" value="mymake_ndx.ndx" label="output NDX name" help="Path to the output index NDX file Format: [output].ndx "/>
+            name="outname_output_ndx_path" type="text" value="mymake_ndx.ndx" optional="False" label="output NDX name" help="Path to the output index NDX file Format: [output].ndx "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

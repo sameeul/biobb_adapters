@@ -46,7 +46,7 @@
         
         
         <param 
-            name="outname_output_cpptraj_path" type="text" value="mycpptraj_average.crd" label="output CRD,NETCDF,RST7,NCRST,DCD,PDB,MOL2,BINPOS,TRR,XTC,SQM name" help="Path to the output processed structure Format: [output].[format] "/>
+            name="outname_output_cpptraj_path" type="text" value="mycpptraj_average.crd" optional="False" label="output CRD,NETCDF,RST7,NCRST,DCD,PDB,MOL2,BINPOS,TRR,XTC,SQM name" help="Path to the output processed structure Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

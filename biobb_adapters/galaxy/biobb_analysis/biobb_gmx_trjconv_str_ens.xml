@@ -54,7 +54,7 @@
         
         
         <param 
-            name="outname_output_str_ens_path" type="text" value="mygmx_trjconv_str_ens.zip" label="output ZIP name" help="Path to the output file Format: [output].zip "/>
+            name="outname_output_str_ens_path" type="text" value="mygmx_trjconv_str_ens.zip" optional="False" label="output ZIP name" help="Path to the output file Format: [output].zip "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

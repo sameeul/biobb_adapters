@@ -38,7 +38,7 @@
         
         
         <param 
-            name="outname_output_plot_path" type="text" value="mydendrogram.png" label="output PNG name" help="Path to the dendrogram plot Format: [output].png "/>
+            name="outname_output_plot_path" type="text" value="mydendrogram.png" optional="False" label="output PNG name" help="Path to the dendrogram plot Format: [output].png "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">

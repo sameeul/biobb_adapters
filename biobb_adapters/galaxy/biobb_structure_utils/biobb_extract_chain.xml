@@ -38,7 +38,7 @@
         
         
         <param 
-            name="outname_output_structure_path" type="text" value="myextract_chain.pdb" label="output PDB name" help="Output structure file path Format: [output].pdb "/>
+            name="outname_output_structure_path" type="text" value="myextract_chain.pdb" optional="False" label="output PDB name" help="Output structure file path Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
