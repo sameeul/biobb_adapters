@@ -23,7 +23,7 @@
         #end if
         
         
-        mv  $__root_dir__/database/files/000/${outname_output_pdb_path} ${output_pdb_path};
+        if test -f $__root_dir__/database/files/000/$outname_output_pdb_path; then mv $__root_dir__/database/files/000/$outname_output_pdb_path $output_pdb_path; fi;
         
     </command>
     <inputs>

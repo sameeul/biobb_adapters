@@ -29,7 +29,7 @@
         rm -f ${input_energy_path}.${input_energy_path.ext};
         
         
-        mv  $__root_dir__/database/files/000/${outname_output_xvg_path} ${output_xvg_path};
+        if test -f $__root_dir__/database/files/000/$outname_output_xvg_path; then mv $__root_dir__/database/files/000/$outname_output_xvg_path $output_xvg_path; fi;
         
     </command>
     <inputs>

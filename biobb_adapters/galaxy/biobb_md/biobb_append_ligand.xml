@@ -35,7 +35,7 @@
         rm -f ${input_itp_path}.${input_itp_path.ext};
         
         
-        mv  $__root_dir__/database/files/000/${outname_output_top_zip_path} ${output_top_zip_path};
+        if test -f $__root_dir__/database/files/000/$outname_output_top_zip_path; then mv $__root_dir__/database/files/000/$outname_output_top_zip_path $output_top_zip_path; fi;
         
     </command>
     <inputs>

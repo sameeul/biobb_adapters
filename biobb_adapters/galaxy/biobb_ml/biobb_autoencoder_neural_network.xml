@@ -39,11 +39,11 @@
         rm -f ${input_predict_path}.${input_predict_path.ext};
         
         
-        mv  $__root_dir__/database/files/000/${outname_output_model_path} ${output_model_path};
+        if test -f $__root_dir__/database/files/000/$outname_output_model_path; then mv $__root_dir__/database/files/000/$outname_output_model_path $output_model_path; fi;
         
-        mv  $__root_dir__/database/files/000/${outname_output_test_decode_path} ${output_test_decode_path};
+        if test -f $__root_dir__/database/files/000/$outname_output_test_decode_path; then mv $__root_dir__/database/files/000/$outname_output_test_decode_path $output_test_decode_path; fi;
         
-        mv  $__root_dir__/database/files/000/${outname_output_test_predict_path} ${output_test_predict_path};
+        if test -f $__root_dir__/database/files/000/$outname_output_test_predict_path; then mv $__root_dir__/database/files/000/$outname_output_test_predict_path $output_test_predict_path; fi;
         
     </command>
     <inputs>

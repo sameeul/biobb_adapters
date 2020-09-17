@@ -37,9 +37,9 @@
         rm -f ${input_b_xvg_zip_path}.${input_b_xvg_zip_path.ext};
         
         
-        mv  $__root_dir__/database/files/000/${outname_output_result_path} ${output_result_path};
+        if test -f $__root_dir__/database/files/000/$outname_output_result_path; then mv $__root_dir__/database/files/000/$outname_output_result_path $output_result_path; fi;
         
-        mv  $__root_dir__/database/files/000/${outname_output_work_plot_path} ${output_work_plot_path};
+        if test -f $__root_dir__/database/files/000/$outname_output_work_plot_path; then mv $__root_dir__/database/files/000/$outname_output_work_plot_path $output_work_plot_path; fi;
         
     </command>
     <inputs>

@@ -33,11 +33,11 @@
         rm -f ${input_path}.${input_path.ext};
         
         
-        mv  $__root_dir__/database/files/000/${outname_output_path_par} ${output_path_par};
+        if test -f $__root_dir__/database/files/000/$outname_output_path_par; then mv $__root_dir__/database/files/000/$outname_output_path_par $output_path_par; fi;
         
-        mv  $__root_dir__/database/files/000/${outname_output_path_inp} ${output_path_inp};
+        if test -f $__root_dir__/database/files/000/$outname_output_path_inp; then mv $__root_dir__/database/files/000/$outname_output_path_inp $output_path_inp; fi;
         
-        mv  $__root_dir__/database/files/000/${outname_output_path_top} ${output_path_top};
+        if test -f $__root_dir__/database/files/000/$outname_output_path_top; then mv $__root_dir__/database/files/000/$outname_output_path_top $output_path_top; fi;
         
     </command>
     <inputs>

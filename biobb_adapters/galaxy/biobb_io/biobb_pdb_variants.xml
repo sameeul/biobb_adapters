@@ -23,7 +23,7 @@
         #end if
         
         
-        mv  $__root_dir__/database/files/000/${outname_output_mutations_list_txt} ${output_mutations_list_txt};
+        if test -f $__root_dir__/database/files/000/$outname_output_mutations_list_txt; then mv $__root_dir__/database/files/000/$outname_output_mutations_list_txt $output_mutations_list_txt; fi;
         
     </command>
     <inputs>

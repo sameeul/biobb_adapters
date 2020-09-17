@@ -37,9 +37,9 @@
         rm -f ${input_model_path}.${input_model_path.ext};
         
         
-        mv  $__root_dir__/database/files/000/${outname_output_decode_path} ${output_decode_path};
+        if test -f $__root_dir__/database/files/000/$outname_output_decode_path; then mv $__root_dir__/database/files/000/$outname_output_decode_path $output_decode_path; fi;
         
-        mv  $__root_dir__/database/files/000/${outname_output_predict_path} ${output_predict_path};
+        if test -f $__root_dir__/database/files/000/$outname_output_predict_path; then mv $__root_dir__/database/files/000/$outname_output_predict_path $output_predict_path; fi;
         
     </command>
     <inputs>

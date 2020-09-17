@@ -35,7 +35,7 @@
         rm -f ${input_structure2}.${input_structure2.ext};
         
         
-        mv  $__root_dir__/database/files/000/${outname_output_structure_path} ${output_structure_path};
+        if test -f $__root_dir__/database/files/000/$outname_output_structure_path; then mv $__root_dir__/database/files/000/$outname_output_structure_path $output_structure_path; fi;
         
     </command>
     <inputs>

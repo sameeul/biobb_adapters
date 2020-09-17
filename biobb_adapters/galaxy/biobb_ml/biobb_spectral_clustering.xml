@@ -31,9 +31,9 @@
         rm -f ${input_dataset_path}.${input_dataset_path.ext};
         
         
-        mv  $__root_dir__/database/files/000/${outname_output_results_path} ${output_results_path};
+        if test -f $__root_dir__/database/files/000/$outname_output_results_path; then mv $__root_dir__/database/files/000/$outname_output_results_path $output_results_path; fi;
         
-        mv  $__root_dir__/database/files/000/${outname_output_plot_path} ${output_plot_path};
+        if test -f $__root_dir__/database/files/000/$outname_output_plot_path; then mv $__root_dir__/database/files/000/$outname_output_plot_path $output_plot_path; fi;
         
     </command>
     <inputs>

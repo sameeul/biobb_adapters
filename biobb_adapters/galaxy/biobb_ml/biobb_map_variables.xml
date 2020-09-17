@@ -29,7 +29,7 @@
         rm -f ${input_dataset_path}.${input_dataset_path.ext};
         
         
-        mv  $__root_dir__/database/files/000/${outname_output_dataset_path} ${output_dataset_path};
+        if test -f $__root_dir__/database/files/000/$outname_output_dataset_path; then mv $__root_dir__/database/files/000/$outname_output_dataset_path $output_dataset_path; fi;
         
     </command>
     <inputs>

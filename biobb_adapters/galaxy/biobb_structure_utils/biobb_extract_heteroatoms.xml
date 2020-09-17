@@ -29,7 +29,7 @@
         rm -f ${input_structure_path}.${input_structure_path.ext};
         
         
-        mv  $__root_dir__/database/files/000/${outname_output_heteroatom_path} ${output_heteroatom_path};
+        if test -f $__root_dir__/database/files/000/$outname_output_heteroatom_path; then mv $__root_dir__/database/files/000/$outname_output_heteroatom_path $output_heteroatom_path; fi;
         
     </command>
     <inputs>

@@ -35,13 +35,13 @@
         rm -f ${input_path}.${input_path.ext};
         
         
-        mv  $__root_dir__/database/files/000/${outname_output_path_frcmod} ${output_path_frcmod};
+        if test -f $__root_dir__/database/files/000/$outname_output_path_frcmod; then mv $__root_dir__/database/files/000/$outname_output_path_frcmod $output_path_frcmod; fi;
         
-        mv  $__root_dir__/database/files/000/${outname_output_path_inpcrd} ${output_path_inpcrd};
+        if test -f $__root_dir__/database/files/000/$outname_output_path_inpcrd; then mv $__root_dir__/database/files/000/$outname_output_path_inpcrd $output_path_inpcrd; fi;
         
-        mv  $__root_dir__/database/files/000/${outname_output_path_lib} ${output_path_lib};
+        if test -f $__root_dir__/database/files/000/$outname_output_path_lib; then mv $__root_dir__/database/files/000/$outname_output_path_lib $output_path_lib; fi;
         
-        mv  $__root_dir__/database/files/000/${outname_output_path_prmtop} ${output_path_prmtop};
+        if test -f $__root_dir__/database/files/000/$outname_output_path_prmtop; then mv $__root_dir__/database/files/000/$outname_output_path_prmtop $output_path_prmtop; fi;
         
     </command>
     <inputs>

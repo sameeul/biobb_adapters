@@ -29,7 +29,7 @@
         rm -f ${{'{'}}{{ k }}}.${{'{'}}{{ k }}.ext};
         {% endfor %}
         {% for k in files['output'] %}
-        mv  $__root_dir__/database/files/000/${{'{'}}outname_{{ k }}} ${{'{'}}{{ k }}};
+        if test -f $__root_dir__/database/files/000/$outname_{{ k }}; then mv $__root_dir__/database/files/000/$outname_{{ k }} ${{ k }}; fi;
         {% endfor %}
     </command>
     <inputs>

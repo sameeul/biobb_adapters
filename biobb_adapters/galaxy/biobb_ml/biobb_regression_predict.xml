@@ -29,7 +29,7 @@
         rm -f ${input_model_path}.${input_model_path.ext};
         
         
-        mv  $__root_dir__/database/files/000/${outname_output_results_path} ${output_results_path};
+        if test -f $__root_dir__/database/files/000/$outname_output_results_path; then mv $__root_dir__/database/files/000/$outname_output_results_path $output_results_path; fi;
         
     </command>
     <inputs>
