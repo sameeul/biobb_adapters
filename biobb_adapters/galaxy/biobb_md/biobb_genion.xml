@@ -44,9 +44,9 @@
     </command>
     <inputs>
         
-        <param name="input_tpr_path" type="data" format="tpr"  optional=False label="input TPR file" help="Path to the input portable run input TPR file. Format: [input].tpr"/> 
+        <param name="input_tpr_path" type="data" format="tpr"  optional="False" label="input TPR file" help="Path to the input portable run input TPR file. Format: [input].tpr"/> 
         
-        <param name="input_top_zip_path" type="data" format="zip"  optional=False label="input ZIP file" help="Path the input TOP topology in zip format. Format: [input].zip"/> 
+        <param name="input_top_zip_path" type="data" format="zip"  optional="False" label="input ZIP file" help="Path the input TOP topology in zip format. Format: [input].zip"/> 
         
         
         <param 

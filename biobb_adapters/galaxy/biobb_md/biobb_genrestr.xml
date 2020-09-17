@@ -40,9 +40,9 @@
     </command>
     <inputs>
         
-        <param name="input_structure_path" type="data" format="pdb,gro,tpr"  optional=False label="input PDB,GRO,TPR file" help="Path to the input structure PDB, GRO or TPR format. Format: [input].[format]"/> 
+        <param name="input_structure_path" type="data" format="pdb,gro,tpr"  optional="False" label="input PDB,GRO,TPR file" help="Path to the input structure PDB, GRO or TPR format. Format: [input].[format]"/> 
         
-        <param name="input_ndx_path" type="data" format="ndx"  optional=False label="input NDX file" help="Path to the input GROMACS index file, NDX format. Format: [input].ndx"/> 
+        <param name="input_ndx_path" type="data" format="ndx"  optional="False" label="input NDX file" help="Path to the input GROMACS index file, NDX format. Format: [input].ndx"/> 
         
         
         <param 

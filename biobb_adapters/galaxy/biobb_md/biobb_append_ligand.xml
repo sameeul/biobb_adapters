@@ -40,9 +40,9 @@
     </command>
     <inputs>
         
-        <param name="input_top_zip_path" type="data" format="zip"  optional=False label="input ZIP file" help="Path the input topology TOP and ITP files zipball. Format: [input].zip"/> 
+        <param name="input_top_zip_path" type="data" format="zip"  optional="False" label="input ZIP file" help="Path the input topology TOP and ITP files zipball. Format: [input].zip"/> 
         
-        <param name="input_itp_path" type="data" format="itp"  optional=False label="input ITP file" help="Path to the ligand ITP file to be inserted in the topology. Format: [input].itp"/> 
+        <param name="input_itp_path" type="data" format="itp"  optional="False" label="input ITP file" help="Path to the ligand ITP file to be inserted in the topology. Format: [input].itp"/> 
         
         
         <param 

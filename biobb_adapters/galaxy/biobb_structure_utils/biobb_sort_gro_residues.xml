@@ -34,7 +34,7 @@
     </command>
     <inputs>
         
-        <param name="input_gro_path" type="data" format="gro"  optional=False label="input GRO file" help="Input GRO file path. Format: [input].gro"/> 
+        <param name="input_gro_path" type="data" format="gro"  optional="False" label="input GRO file" help="Input GRO file path. Format: [input].gro"/> 
         
         
         <param 

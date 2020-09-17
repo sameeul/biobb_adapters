@@ -40,9 +40,9 @@
     </command>
     <inputs>
         
-        <param name="input_ndx_path" type="data" format="ndx"  optional=False label="input NDX file" help="Path to the input NDX index file. Format: [input].ndx"/> 
+        <param name="input_ndx_path" type="data" format="ndx"  optional="False" label="input NDX file" help="Path to the input NDX index file. Format: [input].ndx"/> 
         
-        <param name="input_top_zip_path" type="data" format="zip"  optional=False label="input ZIP file" help="Path the input TOP topology in zip format. Format: [input].zip"/> 
+        <param name="input_top_zip_path" type="data" format="zip"  optional="False" label="input ZIP file" help="Path the input TOP topology in zip format. Format: [input].zip"/> 
         
         
         <param 

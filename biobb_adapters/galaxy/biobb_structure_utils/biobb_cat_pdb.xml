@@ -40,9 +40,9 @@
     </command>
     <inputs>
         
-        <param name="input_structure1" type="data" format="pdb"  optional=False label="input PDB file" help="Input structure 1 file path. Format: [input].pdb"/> 
+        <param name="input_structure1" type="data" format="pdb"  optional="False" label="input PDB file" help="Input structure 1 file path. Format: [input].pdb"/> 
         
-        <param name="input_structure2" type="data" format="pdb"  optional=False label="input PDB file" help="Input structure 2 file path. Format: [input].pdb"/> 
+        <param name="input_structure2" type="data" format="pdb"  optional="False" label="input PDB file" help="Input structure 2 file path. Format: [input].pdb"/> 
         
         
         <param 

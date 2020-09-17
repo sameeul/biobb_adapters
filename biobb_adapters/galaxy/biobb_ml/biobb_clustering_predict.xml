@@ -34,7 +34,7 @@
     </command>
     <inputs>
         
-        <param name="input_model_path" type="data" format="pkl"  optional=False label="input PKL file" help="Path to the input model. Format: [input].pkl"/> 
+        <param name="input_model_path" type="data" format="pkl"  optional="False" label="input PKL file" help="Path to the input model. Format: [input].pkl"/> 
         
         
         <param 

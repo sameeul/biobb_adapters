@@ -34,7 +34,7 @@
     </command>
     <inputs>
         
-        <param name="input_top_zip_path" type="data" format="zip"  optional=False label="input ZIP file" help="Path the input GROMACS topology TOP and ITP files in zip format. Format: [input].zip"/> 
+        <param name="input_top_zip_path" type="data" format="zip"  optional="False" label="input ZIP file" help="Path the input GROMACS topology TOP and ITP files in zip format. Format: [input].zip"/> 
         
         
         <param 
