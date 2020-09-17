@@ -34,7 +34,7 @@
     </command>
     <inputs>
         
-        <param name="input_structure_path" type="data" format="pdb"  optional= label="input PDB file" help="Input structure file path. Format: [input].pdb"/> 
+        <param name="input_structure_path" type="data" format="pdb"  optional=False label="input PDB file" help="Input structure file path. Format: [input].pdb"/> 
         
         
         <param 

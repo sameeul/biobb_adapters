@@ -34,7 +34,7 @@
     </command>
     <inputs>
         
-        <param name="input_energy_path" type="data" format="edr"  optional= label="input EDR file" help="Path to the input EDR file. Format: [input].edr"/> 
+        <param name="input_energy_path" type="data" format="edr"  optional=False label="input EDR file" help="Path to the input EDR file. Format: [input].edr"/> 
         
         
         <param 

@@ -42,7 +42,7 @@
     </command>
     <inputs>
         
-        <param name="input_dataset_path" type="data" format="csv"  optional= label="input CSV file" help="Path to the input dataset. Format: [input].csv"/> 
+        <param name="input_dataset_path" type="data" format="csv"  optional=False label="input CSV file" help="Path to the input dataset. Format: [input].csv"/> 
         
         
         <param 

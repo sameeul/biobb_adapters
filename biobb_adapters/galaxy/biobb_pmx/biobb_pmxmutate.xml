@@ -40,9 +40,9 @@
     </command>
     <inputs>
         
-        <param name="input_structure_path" type="data" format="pdb,gro"  optional= label="input PDB,GRO file" help="Path to the input structure file. Format: [input].[format]"/> 
+        <param name="input_structure_path" type="data" format="pdb,gro"  optional=False label="input PDB,GRO file" help="Path to the input structure file. Format: [input].[format]"/> 
         
-        <param name="input_b_structure_path" type="data" format="pdb,gro"  optional= label="input PDB,GRO file" help="Path to the mutated input structure file. Format: [input].[format]"/> 
+        <param name="input_b_structure_path" type="data" format="pdb,gro"  optional=True label="input PDB,GRO file" help="Path to the mutated input structure file. Format: [input].[format]"/> 
         
         
         <param 

@@ -34,7 +34,7 @@
     </command>
     <inputs>
         
-        <param name="input_model_path" type="data" format="h5"  optional= label="input H5 file" help="Path to the input model. Format: [input].h5"/> 
+        <param name="input_model_path" type="data" format="h5"  optional=False label="input H5 file" help="Path to the input model. Format: [input].h5"/> 
         
         
         <param 
