@@ -52,13 +52,13 @@
     </command>
     <inputs>
         
-        <param name="input_gro_path" type="data" format="gro"  label="input GRO file" help="Path to the input GROMACS structure GRO file. Format: [input].gro"/> 
+        <param name="input_gro_path" type="data" format="gro"  optional= label="input GRO file" help="Path to the input GROMACS structure GRO file. Format: [input].gro"/> 
         
-        <param name="input_top_zip_path" type="data" format="zip"  label="input ZIP file" help="Path the input GROMACS topology TOP and ITP files in zip format. Format: [input].zip"/> 
+        <param name="input_top_zip_path" type="data" format="zip"  optional= label="input ZIP file" help="Path the input GROMACS topology TOP and ITP files in zip format. Format: [input].zip"/> 
         
-        <param name="input_cpt_path" type="data" format="cpt"  label="input CPT file" help="Path to the input GROMACS checkpoint file CPT. Format: [input].cpt"/> 
+        <param name="input_cpt_path" type="data" format="cpt"  optional= label="input CPT file" help="Path to the input GROMACS checkpoint file CPT. Format: [input].cpt"/> 
         
-        <param name="input_ndx_path" type="data" format="ndx"  label="input NDX file" help="Path to the input GROMACS index files NDX. Format: [input].ndx"/> 
+        <param name="input_ndx_path" type="data" format="ndx"  optional= label="input NDX file" help="Path to the input GROMACS index files NDX. Format: [input].ndx"/> 
         
         
         <param 

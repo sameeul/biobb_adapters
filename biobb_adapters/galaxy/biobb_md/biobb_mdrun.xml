@@ -58,7 +58,7 @@
     </command>
     <inputs>
         
-        <param name="input_tpr_path" type="data" format="tpr"  label="input TPR file" help="Path to the portable binary run input file TPR. Format: [input].tpr"/> 
+        <param name="input_tpr_path" type="data" format="tpr"  optional= label="input TPR file" help="Path to the portable binary run input file TPR. Format: [input].tpr"/> 
         
         
         <param 

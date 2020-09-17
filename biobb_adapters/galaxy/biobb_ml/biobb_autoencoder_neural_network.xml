@@ -48,9 +48,9 @@
     </command>
     <inputs>
         
-        <param name="input_decode_path" type="data" format="csv"  label="input CSV file" help="Path to the input decode dataset. Format: [input].csv"/> 
+        <param name="input_decode_path" type="data" format="csv"  optional= label="input CSV file" help="Path to the input decode dataset. Format: [input].csv"/> 
         
-        <param name="input_predict_path" type="data" format="csv"  label="input CSV file" help="Path to the input predict dataset. Format: [input].csv"/> 
+        <param name="input_predict_path" type="data" format="csv"  optional= label="input CSV file" help="Path to the input predict dataset. Format: [input].csv"/> 
         
         
         <param 

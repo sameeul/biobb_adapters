@@ -44,9 +44,9 @@
     </command>
     <inputs>
         
-        <param name="input_decode_path" type="data" format="csv"  label="input CSV file" help="Path to the input decode dataset. Format: [input].csv"/> 
+        <param name="input_decode_path" type="data" format="csv"  optional= label="input CSV file" help="Path to the input decode dataset. Format: [input].csv"/> 
         
-        <param name="input_model_path" type="data" format="h5"  label="input H5 file" help="Path to the input model. Format: [input].h5"/> 
+        <param name="input_model_path" type="data" format="h5"  optional= label="input H5 file" help="Path to the input model. Format: [input].h5"/> 
         
         
         <param 

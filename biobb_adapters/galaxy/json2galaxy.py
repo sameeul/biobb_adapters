@@ -91,6 +91,7 @@ def main():
             tool_data['help_format'] = tool_data['format']
         tool_data['label'] = schema_data['properties'][f]['filetype'] + ' ' +  tool_data['format'].upper()
         tool_data['description'] = schema_data['properties'][f]['description']
+        tool_data['optional'] = f not in schema_data['required']
         data['files'][schema_data['properties'][f]['filetype']][f] = tool_data
     env = Environment(
         loader=FileSystemLoader(template_dir),
