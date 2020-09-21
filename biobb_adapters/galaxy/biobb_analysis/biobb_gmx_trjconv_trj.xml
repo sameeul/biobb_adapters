@@ -12,7 +12,7 @@
         #if $config.sele == "option1":
         ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
-        docker run -rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_analysis:3.0.0--py_0 gmx_trjconv_trj
+        docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_analysis:3.0.0--py_0 gmx_trjconv_trj
         #if $config.sele == "option1":
         --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
