@@ -12,7 +12,7 @@
         #if $config.sele == "option1":
         ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
-        docker run -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_pmx:3.0.1--py_0 pmxanalyse
+        docker run -rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_pmx:3.0.1--py_0 pmxanalyse
         #if $config.sele == "option1":
         --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
@@ -27,7 +27,7 @@
         --output_result_path $__root_dir__/database/files/000/$outname_output_result_path
         
         --output_work_plot_path $__root_dir__/database/files/000/$outname_output_work_plot_path
-        ;         
+        ;          
         #if $config.sele == "option1":
         rm -f ${config.properties}.${config.properties.ext};
         #end if

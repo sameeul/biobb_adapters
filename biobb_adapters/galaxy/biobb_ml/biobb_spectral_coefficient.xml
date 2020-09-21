@@ -10,7 +10,7 @@
         #if $config.sele == "option1":
         ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
-        docker run -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_ml:3.0.1--py_0 spectral_coefficient
+        docker run -rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_ml:3.0.1--py_0 spectral_coefficient
         #if $config.sele == "option1":
         --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
@@ -23,7 +23,7 @@
         --output_results_path $__root_dir__/database/files/000/$outname_output_results_path
         
         --output_plot_path $__root_dir__/database/files/000/$outname_output_plot_path
-        ;         
+        ;          
         #if $config.sele == "option1":
         rm -f ${config.properties}.${config.properties.ext};
         #end if

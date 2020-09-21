@@ -10,7 +10,7 @@
         #if $config.sele == "option1":
         ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
-        docker run -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_md:3.0.0--py_0 pdb2gmx
+        docker run -rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_md:3.0.0--py_0 pdb2gmx
         #if $config.sele == "option1":
         --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
@@ -23,7 +23,7 @@
         --output_gro_path $__root_dir__/database/files/000/$outname_output_gro_path
         
         --output_top_zip_path $__root_dir__/database/files/000/$outname_output_top_zip_path
-        ;         
+        ;          
         #if $config.sele == "option1":
         rm -f ${config.properties}.${config.properties.ext};
         #end if

@@ -14,7 +14,7 @@
         #if $config.sele == "option1":
         ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
-        docker run -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_analysis:3.0.0--py_0 gmx_cluster
+        docker run -rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_analysis:3.0.0--py_0 gmx_cluster
         #if $config.sele == "option1":
         --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
@@ -29,7 +29,7 @@
         
         
         --output_pdb_path $__root_dir__/database/files/000/$outname_output_pdb_path
-        ;         
+        ;          
         #if $config.sele == "option1":
         rm -f ${config.properties}.${config.properties.ext};
         #end if
