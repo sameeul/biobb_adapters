@@ -19,6 +19,7 @@ def main():
     parser.add_argument("--id", help="tool id for Galaxy")
     parser.add_argument("--display_name", help="Tool name to display in Galaxy")
     parser.add_argument("--create_dir", action="store_true", help="Create biobb directory")
+    parser.add_argument("--extended", action="store_true", help="Create detailed properties form")
     parser.add_argument(dest="schema", help="Json schema from guilding block")
     
     args = parser.parse_args()
@@ -37,6 +38,9 @@ def main():
     except IOError as err:
         sys.exit(err)
     
+    if '$id' not in schema_data:
+        sys.exit(args.schema + " not parseable")
+        
     if args.containers == CONTAINERS:
         args.containers = template_dir + "/" + args.containers
         
@@ -46,7 +50,7 @@ def main():
     except IOError as err:
         sys.exit(err)
     
-    data = {}
+    data = {'files':{'input':{}, 'output':{}}, 'props':{}}
     
     if args.display_name:
         data['name'] = args.display_name
@@ -74,8 +78,6 @@ def main():
         
     data['description'] = schema_data['title']
     
-    data['files'] = {'input':{}, 'output':{}}
-    
     for f in schema_data['properties']:
         if f == 'properties':
             continue
@@ -93,6 +95,23 @@ def main():
         tool_data['description'] = schema_data['properties'][f]['description']
         tool_data['optional'] = f not in schema_data['required']
         data['files'][schema_data['properties'][f]['filetype']][f] = tool_data
+    
+    if args.extended:
+        props_str=[]
+        for f in schema_data['properties']:
+            if f != 'properties':
+                continue
+            for k,v in schema_data['properties'][f]['properties'].items():
+                if re.match('container', k) or re.search('WF property', v['description']):
+                    continue
+                m = re.search('(.*) Valid values: (.*)', v['description'])
+                if m:
+                    v['values'] = re.split(', *', m.group(2))
+                    v['description'] = m.group(1)
+                    v['type'] = 'select'
+                data['props'][k] = v
+                props_str.append("__dq__" +  k + "__dq__:__dq__${config." + k + "}__dq__")
+            data['config4str'] = "__oc__" + ",".join(props_str) + "__cc__"
     env = Environment(
         loader=FileSystemLoader(template_dir),
         autoescape=select_autoescape(['xml'])
@@ -103,7 +122,7 @@ def main():
         if not os.path.isdir(data['biobb_group']):
             os.mkdir(data['biobb_group'])
 
-    with open(data['biobb_group'] + "/biobb_" + data['name'] + ".xml", "w") as xml_file:
+    with open(data['biobb_group'] + "/biobb_" + data['name'] + "ext.xml", "w") as xml_file:
         xml_file.write(templ.render(data))
         
 if __name__ == '__main__':

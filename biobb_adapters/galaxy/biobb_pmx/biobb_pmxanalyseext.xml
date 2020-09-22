@@ -1,0 +1,160 @@
+<tool id="biobb_pmx_pmxanalyse_ext" name="pmxanalyse" version="3.0.1" >
+    <description>: Wrapper class for the `PMX analyse &lt;https://github.com/deGrootLab/pmx&gt;`_ module.</description>
+    <requirements>
+        <requirement type="binary">docker</requirement>
+    </requirements>
+    <command detect_errors="aggressive">
+        
+        ln -f -s ${input_a_xvg_zip_path} ${input_a_xvg_zip_path}.${input_a_xvg_zip_path.ext};
+        
+        ln -f -s ${input_b_xvg_zip_path} ${input_b_xvg_zip_path}.${input_b_xvg_zip_path.ext};
+        
+        #if $config.sele == "option1":
+        ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+        #end if
+        docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_pmx:3.0.1--py_0 pmxanalyse
+        #if $config.sele == "option1":
+        --config ${config.properties}.${config.properties.ext}
+        #else if $config.sele == "option2":
+        --config ${config.jsonstr}
+        #else if $config.sele == "option4":
+        --config "__oc____dq__method__dq__:__dq__${config.method}__dq__,__dq__temperature__dq__:__dq__${config.temperature}__dq__,__dq__nboots__dq__:__dq__${config.nboots}__dq__,__dq__nblocks__dq__:__dq__${config.nblocks}__dq__,__dq__integ_only__dq__:__dq__${config.integ_only}__dq__,__dq__reverseB__dq__:__dq__${config.reverseB}__dq__,__dq__skip__dq__:__dq__${config.skip}__dq__,__dq__slice__dq__:__dq__${config.slice}__dq__,__dq__index__dq__:__dq__${config.index}__dq__,__dq__prec__dq__:__dq__${config.prec}__dq__,__dq__units__dq__:__dq__${config.units}__dq__,__dq__no_ks__dq__:__dq__${config.no_ks}__dq__,__dq__nbins__dq__:__dq__${config.nbins}__dq__,__dq__dpi__dq__:__dq__${config.dpi}__dq__,__dq__pmx_cli_path__dq__:__dq__${config.pmx_cli_path}__dq____cc__"
+        #end if
+        
+        --input_a_xvg_zip_path ${input_a_xvg_zip_path}.${input_a_xvg_zip_path.ext}
+        
+        --input_b_xvg_zip_path ${input_b_xvg_zip_path}.${input_b_xvg_zip_path.ext}
+        
+        
+        --output_result_path $__root_dir__/database/files/000/$outname_output_result_path
+        
+        --output_work_plot_path $__root_dir__/database/files/000/$outname_output_work_plot_path
+        ;          
+        #if $config.sele == "option1":
+        rm -f ${config.properties}.${config.properties.ext};
+        #end if
+        
+        rm -f ${input_a_xvg_zip_path}.${input_a_xvg_zip_path.ext};
+        
+        rm -f ${input_b_xvg_zip_path}.${input_b_xvg_zip_path.ext};
+        
+        
+        if test -f $__root_dir__/database/files/000/$outname_output_result_path; then mv $__root_dir__/database/files/000/$outname_output_result_path $output_result_path; fi;
+        
+        if test -f $__root_dir__/database/files/000/$outname_output_work_plot_path; then mv $__root_dir__/database/files/000/$outname_output_work_plot_path $output_work_plot_path; fi;
+        
+    </command>
+    <inputs>
+        
+        <param name="input_a_xvg_zip_path" type="data" format="zip"  optional="False" label="input ZIP file" help="Path the zip file containing the dgdl. Format: [input].zip"/> 
+        
+        <param name="input_b_xvg_zip_path" type="data" format="zip"  optional="False" label="input ZIP file" help="Path the zip file containing the dgdl. Format: [input].zip"/> 
+        
+        
+        <param 
+            name="outname_output_result_path" type="text" value="mypmxanalyse.txt" optional="False" label="output TXT name" help="Path to the TXT results file Format: [output].txt "/>
+        
+        <param 
+            name="outname_output_work_plot_path" type="text" value="mypmxanalyse.png" optional="False" label="output PNG name" help="Path to the PNG plot results file Format: [output].png "/>
+        
+        <conditional name="config">
+            <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option1">from configuration file</option>
+                <option value="option2">from JSON string</option>
+                <option value="option3" selected="true">by default</option>
+                <option value="option4">Manual input</option>
+            </param>
+            <when value="option1">
+                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+            </when>
+            <when value="option2">
+                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+            </when>
+            <when value="option3">
+            </when>
+            <when value="option4">
+                
+                <param name="method" type="text" value="CGI BAR JARZ" label="method" help="Choose one or more estimators to use from the available ones: CGI, BAR, JARZ." />
+            
+                <param name="temperature" type="text" value="298.15" min="" max="" label="temperature" help="Temperature in Kelvin." />
+            
+                
+            
+                
+            
+                <param name="integ_only" type="boolean" 
+                
+                label="integ_only" help="Whether to do integration only." />
+            
+                <param name="reverseB" type="boolean" 
+                
+                label="reverseB" help="transformation." />
+            
+                
+            
+                
+            
+                <param name="index" type="boolean" 
+                
+                label="index" help="Zero-based index of files to analyze." />
+            
+                
+            
+                <param name="units" type="text" value="KJ" label="units" help="The units of the output. Choose from &#34;kJ&#34;, &#34;kcal&#34;, &#34;kT&#34;." />
+            
+                <param name="no_ks" type="boolean" 
+                
+                label="no_ks" help="Whether to do a Kolmogorov-Smirnov test to check whether the Gaussian assumption for CGI holds." />
+            
+                
+            
+                
+            
+                <param name="pmx_cli_path" type="text" value="cli.py" label="pmx_cli_path" help="Path to the PMX Python2.7 client." />
+            
+            </when>
+        </conditional>
+    </inputs>
+    <outputs>
+        
+        <data name="output_result_path" format="txt" label="${outname_output_result_path}"/>
+        
+        <data name="output_work_plot_path" format="png" label="${outname_output_work_plot_path}"/>
+        
+    </outputs>
+    <tests>
+        <test>
+        </test>
+    </tests>    
+    <help>
+.. class:: infomark
+        
+Check the syntax for the tool parameters at the original library documentation: https://biobb_pmx.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png    
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+        
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+        
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-20},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pmx},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>
