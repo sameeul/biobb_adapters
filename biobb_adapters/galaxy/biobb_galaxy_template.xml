@@ -1,54 +1,54 @@
-<tool id="{{tool_id}}_ext" name="{{name}}" version="{{version}}" >
-    <description>: {{description}}</description>
+<tool id="{{ tool_id }}_ext" name="{{ name }}" version="{{ version }}" >
+    <description>: {{ description }}</description>
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
-    <command detect_errors="aggressive">
+    <command detect_errors="aggressive"><![CDATA[
         {% for k in files['input'] %}
-        ln -f -s ${{ '{' }}{{ k }}} ${{ '{' }}{{ k }}}.${{'{'}}{{k}}.ext};
+          ln -f -s ${{ '{' }}{{ k }}} ${{ '{' }}{{ k }}}.${{'{'}}{{k}}.ext};
         {% endfor %}
         #if $config.sele == "option1":
-        ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
         docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files {{ container_id }} {{ name }}
         #if $config.sele == "option1":
-        --config ${config.properties}.${config.properties.ext}
+          --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-        --config ${config.jsonstr}
+          --config ${config.jsonstr}
         #else if $config.sele == "option4":
-        --config "{{config4str}}"
+          --config "{{config4str}}"
         #end if
         {% for k in files['input'] %}
-        --{{k}} ${{ '{' }}{{ k }}}.${{'{'}}{{k}}.ext}
+          --{{ k }} ${{ '{' }}{{ k }}}.${{'{'}}{{k}}.ext}
         {% endfor %}
         {% for k in files['output'] %}
-        --{{k}} $__root_dir__/database/files/000/$outname_{{ k }}
+          --{{ k }} $__root_dir__/database/files/000/$outname_{{ k }}
         {% endfor %};          
         #if $config.sele == "option1":
-        rm -f ${config.properties}.${config.properties.ext};
+          rm -f ${config.properties}.${config.properties.ext};
         #end if
         {% for k in files['input'] %}
-        rm -f ${{'{'}}{{ k }}}.${{'{'}}{{ k }}.ext};
+          rm -f ${{'{'}}{{ k }}}.${{'{'}}{{ k }}.ext};
         {% endfor %}
         {% for k in files['output'] %}
-        if test -f $__root_dir__/database/files/000/$outname_{{ k }}; then mv $__root_dir__/database/files/000/$outname_{{ k }} ${{ k }}; fi;
+          if test -f $__root_dir__/database/files/000/$outname_{{ k }}; then mv $__root_dir__/database/files/000/$outname_{{ k }} ${{ k }}; fi;
         {% endfor %}
+    ]]>
     </command>
     <inputs>
         {% for k, v in files['input'].items() %}
-        <param name="{{ k }}" type="data" format="{{ v['format']}}"  optional="{{v['optional']}}" label="{{ v['label'] }} file" help="{{ v['description']}}. Format: [input].{{ v['help_format']}}"/> 
+          <param name="{{ k }}" type="data" format="{{ v['format']}}"  optional="{{v['optional']}}" label="{{ v['label'] }} file" help="{{ v['description']}}. Format: [input].{{ v['help_format']}}"/> 
         {% endfor %}
         {% for k, v in files['output'].items() %}
-        <param 
-            name="outname_{{ k }}" type="text" value="my{{name}}.{{v['file_types'][0]}}" optional="{{v['optional']}}" label="{{v['label']}} name" help="{{v['description']}} Format: [output].{{v['help_format']}} "/>
+          <param name="outname_{{ k }}" type="text" value="my{{name}}.{{v['file_types'][0]}}" optional="{{v['optional']}}" label="{{v['label']}} name" help="{{v['description']}} Format: [output].{{v['help_format']}} "/>
         {% endfor %}
         {% if props -%}
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3" selected="true">use defaults (testing only)</option>
-                <option value="option4">Manual input</option>
+                <option value="option4"> Manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -60,28 +60,28 @@
             </when>
             <when value="option4">
                 {% for k, v in props.items() %}
-                {% if v['type'] == 'string' -%}
-                <param name="{{ k }}" type="text" value="{{ v['default']}}" label="{{ k }}" help="{{ v['description']}}" /> 
-                {%- elif v['type'] == 'float' or v['type'] == 'integer' -%}
-                <param name="{{ k }}" type="text" value="{{ v['default']}}" min="{{v['min']}}" max="{{v['max']}}" label="{{ k }}" help="{{ v['description']}}" /> 
-                {%- elif v['type'] == 'select' -%}
-                <param name="{{ k }}" type="select" label="{{ k }}" help="{{ v['description']}}">
-                {% for opt in v['values'] %}
-                    <option value="{{opt}}" 
-                    {% if opt == v['default'] -%}
+                  {% if v['type'] == 'string' -%}
+                    <param name="{{ k }}" type="text" value="{{ v['default']}}" label="{{ k }}" help="{{ v['description'] }}" /> 
+                  {%- elif v['type'] == 'float' or v['type'] == 'integer' -%}
+                    <param name="{{ k }}" type="text" value="{{ v['default']}}" min="{{ v['min'] }}" max="{{ v['max'] }}" label="{{ k }}" help="{{ v['description']}}" /> 
+                  {%- elif v['type'] == 'select' -%}
+                    <param name="{{ k }}" type="select" label="{{ k }}" help="{{ v['description'] }}">
+                    {% for opt in v['values'] %}
+                      <option value="{{ opt }}" 
+                      {% if opt == v['default'] -%}
                         selected="true"
-                    {%- endif %}
-                    >{{opt}}</option>
-                {%endfor%}
-                </param>
-                {%- elif v['type'] == 'boolean' -%}
-                <param name="{{ k }}" type="boolean" 
-                {% if v['default'] == True -%}
-                    checked="true"
-                {%- endif%}
-                label="{{ k }}" help="{{ v['description']}}" /> 
-                {%- endif %}
-            {% endfor %}
+                      {%- endif %}
+                      >{{ opt }}</option>
+                    {% endfor %}
+                    </param>
+                  {%- elif v['type'] == 'boolean' -%}
+                    <param name="{{ k }}" type="boolean" 
+                    {% if v['default'] == True -%}
+                      checked="true"
+                    {%- endif%}
+                    label="{{ k }}" help="{{ v['description'] }}" /> 
+                  {%- endif %}
+                {% endfor %}
             </when>
         </conditional>
        {%- endif %}

@@ -1,4 +1,4 @@
-""" Utility to generate Galaxy tool definitions (XML) from biobb json_schemas """
+""" Utility to generate Galaxy automated tool definitions (XML) from biobb json_schemas """
 
 import sys
 import json
@@ -12,7 +12,20 @@ TEMPL = "biobb_galaxy_template.xml"
 CONTAINERS = "biobb_galaxy_containers.json"
 
 def main():
-    
+    """ Usage: json2galaxy.py [-h] [--template TEMPLATE] [--containers CONTAINERS]
+                      [--id ID] [--display_name DISPLAY_NAME] [--create_dir]
+                      [--extended]
+                      schema
+        positional arguments:                                                                    
+            * schema (**str**)      Path to Json schema from building block                                  
+        optional arguments:
+            * --template (**str**)  Path to Template for XML galaxy adapter (xml) (default: biobb_galaxy_template.xml)
+            * --containers (**str**)Biobb Containers and versions (json) (default: biobb_galaxy_containers.json)
+            * --id (**str**)        tool id for Galaxy (default biobb_tool name)
+            * --display_name (**str**) Tool name to display in Galaxy (default tool_name)
+            * --create_dir (**bool**)  Create biobb group adapter directory (default False)
+            * --extended (**bool**)    Create detailed from for properties (default False)
+    """
     parser = argparse.ArgumentParser(description='Build galaxy adapters.')
     parser.add_argument("--template", default=TEMPL, help="Template for XML galaxy adapter")
     parser.add_argument("--containers", default=CONTAINERS, help="Biobb Containers and versions (json)")
@@ -20,10 +33,11 @@ def main():
     parser.add_argument("--display_name", help="Tool name to display in Galaxy")
     parser.add_argument("--create_dir", action="store_true", help="Create biobb directory")
     parser.add_argument("--extended", action="store_true", help="Create detailed properties form")
-    parser.add_argument(dest="schema", help="Json schema from guilding block")
+    parser.add_argument(dest="schema", help="Json schema from building block")
     
     args = parser.parse_args()
     
+    # Extracting data directory 
     if args.template == TEMPL:
         template_dir = os.path.dirname(__file__)
     else:
@@ -32,15 +46,8 @@ def main():
     if not template_dir:
         template_dir='.'
     
-    try:
-        with open(args.schema, "r") as schema_file:
-            schema_data = json.load(schema_file)
-    except IOError as err:
-        sys.exit(err)
+    # Parsing containers data    
     
-    if '$id' not in schema_data:
-        sys.exit(args.schema + " not parseable")
-        
     if args.containers == CONTAINERS:
         args.containers = template_dir + "/" + args.containers
         
@@ -50,8 +57,22 @@ def main():
     except IOError as err:
         sys.exit(err)
     
+    # Parsing json schema
+    
+    try:
+        with open(args.schema, "r") as schema_file:
+            schema_data = json.load(schema_file)
+    except IOError as err:
+        sys.exit(err)
+    
+    if '$id' not in schema_data:
+        sys.exit(args.schema + " not parseable")
+    
+    #Getting data components from schema
+    
     data = {'files':{'input':{}, 'output':{}}, 'props':{}}
     
+    # Extracting tool name and group from schema $id to generate defaults
     if args.display_name:
         data['name'] = args.display_name
     else:
@@ -79,39 +100,48 @@ def main():
     data['description'] = schema_data['title']
     
     for f in schema_data['properties']:
-        if f == 'properties':
-            continue
-        tool_data = {'name': f, 'file_types':[]}
-        for v in schema_data['properties'][f]['enum']:
-            m = re.search(r"\w+", v)
-            tool_data['file_types'].append(m.group(0))
+        if f != 'properties':
+            # Parsing input and output files
+            tool_data = {
+                'name': f, 
+                'file_types':[],
+                'description': schema_data['properties'][f]['description'],
+                'optional': f not in schema_data['required']
+                }
+            
+            for v in schema_data['properties'][f]['enum']:
+                m = re.search(r"\w+", v)
+                tool_data['file_types'].append(m.group(0))
         
-        tool_data['format'] = ','.join(tool_data['file_types'])
-        if len(tool_data['file_types']) > 1:
-            tool_data['help_format'] = '[format]'
-        else:
-            tool_data['help_format'] = tool_data['format']
-        tool_data['label'] = schema_data['properties'][f]['filetype'] + ' ' +  tool_data['format'].upper()
-        tool_data['description'] = schema_data['properties'][f]['description']
-        tool_data['optional'] = f not in schema_data['required']
-        data['files'][schema_data['properties'][f]['filetype']][f] = tool_data
-    
-    
-    if args.extended:
-        props_str=[]
-        for f in schema_data['properties']:
-            if f != 'properties':
-                continue
+            tool_data['format'] = ','.join(tool_data['file_types'])
+            
+            if len(tool_data['file_types']) > 1:
+                tool_data['help_format'] = '[format]'
+            else:
+                tool_data['help_format'] = tool_data['format']
+            
+            tool_data['label'] = schema_data['properties'][f]['filetype'] + ' ' +  tool_data['format'].upper()
+            
+            data['files'][schema_data['properties'][f]['filetype']][f] = tool_data
+        
+        elif args.extended:
+            # Parsing properties
+            # TODO include more structured information in json schema to avoid re
+
+            props_str=[]
             for k,v in schema_data['properties'][f]['properties'].items():
                 if re.match('container', k) or re.search('WF property', v['description']):
                     continue
                 m = re.search('(.*) Valid values: (.*)', v['description'])
                 if m:
-                    v['values'] = re.split(', *', m.group(2))
+                    v['values'] = re.split(', *', m.group(2).replace('.',''))
                     v['description'] = m.group(1)
                     v['type'] = 'select'
                 data['props'][k] = v
+                
+                # Generating "galaxified" Json string for config parameter
                 props_str.append("__dq__" +  k + "__dq__:__dq__${config." + k + "}__dq__")
+            
             data['config4str'] = "__oc__" + ",".join(props_str) + "__cc__"
 
     env = Environment(
