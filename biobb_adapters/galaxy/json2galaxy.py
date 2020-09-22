@@ -96,6 +96,7 @@ def main():
         tool_data['optional'] = f not in schema_data['required']
         data['files'][schema_data['properties'][f]['filetype']][f] = tool_data
     
+    
     if args.extended:
         props_str=[]
         for f in schema_data['properties']:
@@ -112,6 +113,7 @@ def main():
                 data['props'][k] = v
                 props_str.append("__dq__" +  k + "__dq__:__dq__${config." + k + "}__dq__")
             data['config4str'] = "__oc__" + ",".join(props_str) + "__cc__"
+
     env = Environment(
         loader=FileSystemLoader(template_dir),
         autoescape=select_autoescape(['xml'])

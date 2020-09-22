@@ -67,7 +67,7 @@
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3" selected="true">by default</option>
+                <option value="option3" selected="true">use defaults (testing only)</option>
                 <option value="option4">Manual input</option>
             </param>
             <when value="option1">
