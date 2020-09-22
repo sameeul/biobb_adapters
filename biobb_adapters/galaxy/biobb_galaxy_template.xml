@@ -1,4 +1,4 @@
-<tool id="{{tool_id}}" name="{{name}}" version="{{version}}" >
+<tool id="{{tool_id}}_ext" name="{{name}}" version="{{version}}" >
     <description>: {{description}}</description>
     <requirements>
         <requirement type="binary">docker</requirement>
@@ -45,6 +45,7 @@
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
                 <option value="option3" selected="true">by default</option>
+                <option value="option4">Manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -53,6 +54,31 @@
                 <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
             </when>
             <when value="option3">
+            </when>
+            <when value="option4">
+                {% for k, v in props.items() %}
+                {% if v['type'] == 'string' -%}
+                <param name="{{ k }}" type="text" value="{{ v['default']}}" label="{{ k }}" help="{{ v['description']}}" /> 
+                {%- elif v['type'] == 'float' or v['type'] == 'integer' -%}
+                <param name="{{ k }}" type="text" value="{{ v['default']}}" min="{{v['min']}}" max="{{v['max']}}" label="{{ k }}" help="{{ v['description']}}" /> 
+                {%- elif v['type'] == 'select' -%}
+                <param name="{{ k }}" type="select" label="{{ k }}" help="{{ v['description']}}">
+                {% for opt in v['values'] %}
+                    <option value="{{opt}}" 
+                    {% if opt == v['default'] -%}
+                        selected="true"
+                    {%- endif %}
+                    >{{opt}}</option>
+                {%endfor%}
+                </param>
+                {%- elif v['type'] == 'boolean' -%}
+                <param name="{{ k }}" type="boolean" 
+                {% if v['default'] == True -%}
+                    checked="true"
+                {%- endif%}
+                label="{{ k }}" help="{{ v['description']}}" /> 
+                {%- endif %}
+            {% endfor %}
             </when>
         </conditional>
     </inputs>
