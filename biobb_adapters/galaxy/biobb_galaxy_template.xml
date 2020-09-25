@@ -60,7 +60,7 @@
             </when>
             <when value="option4">
                 {% for k, v in props.items() %}
-                  {% if v['type'] == 'string' -%}
+                  {% if v['type'] == 'string' or v['type'] == 'list' -%}
                     <param name="{{ k }}" type="text" value="{{ v['default']}}" label="{{ k }}" help="{{ v['description'] }}" /> 
                   {%- elif v['type'] == 'float' or v['type'] == 'integer' -%}
                     <param name="{{ k }}" type="text" value="{{ v['default']}}" min="{{ v['min'] }}" max="{{ v['max'] }}" label="{{ k }}" help="{{ v['description']}}" /> 

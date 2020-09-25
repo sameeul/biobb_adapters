@@ -3,52 +3,52 @@
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
-    <command detect_errors="aggressive">
+    <command detect_errors="aggressive"><![CDATA[
         
-        ln -f -s ${input_structure1} ${input_structure1}.${input_structure1.ext};
+          ln -f -s ${input_structure1} ${input_structure1}.${input_structure1.ext};
         
-        ln -f -s ${input_structure2} ${input_structure2}.${input_structure2.ext};
+          ln -f -s ${input_structure2} ${input_structure2}.${input_structure2.ext};
         
         #if $config.sele == "option1":
-        ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
         docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_structure_utils:3.0.0--py_0 cat_pdb
         #if $config.sele == "option1":
-        --config ${config.properties}.${config.properties.ext}
+          --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-        --config ${config.jsonstr}
+          --config ${config.jsonstr}
         #else if $config.sele == "option4":
-        --config "__oc____cc__"
+          --config "__oc____cc__"
         #end if
         
-        --input_structure1 ${input_structure1}.${input_structure1.ext}
+          --input_structure1 ${input_structure1}.${input_structure1.ext}
         
-        --input_structure2 ${input_structure2}.${input_structure2.ext}
+          --input_structure2 ${input_structure2}.${input_structure2.ext}
         
         
-        --output_structure_path $__root_dir__/database/files/000/$outname_output_structure_path
+          --output_structure_path $__root_dir__/database/files/000/$outname_output_structure_path
         ;          
         #if $config.sele == "option1":
-        rm -f ${config.properties}.${config.properties.ext};
+          rm -f ${config.properties}.${config.properties.ext};
         #end if
         
-        rm -f ${input_structure1}.${input_structure1.ext};
+          rm -f ${input_structure1}.${input_structure1.ext};
         
-        rm -f ${input_structure2}.${input_structure2.ext};
+          rm -f ${input_structure2}.${input_structure2.ext};
         
         
-        if test -f $__root_dir__/database/files/000/$outname_output_structure_path; then mv $__root_dir__/database/files/000/$outname_output_structure_path $output_structure_path; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_structure_path; then mv $__root_dir__/database/files/000/$outname_output_structure_path $output_structure_path; fi;
         
+    ]]>
     </command>
     <inputs>
         
-        <param name="input_structure1" type="data" format="pdb"  optional="False" label="input PDB file" help="Input structure 1 file path. Format: [input].pdb"/> 
+          <param name="input_structure1" type="data" format="pdb"  optional="False" label="input PDB file" help="Input structure 1 file path. Format: [input].pdb"/> 
         
-        <param name="input_structure2" type="data" format="pdb"  optional="False" label="input PDB file" help="Input structure 2 file path. Format: [input].pdb"/> 
+          <param name="input_structure2" type="data" format="pdb"  optional="False" label="input PDB file" help="Input structure 2 file path. Format: [input].pdb"/> 
         
         
-        <param 
-            name="outname_output_structure_path" type="text" value="mycat_pdb.pdb" optional="False" label="output PDB name" help="Output protein file path Format: [output].pdb "/>
+          <param name="outname_output_structure_path" type="text" value="mycat_pdb.pdb" optional="False" label="output PDB name" help="Output protein file path Format: [output].pdb "/>
         
         
     </inputs>

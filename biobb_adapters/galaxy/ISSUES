@@ -1,0 +1,49 @@
+biobb_io
+
+pdb
+-filter Array of PDB labels. Convert in a set of checkboxes.
+-URL  select
+ 
+pdb_variants
+-url incorrect defaults (docstring updated) Thes parameters in not necessary
+
+pdb_cluster_zip 
+-filter Array of PDB labels. Convert in a set of checkboxes.
+-cluster: Select 
+-url check urls used 
+
+-only zip output remove pdb?
+
+pdb_ligand
+
+=================================================
+biobb_structure_utils
+
+New Function? Split PDB combining extract_het and extract_protein
+
+New Function? Check All 
+
+extract_heteroatoms
+
+extract_protein 
+-check_structure_path necessary?
+
+extract_model
+extract_chain
+-"list" type not recognized (Fixed)
+
+extract_atoms
+output format pdb,gro not recognized
+
+cat_pdb
+
+remove_ligand
+
+
+
+
+
+
+
+
+
