@@ -3,51 +3,51 @@
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
-    <command detect_errors="aggressive">
+    <command detect_errors="aggressive"><![CDATA[
         
-        ln -f -s ${input_model_path} ${input_model_path}.${input_model_path.ext};
+          ln -f -s ${input_model_path} ${input_model_path}.${input_model_path.ext};
         
         #if $config.sele == "option1":
-        ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
         docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_ml:3.0.1--py_0 regression_predict
         #if $config.sele == "option1":
-        --config ${config.properties}.${config.properties.ext}
+          --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-        --config ${config.jsonstr}
+          --config ${config.jsonstr}
         #else if $config.sele == "option4":
-        --config "__oc____dq__predictions__dq__:__dq__${config.predictions}__dq____cc__"
+          --config "__oc____dq__predictions__dq__:__dq__${config.predictions}__dq____cc__"
         #end if
         
-        --input_model_path ${input_model_path}.${input_model_path.ext}
+          --input_model_path ${input_model_path}.${input_model_path.ext}
         
         
-        --output_results_path $__root_dir__/database/files/000/$outname_output_results_path
+          --output_results_path $__root_dir__/database/files/000/$outname_output_results_path
         ;          
         #if $config.sele == "option1":
-        rm -f ${config.properties}.${config.properties.ext};
+          rm -f ${config.properties}.${config.properties.ext};
         #end if
         
-        rm -f ${input_model_path}.${input_model_path.ext};
+          rm -f ${input_model_path}.${input_model_path.ext};
         
         
-        if test -f $__root_dir__/database/files/000/$outname_output_results_path; then mv $__root_dir__/database/files/000/$outname_output_results_path $output_results_path; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_results_path; then mv $__root_dir__/database/files/000/$outname_output_results_path $output_results_path; fi;
         
+    ]]>
     </command>
     <inputs>
         
-        <param name="input_model_path" type="data" format="pkl"  optional="False" label="input PKL file" help="Path to the input model. Format: [input].pkl"/> 
+          <param name="input_model_path" type="data" format="pkl"  optional="False" label="input PKL file" help="Path to the input model. Format: [input].pkl"/> 
         
         
-        <param 
-            name="outname_output_results_path" type="text" value="myregression_predict.csv" optional="False" label="output CSV name" help="Path to the output results file Format: [output].csv "/>
+          <param name="outname_output_results_path" type="text" value="myregression_predict.csv" optional="False" label="output CSV name" help="Path to the output results file Format: [output].csv "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3" selected="true">use defaults (testing only)</option>
-                <option value="option4">Manual input</option>
+                <option value="option4"> Manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -59,8 +59,8 @@
             </when>
             <when value="option4">
                 
+                  <param name="predictions" type="text" value="None" label="predictions" help="List of dictionaries with all values you want to predict targets." />
                 
-            
             </when>
         </conditional>
     </inputs>

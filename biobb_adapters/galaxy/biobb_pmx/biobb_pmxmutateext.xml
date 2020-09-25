@@ -3,59 +3,59 @@
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
-    <command detect_errors="aggressive">
+    <command detect_errors="aggressive"><![CDATA[
         
-        ln -f -s ${input_structure_path} ${input_structure_path}.${input_structure_path.ext};
+          ln -f -s ${input_structure_path} ${input_structure_path}.${input_structure_path.ext};
         
-        ln -f -s ${input_b_structure_path} ${input_b_structure_path}.${input_b_structure_path.ext};
+          ln -f -s ${input_b_structure_path} ${input_b_structure_path}.${input_b_structure_path.ext};
         
         #if $config.sele == "option1":
-        ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
         docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_pmx:3.0.1--py_0 pmxmutate
         #if $config.sele == "option1":
-        --config ${config.properties}.${config.properties.ext}
+          --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-        --config ${config.jsonstr}
+          --config ${config.jsonstr}
         #else if $config.sele == "option4":
-        --config "__oc____dq__mutation_list__dq__:__dq__${config.mutation_list}__dq__,__dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__resinfo__dq__:__dq__${config.resinfo}__dq__,__dq__dna__dq__:__dq__${config.dna}__dq__,__dq__rna__dq__:__dq__${config.rna}__dq__,__dq__pmx_cli_path__dq__:__dq__${config.pmx_cli_path}__dq____cc__"
+          --config "__oc____dq__mutation_list__dq__:__dq__${config.mutation_list}__dq__,__dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__resinfo__dq__:__dq__${config.resinfo}__dq__,__dq__dna__dq__:__dq__${config.dna}__dq__,__dq__rna__dq__:__dq__${config.rna}__dq__,__dq__pmx_cli_path__dq__:__dq__${config.pmx_cli_path}__dq____cc__"
         #end if
         
-        --input_structure_path ${input_structure_path}.${input_structure_path.ext}
+          --input_structure_path ${input_structure_path}.${input_structure_path.ext}
         
-        --input_b_structure_path ${input_b_structure_path}.${input_b_structure_path.ext}
+          --input_b_structure_path ${input_b_structure_path}.${input_b_structure_path.ext}
         
         
-        --output_structure_path $__root_dir__/database/files/000/$outname_output_structure_path
+          --output_structure_path $__root_dir__/database/files/000/$outname_output_structure_path
         ;          
         #if $config.sele == "option1":
-        rm -f ${config.properties}.${config.properties.ext};
+          rm -f ${config.properties}.${config.properties.ext};
         #end if
         
-        rm -f ${input_structure_path}.${input_structure_path.ext};
+          rm -f ${input_structure_path}.${input_structure_path.ext};
         
-        rm -f ${input_b_structure_path}.${input_b_structure_path.ext};
+          rm -f ${input_b_structure_path}.${input_b_structure_path.ext};
         
         
-        if test -f $__root_dir__/database/files/000/$outname_output_structure_path; then mv $__root_dir__/database/files/000/$outname_output_structure_path $output_structure_path; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_structure_path; then mv $__root_dir__/database/files/000/$outname_output_structure_path $output_structure_path; fi;
         
+    ]]>
     </command>
     <inputs>
         
-        <param name="input_structure_path" type="data" format="pdb,gro"  optional="False" label="input PDB,GRO file" help="Path to the input structure file. Format: [input].[format]"/> 
+          <param name="input_structure_path" type="data" format="pdb,gro"  optional="False" label="input PDB,GRO file" help="Path to the input structure file. Format: [input].[format]"/> 
         
-        <param name="input_b_structure_path" type="data" format="pdb,gro"  optional="True" label="input PDB,GRO file" help="Path to the mutated input structure file. Format: [input].[format]"/> 
+          <param name="input_b_structure_path" type="data" format="pdb,gro"  optional="True" label="input PDB,GRO file" help="Path to the mutated input structure file. Format: [input].[format]"/> 
         
         
-        <param 
-            name="outname_output_structure_path" type="text" value="mypmxmutate.pdb" optional="False" label="output PDB,GRO name" help="Path to the output structure file Format: [output].[format] "/>
+          <param name="outname_output_structure_path" type="text" value="mypmxmutate.pdb" optional="False" label="output PDB,GRO name" help="Path to the output structure file Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3" selected="true">use defaults (testing only)</option>
-                <option value="option4">Manual input</option>
+                <option value="option4"> Manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -67,24 +67,24 @@
             </when>
             <when value="option4">
                 
-                <param name="mutation_list" type="text" value="Val2Ala" label="mutation_list" help="separated by commas. If no chain is provided as chain code all the chains in the pdb file will be mutated. ie: &#34;A:ALA15CYS&#34;" />
-            
-                <param name="force_field" type="text" value="amber99sb-star-ildn-mut" label="force_field" help="Forcefield." />
-            
-                <param name="resinfo" type="boolean" 
+                  <param name="mutation_list" type="text" value="Val2Ala" label="mutation_list" help="separated by commas. If no chain is provided as chain code all the chains in the pdb file will be mutated. ie: &#34;A:ALA15CYS&#34;" />
                 
-                label="resinfo" help="Print a 3 to 1 letter residue list." />
-            
-                <param name="dna" type="boolean" 
+                  <param name="force_field" type="text" value="amber99sb-star-ildn-mut" label="force_field" help="Forcefield." />
                 
-                label="dna" help="Generate hybrid residue for the DNA nucleotides." />
-            
-                <param name="rna" type="boolean" 
+                  <param name="resinfo" type="boolean" 
+                    
+                    label="resinfo" help="Print a 3 to 1 letter residue list." />
                 
-                label="rna" help="Generate hybrid residue for the RNA nucleotides." />
-            
-                <param name="pmx_cli_path" type="text" value="cli.py" label="pmx_cli_path" help="Path to the PMX Python2.7 client." />
-            
+                  <param name="dna" type="boolean" 
+                    
+                    label="dna" help="Generate hybrid residue for the DNA nucleotides." />
+                
+                  <param name="rna" type="boolean" 
+                    
+                    label="rna" help="Generate hybrid residue for the RNA nucleotides." />
+                
+                  <param name="pmx_cli_path" type="text" value="cli.py" label="pmx_cli_path" help="Path to the PMX Python2.7 client." />
+                
             </when>
         </conditional>
     </inputs>

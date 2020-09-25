@@ -3,65 +3,63 @@
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
-    <command detect_errors="aggressive">
+    <command detect_errors="aggressive"><![CDATA[
         
-        ln -f -s ${input_dataset_path} ${input_dataset_path}.${input_dataset_path.ext};
+          ln -f -s ${input_dataset_path} ${input_dataset_path}.${input_dataset_path.ext};
         
         #if $config.sele == "option1":
-        ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
         docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_ml:3.0.1--py_0 support_vector_machine
         #if $config.sele == "option1":
-        --config ${config.properties}.${config.properties.ext}
+          --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-        --config ${config.jsonstr}
+          --config ${config.jsonstr}
         #else if $config.sele == "option4":
-        --config "__oc____dq__independent_vars__dq__:__dq__${config.independent_vars}__dq__,__dq__target__dq__:__dq__${config.target}__dq__,__dq__kernel__dq__:__dq__${config.kernel}__dq__,__dq__normalize_cm__dq__:__dq__${config.normalize_cm}__dq__,__dq__test_size__dq__:__dq__${config.test_size}__dq____cc__"
+          --config "__oc____dq__independent_vars__dq__:__dq__${config.independent_vars}__dq__,__dq__target__dq__:__dq__${config.target}__dq__,__dq__kernel__dq__:__dq__${config.kernel}__dq__,__dq__normalize_cm__dq__:__dq__${config.normalize_cm}__dq__,__dq__test_size__dq__:__dq__${config.test_size}__dq____cc__"
         #end if
         
-        --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
+          --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
         
         
-        --output_model_path $__root_dir__/database/files/000/$outname_output_model_path
+          --output_model_path $__root_dir__/database/files/000/$outname_output_model_path
         
-        --output_test_table_path $__root_dir__/database/files/000/$outname_output_test_table_path
+          --output_test_table_path $__root_dir__/database/files/000/$outname_output_test_table_path
         
-        --output_plot_path $__root_dir__/database/files/000/$outname_output_plot_path
+          --output_plot_path $__root_dir__/database/files/000/$outname_output_plot_path
         ;          
         #if $config.sele == "option1":
-        rm -f ${config.properties}.${config.properties.ext};
+          rm -f ${config.properties}.${config.properties.ext};
         #end if
         
-        rm -f ${input_dataset_path}.${input_dataset_path.ext};
+          rm -f ${input_dataset_path}.${input_dataset_path.ext};
         
         
-        if test -f $__root_dir__/database/files/000/$outname_output_model_path; then mv $__root_dir__/database/files/000/$outname_output_model_path $output_model_path; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_model_path; then mv $__root_dir__/database/files/000/$outname_output_model_path $output_model_path; fi;
         
-        if test -f $__root_dir__/database/files/000/$outname_output_test_table_path; then mv $__root_dir__/database/files/000/$outname_output_test_table_path $output_test_table_path; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_test_table_path; then mv $__root_dir__/database/files/000/$outname_output_test_table_path $output_test_table_path; fi;
         
-        if test -f $__root_dir__/database/files/000/$outname_output_plot_path; then mv $__root_dir__/database/files/000/$outname_output_plot_path $output_plot_path; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_plot_path; then mv $__root_dir__/database/files/000/$outname_output_plot_path $output_plot_path; fi;
         
+    ]]>
     </command>
     <inputs>
         
-        <param name="input_dataset_path" type="data" format="csv"  optional="False" label="input CSV file" help="Path to the input dataset. Format: [input].csv"/> 
+          <param name="input_dataset_path" type="data" format="csv"  optional="False" label="input CSV file" help="Path to the input dataset. Format: [input].csv"/> 
         
         
-        <param 
-            name="outname_output_model_path" type="text" value="mysupport_vector_machine.pkl" optional="False" label="output PKL name" help="Path to the output model file Format: [output].pkl "/>
+          <param name="outname_output_model_path" type="text" value="mysupport_vector_machine.pkl" optional="False" label="output PKL name" help="Path to the output model file Format: [output].pkl "/>
         
-        <param 
-            name="outname_output_test_table_path" type="text" value="mysupport_vector_machine.csv" optional="True" label="output CSV name" help="Path to the test table file Format: [output].csv "/>
+          <param name="outname_output_test_table_path" type="text" value="mysupport_vector_machine.csv" optional="True" label="output CSV name" help="Path to the test table file Format: [output].csv "/>
         
-        <param 
-            name="outname_output_plot_path" type="text" value="mysupport_vector_machine.png" optional="True" label="output PNG name" help="Path to the statistics plot Format: [output].png "/>
+          <param name="outname_output_plot_path" type="text" value="mysupport_vector_machine.png" optional="True" label="output PNG name" help="Path to the statistics plot Format: [output].png "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3" selected="true">use defaults (testing only)</option>
-                <option value="option4">Manual input</option>
+                <option value="option4"> Manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -73,18 +71,40 @@
             </when>
             <when value="option4">
                 
+                  <param name="independent_vars" type="text" value="None" label="independent_vars" help="Independent variables or columns from your dataset you want to train." />
                 
-            
-                <param name="target" type="text" value="None" label="target" help="Dependent variable or column from your dataset you want to predict." />
-            
-                <param name="kernel" type="text" value="rbf" label="kernel" help="Specifies the kernel type to be used in the algorithm." />
-            
-                <param name="normalize_cm" type="boolean" 
+                  <param name="target" type="text" value="None" label="target" help="Dependent variable or column from your dataset you want to predict." />
                 
-                label="normalize_cm" help="Whether or not to normalize the confusion matrix." />
-            
-                <param name="test_size" type="text" value="0.2" min="" max="" label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." />
-            
+                  <param name="kernel" type="select" label="kernel" help="Specifies the kernel type to be used in the algorithm.">
+                    
+                      <option value="linear" 
+                      
+                      >linear</option>
+                    
+                      <option value="poly" 
+                      
+                      >poly</option>
+                    
+                      <option value="rbf" 
+                      selected="true"
+                      >rbf</option>
+                    
+                      <option value="sigmoid" 
+                      
+                      >sigmoid</option>
+                    
+                      <option value="precomputed" 
+                      
+                      >precomputed</option>
+                    
+                    </param>
+                
+                  <param name="normalize_cm" type="boolean" 
+                    
+                    label="normalize_cm" help="Whether or not to normalize the confusion matrix." />
+                
+                  <param name="test_size" type="text" value="0.2" min="" max="" label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." />
+                
             </when>
         </conditional>
     </inputs>

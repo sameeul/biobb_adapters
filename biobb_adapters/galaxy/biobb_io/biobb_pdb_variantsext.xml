@@ -3,43 +3,43 @@
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
-    <command detect_errors="aggressive">
+    <command detect_errors="aggressive"><![CDATA[
         
         #if $config.sele == "option1":
-        ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
         docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_io:3.0.0--py_0 pdb_variants
         #if $config.sele == "option1":
-        --config ${config.properties}.${config.properties.ext}
+          --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-        --config ${config.jsonstr}
+          --config ${config.jsonstr}
         #else if $config.sele == "option4":
-        --config "__oc____dq__pdb_code__dq__:__dq__${config.pdb_code}__dq__,__dq__url__dq__:__dq__${config.url}__dq____cc__"
+          --config "__oc____dq__pdb_code__dq__:__dq__${config.pdb_code}__dq__,__dq__url__dq__:__dq__${config.url}__dq____cc__"
         #end if
         
         
-        --output_mutations_list_txt $__root_dir__/database/files/000/$outname_output_mutations_list_txt
+          --output_mutations_list_txt $__root_dir__/database/files/000/$outname_output_mutations_list_txt
         ;          
         #if $config.sele == "option1":
-        rm -f ${config.properties}.${config.properties.ext};
+          rm -f ${config.properties}.${config.properties.ext};
         #end if
         
         
-        if test -f $__root_dir__/database/files/000/$outname_output_mutations_list_txt; then mv $__root_dir__/database/files/000/$outname_output_mutations_list_txt $output_mutations_list_txt; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_mutations_list_txt; then mv $__root_dir__/database/files/000/$outname_output_mutations_list_txt $output_mutations_list_txt; fi;
         
+    ]]>
     </command>
     <inputs>
         
         
-        <param 
-            name="outname_output_mutations_list_txt" type="text" value="mypdb_variants.txt" optional="False" label="output TXT name" help="Path to the TXT file containing an ASCII comma separated values of the mutations Format: [output].txt "/>
+          <param name="outname_output_mutations_list_txt" type="text" value="mypdb_variants.txt" optional="False" label="output TXT name" help="Path to the TXT file containing an ASCII comma separated values of the mutations Format: [output].txt "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3" selected="true">use defaults (testing only)</option>
-                <option value="option4">Manual input</option>
+                <option value="option4"> Manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -51,10 +51,10 @@
             </when>
             <when value="option4">
                 
-                <param name="pdb_code" type="text" value="2vgb" label="pdb_code" help="RSCB PDB four letter code. ie: &#34;2ki5&#34;." />
-            
-                <param name="url" type="text" value="https://files.rcsb.org/download/" label="url" help="URL of the PDB REST API. Another option for this parameter is the MMB PDB mirror API (&#34;http://mmb.irbbarcelona.org/api/pdb/&#34;)." />
-            
+                  <param name="pdb_code" type="text" value="2vgb" label="pdb_code" help="RSCB PDB four letter code. ie: &#34;2ki5&#34;." />
+                
+                  <param name="url" type="text" value="https://files.rcsb.org/download/" label="url" help="URL of the PDB REST API. Another option for this parameter is the MMB PDB mirror API (&#34;http://mmb.irbbarcelona.org/api/pdb/&#34;)." />
+                
             </when>
         </conditional>
     </inputs>

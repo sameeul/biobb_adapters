@@ -3,59 +3,59 @@
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
-    <command detect_errors="aggressive">
+    <command detect_errors="aggressive"><![CDATA[
         
-        ln -f -s ${input_pdb_path} ${input_pdb_path}.${input_pdb_path.ext};
+          ln -f -s ${input_pdb_path} ${input_pdb_path}.${input_pdb_path.ext};
         
-        ln -f -s ${input_clusters_zip} ${input_clusters_zip}.${input_clusters_zip.ext};
+          ln -f -s ${input_clusters_zip} ${input_clusters_zip}.${input_clusters_zip.ext};
         
         #if $config.sele == "option1":
-        ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
         docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_vs:3.0.0--py_0 bindingsite
         #if $config.sele == "option1":
-        --config ${config.properties}.${config.properties.ext}
+          --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-        --config ${config.jsonstr}
+          --config ${config.jsonstr}
         #else if $config.sele == "option4":
-        --config "__oc____dq__ligand__dq__:__dq__${config.ligand}__dq__,__dq__radius__dq__:__dq__${config.radius}__dq__,__dq__max_num_ligands__dq__:__dq__${config.max_num_ligands}__dq__,__dq__matrix_name__dq__:__dq__${config.matrix_name}__dq__,__dq__gap_open__dq__:__dq__${config.gap_open}__dq__,__dq__gap_extend__dq__:__dq__${config.gap_extend}__dq____cc__"
+          --config "__oc____dq__ligand__dq__:__dq__${config.ligand}__dq__,__dq__radius__dq__:__dq__${config.radius}__dq__,__dq__max_num_ligands__dq__:__dq__${config.max_num_ligands}__dq__,__dq__matrix_name__dq__:__dq__${config.matrix_name}__dq__,__dq__gap_open__dq__:__dq__${config.gap_open}__dq__,__dq__gap_extend__dq__:__dq__${config.gap_extend}__dq____cc__"
         #end if
         
-        --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
+          --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
         
-        --input_clusters_zip ${input_clusters_zip}.${input_clusters_zip.ext}
+          --input_clusters_zip ${input_clusters_zip}.${input_clusters_zip.ext}
         
         
-        --output_pdb_path $__root_dir__/database/files/000/$outname_output_pdb_path
+          --output_pdb_path $__root_dir__/database/files/000/$outname_output_pdb_path
         ;          
         #if $config.sele == "option1":
-        rm -f ${config.properties}.${config.properties.ext};
+          rm -f ${config.properties}.${config.properties.ext};
         #end if
         
-        rm -f ${input_pdb_path}.${input_pdb_path.ext};
+          rm -f ${input_pdb_path}.${input_pdb_path.ext};
         
-        rm -f ${input_clusters_zip}.${input_clusters_zip.ext};
+          rm -f ${input_clusters_zip}.${input_clusters_zip.ext};
         
         
-        if test -f $__root_dir__/database/files/000/$outname_output_pdb_path; then mv $__root_dir__/database/files/000/$outname_output_pdb_path $output_pdb_path; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_pdb_path; then mv $__root_dir__/database/files/000/$outname_output_pdb_path $output_pdb_path; fi;
         
+    ]]>
     </command>
     <inputs>
         
-        <param name="input_pdb_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Path to the PDB structure where the binding site is to be found. Format: [input].pdb"/> 
+          <param name="input_pdb_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Path to the PDB structure where the binding site is to be found. Format: [input].pdb"/> 
         
-        <param name="input_clusters_zip" type="data" format="zip"  optional="False" label="input ZIP file" help="Path to the ZIP file with all the PDB members of the identity cluster. Format: [input].zip"/> 
+          <param name="input_clusters_zip" type="data" format="zip"  optional="False" label="input ZIP file" help="Path to the ZIP file with all the PDB members of the identity cluster. Format: [input].zip"/> 
         
         
-        <param 
-            name="outname_output_pdb_path" type="text" value="mybindingsite.pdb" optional="False" label="output PDB name" help="Path to the PDB containig the residues belonging to the binding site Format: [output].pdb "/>
+          <param name="outname_output_pdb_path" type="text" value="mybindingsite.pdb" optional="False" label="output PDB name" help="Path to the PDB containig the residues belonging to the binding site Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3" selected="true">use defaults (testing only)</option>
-                <option value="option4">Manual input</option>
+                <option value="option4"> Manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -67,18 +67,180 @@
             </when>
             <when value="option4">
                 
-                <param name="ligand" type="text" value="None" label="ligand" help="Ligand to be found in the protein structure. If no ligand provided, no action will be executed." />
-            
-                <param name="radius" type="text" value="5.0" min="" max="" label="radius" help="around ligand atoms to consider a protein atom as a binding site atom." />
-            
+                  <param name="ligand" type="text" value="None" label="ligand" help="Ligand to be found in the protein structure. If no ligand provided, no action will be executed." />
                 
-            
-                <param name="matrix_name" type="text" value="&#39;blosum62&#39;" label="matrix_name" help="Substitution matrices for use in alignments." />
-            
-                <param name="gap_open" type="text" value="-10.0" min="" max="" label="gap_open" help="Gap open penalty." />
-            
-                <param name="gap_extend" type="text" value="-0.5" min="" max="" label="gap_extend" help="Gap extend penalty." />
-            
+                  <param name="radius" type="text" value="5.0" min="" max="" label="radius" help="around ligand atoms to consider a protein atom as a binding site atom." />
+                
+                  
+                
+                  <param name="matrix_name" type="select" label="matrix_name" help="Substitution matrices for use in alignments.">
+                    
+                      <option value="&#39;benner6&#39;" 
+                      
+                      >&#39;benner6&#39;</option>
+                    
+                      <option value="&#39;benner22&#39;" 
+                      
+                      >&#39;benner22&#39;</option>
+                    
+                      <option value="&#39;benner74&#39;" 
+                      
+                      >&#39;benner74&#39;</option>
+                    
+                      <option value="&#39;blosum100&#39;" 
+                      
+                      >&#39;blosum100&#39;</option>
+                    
+                      <option value="&#39;blosum30&#39;" 
+                      
+                      >&#39;blosum30&#39;</option>
+                    
+                      <option value="&#39;blosum35&#39;" 
+                      
+                      >&#39;blosum35&#39;</option>
+                    
+                      <option value="&#39;blosum40&#39;" 
+                      
+                      >&#39;blosum40&#39;</option>
+                    
+                      <option value="&#39;blosum45&#39;" 
+                      
+                      >&#39;blosum45&#39;</option>
+                    
+                      <option value="&#39;blosum50&#39;" 
+                      
+                      >&#39;blosum50&#39;</option>
+                    
+                      <option value="&#39;blosum55&#39;" 
+                      
+                      >&#39;blosum55&#39;</option>
+                    
+                      <option value="&#39;blosum60&#39;" 
+                      
+                      >&#39;blosum60&#39;</option>
+                    
+                      <option value="&#39;blosum62&#39;" 
+                      selected="true"
+                      >&#39;blosum62&#39;</option>
+                    
+                      <option value="&#39;blosum65&#39;" 
+                      
+                      >&#39;blosum65&#39;</option>
+                    
+                      <option value="&#39;blosum70&#39;" 
+                      
+                      >&#39;blosum70&#39;</option>
+                    
+                      <option value="&#39;blosum75&#39;" 
+                      
+                      >&#39;blosum75&#39;</option>
+                    
+                      <option value="&#39;blosum80&#39;" 
+                      
+                      >&#39;blosum80&#39;</option>
+                    
+                      <option value="&#39;blosum85&#39;" 
+                      
+                      >&#39;blosum85&#39;</option>
+                    
+                      <option value="&#39;blosum90&#39;" 
+                      
+                      >&#39;blosum90&#39;</option>
+                    
+                      <option value="&#39;blosum95&#39;" 
+                      
+                      >&#39;blosum95&#39;</option>
+                    
+                      <option value="&#39;feng&#39;" 
+                      
+                      >&#39;feng&#39;</option>
+                    
+                      <option value="&#39;fitch&#39;" 
+                      
+                      >&#39;fitch&#39;</option>
+                    
+                      <option value="&#39;genetic&#39;" 
+                      
+                      >&#39;genetic&#39;</option>
+                    
+                      <option value="&#39;gonnet&#39;" 
+                      
+                      >&#39;gonnet&#39;</option>
+                    
+                      <option value="&#39;grant&#39;" 
+                      
+                      >&#39;grant&#39;</option>
+                    
+                      <option value="&#39;ident&#39;" 
+                      
+                      >&#39;ident&#39;</option>
+                    
+                      <option value="&#39;johnson&#39;" 
+                      
+                      >&#39;johnson&#39;</option>
+                    
+                      <option value="&#39;levin&#39;" 
+                      
+                      >&#39;levin&#39;</option>
+                    
+                      <option value="&#39;mclach&#39;" 
+                      
+                      >&#39;mclach&#39;</option>
+                    
+                      <option value="&#39;miyata&#39;" 
+                      
+                      >&#39;miyata&#39;</option>
+                    
+                      <option value="&#39;nwsgappep&#39;" 
+                      
+                      >&#39;nwsgappep&#39;</option>
+                    
+                      <option value="&#39;pam120&#39;" 
+                      
+                      >&#39;pam120&#39;</option>
+                    
+                      <option value="&#39;pam180&#39;" 
+                      
+                      >&#39;pam180&#39;</option>
+                    
+                      <option value="&#39;pam250&#39;" 
+                      
+                      >&#39;pam250&#39;</option>
+                    
+                      <option value="&#39;pam30&#39;" 
+                      
+                      >&#39;pam30&#39;</option>
+                    
+                      <option value="&#39;pam300&#39;" 
+                      
+                      >&#39;pam300&#39;</option>
+                    
+                      <option value="&#39;pam60&#39;" 
+                      
+                      >&#39;pam60&#39;</option>
+                    
+                      <option value="&#39;pam90&#39;" 
+                      
+                      >&#39;pam90&#39;</option>
+                    
+                      <option value="&#39;rao&#39;" 
+                      
+                      >&#39;rao&#39;</option>
+                    
+                      <option value="&#39;risler&#39;" 
+                      
+                      >&#39;risler&#39;</option>
+                    
+                      <option value="&#39;structure&#39;" 
+                      
+                      >&#39;structure&#39;</option>
+                    
+                    </param>
+                
+                  <param name="gap_open" type="text" value="-10.0" min="" max="" label="gap_open" help="Gap open penalty." />
+                
+                  <param name="gap_extend" type="text" value="-0.5" min="" max="" label="gap_extend" help="Gap extend penalty." />
+                
             </when>
         </conditional>
     </inputs>

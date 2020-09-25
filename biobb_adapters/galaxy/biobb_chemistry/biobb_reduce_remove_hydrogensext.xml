@@ -3,51 +3,51 @@
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
-    <command detect_errors="aggressive">
+    <command detect_errors="aggressive"><![CDATA[
         
-        ln -f -s ${input_path} ${input_path}.${input_path.ext};
+          ln -f -s ${input_path} ${input_path}.${input_path.ext};
         
         #if $config.sele == "option1":
-        ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
         docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_chemistry:3.0.0--py_0 reduce_remove_hydrogens
         #if $config.sele == "option1":
-        --config ${config.properties}.${config.properties.ext}
+          --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-        --config ${config.jsonstr}
+          --config ${config.jsonstr}
         #else if $config.sele == "option4":
-        --config "__oc____dq__reduce_path__dq__:__dq__${config.reduce_path}__dq____cc__"
+          --config "__oc____dq__reduce_path__dq__:__dq__${config.reduce_path}__dq____cc__"
         #end if
         
-        --input_path ${input_path}.${input_path.ext}
+          --input_path ${input_path}.${input_path.ext}
         
         
-        --output_path $__root_dir__/database/files/000/$outname_output_path
+          --output_path $__root_dir__/database/files/000/$outname_output_path
         ;          
         #if $config.sele == "option1":
-        rm -f ${config.properties}.${config.properties.ext};
+          rm -f ${config.properties}.${config.properties.ext};
         #end if
         
-        rm -f ${input_path}.${input_path.ext};
+          rm -f ${input_path}.${input_path.ext};
         
         
-        if test -f $__root_dir__/database/files/000/$outname_output_path; then mv $__root_dir__/database/files/000/$outname_output_path $output_path; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_path; then mv $__root_dir__/database/files/000/$outname_output_path $output_path; fi;
         
+    ]]>
     </command>
     <inputs>
         
-        <param name="input_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Path to the input file. Format: [input].pdb"/> 
+          <param name="input_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Path to the input file. Format: [input].pdb"/> 
         
         
-        <param 
-            name="outname_output_path" type="text" value="myreduce_remove_hydrogens.pdb" optional="False" label="output PDB name" help="Path to the output file Format: [output].pdb "/>
+          <param name="outname_output_path" type="text" value="myreduce_remove_hydrogens.pdb" optional="False" label="output PDB name" help="Path to the output file Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3" selected="true">use defaults (testing only)</option>
-                <option value="option4">Manual input</option>
+                <option value="option4"> Manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -59,8 +59,8 @@
             </when>
             <when value="option4">
                 
-                <param name="reduce_path" type="text" value="reduce" label="reduce_path" help="Path to the reduce executable binary." />
-            
+                  <param name="reduce_path" type="text" value="reduce" label="reduce_path" help="Path to the reduce executable binary." />
+                
             </when>
         </conditional>
     </inputs>

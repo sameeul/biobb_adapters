@@ -137,7 +137,7 @@ def main():
                     v['values'] = re.split(', *', m.group(2).replace('.',''))
                     v['description'] = m.group(1)
                     v['type'] = 'select'
-                if v['enum']:
+                if 'enum' in v:
                     v['values'] = v['enum']
                     v['type'] = 'select'
                 data['props'][k] = v

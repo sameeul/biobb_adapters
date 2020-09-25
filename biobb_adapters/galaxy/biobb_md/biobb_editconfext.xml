@@ -3,51 +3,51 @@
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
-    <command detect_errors="aggressive">
+    <command detect_errors="aggressive"><![CDATA[
         
-        ln -f -s ${input_gro_path} ${input_gro_path}.${input_gro_path.ext};
+          ln -f -s ${input_gro_path} ${input_gro_path}.${input_gro_path.ext};
         
         #if $config.sele == "option1":
-        ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
         docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_md:3.0.0--py_0 editconf
         #if $config.sele == "option1":
-        --config ${config.properties}.${config.properties.ext}
+          --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-        --config ${config.jsonstr}
+          --config ${config.jsonstr}
         #else if $config.sele == "option4":
-        --config "__oc____dq__distance_to_molecule__dq__:__dq__${config.distance_to_molecule}__dq__,__dq__box_type__dq__:__dq__${config.box_type}__dq__,__dq__center_molecule__dq__:__dq__${config.center_molecule}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
+          --config "__oc____dq__distance_to_molecule__dq__:__dq__${config.distance_to_molecule}__dq__,__dq__box_type__dq__:__dq__${config.box_type}__dq__,__dq__center_molecule__dq__:__dq__${config.center_molecule}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
         #end if
         
-        --input_gro_path ${input_gro_path}.${input_gro_path.ext}
+          --input_gro_path ${input_gro_path}.${input_gro_path.ext}
         
         
-        --output_gro_path $__root_dir__/database/files/000/$outname_output_gro_path
+          --output_gro_path $__root_dir__/database/files/000/$outname_output_gro_path
         ;          
         #if $config.sele == "option1":
-        rm -f ${config.properties}.${config.properties.ext};
+          rm -f ${config.properties}.${config.properties.ext};
         #end if
         
-        rm -f ${input_gro_path}.${input_gro_path.ext};
+          rm -f ${input_gro_path}.${input_gro_path.ext};
         
         
-        if test -f $__root_dir__/database/files/000/$outname_output_gro_path; then mv $__root_dir__/database/files/000/$outname_output_gro_path $output_gro_path; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_gro_path; then mv $__root_dir__/database/files/000/$outname_output_gro_path $output_gro_path; fi;
         
+    ]]>
     </command>
     <inputs>
         
-        <param name="input_gro_path" type="data" format="gro"  optional="False" label="input GRO file" help="Path to the input GRO file. Format: [input].gro"/> 
+          <param name="input_gro_path" type="data" format="gro"  optional="False" label="input GRO file" help="Path to the input GRO file. Format: [input].gro"/> 
         
         
-        <param 
-            name="outname_output_gro_path" type="text" value="myeditconf.gro" optional="False" label="output GRO name" help="Path to the output GRO file Format: [output].gro "/>
+          <param name="outname_output_gro_path" type="text" value="myeditconf.gro" optional="False" label="output GRO name" help="Path to the output GRO file Format: [output].gro "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3" selected="true">use defaults (testing only)</option>
-                <option value="option4">Manual input</option>
+                <option value="option4"> Manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -59,16 +59,16 @@
             </when>
             <when value="option4">
                 
-                <param name="distance_to_molecule" type="text" value="1.0" min="" max="" label="distance_to_molecule" help="Distance of the box from the outermost atom in nm. ie 1.0nm = 10 Angstroms." />
-            
-                <param name="box_type" type="text" value="cubic" label="box_type" help="-bt option." />
-            
-                <param name="center_molecule" type="boolean" 
-                checked="true"
-                label="center_molecule" help="Center molecule in the box." />
-            
-                <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." />
-            
+                  <param name="distance_to_molecule" type="text" value="1.0" min="" max="" label="distance_to_molecule" help="Distance of the box from the outermost atom in nm. ie 1.0nm = 10 Angstroms." />
+                
+                  <param name="box_type" type="text" value="cubic" label="box_type" help="-bt option." />
+                
+                  <param name="center_molecule" type="boolean" 
+                    checked="true"
+                    label="center_molecule" help="Center molecule in the box." />
+                
+                  <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." />
+                
             </when>
         </conditional>
     </inputs>

@@ -3,51 +3,51 @@
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
-    <command detect_errors="aggressive">
+    <command detect_errors="aggressive"><![CDATA[
         
-        ln -f -s ${input_pdb_path} ${input_pdb_path}.${input_pdb_path.ext};
+          ln -f -s ${input_pdb_path} ${input_pdb_path}.${input_pdb_path.ext};
         
         #if $config.sele == "option1":
-        ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
         docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_model:3.0.1--py_0 backbone
         #if $config.sele == "option1":
-        --config ${config.properties}.${config.properties.ext}
+          --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-        --config ${config.jsonstr}
+          --config ${config.jsonstr}
         #else if $config.sele == "option4":
-        --config "__oc____dq__fix_chain__dq__:__dq__${config.fix_chain}__dq__,__dq__extra_gap__dq__:__dq__${config.extra_gap}__dq__,__dq__fix_atoms__dq__:__dq__${config.fix_atoms}__dq__,__dq__add_caps__dq__:__dq__${config.add_caps}__dq__,__dq__no_recheck__dq__:__dq__${config.no_recheck}__dq__,__dq__no_check_clashes__dq__:__dq__${config.no_check_clashes}__dq____cc__"
+          --config "__oc____dq__fix_chain__dq__:__dq__${config.fix_chain}__dq__,__dq__extra_gap__dq__:__dq__${config.extra_gap}__dq__,__dq__fix_atoms__dq__:__dq__${config.fix_atoms}__dq__,__dq__add_caps__dq__:__dq__${config.add_caps}__dq__,__dq__no_recheck__dq__:__dq__${config.no_recheck}__dq__,__dq__no_check_clashes__dq__:__dq__${config.no_check_clashes}__dq____cc__"
         #end if
         
-        --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
+          --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
         
         
-        --output_pdb_path $__root_dir__/database/files/000/$outname_output_pdb_path
+          --output_pdb_path $__root_dir__/database/files/000/$outname_output_pdb_path
         ;          
         #if $config.sele == "option1":
-        rm -f ${config.properties}.${config.properties.ext};
+          rm -f ${config.properties}.${config.properties.ext};
         #end if
         
-        rm -f ${input_pdb_path}.${input_pdb_path.ext};
+          rm -f ${input_pdb_path}.${input_pdb_path.ext};
         
         
-        if test -f $__root_dir__/database/files/000/$outname_output_pdb_path; then mv $__root_dir__/database/files/000/$outname_output_pdb_path $output_pdb_path; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_pdb_path; then mv $__root_dir__/database/files/000/$outname_output_pdb_path $output_pdb_path; fi;
         
+    ]]>
     </command>
     <inputs>
         
-        <param name="input_pdb_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input PDB file path. Format: [input].pdb"/> 
+          <param name="input_pdb_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input PDB file path. Format: [input].pdb"/> 
         
         
-        <param 
-            name="outname_output_pdb_path" type="text" value="mybackbone.pdb" optional="False" label="output PDB name" help="Output PDB file path Format: [output].pdb "/>
+          <param name="outname_output_pdb_path" type="text" value="mybackbone.pdb" optional="False" label="output PDB name" help="Output PDB file path Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3" selected="true">use defaults (testing only)</option>
-                <option value="option4">Manual input</option>
+                <option value="option4"> Manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -59,18 +59,18 @@
             </when>
             <when value="option4">
                 
-                <param name="fix_chain" type="text" value="All" label="fix_chain" help="All | none | List - List of Backbone breaks to fix" />
-            
-                <param name="extra_gap" type="text" value="0" min="" max="" label="extra_gap" help="Additional residues at eiher side of the gap to recover from modelled structure on break repair" />
-            
-                <param name="fix_atoms" type="text" value="All" label="fix_atoms" help="All | none | List - List of Backbone residues with missing O atoms to fix" />
-            
-                <param name="add_caps" type="text" value="none" label="add_caps" help="All | none | Terms | breaks | List - List of residues to cap with ACE or NME, Terms: True Terminal residues, Breaks: Terminals due to backbone breaks" />
-            
+                  <param name="fix_chain" type="text" value="All" label="fix_chain" help="All | none | List - List of Backbone breaks to fix" />
                 
-            
+                  <param name="extra_gap" type="text" value="0" min="" max="" label="extra_gap" help="Additional residues at eiher side of the gap to recover from modelled structure on break repair" />
                 
-            
+                  <param name="fix_atoms" type="text" value="All" label="fix_atoms" help="All | none | List - List of Backbone residues with missing O atoms to fix" />
+                
+                  <param name="add_caps" type="text" value="none" label="add_caps" help="All | none | Terms | breaks | List - List of residues to cap with ACE or NME, Terms: True Terminal residues, Breaks: Terminals due to backbone breaks" />
+                
+                  
+                
+                  
+                
             </when>
         </conditional>
     </inputs>

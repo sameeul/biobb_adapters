@@ -3,51 +3,51 @@
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
-    <command detect_errors="aggressive">
+    <command detect_errors="aggressive"><![CDATA[
         
-        ln -f -s ${input_structure_path} ${input_structure_path}.${input_structure_path.ext};
+          ln -f -s ${input_structure_path} ${input_structure_path}.${input_structure_path.ext};
         
         #if $config.sele == "option1":
-        ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
         docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_structure_utils:3.0.0--py_0 extract_chain
         #if $config.sele == "option1":
-        --config ${config.properties}.${config.properties.ext}
+          --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-        --config ${config.jsonstr}
+          --config ${config.jsonstr}
         #else if $config.sele == "option4":
-        --config "__oc____dq__chains__dq__:__dq__${config.chains}__dq__,__dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq____cc__"
+          --config "__oc____dq__chains__dq__:__dq__${config.chains}__dq__,__dq__check_structure_path__dq__:__dq__${config.check_structure_path}__dq____cc__"
         #end if
         
-        --input_structure_path ${input_structure_path}.${input_structure_path.ext}
+          --input_structure_path ${input_structure_path}.${input_structure_path.ext}
         
         
-        --output_structure_path $__root_dir__/database/files/000/$outname_output_structure_path
+          --output_structure_path $__root_dir__/database/files/000/$outname_output_structure_path
         ;          
         #if $config.sele == "option1":
-        rm -f ${config.properties}.${config.properties.ext};
+          rm -f ${config.properties}.${config.properties.ext};
         #end if
         
-        rm -f ${input_structure_path}.${input_structure_path.ext};
+          rm -f ${input_structure_path}.${input_structure_path.ext};
         
         
-        if test -f $__root_dir__/database/files/000/$outname_output_structure_path; then mv $__root_dir__/database/files/000/$outname_output_structure_path $output_structure_path; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_structure_path; then mv $__root_dir__/database/files/000/$outname_output_structure_path $output_structure_path; fi;
         
+    ]]>
     </command>
     <inputs>
         
-        <param name="input_structure_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input structure file path. Format: [input].pdb"/> 
+          <param name="input_structure_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Input structure file path. Format: [input].pdb"/> 
         
         
-        <param 
-            name="outname_output_structure_path" type="text" value="myextract_chain.pdb" optional="False" label="output PDB name" help="Output structure file path Format: [output].pdb "/>
+          <param name="outname_output_structure_path" type="text" value="myextract_chain.pdb" optional="False" label="output PDB name" help="Output structure file path Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3" selected="true">use defaults (testing only)</option>
-                <option value="option4">Manual input</option>
+                <option value="option4"> Manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -59,10 +59,10 @@
             </when>
             <when value="option4">
                 
+                  <param name="chains" type="text" value="None" label="chains" help="List of chains to be extracted from the input_structure_path file. If empty, all the chains of the structure will be returned." />
                 
-            
-                <param name="check_structure_path" type="text" value="check_structure" label="check_structure_path" help="path to the check_structure application" />
-            
+                  <param name="check_structure_path" type="text" value="check_structure" label="check_structure_path" help="path to the check_structure application" />
+                
             </when>
         </conditional>
     </inputs>

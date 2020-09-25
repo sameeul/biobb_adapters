@@ -3,65 +3,63 @@
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
-    <command detect_errors="aggressive">
+    <command detect_errors="aggressive"><![CDATA[
         
-        ln -f -s ${input_dataset_path} ${input_dataset_path}.${input_dataset_path.ext};
+          ln -f -s ${input_dataset_path} ${input_dataset_path}.${input_dataset_path.ext};
         
         #if $config.sele == "option1":
-        ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
         docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_ml:3.0.1--py_0 classification_neural_network
         #if $config.sele == "option1":
-        --config ${config.properties}.${config.properties.ext}
+          --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-        --config ${config.jsonstr}
+          --config ${config.jsonstr}
         #else if $config.sele == "option4":
-        --config "__oc____dq__features__dq__:__dq__${config.features}__dq__,__dq__target__dq__:__dq__${config.target}__dq__,__dq__validation_size__dq__:__dq__${config.validation_size}__dq__,__dq__test_size__dq__:__dq__${config.test_size}__dq__,__dq__hidden_layers__dq__:__dq__${config.hidden_layers}__dq__,__dq__output_layer_activation__dq__:__dq__${config.output_layer_activation}__dq__,__dq__optimizer__dq__:__dq__${config.optimizer}__dq__,__dq__learning_rate__dq__:__dq__${config.learning_rate}__dq__,__dq__batch_size__dq__:__dq__${config.batch_size}__dq__,__dq__max_epochs__dq__:__dq__${config.max_epochs}__dq__,__dq__normalize_cm__dq__:__dq__${config.normalize_cm}__dq____cc__"
+          --config "__oc____dq__features__dq__:__dq__${config.features}__dq__,__dq__target__dq__:__dq__${config.target}__dq__,__dq__validation_size__dq__:__dq__${config.validation_size}__dq__,__dq__test_size__dq__:__dq__${config.test_size}__dq__,__dq__hidden_layers__dq__:__dq__${config.hidden_layers}__dq__,__dq__output_layer_activation__dq__:__dq__${config.output_layer_activation}__dq__,__dq__optimizer__dq__:__dq__${config.optimizer}__dq__,__dq__learning_rate__dq__:__dq__${config.learning_rate}__dq__,__dq__batch_size__dq__:__dq__${config.batch_size}__dq__,__dq__max_epochs__dq__:__dq__${config.max_epochs}__dq__,__dq__normalize_cm__dq__:__dq__${config.normalize_cm}__dq____cc__"
         #end if
         
-        --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
+          --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
         
         
-        --output_model_path $__root_dir__/database/files/000/$outname_output_model_path
+          --output_model_path $__root_dir__/database/files/000/$outname_output_model_path
         
-        --output_test_table_path $__root_dir__/database/files/000/$outname_output_test_table_path
+          --output_test_table_path $__root_dir__/database/files/000/$outname_output_test_table_path
         
-        --output_plot_path $__root_dir__/database/files/000/$outname_output_plot_path
+          --output_plot_path $__root_dir__/database/files/000/$outname_output_plot_path
         ;          
         #if $config.sele == "option1":
-        rm -f ${config.properties}.${config.properties.ext};
+          rm -f ${config.properties}.${config.properties.ext};
         #end if
         
-        rm -f ${input_dataset_path}.${input_dataset_path.ext};
+          rm -f ${input_dataset_path}.${input_dataset_path.ext};
         
         
-        if test -f $__root_dir__/database/files/000/$outname_output_model_path; then mv $__root_dir__/database/files/000/$outname_output_model_path $output_model_path; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_model_path; then mv $__root_dir__/database/files/000/$outname_output_model_path $output_model_path; fi;
         
-        if test -f $__root_dir__/database/files/000/$outname_output_test_table_path; then mv $__root_dir__/database/files/000/$outname_output_test_table_path $output_test_table_path; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_test_table_path; then mv $__root_dir__/database/files/000/$outname_output_test_table_path $output_test_table_path; fi;
         
-        if test -f $__root_dir__/database/files/000/$outname_output_plot_path; then mv $__root_dir__/database/files/000/$outname_output_plot_path $output_plot_path; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_plot_path; then mv $__root_dir__/database/files/000/$outname_output_plot_path $output_plot_path; fi;
         
+    ]]>
     </command>
     <inputs>
         
-        <param name="input_dataset_path" type="data" format="csv"  optional="False" label="input CSV file" help="Path to the input dataset. Format: [input].csv"/> 
+          <param name="input_dataset_path" type="data" format="csv"  optional="False" label="input CSV file" help="Path to the input dataset. Format: [input].csv"/> 
         
         
-        <param 
-            name="outname_output_model_path" type="text" value="myclassification_neural_network.h5" optional="False" label="output H5 name" help="Path to the output model file Format: [output].h5 "/>
+          <param name="outname_output_model_path" type="text" value="myclassification_neural_network.h5" optional="False" label="output H5 name" help="Path to the output model file Format: [output].h5 "/>
         
-        <param 
-            name="outname_output_test_table_path" type="text" value="myclassification_neural_network.csv" optional="True" label="output CSV name" help="Path to the test table file Format: [output].csv "/>
+          <param name="outname_output_test_table_path" type="text" value="myclassification_neural_network.csv" optional="True" label="output CSV name" help="Path to the test table file Format: [output].csv "/>
         
-        <param 
-            name="outname_output_plot_path" type="text" value="myclassification_neural_network.png" optional="True" label="output PNG name" help="Loss, accuracy and MSE plots Format: [output].png "/>
+          <param name="outname_output_plot_path" type="text" value="myclassification_neural_network.png" optional="True" label="output PNG name" help="Loss, accuracy and MSE plots Format: [output].png "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3" selected="true">use defaults (testing only)</option>
-                <option value="option4">Manual input</option>
+                <option value="option4"> Manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -73,30 +71,82 @@
             </when>
             <when value="option4">
                 
+                  <param name="features" type="text" value="None" label="features" help="Independent variables or columns from your dataset you want to train." />
                 
-            
-                <param name="target" type="text" value="None" label="target" help="Dependent variable or column from your dataset you want to predict." />
-            
-                <param name="validation_size" type="text" value="0.2" min="" max="" label="validation_size" help="Represents the proportion of the dataset to include in the validation split. It should be between 0.0 and 1.0." />
-            
-                <param name="test_size" type="text" value="0.1" min="" max="" label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." />
-            
+                  <param name="target" type="text" value="None" label="target" help="Dependent variable or column from your dataset you want to predict." />
                 
-            
-                <param name="output_layer_activation" type="text" value="softmax" label="output_layer_activation" help="Activation function to use in the output layer." />
-            
-                <param name="optimizer" type="text" value="Adam" label="optimizer" help="Name of optimizer instance." />
-            
-                <param name="learning_rate" type="text" value="0.02" min="" max="" label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" />
-            
+                  <param name="validation_size" type="text" value="0.2" min="" max="" label="validation_size" help="Represents the proportion of the dataset to include in the validation split. It should be between 0.0 and 1.0." />
                 
-            
+                  <param name="test_size" type="text" value="0.1" min="" max="" label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." />
                 
-            
-                <param name="normalize_cm" type="boolean" 
+                  <param name="hidden_layers" type="text" value="None" label="hidden_layers" help=" List of dictionaries with hidden layers values. Format: [ { &#39;size&#39;: 50, &#39;activation&#39;: &#39;relu&#39; } ]." />
                 
-                label="normalize_cm" help="Whether or not to normalize the confusion matrix." />
-            
+                  <param name="output_layer_activation" type="select" label="output_layer_activation" help="Activation function to use in the output layer.">
+                    
+                      <option value="sigmoid" 
+                      
+                      >sigmoid</option>
+                    
+                      <option value="tanh" 
+                      
+                      >tanh</option>
+                    
+                      <option value="relu" 
+                      
+                      >relu</option>
+                    
+                      <option value="softmax" 
+                      selected="true"
+                      >softmax</option>
+                    
+                    </param>
+                
+                  <param name="optimizer" type="select" label="optimizer" help="Name of optimizer instance.">
+                    
+                      <option value="Adadelta" 
+                      
+                      >Adadelta</option>
+                    
+                      <option value="Adagrad" 
+                      
+                      >Adagrad</option>
+                    
+                      <option value="Adam" 
+                      selected="true"
+                      >Adam</option>
+                    
+                      <option value="Adamax" 
+                      
+                      >Adamax</option>
+                    
+                      <option value="Ftrl" 
+                      
+                      >Ftrl</option>
+                    
+                      <option value="Nadam" 
+                      
+                      >Nadam</option>
+                    
+                      <option value="RMSprop" 
+                      
+                      >RMSprop</option>
+                    
+                      <option value="SGD" 
+                      
+                      >SGD</option>
+                    
+                    </param>
+                
+                  <param name="learning_rate" type="text" value="0.02" min="" max="" label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" />
+                
+                  
+                
+                  
+                
+                  <param name="normalize_cm" type="boolean" 
+                    
+                    label="normalize_cm" help="Whether or not to normalize the confusion matrix." />
+                
             </when>
         </conditional>
     </inputs>

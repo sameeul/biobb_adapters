@@ -3,65 +3,63 @@
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
-    <command detect_errors="aggressive">
+    <command detect_errors="aggressive"><![CDATA[
         
-        ln -f -s ${input_path} ${input_path}.${input_path.ext};
+          ln -f -s ${input_path} ${input_path}.${input_path.ext};
         
         #if $config.sele == "option1":
-        ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
         docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_chemistry:3.0.0--py_0 acpype_params_cns
         #if $config.sele == "option1":
-        --config ${config.properties}.${config.properties.ext}
+          --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-        --config ${config.jsonstr}
+          --config ${config.jsonstr}
         #else if $config.sele == "option4":
-        --config "__oc____dq__basename__dq__:__dq__${config.basename}__dq__,__dq__charge__dq__:__dq__${config.charge}__dq__,__dq__acpype_path__dq__:__dq__${config.acpype_path}__dq____cc__"
+          --config "__oc____dq__basename__dq__:__dq__${config.basename}__dq__,__dq__charge__dq__:__dq__${config.charge}__dq__,__dq__acpype_path__dq__:__dq__${config.acpype_path}__dq____cc__"
         #end if
         
-        --input_path ${input_path}.${input_path.ext}
+          --input_path ${input_path}.${input_path.ext}
         
         
-        --output_path_par $__root_dir__/database/files/000/$outname_output_path_par
+          --output_path_par $__root_dir__/database/files/000/$outname_output_path_par
         
-        --output_path_inp $__root_dir__/database/files/000/$outname_output_path_inp
+          --output_path_inp $__root_dir__/database/files/000/$outname_output_path_inp
         
-        --output_path_top $__root_dir__/database/files/000/$outname_output_path_top
+          --output_path_top $__root_dir__/database/files/000/$outname_output_path_top
         ;          
         #if $config.sele == "option1":
-        rm -f ${config.properties}.${config.properties.ext};
+          rm -f ${config.properties}.${config.properties.ext};
         #end if
         
-        rm -f ${input_path}.${input_path.ext};
+          rm -f ${input_path}.${input_path.ext};
         
         
-        if test -f $__root_dir__/database/files/000/$outname_output_path_par; then mv $__root_dir__/database/files/000/$outname_output_path_par $output_path_par; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_path_par; then mv $__root_dir__/database/files/000/$outname_output_path_par $output_path_par; fi;
         
-        if test -f $__root_dir__/database/files/000/$outname_output_path_inp; then mv $__root_dir__/database/files/000/$outname_output_path_inp $output_path_inp; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_path_inp; then mv $__root_dir__/database/files/000/$outname_output_path_inp $output_path_inp; fi;
         
-        if test -f $__root_dir__/database/files/000/$outname_output_path_top; then mv $__root_dir__/database/files/000/$outname_output_path_top $output_path_top; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_path_top; then mv $__root_dir__/database/files/000/$outname_output_path_top $output_path_top; fi;
         
+    ]]>
     </command>
     <inputs>
         
-        <param name="input_path" type="data" format="pdb,mdl,mol2"  optional="False" label="input PDB,MDL,MOL2 file" help="Path to the input file. Format: [input].[format]"/> 
+          <param name="input_path" type="data" format="pdb,mdl,mol2"  optional="False" label="input PDB,MDL,MOL2 file" help="Path to the input file. Format: [input].[format]"/> 
         
         
-        <param 
-            name="outname_output_path_par" type="text" value="myacpype_params_cns.par" optional="False" label="output PAR name" help="Path to the PAR output file Format: [output].par "/>
+          <param name="outname_output_path_par" type="text" value="myacpype_params_cns.par" optional="False" label="output PAR name" help="Path to the PAR output file Format: [output].par "/>
         
-        <param 
-            name="outname_output_path_inp" type="text" value="myacpype_params_cns.inp" optional="False" label="output INP name" help="Path to the INP output file Format: [output].inp "/>
+          <param name="outname_output_path_inp" type="text" value="myacpype_params_cns.inp" optional="False" label="output INP name" help="Path to the INP output file Format: [output].inp "/>
         
-        <param 
-            name="outname_output_path_top" type="text" value="myacpype_params_cns.top" optional="False" label="output TOP name" help="Path to the TOP output file Format: [output].top "/>
+          <param name="outname_output_path_top" type="text" value="myacpype_params_cns.top" optional="False" label="output TOP name" help="Path to the TOP output file Format: [output].top "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3" selected="true">use defaults (testing only)</option>
-                <option value="option4">Manual input</option>
+                <option value="option4"> Manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -73,12 +71,12 @@
             </when>
             <when value="option4">
                 
-                <param name="basename" type="text" value="BBB" label="basename" help="A basename for the project (folder and output files)." />
-            
+                  <param name="basename" type="text" value="BBB" label="basename" help="A basename for the project (folder and output files)." />
                 
-            
-                <param name="acpype_path" type="text" value="acpype" label="acpype_path" help="Path to the acpype executable binary." />
-            
+                  
+                
+                  <param name="acpype_path" type="text" value="acpype" label="acpype_path" help="Path to the acpype executable binary." />
+                
             </when>
         </conditional>
     </inputs>

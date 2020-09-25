@@ -3,51 +3,51 @@
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
-    <command detect_errors="aggressive">
+    <command detect_errors="aggressive"><![CDATA[
         
-        ln -f -s ${input_gro_path} ${input_gro_path}.${input_gro_path.ext};
+          ln -f -s ${input_gro_path} ${input_gro_path}.${input_gro_path.ext};
         
         #if $config.sele == "option1":
-        ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
         docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_structure_utils:3.0.0--py_0 sort_gro_residues
         #if $config.sele == "option1":
-        --config ${config.properties}.${config.properties.ext}
+          --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-        --config ${config.jsonstr}
+          --config ${config.jsonstr}
         #else if $config.sele == "option4":
-        --config "__oc____dq__residue_name_list__dq__:__dq__${config.residue_name_list}__dq____cc__"
+          --config "__oc____dq__residue_name_list__dq__:__dq__${config.residue_name_list}__dq____cc__"
         #end if
         
-        --input_gro_path ${input_gro_path}.${input_gro_path.ext}
+          --input_gro_path ${input_gro_path}.${input_gro_path.ext}
         
         
-        --output_gro_path $__root_dir__/database/files/000/$outname_output_gro_path
+          --output_gro_path $__root_dir__/database/files/000/$outname_output_gro_path
         ;          
         #if $config.sele == "option1":
-        rm -f ${config.properties}.${config.properties.ext};
+          rm -f ${config.properties}.${config.properties.ext};
         #end if
         
-        rm -f ${input_gro_path}.${input_gro_path.ext};
+          rm -f ${input_gro_path}.${input_gro_path.ext};
         
         
-        if test -f $__root_dir__/database/files/000/$outname_output_gro_path; then mv $__root_dir__/database/files/000/$outname_output_gro_path $output_gro_path; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_gro_path; then mv $__root_dir__/database/files/000/$outname_output_gro_path $output_gro_path; fi;
         
+    ]]>
     </command>
     <inputs>
         
-        <param name="input_gro_path" type="data" format="gro"  optional="False" label="input GRO file" help="Input GRO file path. Format: [input].gro"/> 
+          <param name="input_gro_path" type="data" format="gro"  optional="False" label="input GRO file" help="Input GRO file path. Format: [input].gro"/> 
         
         
-        <param 
-            name="outname_output_gro_path" type="text" value="mysort_gro_residues.gro" optional="False" label="output GRO name" help="Output sorted GRO file path Format: [output].gro "/>
+          <param name="outname_output_gro_path" type="text" value="mysort_gro_residues.gro" optional="False" label="output GRO name" help="Output sorted GRO file path Format: [output].gro "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3" selected="true">use defaults (testing only)</option>
-                <option value="option4">Manual input</option>
+                <option value="option4"> Manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -59,8 +59,8 @@
             </when>
             <when value="option4">
                 
+                  <param name="residue_name_list" type="text" value="[&#39;NA&#39;, &#39;CL&#39;, &#39;SOL&#39;]" label="residue_name_list" help="Ordered residue name list." />
                 
-            
             </when>
         </conditional>
     </inputs>

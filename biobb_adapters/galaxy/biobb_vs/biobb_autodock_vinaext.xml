@@ -3,74 +3,73 @@
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
-    <command detect_errors="aggressive">
+    <command detect_errors="aggressive"><![CDATA[
         
-        ln -f -s ${input_ligand_pdbqt_path} ${input_ligand_pdbqt_path}.${input_ligand_pdbqt_path.ext};
+          ln -f -s ${input_ligand_pdbqt_path} ${input_ligand_pdbqt_path}.${input_ligand_pdbqt_path.ext};
         
-        ln -f -s ${input_receptor_pdbqt_path} ${input_receptor_pdbqt_path}.${input_receptor_pdbqt_path.ext};
+          ln -f -s ${input_receptor_pdbqt_path} ${input_receptor_pdbqt_path}.${input_receptor_pdbqt_path.ext};
         
-        ln -f -s ${input_box_path} ${input_box_path}.${input_box_path.ext};
+          ln -f -s ${input_box_path} ${input_box_path}.${input_box_path.ext};
         
         #if $config.sele == "option1":
-        ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
         docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_vs:3.0.0--py_0 autodock_vina
         #if $config.sele == "option1":
-        --config ${config.properties}.${config.properties.ext}
+          --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-        --config ${config.jsonstr}
+          --config ${config.jsonstr}
         #else if $config.sele == "option4":
-        --config "__oc____dq__vina_path__dq__:__dq__${config.vina_path}__dq____cc__"
+          --config "__oc____dq__vina_path__dq__:__dq__${config.vina_path}__dq____cc__"
         #end if
         
-        --input_ligand_pdbqt_path ${input_ligand_pdbqt_path}.${input_ligand_pdbqt_path.ext}
+          --input_ligand_pdbqt_path ${input_ligand_pdbqt_path}.${input_ligand_pdbqt_path.ext}
         
-        --input_receptor_pdbqt_path ${input_receptor_pdbqt_path}.${input_receptor_pdbqt_path.ext}
+          --input_receptor_pdbqt_path ${input_receptor_pdbqt_path}.${input_receptor_pdbqt_path.ext}
         
-        --input_box_path ${input_box_path}.${input_box_path.ext}
+          --input_box_path ${input_box_path}.${input_box_path.ext}
         
         
-        --output_pdbqt_path $__root_dir__/database/files/000/$outname_output_pdbqt_path
+          --output_pdbqt_path $__root_dir__/database/files/000/$outname_output_pdbqt_path
         
-        --output_log_path $__root_dir__/database/files/000/$outname_output_log_path
+          --output_log_path $__root_dir__/database/files/000/$outname_output_log_path
         ;          
         #if $config.sele == "option1":
-        rm -f ${config.properties}.${config.properties.ext};
+          rm -f ${config.properties}.${config.properties.ext};
         #end if
         
-        rm -f ${input_ligand_pdbqt_path}.${input_ligand_pdbqt_path.ext};
+          rm -f ${input_ligand_pdbqt_path}.${input_ligand_pdbqt_path.ext};
         
-        rm -f ${input_receptor_pdbqt_path}.${input_receptor_pdbqt_path.ext};
+          rm -f ${input_receptor_pdbqt_path}.${input_receptor_pdbqt_path.ext};
         
-        rm -f ${input_box_path}.${input_box_path.ext};
+          rm -f ${input_box_path}.${input_box_path.ext};
         
         
-        if test -f $__root_dir__/database/files/000/$outname_output_pdbqt_path; then mv $__root_dir__/database/files/000/$outname_output_pdbqt_path $output_pdbqt_path; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_pdbqt_path; then mv $__root_dir__/database/files/000/$outname_output_pdbqt_path $output_pdbqt_path; fi;
         
-        if test -f $__root_dir__/database/files/000/$outname_output_log_path; then mv $__root_dir__/database/files/000/$outname_output_log_path $output_log_path; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_log_path; then mv $__root_dir__/database/files/000/$outname_output_log_path $output_log_path; fi;
         
+    ]]>
     </command>
     <inputs>
         
-        <param name="input_ligand_pdbqt_path" type="data" format="pdbqt"  optional="False" label="input PDBQT file" help="Path to the input PDBQT ligand. Format: [input].pdbqt"/> 
+          <param name="input_ligand_pdbqt_path" type="data" format="pdbqt"  optional="False" label="input PDBQT file" help="Path to the input PDBQT ligand. Format: [input].pdbqt"/> 
         
-        <param name="input_receptor_pdbqt_path" type="data" format="pdbqt"  optional="False" label="input PDBQT file" help="Path to the input PDBQT receptor. Format: [input].pdbqt"/> 
+          <param name="input_receptor_pdbqt_path" type="data" format="pdbqt"  optional="False" label="input PDBQT file" help="Path to the input PDBQT receptor. Format: [input].pdbqt"/> 
         
-        <param name="input_box_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Path to the PDB containig the residues belonging to the binding site. Format: [input].pdb"/> 
+          <param name="input_box_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Path to the PDB containig the residues belonging to the binding site. Format: [input].pdb"/> 
         
         
-        <param 
-            name="outname_output_pdbqt_path" type="text" value="myautodock_vina.pdbqt" optional="False" label="output PDBQT name" help="Path to the output PDBQT file Format: [output].pdbqt "/>
+          <param name="outname_output_pdbqt_path" type="text" value="myautodock_vina.pdbqt" optional="False" label="output PDBQT name" help="Path to the output PDBQT file Format: [output].pdbqt "/>
         
-        <param 
-            name="outname_output_log_path" type="text" value="myautodock_vina.log" optional="True" label="output LOG name" help="Path to the log file Format: [output].log "/>
+          <param name="outname_output_log_path" type="text" value="myautodock_vina.log" optional="True" label="output LOG name" help="Path to the log file Format: [output].log "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3" selected="true">use defaults (testing only)</option>
-                <option value="option4">Manual input</option>
+                <option value="option4"> Manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -82,8 +81,8 @@
             </when>
             <when value="option4">
                 
-                <param name="vina_path" type="text" value="&#39;vina&#39;" label="vina_path" help="path to vina in your local computer." />
-            
+                  <param name="vina_path" type="text" value="&#39;vina&#39;" label="vina_path" help="path to vina in your local computer." />
+                
             </when>
         </conditional>
     </inputs>

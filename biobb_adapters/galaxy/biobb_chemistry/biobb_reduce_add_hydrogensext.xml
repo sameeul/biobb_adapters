@@ -3,51 +3,51 @@
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
-    <command detect_errors="aggressive">
+    <command detect_errors="aggressive"><![CDATA[
         
-        ln -f -s ${input_path} ${input_path}.${input_path.ext};
+          ln -f -s ${input_path} ${input_path}.${input_path.ext};
         
         #if $config.sele == "option1":
-        ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
         docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_chemistry:3.0.0--py_0 reduce_add_hydrogens
         #if $config.sele == "option1":
-        --config ${config.properties}.${config.properties.ext}
+          --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-        --config ${config.jsonstr}
+          --config ${config.jsonstr}
         #else if $config.sele == "option4":
-        --config "__oc____dq__flip__dq__:__dq__${config.flip}__dq__,__dq__noflip__dq__:__dq__${config.noflip}__dq__,__dq__nuclear__dq__:__dq__${config.nuclear}__dq__,__dq__nooh__dq__:__dq__${config.nooh}__dq__,__dq__oh__dq__:__dq__${config.oh}__dq__,__dq__his__dq__:__dq__${config.his}__dq__,__dq__noheth__dq__:__dq__${config.noheth}__dq__,__dq__rotnh3__dq__:__dq__${config.rotnh3}__dq__,__dq__norotnh3__dq__:__dq__${config.norotnh3}__dq__,__dq__rotexist__dq__:__dq__${config.rotexist}__dq__,__dq__rotexoh__dq__:__dq__${config.rotexoh}__dq__,__dq__allalt__dq__:__dq__${config.allalt}__dq__,__dq__onlya__dq__:__dq__${config.onlya}__dq__,__dq__charges__dq__:__dq__${config.charges}__dq__,__dq__dorotmet__dq__:__dq__${config.dorotmet}__dq__,__dq__noadjust__dq__:__dq__${config.noadjust}__dq__,__dq__build__dq__:__dq__${config.build}__dq__,__dq__reduce_path__dq__:__dq__${config.reduce_path}__dq____cc__"
+          --config "__oc____dq__flip__dq__:__dq__${config.flip}__dq__,__dq__noflip__dq__:__dq__${config.noflip}__dq__,__dq__nuclear__dq__:__dq__${config.nuclear}__dq__,__dq__nooh__dq__:__dq__${config.nooh}__dq__,__dq__oh__dq__:__dq__${config.oh}__dq__,__dq__his__dq__:__dq__${config.his}__dq__,__dq__noheth__dq__:__dq__${config.noheth}__dq__,__dq__rotnh3__dq__:__dq__${config.rotnh3}__dq__,__dq__norotnh3__dq__:__dq__${config.norotnh3}__dq__,__dq__rotexist__dq__:__dq__${config.rotexist}__dq__,__dq__rotexoh__dq__:__dq__${config.rotexoh}__dq__,__dq__allalt__dq__:__dq__${config.allalt}__dq__,__dq__onlya__dq__:__dq__${config.onlya}__dq__,__dq__charges__dq__:__dq__${config.charges}__dq__,__dq__dorotmet__dq__:__dq__${config.dorotmet}__dq__,__dq__noadjust__dq__:__dq__${config.noadjust}__dq__,__dq__build__dq__:__dq__${config.build}__dq__,__dq__reduce_path__dq__:__dq__${config.reduce_path}__dq____cc__"
         #end if
         
-        --input_path ${input_path}.${input_path.ext}
+          --input_path ${input_path}.${input_path.ext}
         
         
-        --output_path $__root_dir__/database/files/000/$outname_output_path
+          --output_path $__root_dir__/database/files/000/$outname_output_path
         ;          
         #if $config.sele == "option1":
-        rm -f ${config.properties}.${config.properties.ext};
+          rm -f ${config.properties}.${config.properties.ext};
         #end if
         
-        rm -f ${input_path}.${input_path.ext};
+          rm -f ${input_path}.${input_path.ext};
         
         
-        if test -f $__root_dir__/database/files/000/$outname_output_path; then mv $__root_dir__/database/files/000/$outname_output_path $output_path; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_path; then mv $__root_dir__/database/files/000/$outname_output_path $output_path; fi;
         
+    ]]>
     </command>
     <inputs>
         
-        <param name="input_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Path to the input file. Format: [input].pdb"/> 
+          <param name="input_path" type="data" format="pdb"  optional="False" label="input PDB file" help="Path to the input file. Format: [input].pdb"/> 
         
         
-        <param 
-            name="outname_output_path" type="text" value="myreduce_add_hydrogens.pdb" optional="False" label="output PDB name" help="Path to the output file Format: [output].pdb "/>
+          <param name="outname_output_path" type="text" value="myreduce_add_hydrogens.pdb" optional="False" label="output PDB name" help="Path to the output file Format: [output].pdb "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3" selected="true">use defaults (testing only)</option>
-                <option value="option4">Manual input</option>
+                <option value="option4"> Manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -59,76 +59,76 @@
             </when>
             <when value="option4">
                 
-                <param name="flip" type="boolean" 
+                  <param name="flip" type="boolean" 
+                    
+                    label="flip" help="add H and rotate and flip NQH groups" />
                 
-                label="flip" help="add H and rotate and flip NQH groups" />
-            
-                <param name="noflip" type="boolean" 
+                  <param name="noflip" type="boolean" 
+                    
+                    label="noflip" help="add H and rotate groups with no NQH flips" />
                 
-                label="noflip" help="add H and rotate groups with no NQH flips" />
-            
-                <param name="nuclear" type="boolean" 
+                  <param name="nuclear" type="boolean" 
+                    
+                    label="nuclear" help="use nuclear X-H distances rather than default electron cloud distances" />
                 
-                label="nuclear" help="use nuclear X-H distances rather than default electron cloud distances" />
-            
-                <param name="nooh" type="boolean" 
+                  <param name="nooh" type="boolean" 
+                    
+                    label="nooh" help="remove hydrogens on OH and SH groups" />
                 
-                label="nooh" help="remove hydrogens on OH and SH groups" />
-            
-                <param name="oh" type="boolean" 
-                checked="true"
-                label="oh" help="add hydrogens on OH and SH groups (default)" />
-            
-                <param name="his" type="boolean" 
+                  <param name="oh" type="boolean" 
+                    checked="true"
+                    label="oh" help="add hydrogens on OH and SH groups (default)" />
                 
-                label="his" help="create NH hydrogens on HIS rings (usually used with -HIS)" />
-            
-                <param name="noheth" type="boolean" 
+                  <param name="his" type="boolean" 
+                    
+                    label="his" help="create NH hydrogens on HIS rings (usually used with -HIS)" />
                 
-                label="noheth" help="do not attempt to add NH proton on Het groups" />
-            
-                <param name="rotnh3" type="boolean" 
-                checked="true"
-                label="rotnh3" help="allow lysine NH3 to rotate (default)" />
-            
-                <param name="norotnh3" type="boolean" 
+                  <param name="noheth" type="boolean" 
+                    
+                    label="noheth" help="do not attempt to add NH proton on Het groups" />
                 
-                label="norotnh3" help="do not allow lysine NH3 to rotate" />
-            
-                <param name="rotexist" type="boolean" 
+                  <param name="rotnh3" type="boolean" 
+                    checked="true"
+                    label="rotnh3" help="allow lysine NH3 to rotate (default)" />
                 
-                label="rotexist" help="to rotate" />
-            
-                <param name="rotexoh" type="boolean" 
+                  <param name="norotnh3" type="boolean" 
+                    
+                    label="norotnh3" help="do not allow lysine NH3 to rotate" />
                 
-                label="rotexoh" help="allow existing OH &amp; SH groups to rotate" />
-            
-                <param name="allalt" type="boolean" 
-                checked="true"
-                label="allalt" help="process adjustments for all conformations (default)" />
-            
-                <param name="onlya" type="boolean" 
+                  <param name="rotexist" type="boolean" 
+                    
+                    label="rotexist" help="to rotate" />
                 
-                label="onlya" help="only adjust &#39;A&#39; conformations" />
-            
-                <param name="charges" type="boolean" 
+                  <param name="rotexoh" type="boolean" 
+                    
+                    label="rotexoh" help="allow existing OH &amp; SH groups to rotate" />
                 
-                label="charges" help="output charge state for appropriate hydrogen records" />
-            
-                <param name="dorotmet" type="boolean" 
+                  <param name="allalt" type="boolean" 
+                    checked="true"
+                    label="allalt" help="process adjustments for all conformations (default)" />
                 
-                label="dorotmet" help="allow methionine methyl groups to rotate (not recommended)" />
-            
-                <param name="noadjust" type="boolean" 
+                  <param name="onlya" type="boolean" 
+                    
+                    label="onlya" help="only adjust &#39;A&#39; conformations" />
                 
-                label="noadjust" help="do not process any rot or flip adjustments" />
-            
-                <param name="build" type="boolean" 
+                  <param name="charges" type="boolean" 
+                    
+                    label="charges" help="output charge state for appropriate hydrogen records" />
                 
-                label="build" help="add H, including His sc NH, then rotate and flip groups (except for pre-existing methionine methyl hydrogens)" />
-            
-                <param name="reduce_path" type="text" value="reduce" label="reduce_path" help="Path to the reduce executable binary." />
-            
+                  <param name="dorotmet" type="boolean" 
+                    
+                    label="dorotmet" help="allow methionine methyl groups to rotate (not recommended)" />
+                
+                  <param name="noadjust" type="boolean" 
+                    
+                    label="noadjust" help="do not process any rot or flip adjustments" />
+                
+                  <param name="build" type="boolean" 
+                    
+                    label="build" help="add H, including His sc NH, then rotate and flip groups (except for pre-existing methionine methyl hydrogens)" />
+                
+                  <param name="reduce_path" type="text" value="reduce" label="reduce_path" help="Path to the reduce executable binary." />
+                
             </when>
         </conditional>
     </inputs>

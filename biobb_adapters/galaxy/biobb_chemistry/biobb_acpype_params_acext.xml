@@ -3,72 +3,69 @@
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
-    <command detect_errors="aggressive">
+    <command detect_errors="aggressive"><![CDATA[
         
-        ln -f -s ${input_path} ${input_path}.${input_path.ext};
+          ln -f -s ${input_path} ${input_path}.${input_path.ext};
         
         #if $config.sele == "option1":
-        ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
         docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_chemistry:3.0.0--py_0 acpype_params_ac
         #if $config.sele == "option1":
-        --config ${config.properties}.${config.properties.ext}
+          --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-        --config ${config.jsonstr}
+          --config ${config.jsonstr}
         #else if $config.sele == "option4":
-        --config "__oc____dq__basename__dq__:__dq__${config.basename}__dq__,__dq__charge__dq__:__dq__${config.charge}__dq__,__dq__acpype_path__dq__:__dq__${config.acpype_path}__dq____cc__"
+          --config "__oc____dq__basename__dq__:__dq__${config.basename}__dq__,__dq__charge__dq__:__dq__${config.charge}__dq__,__dq__acpype_path__dq__:__dq__${config.acpype_path}__dq____cc__"
         #end if
         
-        --input_path ${input_path}.${input_path.ext}
+          --input_path ${input_path}.${input_path.ext}
         
         
-        --output_path_frcmod $__root_dir__/database/files/000/$outname_output_path_frcmod
+          --output_path_frcmod $__root_dir__/database/files/000/$outname_output_path_frcmod
         
-        --output_path_inpcrd $__root_dir__/database/files/000/$outname_output_path_inpcrd
+          --output_path_inpcrd $__root_dir__/database/files/000/$outname_output_path_inpcrd
         
-        --output_path_lib $__root_dir__/database/files/000/$outname_output_path_lib
+          --output_path_lib $__root_dir__/database/files/000/$outname_output_path_lib
         
-        --output_path_prmtop $__root_dir__/database/files/000/$outname_output_path_prmtop
+          --output_path_prmtop $__root_dir__/database/files/000/$outname_output_path_prmtop
         ;          
         #if $config.sele == "option1":
-        rm -f ${config.properties}.${config.properties.ext};
+          rm -f ${config.properties}.${config.properties.ext};
         #end if
         
-        rm -f ${input_path}.${input_path.ext};
+          rm -f ${input_path}.${input_path.ext};
         
         
-        if test -f $__root_dir__/database/files/000/$outname_output_path_frcmod; then mv $__root_dir__/database/files/000/$outname_output_path_frcmod $output_path_frcmod; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_path_frcmod; then mv $__root_dir__/database/files/000/$outname_output_path_frcmod $output_path_frcmod; fi;
         
-        if test -f $__root_dir__/database/files/000/$outname_output_path_inpcrd; then mv $__root_dir__/database/files/000/$outname_output_path_inpcrd $output_path_inpcrd; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_path_inpcrd; then mv $__root_dir__/database/files/000/$outname_output_path_inpcrd $output_path_inpcrd; fi;
         
-        if test -f $__root_dir__/database/files/000/$outname_output_path_lib; then mv $__root_dir__/database/files/000/$outname_output_path_lib $output_path_lib; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_path_lib; then mv $__root_dir__/database/files/000/$outname_output_path_lib $output_path_lib; fi;
         
-        if test -f $__root_dir__/database/files/000/$outname_output_path_prmtop; then mv $__root_dir__/database/files/000/$outname_output_path_prmtop $output_path_prmtop; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_path_prmtop; then mv $__root_dir__/database/files/000/$outname_output_path_prmtop $output_path_prmtop; fi;
         
+    ]]>
     </command>
     <inputs>
         
-        <param name="input_path" type="data" format="pdb,mdl,mol2"  optional="False" label="input PDB,MDL,MOL2 file" help="Path to the input file. Format: [input].[format]"/> 
+          <param name="input_path" type="data" format="pdb,mdl,mol2"  optional="False" label="input PDB,MDL,MOL2 file" help="Path to the input file. Format: [input].[format]"/> 
         
         
-        <param 
-            name="outname_output_path_frcmod" type="text" value="myacpype_params_ac.frcmod" optional="False" label="output FRCMOD name" help="Path to the FRCMOD output file Format: [output].frcmod "/>
+          <param name="outname_output_path_frcmod" type="text" value="myacpype_params_ac.frcmod" optional="False" label="output FRCMOD name" help="Path to the FRCMOD output file Format: [output].frcmod "/>
         
-        <param 
-            name="outname_output_path_inpcrd" type="text" value="myacpype_params_ac.inpcrd" optional="False" label="output INPCRD name" help="Path to the INPCRD output file Format: [output].inpcrd "/>
+          <param name="outname_output_path_inpcrd" type="text" value="myacpype_params_ac.inpcrd" optional="False" label="output INPCRD name" help="Path to the INPCRD output file Format: [output].inpcrd "/>
         
-        <param 
-            name="outname_output_path_lib" type="text" value="myacpype_params_ac.lib" optional="False" label="output LIB name" help="Path to the LIB output file Format: [output].lib "/>
+          <param name="outname_output_path_lib" type="text" value="myacpype_params_ac.lib" optional="False" label="output LIB name" help="Path to the LIB output file Format: [output].lib "/>
         
-        <param 
-            name="outname_output_path_prmtop" type="text" value="myacpype_params_ac.prmtop" optional="False" label="output PRMTOP name" help="Path to the PRMTOP output file Format: [output].prmtop "/>
+          <param name="outname_output_path_prmtop" type="text" value="myacpype_params_ac.prmtop" optional="False" label="output PRMTOP name" help="Path to the PRMTOP output file Format: [output].prmtop "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
                 <option value="option1">from configuration file</option>
                 <option value="option2">from JSON string</option>
-                <option value="option3" selected="true">use defaults (testing only)</option>
-                <option value="option4">Manual input</option>
+                <option value="option4"> Manual input</option>
             </param>
             <when value="option1">
                 <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
@@ -80,12 +77,12 @@
             </when>
             <when value="option4">
                 
-                <param name="basename" type="text" value="BBB" label="basename" help="A basename for the project (folder and output files)." />
-            
+                  <param name="basename" type="text" value="BBB" label="basename" help="A basename for the project (folder and output files)." />
                 
-            
-                <param name="acpype_path" type="text" value="acpype" label="acpype_path" help="Path to the acpype executable binary." />
-            
+                  
+                
+                  <param name="acpype_path" type="text" value="acpype" label="acpype_path" help="Path to the acpype executable binary." />
+                
             </when>
         </conditional>
     </inputs>
