@@ -1,5 +1,5 @@
 #!/usr/bin/env cwl-runner
-tprcwlVersion: v1.0
+cwlVersion: v1.0
 class: CommandLineTool
 label: Wrapper of the GROMACS grompp module
 doc: |
@@ -65,7 +65,7 @@ inputs:
     
   input_cpt_path:
     label: Path to the input GROMACS checkpoint file CPT.
-    docs: |
+    doc: |
       Path to the input GROMACS checkpoint file CPT. Optional parameter.
       Type: str
       File type: input
@@ -78,7 +78,7 @@ inputs:
       
   config:
     label: Advanced configuration options for GROMACS
-    docs: |
+    doc: |
       Advanced configuration options for GROMACS. This should be passed as a
       string containing a dict. The possible options to include here are listed
       under 'properties' in the gromacs documentation:
