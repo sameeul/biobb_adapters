@@ -39,6 +39,21 @@ cat_pdb
 
 remove_ligand
 
+remove_water
+-check_structure_path necessary?
+
+str_check_add_hydrogens (not in docker)
+-charges Help incorrect (FIXED DOCSTRING)
+-mode should be select or help updated, not clear how ph or int int-his should be used default to auto
+
+renumber_structure
+-Renumber_residues Help refers to "ligand" UNclear
+
+sort_gro_residues
+
+=======================================================================
+
+
 
 
 
