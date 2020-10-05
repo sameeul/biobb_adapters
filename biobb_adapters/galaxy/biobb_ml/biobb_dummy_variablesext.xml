@@ -1,4 +1,4 @@
-<tool id="biobb_ml_dummy_variables_ext" name="dummy_variables" version="3.0.1" >
+<tool id="biobb_ml_dummy_variables_ext" name="DummyVariables" version="3.0.1" >
     <description>: Maps dummy variables from a given dataset.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

@@ -1,4 +1,4 @@
-<tool id="biobb_ml_k_neighbors_coefficient_ext" name="k_neighbors_coefficient" version="3.0.1" >
+<tool id="biobb_ml_k_neighbors_coefficient_ext" name="KNeighborsCoefficient" version="3.0.1" >
     <description>: Trains and tests a given dataset and calculates best K coefficient for a k-nearest neighbors classification.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

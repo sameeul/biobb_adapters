@@ -1,4 +1,4 @@
-<tool id="biobb_io_pdb_ext" name="pdb" version="3.0.0" >
+<tool id="biobb_io_pdb_ext" name="Pdb" version="3.0.0" >
     <description>: Wrapper class for the PDB REST API.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

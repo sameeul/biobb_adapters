@@ -1,4 +1,4 @@
-<tool id="biobb_io_pdb_variants_ext" name="pdb_variants" version="3.0.0" >
+<tool id="biobb_io_pdb_variants_ext" name="PdbVariants" version="3.0.0" >
     <description>: Wrapper class for the MMB group UNIPROT REST API.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

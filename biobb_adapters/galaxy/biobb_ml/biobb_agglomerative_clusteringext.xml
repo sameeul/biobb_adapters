@@ -1,4 +1,4 @@
-<tool id="biobb_ml_agglomerative_clustering_ext" name="agglomerative_clustering" version="3.0.1" >
+<tool id="biobb_ml_agglomerative_clustering_ext" name="AgglomerativeClustering" version="3.0.1" >
     <description>: Clusters a given dataset with agglomerative clustering method.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

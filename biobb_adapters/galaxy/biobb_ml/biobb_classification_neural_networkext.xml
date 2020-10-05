@@ -1,4 +1,4 @@
-<tool id="biobb_ml_classification_neural_network_ext" name="classification_neural_network" version="3.0.1" >
+<tool id="biobb_ml_classification_neural_network_ext" name="ClassificationNeuralNetwork" version="3.0.1" >
     <description>: Trains and tests a given dataset and save the complete model for a Neural Network Classification.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

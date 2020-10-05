@@ -1,4 +1,4 @@
-<tool id="biobb_chemistry_acpype_params_gmx_opls_ext" name="acpype_params_gmx_opls" version="3.0.0" >
+<tool id="biobb_chemistry_acpype_params_gmx_opls_ext" name="AcpypeParamsGmxOpls" version="3.0.0" >
     <description>: Small molecule parameterization for OPLS/AA MD package.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

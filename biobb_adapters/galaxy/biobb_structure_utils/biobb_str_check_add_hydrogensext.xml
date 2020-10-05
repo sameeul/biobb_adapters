@@ -1,4 +1,4 @@
-<tool id="biobb_structure_utils_str_check_add_hydrogens_ext" name="str_check_add_hydrogens" version="3.0.0" >
+<tool id="biobb_structure_utils_str_check_add_hydrogens_ext" name="StrCheckAddHydrogens" version="3.0.0" >
     <description>: Class to add hydrogens to a 3D structure.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

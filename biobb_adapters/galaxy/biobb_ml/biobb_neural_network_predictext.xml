@@ -1,4 +1,4 @@
-<tool id="biobb_ml_neural_network_predict_ext" name="neural_network_predict" version="3.0.1" >
+<tool id="biobb_ml_neural_network_predict_ext" name="NeuralNetworkPredict" version="3.0.1" >
     <description>: Calculates prediction for a NN classification given a model file.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

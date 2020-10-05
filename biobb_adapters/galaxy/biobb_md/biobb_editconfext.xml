@@ -1,4 +1,4 @@
-<tool id="biobb_md_editconf_ext" name="editconf" version="3.0.0" >
+<tool id="biobb_md_editconf_ext" name="Editconf" version="3.0.0" >
     <description>: Wrapper class for the `GROMACS editconf &lt;http://manual.gromacs.org/current/onlinehelp/gmx-editconf.html&gt;`_ module.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

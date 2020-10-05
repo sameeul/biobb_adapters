@@ -1,4 +1,4 @@
-<tool id="biobb_ml_logistic_regression_ext" name="logistic_regression" version="3.0.1" >
+<tool id="biobb_ml_logistic_regression_ext" name="LogisticRegression" version="3.0.1" >
     <description>: Trains and tests a given dataset and saves the model and scaler for a logistic regression.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

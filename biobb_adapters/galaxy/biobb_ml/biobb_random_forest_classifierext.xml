@@ -1,4 +1,4 @@
-<tool id="biobb_ml_random_forest_classifier_ext" name="random_forest_classifier" version="3.0.1" >
+<tool id="biobb_ml_random_forest_classifier_ext" name="RandomForestClassifier" version="3.0.1" >
     <description>: Trains and tests a given dataset and saves the model and scaler for a random forest classifier.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

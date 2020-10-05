@@ -1,4 +1,4 @@
-<tool id="biobb_ml_pls_regression_ext" name="pls_regression" version="3.0.1" >
+<tool id="biobb_ml_pls_regression_ext" name="PlsRegression" version="3.0.1" >
     <description>: Gives results for a Partial Least Square (PLS) Regression.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

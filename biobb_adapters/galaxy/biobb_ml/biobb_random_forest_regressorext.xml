@@ -1,4 +1,4 @@
-<tool id="biobb_ml_random_forest_regressor_ext" name="random_forest_regressor" version="3.0.1" >
+<tool id="biobb_ml_random_forest_regressor_ext" name="RandomForestRegressor" version="3.0.1" >
     <description>: Trains and tests a given dataset and saves the model and scaler for a random forest regressor.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

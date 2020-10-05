@@ -1,4 +1,4 @@
-<tool id="biobb_analysis_gmx_rgyr_ext" name="gmx_rgyr" version="3.0.0" >
+<tool id="biobb_analysis_gmx_rgyr_ext" name="GmxRgyr" version="3.0.0" >
     <description>: Computes the radius of gyration (Rgyr) of a molecule about the x-, y- and z-axes, as a function of time, from a given GROMACS compatible trajectory.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

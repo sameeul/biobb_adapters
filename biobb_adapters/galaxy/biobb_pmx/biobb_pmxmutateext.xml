@@ -1,4 +1,4 @@
-<tool id="biobb_pmx_pmxmutate_ext" name="pmxmutate" version="3.0.1" >
+<tool id="biobb_pmx_pmxmutate_ext" name="Pmxmutate" version="3.0.1" >
     <description>: Wrapper class for the `PMX mutate &lt;https://github.com/deGrootLab/pmx&gt;`_ module.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

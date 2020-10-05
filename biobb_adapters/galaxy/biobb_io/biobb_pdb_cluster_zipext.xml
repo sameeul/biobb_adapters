@@ -1,4 +1,4 @@
-<tool id="biobb_io_pdb_cluster_zip_ext" name="pdb_cluster_zip" version="3.0.0" >
+<tool id="biobb_io_pdb_cluster_zip_ext" name="PdbClusterZip" version="3.0.0" >
     <description>: Wrapper class for the `MMB PDB mirror &lt;http://mmb.irbbarcelona.org/api/&gt;`_.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

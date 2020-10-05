@@ -1,4 +1,4 @@
-<tool id="biobb_ml_principal_component_ext" name="principal_component" version="3.0.1" >
+<tool id="biobb_ml_principal_component_ext" name="PrincipalComponent" version="3.0.1" >
     <description>: Analyses a given dataset through Principal Component Analysis (PCA).</description>
     <requirements>
         <requirement type="binary">docker</requirement>

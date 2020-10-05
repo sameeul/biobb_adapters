@@ -1,4 +1,4 @@
-<tool id="biobb_ml_agglomerative_coefficient_ext" name="agglomerative_coefficient" version="3.0.1" >
+<tool id="biobb_ml_agglomerative_coefficient_ext" name="AgglomerativeCoefficient" version="3.0.1" >
     <description>: Clusters a given dataset and calculates best K coefficient for an agglomerative clustering.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

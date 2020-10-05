@@ -1,4 +1,4 @@
-<tool id="biobb_ml_map_variables_ext" name="map_variables" version="3.0.1" >
+<tool id="biobb_ml_map_variables_ext" name="MapVariables" version="3.0.1" >
     <description>: Maps variables from a given dataset.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

@@ -1,4 +1,4 @@
-<tool id="biobb_model_backbone_ext" name="backbone" version="3.0.1" >
+<tool id="biobb_model_backbone_ext" name="Backbone" version="3.0.1" >
     <description>: Class to repair protein backbone.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

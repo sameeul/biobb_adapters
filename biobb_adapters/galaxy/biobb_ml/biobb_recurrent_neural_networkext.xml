@@ -1,4 +1,4 @@
-<tool id="biobb_ml_recurrent_neural_network_ext" name="recurrent_neural_network" version="3.0.1" >
+<tool id="biobb_ml_recurrent_neural_network_ext" name="RecurrentNeuralNetwork" version="3.0.1" >
     <description>: Trains and tests a given dataset and save the complete model for a Recurrent Neural Network.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

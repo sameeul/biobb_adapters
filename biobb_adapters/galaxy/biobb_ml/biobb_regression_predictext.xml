@@ -1,4 +1,4 @@
-<tool id="biobb_ml_regression_predict_ext" name="regression_predict" version="3.0.1" >
+<tool id="biobb_ml_regression_predict_ext" name="RegressionPredict" version="3.0.1" >
     <description>: Makes predictions from a given model.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

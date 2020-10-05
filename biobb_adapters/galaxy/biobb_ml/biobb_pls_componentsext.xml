@@ -1,4 +1,4 @@
-<tool id="biobb_ml_pls_components_ext" name="pls_components" version="3.0.1" >
+<tool id="biobb_ml_pls_components_ext" name="PlsComponents" version="3.0.1" >
     <description>: Calculates best components number for a Partial Least Square (PLS) Regression.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

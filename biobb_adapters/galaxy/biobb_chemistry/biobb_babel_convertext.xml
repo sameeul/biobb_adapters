@@ -1,4 +1,4 @@
-<tool id="biobb_chemistry_babel_convert_ext" name="babel_convert" version="3.0.0" >
+<tool id="biobb_chemistry_babel_convert_ext" name="BabelConvert" version="3.0.0" >
     <description>: Small molecule format conversion.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

@@ -1,4 +1,4 @@
-<tool id="biobb_ml_decision_tree_ext" name="decision_tree" version="3.0.1" >
+<tool id="biobb_ml_decision_tree_ext" name="DecisionTree" version="3.0.1" >
     <description>: Trains and tests a given dataset and saves the model and scaler for a decision tree classification.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

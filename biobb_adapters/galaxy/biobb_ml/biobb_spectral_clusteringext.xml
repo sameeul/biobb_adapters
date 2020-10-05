@@ -1,4 +1,4 @@
-<tool id="biobb_ml_spectral_clustering_ext" name="spectral_clustering" version="3.0.1" >
+<tool id="biobb_ml_spectral_clustering_ext" name="SpectralClustering" version="3.0.1" >
     <description>: Clusters a given dataset with spectral clustering method.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

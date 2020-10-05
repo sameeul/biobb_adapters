@@ -1,4 +1,4 @@
-<tool id="biobb_chemistry_acpype_params_gmx_ext" name="acpype_params_gmx" version="3.0.0" >
+<tool id="biobb_chemistry_acpype_params_gmx_ext" name="AcpypeParamsGmx" version="3.0.0" >
     <description>: Small molecule parameterization for GROMACS MD package.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

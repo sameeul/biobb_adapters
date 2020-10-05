@@ -1,0 +1,161 @@
+<tool id="biobb_chemistry_BabelMinimize_ext" name="BabelMinimize" version="3.0.0" >
+    <description>: Energetically minimize small molecules.</description>
+    <requirements>
+        <requirement type="binary">docker</requirement>
+    </requirements>
+    <command detect_errors="aggressive"><![CDATA[
+        
+          ln -f -s ${input_path} ${input_path}.${input_path.ext};
+        
+        #if $config.sele == "option1":
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+        #end if
+        docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_chemistry:3.0.0--py_0 BabelMinimize
+        #if $config.sele == "option1":
+          --config ${config.properties}.${config.properties.ext}
+        #else if $config.sele == "option2":
+          --config ${config.jsonstr}
+        #else if $config.sele == "option4":
+          --config "__oc____dq__criteria__dq__:__dq__${config.criteria}__dq__,__dq__method__dq__:__dq__${config.method}__dq__,__dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__hydrogens__dq__:__dq__${config.hydrogens}__dq__,__dq__steps__dq__:__dq__${config.steps}__dq__,__dq__cutoff__dq__:__dq__${config.cutoff}__dq__,__dq__rvdw__dq__:__dq__${config.rvdw}__dq__,__dq__rele__dq__:__dq__${config.rele}__dq__,__dq__frequency__dq__:__dq__${config.frequency}__dq__,__dq__obminimize_path__dq__:__dq__${config.obminimize_path}__dq____cc__"
+        #end if
+        
+          --input_path ${input_path}.${input_path.ext}
+        
+        
+          --output_path $__root_dir__/database/files/000/$outname_output_path
+        ;          
+        #if $config.sele == "option1":
+          rm -f ${config.properties}.${config.properties.ext};
+        #end if
+        
+          rm -f ${input_path}.${input_path.ext};
+        
+        
+          if test -f $__root_dir__/database/files/000/$outname_output_path; then mv $__root_dir__/database/files/000/$outname_output_path $output_path; fi;
+        
+    ]]>
+    </command>
+    <inputs>
+        
+          <param name="input_path" type="data" format="pdb,mol2"  optional="False" label="input PDB,MOL2 file" help="Path to the input file. Format: [input].[format]"/> 
+        
+        
+          <param name="outname_output_path" type="text" value="myBabelMinimize.pdb" optional="False" label="output PDB,MOL2 name" help="Path to the output file Format: [output].[format] "/>
+        
+        <conditional name="config">
+            <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
+                <option value="option1">from configuration file</option>
+                <option value="option2">from JSON string</option>
+                <option value="option4"> Manual input</option>
+            </param>
+            <when value="option1">
+                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+            </when>
+            <when value="option2">
+                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+            </when>
+            <when value="option3">
+            </when>
+            <when value="option4">
+                
+                  <param name="criteria" type="text" value="1e-6" min="" max="" label="criteria" help="Convergence criteria" />
+                
+                  <param name="method" type="select" label="method" help="Method.">
+                    
+                      <option value="cg (conjugate gradients algorithm)" 
+                      
+                      >cg (conjugate gradients algorithm)</option>
+                    
+                      <option value="sd (steepest descent algorithm)" 
+                      
+                      >sd (steepest descent algorithm)</option>
+                    
+                    </param>
+                
+                  <param name="force_field" type="select" label="force_field" help="Force field.">
+                    
+                      <option value="GAFF (General Amber Force Field)" 
+                      
+                      >GAFF (General Amber Force Field)</option>
+                    
+                      <option value="Ghemical (Ghemical force field)" 
+                      
+                      >Ghemical (Ghemical force field)</option>
+                    
+                      <option value="MMFF94 (MMFF94 force field)" 
+                      
+                      >MMFF94 (MMFF94 force field)</option>
+                    
+                      <option value="MMFF94s (MMFF94s force field)" 
+                      
+                      >MMFF94s (MMFF94s force field)</option>
+                    
+                      <option value="UFF (Universal Force Field)" 
+                      
+                      >UFF (Universal Force Field)</option>
+                    
+                    </param>
+                
+                  <param name="hydrogens" type="boolean" 
+                    
+                    label="hydrogens" help="Add hydrogen atoms." />
+                
+                  
+                
+                  <param name="cutoff" type="boolean" 
+                    
+                    label="cutoff" help="Use cut-off." />
+                
+                  <param name="rvdw" type="text" value="6.0" min="" max="" label="rvdw" help="VDW cut-off distance." />
+                
+                  <param name="rele" type="text" value="10.0" min="" max="" label="rele" help="Electrostatic cut-off distance." />
+                
+                  
+                
+                  <param name="obminimize_path" type="text" value="obminimize" label="obminimize_path" help="Path to the obminimize executable binary." />
+                
+            </when>
+        </conditional>
+    </inputs>
+    <outputs>
+        
+        <data name="output_path" format="pdb,mol2" label="${outname_output_path}"/>
+        
+    </outputs>
+    <tests>
+        <test>
+        </test>
+    </tests>    
+    <help>
+.. class:: infomark
+        
+Check the syntax for the tool parameters at the original library documentation: https://biobb_chemistry.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png    
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+        
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+        
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-20},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_chemistry},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

@@ -1,4 +1,4 @@
-<tool id="biobb_md_solvate_ext" name="solvate" version="3.0.0" >
+<tool id="biobb_md_solvate_ext" name="Solvate" version="3.0.0" >
     <description>: Wrapper of the `GROMACS solvate &lt;http://manual.gromacs.org/current/onlinehelp/gmx-editconf.html&gt;`_ module.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

@@ -1,4 +1,4 @@
-<tool id="biobb_ml_linear_regression_ext" name="linear_regression" version="3.0.1" >
+<tool id="biobb_ml_linear_regression_ext" name="LinearRegression" version="3.0.1" >
     <description>: Trains and tests a given dataset and saves the model and scaler for a linear regression.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

@@ -1,4 +1,4 @@
-<tool id="biobb_ml_k_neighbors_ext" name="k_neighbors" version="3.0.1" >
+<tool id="biobb_ml_k_neighbors_ext" name="KNeighbors" version="3.0.1" >
     <description>: Trains and tests a given dataset and saves the model and scaler for a k-nearest neighbors classification.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

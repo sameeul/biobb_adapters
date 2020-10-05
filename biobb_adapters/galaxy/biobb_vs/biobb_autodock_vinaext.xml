@@ -1,4 +1,4 @@
-<tool id="biobb_vs_autodock_vina_ext" name="autodock_vina" version="3.0.0" >
+<tool id="biobb_vs_autodock_vina_ext" name="AutodockVina" version="3.0.0" >
     <description>: Docking of the ligand to a set of grids describing the target protein.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

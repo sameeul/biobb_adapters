@@ -1,4 +1,4 @@
-<tool id="biobb_ml_k_means_coefficient_ext" name="k_means_coefficient" version="3.0.1" >
+<tool id="biobb_ml_k_means_coefficient_ext" name="KMeansCoefficient" version="3.0.1" >
     <description>: Clusters a given dataset and calculates best K coefficient for a k-means clustering.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

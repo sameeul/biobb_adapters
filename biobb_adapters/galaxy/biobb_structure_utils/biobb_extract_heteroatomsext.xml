@@ -1,4 +1,4 @@
-<tool id="biobb_structure_utils_extract_heteroatoms_ext" name="extract_heteroatoms" version="3.0.0" >
+<tool id="biobb_structure_utils_extract_heteroatoms_ext" name="ExtractHeteroatoms" version="3.0.0" >
     <description>: Class to extract hetero-atoms from a 3D structure.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

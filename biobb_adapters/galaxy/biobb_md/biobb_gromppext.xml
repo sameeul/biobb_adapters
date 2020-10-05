@@ -1,4 +1,4 @@
-<tool id="biobb_md_grompp_ext" name="grompp" version="3.0.0" >
+<tool id="biobb_md_grompp_ext" name="Grompp" version="3.0.0" >
     <description>: Wrapper of the GROMACS grompp module.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

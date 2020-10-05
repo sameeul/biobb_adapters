@@ -1,4 +1,4 @@
-<tool id="biobb_ml_dbscan_ext" name="dbscan" version="3.0.1" >
+<tool id="biobb_ml_dbscan_ext" name="Dbscan" version="3.0.1" >
     <description>: Clusters a given dataset with DBSCAN clustering method.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

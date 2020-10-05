@@ -1,4 +1,4 @@
-<tool id="biobb_pmx_pmxgentop_ext" name="pmxgentop" version="3.0.1" >
+<tool id="biobb_pmx_pmxgentop_ext" name="Pmxgentop" version="3.0.1" >
     <description>: Wrapper class for the `PMX gentop &lt;https://github.com/deGrootLab/pmx&gt;`_ module.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

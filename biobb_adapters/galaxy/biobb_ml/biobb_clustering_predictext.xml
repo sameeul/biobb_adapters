@@ -1,4 +1,4 @@
-<tool id="biobb_ml_clustering_predict_ext" name="clustering_predict" version="3.0.1" >
+<tool id="biobb_ml_clustering_predict_ext" name="ClusteringPredict" version="3.0.1" >
     <description>: Makes predictions from a given model.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

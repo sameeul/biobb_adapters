@@ -1,4 +1,4 @@
-<tool id="biobb_chemistry_babel_minimize_ext" name="babel_minimize" version="3.0.0" >
+<tool id="biobb_chemistry_babel_minimize_ext" name="BabelMinimize" version="3.0.0" >
     <description>: Energetically minimize small molecules.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

@@ -1,4 +1,4 @@
-<tool id="biobb_analysis_gmx_rms_ext" name="gmx_rms" version="3.0.0" >
+<tool id="biobb_analysis_gmx_rms_ext" name="GmxRms" version="3.0.0" >
     <description>: Performs a Root Mean Square deviation (RMSd) analysis from a given GROMACS compatible trajectory.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

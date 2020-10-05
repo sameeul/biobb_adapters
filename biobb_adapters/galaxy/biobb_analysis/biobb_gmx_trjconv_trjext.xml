@@ -1,4 +1,4 @@
-<tool id="biobb_analysis_gmx_trjconv_trj_ext" name="gmx_trjconv_trj" version="3.0.0" >
+<tool id="biobb_analysis_gmx_trjconv_trj_ext" name="GmxTrjconvTrj" version="3.0.0" >
     <description>: Converts between GROMACS compatible trajectory file formats and/or extracts a selection of atoms.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

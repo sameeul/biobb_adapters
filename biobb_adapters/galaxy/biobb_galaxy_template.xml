@@ -1,4 +1,4 @@
-<tool id="{{ tool_id }}_ext" name="{{ name }}" version="{{ version }}" >
+<tool id="{{ tool_id }}_ext" name="{{ display_name }}" version="{{ version }}" >
     <description>: {{ description }}</description>
     <requirements>
         <requirement type="binary">docker</requirement>

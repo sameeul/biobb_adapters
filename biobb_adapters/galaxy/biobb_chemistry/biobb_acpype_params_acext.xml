@@ -1,4 +1,4 @@
-<tool id="biobb_chemistry_acpype_params_ac_ext" name="acpype_params_ac" version="3.0.0" >
+<tool id="biobb_chemistry_acpype_params_ac_ext" name="AcpypeParamsAc" version="3.0.0" >
     <description>: Small molecule parameterization for AMBER MD package.</description>
     <requirements>
         <requirement type="binary">docker</requirement>

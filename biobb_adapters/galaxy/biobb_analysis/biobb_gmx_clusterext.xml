@@ -1,4 +1,4 @@
-<tool id="biobb_analysis_gmx_cluster_ext" name="gmx_cluster" version="3.0.0" >
+<tool id="biobb_analysis_gmx_cluster_ext" name="GmxCluster" version="3.0.0" >
     <description>: Creates cluster structures from a given GROMACS compatible trajectory.</description>
     <requirements>
         <requirement type="binary">docker</requirement>
