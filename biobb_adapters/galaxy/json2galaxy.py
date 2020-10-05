@@ -10,6 +10,7 @@ from jinja2.exceptions import TemplateSyntaxError
 
 TEMPL = "biobb_galaxy_template.xml"
 CONTAINERS = "biobb_galaxy_containers.json"
+XML_DIR = "./xml_files"
 
 def tool_name(orig):
     print(orig)
@@ -162,10 +163,10 @@ def main():
     templ = env.get_template(args.template)
     
     if args.create_dir:
-        if not os.path.isdir(data['biobb_group']):
-            os.mkdir(data['biobb_group'])
+        if not os.path.isdir(XML_DIR + "/" + data['biobb_group']):
+            os.mkdir(XML_DIR + "/" + data['biobb_group'])
 
-    with open(data['biobb_group'] + "/biobb_" + data['name'] + "ext.xml", "w") as xml_file:
+    with open(XML_DIR + "/" + data['biobb_group'] + "/biobb_" + data['name'] + "ext.xml", "w") as xml_file:
         xml_file.write(templ.render(data))
         
 if __name__ == '__main__':
