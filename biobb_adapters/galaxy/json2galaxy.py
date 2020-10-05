@@ -13,9 +13,7 @@ CONTAINERS = "biobb_galaxy_containers.json"
 XML_DIR = "./xml_files"
 
 def tool_name(orig):
-    print(orig)
     data = re.split('_', orig)
-    print(data)
     return ''.join([a.capitalize() for a in data])
 
 def main():
@@ -86,7 +84,7 @@ def main():
         data['name'] = os.path.basename(schema_data['$id'])
         
     data['display_name'] = tool_name(data['name'])
-    print(data['display_name'])
+
     m = re.search(r'(biobb_[^/]*)', schema_data['$id'])
     
     data['biobb_group'] = m.group(0)
