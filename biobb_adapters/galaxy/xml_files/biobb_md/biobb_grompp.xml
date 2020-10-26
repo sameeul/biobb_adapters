@@ -1,5 +1,5 @@
 <tool id="biobb_md_grompp_ext" name="Grompp" version="3.0.0" >
-    <description>: Wrapper of the GROMACS grompp module.</description>
+    <description>: Wrapper of the GROMACS grompp  module.</description>
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
@@ -13,6 +13,8 @@
         
           ln -f -s ${input_ndx_path} ${input_ndx_path}.${input_ndx_path.ext};
         
+          ln -f -s ${input_mdp_path} ${input_mdp_path}.${input_mdp_path.ext};
+        
         #if $config.sele == "option1":
           ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
@@ -22,7 +24,7 @@
         #else if $config.sele == "option2":
           --config ${config.jsonstr}
         #else if $config.sele == "option4":
-          --config "__oc____dq__input_mdp_path__dq__:__dq__${config.input_mdp_path}__dq__,__dq__mdp__dq__:__dq__${config.mdp}__dq__,__dq__type__dq__:__dq__${config.type}__dq__,__dq__output_mdp_path__dq__:__dq__${config.output_mdp_path}__dq__,__dq__output_top_path__dq__:__dq__${config.output_top_path}__dq__,__dq__maxwarn__dq__:__dq__${config.maxwarn}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
+          --config "__oc____dq__mdp__dq__:__dq__${config.mdp}__dq__,__dq__maxwarn__dq__:__dq__${config.maxwarn}__dq__,__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
         #end if
         
           --input_gro_path ${input_gro_path}.${input_gro_path.ext}
@@ -32,6 +34,8 @@
           --input_cpt_path ${input_cpt_path}.${input_cpt_path.ext}
         
           --input_ndx_path ${input_ndx_path}.${input_ndx_path.ext}
+        
+          --input_mdp_path ${input_mdp_path}.${input_mdp_path.ext}
         
         
           --output_tpr_path $__root_dir__/database/files/000/$outname_output_tpr_path
@@ -48,6 +52,8 @@
         
           rm -f ${input_ndx_path}.${input_ndx_path.ext};
         
+          rm -f ${input_mdp_path}.${input_mdp_path.ext};
+        
         
           if test -f $__root_dir__/database/files/000/$outname_output_tpr_path; then mv $__root_dir__/database/files/000/$outname_output_tpr_path $output_tpr_path; fi;
         
@@ -57,11 +63,13 @@
         
           <param name="input_gro_path" type="data" format="gro"  optional="False" label="input GRO file" help="Path to the input GROMACS structure GRO file. Format: [input].gro"/> 
         
-          <param name="input_top_zip_path" type="data" format="zip"  optional="False" label="input ZIP file" help="Path the input GROMACS topology TOP and ITP files in zip format. Format: [input].zip"/> 
+          <param name="input_top_zip_path" type="data" format="zip"  optional="False" label="input ZIP file" help="Path to the input GROMACS topology TOP and ITP files in zip format. Format: [input].zip"/> 
         
           <param name="input_cpt_path" type="data" format="cpt"  optional="True" label="input CPT file" help="Path to the input GROMACS checkpoint file CPT. Format: [input].cpt"/> 
         
           <param name="input_ndx_path" type="data" format="ndx"  optional="True" label="input NDX file" help="Path to the input GROMACS index files NDX. Format: [input].ndx"/> 
+        
+          <param name="input_mdp_path" type="data" format="mdp"  optional="True" label="input MDP file" help="Path of the input GROMACS `MDP file &lt;http://manual.gromacs.org/current/user-guide/mdp-options.html&gt;`_. Format: [input].mdp"/> 
         
         
           <param name="outname_output_tpr_path" type="text" value="mygrompp.tpr" optional="False" label="output TPR name" help="Path to the output portable binary run file TPR Format: [output].tpr "/>
@@ -83,41 +91,21 @@
             </when>
             <when value="option4">
                 
-                  <param name="input_mdp_path" type="text" value="None" label="input_mdp_path" help="Path of the input MDP file." />
+                  
                 
                   
                 
-                  <param name="type" type="select" label="type" help="Default options for the mdp file.">
-                    
-                      <option value="minimization" 
-                      selected="true"
-                      >minimization</option>
-                    
-                      <option value="nvt" 
-                      
-                      >nvt</option>
-                    
-                      <option value="npt" 
-                      
-                      >npt</option>
-                    
-                      <option value="free" 
-                      
-                      >free</option>
-                    
-                      <option value="index" 
-                      
-                      >index</option>
-                    
-                    </param>
+                  <param name="gmx_lib" type="text" value="None" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." />
                 
-                  <param name="output_mdp_path" type="text" value="grompp.mdp" label="output_mdp_path" help="Path of the output MDP file." />
+                  <param name="gmx_path" type="text" value="&#34;gmx&#34;" label="gmx_path" help="Path to the GROMACS executable binary." />
                 
-                  <param name="output_top_path" type="text" value="grompp.top" label="output_top_path" help="Path the output topology TOP file." />
+                  <param name="remove_tmp" type="boolean" 
+                    
+                    label="remove_tmp" help="Remove temporal files." />
                 
-                  
-                
-                  <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." />
+                  <param name="restart" type="boolean" 
+                    
+                    label="restart" help="Do not execute if output files exist." />
                 
             </when>
         </conditional>

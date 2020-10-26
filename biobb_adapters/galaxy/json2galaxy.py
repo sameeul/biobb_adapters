@@ -137,7 +137,7 @@ def main():
 
             props_str=[]
             for k,v in schema_data['properties'][f]['properties'].items():
-                if re.match('container', k) or re.search('WF property', v['description']):
+                if re.match('container', k) or v['wf_prop'] or re.search('wf property', v['description']):
                     continue
                 m = re.search('(.*) Valid values: (.*)', v['description'])
                 if m:
@@ -149,7 +149,7 @@ def main():
                     v['type'] = 'select'
                 data['props'][k] = v
                 
-                # Generating "galaxified" Json string for config parameter
+                # Generating "galaxyfied" Json string for config parameter
                 props_str.append("__dq__" +  k + "__dq__:__dq__${config." + k + "}__dq__")
             
             data['config4str'] = "__oc__" + ",".join(props_str) + "__cc__"
