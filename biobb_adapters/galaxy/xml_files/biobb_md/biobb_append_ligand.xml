@@ -16,7 +16,7 @@
         #if $config.sele == "option1":
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-          --config ${config.jsonstr}
+          --config '${config.jsonstr}'
         #else if $config.sele == "option4":
           --config "__oc____dq__posres_name__dq__:__dq__${config.posres_name}__dq____cc__"
         #end if
@@ -67,7 +67,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="posres_name" type="text" value="POSRES_LIGAND" label="posres_name" help="String to be included in the ifdef clause." />
+                  <param name="posres_name" type="text" value="&#34;POSRES_LIGAND&#34;" label="posres_name" help="String to be included in the ifdef clause." />
                 
             </when>
         </conditional>

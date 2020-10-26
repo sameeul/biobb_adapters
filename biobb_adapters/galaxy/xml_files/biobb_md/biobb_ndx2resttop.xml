@@ -16,7 +16,7 @@
         #if $config.sele == "option1":
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-          --config ${config.jsonstr}
+          --config '${config.jsonstr}'
         #else if $config.sele == "option4":
           --config "__oc____dq__force_constants__dq__:__dq__${config.force_constants}__dq__,__dq__ref_rest_chain_triplet_list__dq__:__dq__${config.ref_rest_chain_triplet_list}__dq____cc__"
         #end if
@@ -67,9 +67,9 @@
             </when>
             <when value="option4">
                 
-                  <param name="force_constants" type="text" value="500 500 500" label="force_constants" help="Array of three floats defining the force constants." />
+                  <param name="force_constants" type="text" value="&#34;500 500 500&#34;" label="force_constants" help="Array of three floats defining the force constants." />
                 
-                  <param name="ref_rest_chain_triplet_list" type="text" value="None" label="ref_rest_chain_triplet_list" help="list." />
+                  <param name="ref_rest_chain_triplet_list" type="text" value="None" label="ref_rest_chain_triplet_list" help="Triplet list composed by (reference group, restrain group, chain) list." />
                 
             </when>
         </conditional>

@@ -1,5 +1,5 @@
 <tool id="biobb_md_mdrun_ext" name="Mdrun" version="3.0.0" >
-    <description>: Wrapper of the `GROMACS mdrun &lt;http://manual.gromacs.org/current/onlinehelp/gmx-mdrun.html&gt;`_ module.</description>
+    <description>: Wrapper of the GROMACS mdrun  module.</description>
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
@@ -14,9 +14,9 @@
         #if $config.sele == "option1":
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-          --config ${config.jsonstr}
+          --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__num_threads__dq__:__dq__${config.num_threads}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq__,__dq__mpi_bin__dq__:__dq__${config.mpi_bin}__dq__,__dq__mpi_np__dq__:__dq__${config.mpi_np}__dq__,__dq__mpi_hostlist__dq__:__dq__${config.mpi_hostlist}__dq____cc__"
+          --config "__oc____dq__num_threads__dq__:__dq__${config.num_threads}__dq__,__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq__,__dq__mpi_bin__dq__:__dq__${config.mpi_bin}__dq__,__dq__mpi_np__dq__:__dq__${config.mpi_np}__dq__,__dq__mpi_hostlist__dq__:__dq__${config.mpi_hostlist}__dq____cc__"
         #end if
         
           --input_tpr_path ${input_tpr_path}.${input_tpr_path.ext}
@@ -76,7 +76,7 @@
         
           <param name="outname_output_cpt_path" type="text" value="mymdrun.cpt" optional="True" label="output CPT name" help="Path to the output GROMACS checkpoint file CPT Format: [output].cpt "/>
         
-          <param name="outname_output_dhdl_path" type="text" value="mymdrun.xvg" optional="True" label="output XVG name" help="Path to the output dhdl Format: [output].xvg "/>
+          <param name="outname_output_dhdl_path" type="text" value="mymdrun.xvg" optional="True" label="output XVG name" help="Path to the output dhdl.xvg file only used when free energy calculation is turned on Format: [output].xvg "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -97,7 +97,9 @@
                 
                   
                 
-                  <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." />
+                  <param name="gmx_lib" type="text" value="None" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." />
+                
+                  <param name="gmx_path" type="text" value="&#34;gmx&#34;" label="gmx_path" help="Path to the GROMACS executable binary." />
                 
                   <param name="mpi_bin" type="text" value="None" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." />
                 
