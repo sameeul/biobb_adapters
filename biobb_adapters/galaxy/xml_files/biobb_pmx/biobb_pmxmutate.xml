@@ -16,9 +16,9 @@
         #if $config.sele == "option1":
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-          --config ${config.jsonstr}
+          --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__mutation_list__dq__:__dq__${config.mutation_list}__dq__,__dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__resinfo__dq__:__dq__${config.resinfo}__dq__,__dq__dna__dq__:__dq__${config.dna}__dq__,__dq__rna__dq__:__dq__${config.rna}__dq__,__dq__pmx_cli_path__dq__:__dq__${config.pmx_cli_path}__dq____cc__"
+          --config "__oc____dq__mutation_list__dq__:__dq__${config.mutation_list}__dq__,__dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__resinfo__dq__:__dq__${config.resinfo}__dq__,__dq__dna__dq__:__dq__${config.dna}__dq__,__dq__rna__dq__:__dq__${config.rna}__dq__,__dq__pmx_cli_path__dq__:__dq__${config.pmx_cli_path}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
         #end if
         
           --input_structure_path ${input_structure_path}.${input_structure_path.ext}
@@ -84,6 +84,14 @@
                     label="rna" help="Generate hybrid residue for the RNA nucleotides." />
                 
                   <param name="pmx_cli_path" type="text" value="cli.py" label="pmx_cli_path" help="Path to the PMX Python2.7 client." />
+                
+                  <param name="remove_tmp" type="boolean" 
+                    checked="true"
+                    label="remove_tmp" help="[WF property] Remove temporal files." />
+                
+                  <param name="restart" type="boolean" 
+                    
+                    label="restart" help="[WF property] Do not execute if output files exist." />
                 
             </when>
         </conditional>

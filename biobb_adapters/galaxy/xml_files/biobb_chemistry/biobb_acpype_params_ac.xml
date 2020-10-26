@@ -14,9 +14,9 @@
         #if $config.sele == "option1":
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-          --config ${config.jsonstr}
+          --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__basename__dq__:__dq__${config.basename}__dq__,__dq__charge__dq__:__dq__${config.charge}__dq__,__dq__acpype_path__dq__:__dq__${config.acpype_path}__dq____cc__"
+          --config "__oc____dq__basename__dq__:__dq__${config.basename}__dq__,__dq__charge__dq__:__dq__${config.charge}__dq__,__dq__acpype_path__dq__:__dq__${config.acpype_path}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
         #end if
         
           --input_path ${input_path}.${input_path.ext}
@@ -82,6 +82,14 @@
                   
                 
                   <param name="acpype_path" type="text" value="acpype" label="acpype_path" help="Path to the acpype executable binary." />
+                
+                  <param name="remove_tmp" type="boolean" 
+                    checked="true"
+                    label="remove_tmp" help="[WF property] Remove temporal files." />
+                
+                  <param name="restart" type="boolean" 
+                    
+                    label="restart" help="[WF property] Do not execute if output files exist." />
                 
             </when>
         </conditional>

@@ -14,9 +14,9 @@
         #if $config.sele == "option1":
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-          --config ${config.jsonstr}
+          --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__independent_vars__dq__:__dq__${config.independent_vars}__dq__,__dq__target__dq__:__dq__${config.target}__dq__,__dq__criterion__dq__:__dq__${config.criterion}__dq__,__dq__max_depth__dq__:__dq__${config.max_depth}__dq__,__dq__normalize_cm__dq__:__dq__${config.normalize_cm}__dq__,__dq__test_size__dq__:__dq__${config.test_size}__dq____cc__"
+          --config "__oc____dq__independent_vars__dq__:__dq__${config.independent_vars}__dq__,__dq__target__dq__:__dq__${config.target}__dq__,__dq__criterion__dq__:__dq__${config.criterion}__dq__,__dq__max_depth__dq__:__dq__${config.max_depth}__dq__,__dq__normalize_cm__dq__:__dq__${config.normalize_cm}__dq__,__dq__test_size__dq__:__dq__${config.test_size}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
         #end if
         
           --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
@@ -94,6 +94,14 @@
                     label="normalize_cm" help="Whether or not to normalize the confusion matrix." />
                 
                   <param name="test_size" type="text" value="0.2" min="" max="" label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." />
+                
+                  <param name="remove_tmp" type="boolean" 
+                    checked="true"
+                    label="remove_tmp" help="[WF property] Remove temporal files." />
+                
+                  <param name="restart" type="boolean" 
+                    
+                    label="restart" help="[WF property] Do not execute if output files exist." />
                 
             </when>
         </conditional>

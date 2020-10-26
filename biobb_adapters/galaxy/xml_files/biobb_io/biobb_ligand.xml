@@ -12,9 +12,9 @@
         #if $config.sele == "option1":
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-          --config ${config.jsonstr}
+          --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__ligand_code__dq__:__dq__${config.ligand_code}__dq____cc__"
+          --config "__oc____dq__ligand_code__dq__:__dq__${config.ligand_code}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
         #end if
         
         
@@ -51,7 +51,15 @@
             </when>
             <when value="option4">
                 
-                  <param name="ligand_code" type="text" value="12D" label="ligand_code" help="RSCB PDB ligand code. ie: &#34;12D&#34;" />
+                  <param name="ligand_code" type="text" value="12D" label="ligand_code" help="RSCB PDB ligand code." />
+                
+                  <param name="remove_tmp" type="boolean" 
+                    checked="true"
+                    label="remove_tmp" help="[WF property] Remove temporal files." />
+                
+                  <param name="restart" type="boolean" 
+                    
+                    label="restart" help="[WF property] Do not execute if output files exist." />
                 
             </when>
         </conditional>

@@ -18,9 +18,9 @@
         #if $config.sele == "option1":
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-          --config ${config.jsonstr}
+          --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__fit_selection__dq__:__dq__${config.fit_selection}__dq__,__dq__output_selection__dq__:__dq__${config.output_selection}__dq__,__dq__dista__dq__:__dq__${config.dista}__dq__,__dq__method__dq__:__dq__${config.method}__dq__,__dq__cutoff__dq__:__dq__${config.cutoff}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
+          --config "__oc____dq__fit_selection__dq__:__dq__${config.fit_selection}__dq__,__dq__output_selection__dq__:__dq__${config.output_selection}__dq__,__dq__dista__dq__:__dq__${config.dista}__dq__,__dq__method__dq__:__dq__${config.method}__dq__,__dq__cutoff__dq__:__dq__${config.cutoff}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
         #end if
         
           --input_structure_path ${input_structure_path}.${input_structure_path.ext}
@@ -266,6 +266,14 @@
                   <param name="cutoff" type="text" value="0.1" min="" max="" label="cutoff" help="for two structures to be neighbor." />
                 
                   <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." />
+                
+                  <param name="remove_tmp" type="boolean" 
+                    checked="true"
+                    label="remove_tmp" help="[WF property] Remove temporal files." />
+                
+                  <param name="restart" type="boolean" 
+                    
+                    label="restart" help="[WF property] Do not execute if output files exist." />
                 
             </when>
         </conditional>

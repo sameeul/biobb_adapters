@@ -137,7 +137,7 @@ def main():
 
             props_str=[]
             for k,v in schema_data['properties'][f]['properties'].items():
-                if re.match('container', k) or v['wf_prop'] or re.search('wf property', v['description']):
+                if re.match('container', k) or re.search('wf property', v['description']):
                     continue
                 m = re.search('(.*) Valid values: (.*)', v['description'])
                 if m:

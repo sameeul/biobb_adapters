@@ -14,9 +14,9 @@
         #if $config.sele == "option1":
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-          --config ${config.jsonstr}
+          --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__features__dq__:__dq__${config.features}__dq____cc__"
+          --config "__oc____dq__features__dq__:__dq__${config.features}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
         #end if
         
           --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
@@ -60,6 +60,14 @@
             <when value="option4">
                 
                   <param name="features" type="text" value="None" label="features" help="List with all features to compare." />
+                
+                  <param name="remove_tmp" type="boolean" 
+                    checked="true"
+                    label="remove_tmp" help="[WF property] Remove temporal files." />
+                
+                  <param name="restart" type="boolean" 
+                    
+                    label="restart" help="[WF property] Do not execute if output files exist." />
                 
             </when>
         </conditional>

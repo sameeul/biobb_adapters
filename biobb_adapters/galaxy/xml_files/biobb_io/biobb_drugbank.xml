@@ -1,60 +1,38 @@
-<tool id="biobb_ml_neural_network_decode_ext" name="NeuralNetworkDecode" version="3.0.1" >
-    <description>: Decodes and predicts given a dataset and a model file.</description>
+<tool id="biobb_io_drugbank_ext" name="Drugbank" version="3.0.0" >
+    <description>: Download a component in SDF format from the `Drugbank &lt;https://www.drugbank.ca/&gt;`_.</description>
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
     <command detect_errors="aggressive"><![CDATA[
         
-          ln -f -s ${input_decode_path} ${input_decode_path}.${input_decode_path.ext};
-        
-          ln -f -s ${input_model_path} ${input_model_path}.${input_model_path.ext};
-        
         #if $config.sele == "option1":
           ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
-        docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_ml:3.0.1--py_0 neural_network_decode
+        docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_io:3.0.0--py_0 drugbank
         #if $config.sele == "option1":
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
+          --config "__oc____dq__drugbank_id__dq__:__dq__${config.drugbank_id}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
         #end if
         
-          --input_decode_path ${input_decode_path}.${input_decode_path.ext}
         
-          --input_model_path ${input_model_path}.${input_model_path.ext}
-        
-        
-          --output_decode_path $__root_dir__/database/files/000/$outname_output_decode_path
-        
-          --output_predict_path $__root_dir__/database/files/000/$outname_output_predict_path
+          --output_sdf_path $__root_dir__/database/files/000/$outname_output_sdf_path
         ;          
         #if $config.sele == "option1":
           rm -f ${config.properties}.${config.properties.ext};
         #end if
         
-          rm -f ${input_decode_path}.${input_decode_path.ext};
         
-          rm -f ${input_model_path}.${input_model_path.ext};
-        
-        
-          if test -f $__root_dir__/database/files/000/$outname_output_decode_path; then mv $__root_dir__/database/files/000/$outname_output_decode_path $output_decode_path; fi;
-        
-          if test -f $__root_dir__/database/files/000/$outname_output_predict_path; then mv $__root_dir__/database/files/000/$outname_output_predict_path $output_predict_path; fi;
+          if test -f $__root_dir__/database/files/000/$outname_output_sdf_path; then mv $__root_dir__/database/files/000/$outname_output_sdf_path $output_sdf_path; fi;
         
     ]]>
     </command>
     <inputs>
         
-          <param name="input_decode_path" type="data" format="csv"  optional="False" label="input CSV file" help="Path to the input decode dataset. Format: [input].csv"/> 
         
-          <param name="input_model_path" type="data" format="h5"  optional="False" label="input H5 file" help="Path to the input model. Format: [input].h5"/> 
-        
-        
-          <param name="outname_output_decode_path" type="text" value="myneural_network_decode.csv" optional="False" label="output CSV name" help="Path to the output decode file Format: [output].csv "/>
-        
-          <param name="outname_output_predict_path" type="text" value="myneural_network_decode.csv" optional="False" label="output CSV name" help="Path to the output predict file Format: [output].csv "/>
+          <param name="outname_output_sdf_path" type="text" value="mydrugbank.sdf" optional="False" label="output SDF name" help="Path to the output SDF component file Format: [output].sdf "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
@@ -73,6 +51,8 @@
             </when>
             <when value="option4">
                 
+                  <param name="drugbank_id" type="text" value="DB00530" label="drugbank_id" help="Drugbank component id." />
+                
                   <param name="remove_tmp" type="boolean" 
                     checked="true"
                     label="remove_tmp" help="[WF property] Remove temporal files." />
@@ -86,9 +66,7 @@
     </inputs>
     <outputs>
         
-        <data name="output_decode_path" format="csv" label="${outname_output_decode_path}"/>
-        
-        <data name="output_predict_path" format="csv" label="${outname_output_predict_path}"/>
+        <data name="output_sdf_path" format="sdf" label="${outname_output_sdf_path}"/>
         
     </outputs>
     <tests>
@@ -98,7 +76,7 @@
     <help>
 .. class:: infomark
         
-Check the syntax for the tool parameters at the original library documentation: https://biobb_ml.readthedocs.io/en/latest
+Check the syntax for the tool parameters at the original library documentation: https://biobb_io.readthedocs.io/en/latest
 
 -----
 
@@ -121,7 +99,7 @@ Check the syntax for the tool parameters at the original library documentation: 
             title = {biobb: BioExcel building blocks },
             publisher = {GitHub},
             journal = {GitHub repository},
-            url = {https://github.com/bioexcel/biobb_ml},
+            url = {https://github.com/bioexcel/biobb_io},
             }
         </citation>
         <citation type="doi">10.1038/s41597-019-0177-4</citation>

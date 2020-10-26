@@ -14,9 +14,9 @@
         #if $config.sele == "option1":
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-          --config ${config.jsonstr}
+          --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__flip__dq__:__dq__${config.flip}__dq__,__dq__noflip__dq__:__dq__${config.noflip}__dq__,__dq__nuclear__dq__:__dq__${config.nuclear}__dq__,__dq__nooh__dq__:__dq__${config.nooh}__dq__,__dq__oh__dq__:__dq__${config.oh}__dq__,__dq__his__dq__:__dq__${config.his}__dq__,__dq__noheth__dq__:__dq__${config.noheth}__dq__,__dq__rotnh3__dq__:__dq__${config.rotnh3}__dq__,__dq__norotnh3__dq__:__dq__${config.norotnh3}__dq__,__dq__rotexist__dq__:__dq__${config.rotexist}__dq__,__dq__rotexoh__dq__:__dq__${config.rotexoh}__dq__,__dq__allalt__dq__:__dq__${config.allalt}__dq__,__dq__onlya__dq__:__dq__${config.onlya}__dq__,__dq__charges__dq__:__dq__${config.charges}__dq__,__dq__dorotmet__dq__:__dq__${config.dorotmet}__dq__,__dq__noadjust__dq__:__dq__${config.noadjust}__dq__,__dq__build__dq__:__dq__${config.build}__dq__,__dq__reduce_path__dq__:__dq__${config.reduce_path}__dq____cc__"
+          --config "__oc____dq__flip__dq__:__dq__${config.flip}__dq__,__dq__noflip__dq__:__dq__${config.noflip}__dq__,__dq__nuclear__dq__:__dq__${config.nuclear}__dq__,__dq__nooh__dq__:__dq__${config.nooh}__dq__,__dq__oh__dq__:__dq__${config.oh}__dq__,__dq__his__dq__:__dq__${config.his}__dq__,__dq__noheth__dq__:__dq__${config.noheth}__dq__,__dq__rotnh3__dq__:__dq__${config.rotnh3}__dq__,__dq__norotnh3__dq__:__dq__${config.norotnh3}__dq__,__dq__rotexist__dq__:__dq__${config.rotexist}__dq__,__dq__rotexoh__dq__:__dq__${config.rotexoh}__dq__,__dq__allalt__dq__:__dq__${config.allalt}__dq__,__dq__onlya__dq__:__dq__${config.onlya}__dq__,__dq__charges__dq__:__dq__${config.charges}__dq__,__dq__dorotmet__dq__:__dq__${config.dorotmet}__dq__,__dq__noadjust__dq__:__dq__${config.noadjust}__dq__,__dq__build__dq__:__dq__${config.build}__dq__,__dq__reduce_path__dq__:__dq__${config.reduce_path}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
         #end if
         
           --input_path ${input_path}.${input_path.ext}
@@ -128,6 +128,14 @@
                     label="build" help="add H, including His sc NH, then rotate and flip groups (except for pre-existing methionine methyl hydrogens)" />
                 
                   <param name="reduce_path" type="text" value="reduce" label="reduce_path" help="Path to the reduce executable binary." />
+                
+                  <param name="remove_tmp" type="boolean" 
+                    checked="true"
+                    label="remove_tmp" help="[WF property] Remove temporal files." />
+                
+                  <param name="restart" type="boolean" 
+                    
+                    label="restart" help="[WF property] Do not execute if output files exist." />
                 
             </when>
         </conditional>

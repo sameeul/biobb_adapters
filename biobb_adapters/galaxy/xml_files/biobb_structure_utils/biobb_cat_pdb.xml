@@ -16,9 +16,9 @@
         #if $config.sele == "option1":
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
-          --config ${config.jsonstr}
+          --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____cc__"
+          --config "__oc____dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
         #end if
         
           --input_structure1 ${input_structure1}.${input_structure1.ext}
@@ -50,7 +50,33 @@
         
           <param name="outname_output_structure_path" type="text" value="mycat_pdb.pdb" optional="False" label="output PDB name" help="Output protein file path Format: [output].pdb "/>
         
-        
+        <conditional name="config">
+            <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
+                <option value="option1">from configuration file</option>
+                <option value="option2">from JSON string</option>
+                <option value="option4"> Manual input</option>
+            </param>
+            <when value="option1">
+                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+            </when>
+            <when value="option2">
+                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+            </when>
+            <when value="option3">
+            </when>
+            <when value="option4">
+                
+                  <param name="remove_tmp" type="boolean" 
+                    checked="true"
+                    label="remove_tmp" help="[WF property] Remove temporal files." />
+                
+                  <param name="restart" type="boolean" 
+                    
+                    label="restart" help="[WF property] Do not execute if output files exist." />
+                
+            </when>
+        </conditional>
     </inputs>
     <outputs>
         

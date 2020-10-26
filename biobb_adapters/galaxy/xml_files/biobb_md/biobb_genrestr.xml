@@ -18,7 +18,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__restrained_group__dq__:__dq__${config.restrained_group}__dq__,__dq__force_constants__dq__:__dq__${config.force_constants}__dq__,__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq____cc__"
+          --config "__oc____dq__restrained_group__dq__:__dq__${config.restrained_group}__dq__,__dq__force_constants__dq__:__dq__${config.force_constants}__dq__,__dq__gmx_lib__dq__:__dq__${config.gmx_lib}__dq__,__dq__gmx_path__dq__:__dq__${config.gmx_path}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
         #end if
         
           --input_structure_path ${input_structure_path}.${input_structure_path.ext}
@@ -74,6 +74,14 @@
                   <param name="gmx_lib" type="text" value="None" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." />
                 
                   <param name="gmx_path" type="text" value="&#34;gmx&#34;" label="gmx_path" help="Path to the GROMACS executable binary." />
+                
+                  <param name="remove_tmp" type="boolean" 
+                    
+                    label="remove_tmp" help="Remove temporal files." />
+                
+                  <param name="restart" type="boolean" 
+                    
+                    label="restart" help="Do not execute if output files exist." />
                 
             </when>
         </conditional>
