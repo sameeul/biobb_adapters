@@ -139,7 +139,7 @@ def main():
             props_str=[]
             for k,v in schema_data['properties'][f]['properties'].items():
                 if re.match('container', k) or\
-                    ('description' in v and re.search('wf property', v['description'])) or\
+                    ('description' in v and re.search('WF property', v['description'])) or\
                     ('wf_prop' in v and v['wf_prop']):
                     continue
                 if 'enum' in v:

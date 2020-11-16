@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__residue_name_list__dq__:__dq__${config.residue_name_list}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
+          --config "__oc____dq__residue_name_list__dq__:__dq__${config.residue_name_list}__dq____cc__"
         #end if
         
           --input_gro_path ${input_gro_path}.${input_gro_path.ext}
@@ -60,14 +60,6 @@
             <when value="option4">
                 
                   <param name="residue_name_list" type="text" value="[&#39;NA&#39;, &#39;CL&#39;, &#39;SOL&#39;]" label="residue_name_list" help="Ordered residue name list." optional="false"/>
-                
-                  <param name="remove_tmp" type="boolean" 
-                    checked="true"
-                    label="remove_tmp" help="[WF property] Remove temporal files." />
-                
-                  <param name="restart" type="boolean" 
-                    
-                    label="restart" help="[WF property] Do not execute if output files exist." />
                 
             </when>
         </conditional>

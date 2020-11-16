@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__split__dq__:__dq__${config.split}__dq__,__dq__scale_mass__dq__:__dq__${config.scale_mass}__dq__,__dq__dna__dq__:__dq__${config.dna}__dq__,__dq__rna__dq__:__dq__${config.rna}__dq__,__dq__output_top_name__dq__:__dq__${config.output_top_name}__dq__,__dq__keyword_list__dq__:__dq__${config.keyword_list}__dq__,__dq__pmx_cli_path__dq__:__dq__${config.pmx_cli_path}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
+          --config "__oc____dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__split__dq__:__dq__${config.split}__dq__,__dq__scale_mass__dq__:__dq__${config.scale_mass}__dq__,__dq__dna__dq__:__dq__${config.dna}__dq__,__dq__rna__dq__:__dq__${config.rna}__dq__,__dq__output_top_name__dq__:__dq__${config.output_top_name}__dq__,__dq__keyword_list__dq__:__dq__${config.keyword_list}__dq__,__dq__pmx_cli_path__dq__:__dq__${config.pmx_cli_path}__dq____cc__"
         #end if
         
           --input_top_zip_path ${input_top_zip_path}.${input_top_zip_path.ext}
@@ -82,14 +82,6 @@
                   <param name="keyword_list" type="text" value="[&#39;Protein&#39;, &#39;DNA&#39;]" label="keyword_list" help="List of comma separated Keywords to match top and itp files." optional="false"/>
                 
                   <param name="pmx_cli_path" type="text" value="cli.py" label="pmx_cli_path" help="Path to the PMX Python2.7 client." optional="false"/>
-                
-                  <param name="remove_tmp" type="boolean" 
-                    checked="true"
-                    label="remove_tmp" help="[WF property] Remove temporal files." />
-                
-                  <param name="restart" type="boolean" 
-                    
-                    label="restart" help="[WF property] Do not execute if output files exist." />
                 
             </when>
         </conditional>

@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__predictors__dq__:__dq__${config.predictors}__dq__,__dq__clusters__dq__:__dq__${config.clusters}__dq__,__dq__plots__dq__:__dq__${config.plots}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
+          --config "__oc____dq__predictors__dq__:__dq__${config.predictors}__dq__,__dq__clusters__dq__:__dq__${config.clusters}__dq__,__dq__plots__dq__:__dq__${config.plots}__dq____cc__"
         #end if
         
           --input_dataset_path ${input_dataset_path}.${input_dataset_path.ext}
@@ -76,14 +76,6 @@
                   
                 
                   <param name="plots" type="text" value="None" label="plots" help="List of dictionaries with all plots you want to generate. Only 2D or 3D plots accepted. Format: [ { &#39;title&#39;: &#39;Plot 1&#39;, &#39;features&#39;: [&#39;feat1&#39;, &#39;feat2&#39;] } ]." optional="false"/>
-                
-                  <param name="remove_tmp" type="boolean" 
-                    checked="true"
-                    label="remove_tmp" help="[WF property] Remove temporal files." />
-                
-                  <param name="restart" type="boolean" 
-                    
-                    label="restart" help="[WF property] Do not execute if output files exist." />
                 
             </when>
         </conditional>

@@ -14,7 +14,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__pdb_code__dq__:__dq__${config.pdb_code}__dq__,__dq__url__dq__:__dq__${config.url}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
+          --config "__oc____dq__pdb_code__dq__:__dq__${config.pdb_code}__dq__,__dq__url__dq__:__dq__${config.url}__dq____cc__"
         #end if
         
         
@@ -54,14 +54,6 @@
                   <param name="pdb_code" type="text" value="2vgb" label="pdb_code" help="RSCB PDB four letter code. ie: &#34;2ki5&#34;." optional="false"/>
                 
                   <param name="url" type="text" value="http://mmb.irbbarcelona.org/api" label="url" help="URL of the UNIPROT REST API." optional="false"/>
-                
-                  <param name="remove_tmp" type="boolean" 
-                    checked="true"
-                    label="remove_tmp" help="[WF property] Remove temporal files." />
-                
-                  <param name="restart" type="boolean" 
-                    
-                    label="restart" help="[WF property] Do not execute if output files exist." />
                 
             </when>
         </conditional>

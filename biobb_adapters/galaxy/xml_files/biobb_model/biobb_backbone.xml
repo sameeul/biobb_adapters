@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__fix_chain__dq__:__dq__${config.fix_chain}__dq__,__dq__extra_gap__dq__:__dq__${config.extra_gap}__dq__,__dq__fix_atoms__dq__:__dq__${config.fix_atoms}__dq__,__dq__add_caps__dq__:__dq__${config.add_caps}__dq__,__dq__no_recheck__dq__:__dq__${config.no_recheck}__dq__,__dq__no_check_clashes__dq__:__dq__${config.no_check_clashes}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
+          --config "__oc____dq__fix_chain__dq__:__dq__${config.fix_chain}__dq__,__dq__extra_gap__dq__:__dq__${config.extra_gap}__dq__,__dq__fix_atoms__dq__:__dq__${config.fix_atoms}__dq__,__dq__add_caps__dq__:__dq__${config.add_caps}__dq__,__dq__no_recheck__dq__:__dq__${config.no_recheck}__dq__,__dq__no_check_clashes__dq__:__dq__${config.no_check_clashes}__dq____cc__"
         #end if
         
           --input_pdb_path ${input_pdb_path}.${input_pdb_path.ext}
@@ -72,14 +72,6 @@
                   
                 
                   
-                
-                  <param name="remove_tmp" type="boolean" 
-                    checked="true"
-                    label="remove_tmp" help="[WF property] Remove temporal files." />
-                
-                  <param name="restart" type="boolean" 
-                    
-                    label="restart" help="[WF property] Do not execute if output files exist." />
                 
             </when>
         </conditional>

@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__heteroatoms__dq__:__dq__${config.heteroatoms}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
+          --config "__oc____dq__heteroatoms__dq__:__dq__${config.heteroatoms}__dq____cc__"
         #end if
         
           --input_structure_path ${input_structure_path}.${input_structure_path.ext}
@@ -60,14 +60,6 @@
             <when value="option4">
                 
                   <param name="heteroatoms" type="text" value="None" label="heteroatoms" help="List of dictionaries with the name | res_id | chain | model of the heteroatoms to be extracted. Format: [{&#34;name&#34;: &#34;ZZ7&#34;, &#34;res_id&#34;: &#34;302&#34;, &#34;chain&#34;: &#34;B&#34;, &#34;model&#34;: &#34;1&#34;}]. If empty, all the heteroatoms of the structure will be returned." optional="false"/>
-                
-                  <param name="remove_tmp" type="boolean" 
-                    checked="true"
-                    label="remove_tmp" help="[WF property] Remove temporal files." />
-                
-                  <param name="restart" type="boolean" 
-                    
-                    label="restart" help="[WF property] Do not execute if output files exist." />
                 
             </when>
         </conditional>

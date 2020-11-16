@@ -16,7 +16,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__criteria__dq__:__dq__${config.criteria}__dq__,__dq__method__dq__:__dq__${config.method}__dq__,__dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__hydrogens__dq__:__dq__${config.hydrogens}__dq__,__dq__steps__dq__:__dq__${config.steps}__dq__,__dq__cutoff__dq__:__dq__${config.cutoff}__dq__,__dq__rvdw__dq__:__dq__${config.rvdw}__dq__,__dq__rele__dq__:__dq__${config.rele}__dq__,__dq__frequency__dq__:__dq__${config.frequency}__dq__,__dq__obminimize_path__dq__:__dq__${config.obminimize_path}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
+          --config "__oc____dq__criteria__dq__:__dq__${config.criteria}__dq__,__dq__method__dq__:__dq__${config.method}__dq__,__dq__force_field__dq__:__dq__${config.force_field}__dq__,__dq__hydrogens__dq__:__dq__${config.hydrogens}__dq__,__dq__steps__dq__:__dq__${config.steps}__dq__,__dq__cutoff__dq__:__dq__${config.cutoff}__dq__,__dq__rvdw__dq__:__dq__${config.rvdw}__dq__,__dq__rele__dq__:__dq__${config.rele}__dq__,__dq__frequency__dq__:__dq__${config.frequency}__dq__,__dq__obminimize_path__dq__:__dq__${config.obminimize_path}__dq____cc__"
         #end if
         
           --input_path ${input_path}.${input_path.ext}
@@ -120,14 +120,6 @@
                   
                 
                   <param name="obminimize_path" type="text" value="obminimize" label="obminimize_path" help="Path to the obminimize executable binary." optional="false"/>
-                
-                  <param name="remove_tmp" type="boolean" 
-                    checked="true"
-                    label="remove_tmp" help="[WF property] Remove temporal files." />
-                
-                  <param name="restart" type="boolean" 
-                    
-                    label="restart" help="[WF property] Do not execute if output files exist." />
                 
             </when>
         </conditional>

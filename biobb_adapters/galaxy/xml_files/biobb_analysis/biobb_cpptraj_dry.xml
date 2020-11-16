@@ -18,7 +18,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__in_parameters__dq__:__dq__${config.in_parameters}__dq__,__dq__out_parameters__dq__:__dq__${config.out_parameters}__dq__,__dq__cpptraj_path__dq__:__dq__${config.cpptraj_path}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
+          --config "__oc____dq__in_parameters__dq__:__dq__${config.in_parameters}__dq__,__dq__out_parameters__dq__:__dq__${config.out_parameters}__dq__,__dq__cpptraj_path__dq__:__dq__${config.cpptraj_path}__dq____cc__"
         #end if
         
           --input_top_path ${input_top_path}.${input_top_path.ext}
@@ -72,14 +72,6 @@
                   
                 
                   <param name="cpptraj_path" type="text" value="cpptraj" label="cpptraj_path" help="Path to the cpptraj executable binary." optional="false"/>
-                
-                  <param name="remove_tmp" type="boolean" 
-                    checked="true"
-                    label="remove_tmp" help="[WF property] Remove temporal files." />
-                
-                  <param name="restart" type="boolean" 
-                    
-                    label="restart" help="[WF property] Do not execute if output files exist." />
                 
             </when>
         </conditional>

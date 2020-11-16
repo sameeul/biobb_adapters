@@ -18,7 +18,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__method__dq__:__dq__${config.method}__dq__,__dq__temperature__dq__:__dq__${config.temperature}__dq__,__dq__nboots__dq__:__dq__${config.nboots}__dq__,__dq__nblocks__dq__:__dq__${config.nblocks}__dq__,__dq__integ_only__dq__:__dq__${config.integ_only}__dq__,__dq__reverseB__dq__:__dq__${config.reverseB}__dq__,__dq__skip__dq__:__dq__${config.skip}__dq__,__dq__slice__dq__:__dq__${config.slice}__dq__,__dq__index__dq__:__dq__${config.index}__dq__,__dq__prec__dq__:__dq__${config.prec}__dq__,__dq__units__dq__:__dq__${config.units}__dq__,__dq__no_ks__dq__:__dq__${config.no_ks}__dq__,__dq__nbins__dq__:__dq__${config.nbins}__dq__,__dq__dpi__dq__:__dq__${config.dpi}__dq__,__dq__pmx_cli_path__dq__:__dq__${config.pmx_cli_path}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
+          --config "__oc____dq__method__dq__:__dq__${config.method}__dq__,__dq__temperature__dq__:__dq__${config.temperature}__dq__,__dq__nboots__dq__:__dq__${config.nboots}__dq__,__dq__nblocks__dq__:__dq__${config.nblocks}__dq__,__dq__integ_only__dq__:__dq__${config.integ_only}__dq__,__dq__reverseB__dq__:__dq__${config.reverseB}__dq__,__dq__skip__dq__:__dq__${config.skip}__dq__,__dq__slice__dq__:__dq__${config.slice}__dq__,__dq__index__dq__:__dq__${config.index}__dq__,__dq__prec__dq__:__dq__${config.prec}__dq__,__dq__units__dq__:__dq__${config.units}__dq__,__dq__no_ks__dq__:__dq__${config.no_ks}__dq__,__dq__nbins__dq__:__dq__${config.nbins}__dq__,__dq__dpi__dq__:__dq__${config.dpi}__dq__,__dq__pmx_cli_path__dq__:__dq__${config.pmx_cli_path}__dq____cc__"
         #end if
         
           --input_a_xvg_zip_path ${input_a_xvg_zip_path}.${input_a_xvg_zip_path.ext}
@@ -112,14 +112,6 @@
                   
                 
                   <param name="pmx_cli_path" type="text" value="cli.py" label="pmx_cli_path" help="Path to the PMX Python2.7 client." optional="false"/>
-                
-                  <param name="remove_tmp" type="boolean" 
-                    checked="true"
-                    label="remove_tmp" help="[WF property] Remove temporal files." />
-                
-                  <param name="restart" type="boolean" 
-                    
-                    label="restart" help="[WF property] Do not execute if output files exist." />
                 
             </when>
         </conditional>

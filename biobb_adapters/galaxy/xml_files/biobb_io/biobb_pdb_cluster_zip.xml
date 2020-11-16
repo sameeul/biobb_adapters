@@ -14,7 +14,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__pdb_code__dq__:__dq__${config.pdb_code}__dq__,__dq__filter__dq__:__dq__${config.filter}__dq__,__dq__cluster__dq__:__dq__${config.cluster}__dq__,__dq__url__dq__:__dq__${config.url}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
+          --config "__oc____dq__pdb_code__dq__:__dq__${config.pdb_code}__dq__,__dq__filter__dq__:__dq__${config.filter}__dq__,__dq__cluster__dq__:__dq__${config.cluster}__dq__,__dq__url__dq__:__dq__${config.url}__dq____cc__"
         #end if
         
         
@@ -58,14 +58,6 @@
                   <param name="cluster" type="text" value="90" label="cluster" help="Cluster number for the :meth:`biobb_io.api.MmbPdb.get_pdb_cluster_zip` method." optional="false"/>
                 
                   <param name="url" type="text" value="https://files.rcsb.org/download/" label="url" help="URL of the PDB REST API. Another option for this parameter is the MMB PDB mirror API (&#34;http://mmb.irbbarcelona.org/api/pdb/&#34;)." optional="false"/>
-                
-                  <param name="remove_tmp" type="boolean" 
-                    checked="true"
-                    label="remove_tmp" help="[WF property] Remove temporal files." />
-                
-                  <param name="restart" type="boolean" 
-                    
-                    label="restart" help="[WF property] Do not execute if output files exist." />
                 
             </when>
         </conditional>
