@@ -1,5 +1,5 @@
 <tool id="biobb_md_genion_ext" name="Genion" version="3.0.0" >
-    <description>: Wrapper class for the GROMACS genion  module.</description>
+    <description>: Wrapper class for the GROMACS genion module.</description>
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
@@ -81,9 +81,9 @@
                     
                     label="neutral" help="Neutralize the charge of the system." />
                 
-                  <param name="concentration" type="text" value="0.05" min="" max="" label="concentration" help="Concentration of the ions in (mol/liter)." />
-                
                   
+                
+                  <param name="seed" type="text" value="1993" min="" max="" label="seed" help="Seed for random number generator." />
                 
                   <param name="gmx_lib" type="text" value="None" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." />
                 

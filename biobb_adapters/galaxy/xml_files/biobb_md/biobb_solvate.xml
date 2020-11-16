@@ -1,5 +1,5 @@
 <tool id="biobb_md_solvate_ext" name="Solvate" version="3.0.0" >
-    <description>: Wrapper of the GROMACS solvate  module.</description>
+    <description>: Wrapper of the GROMACS solvate module.</description>
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>

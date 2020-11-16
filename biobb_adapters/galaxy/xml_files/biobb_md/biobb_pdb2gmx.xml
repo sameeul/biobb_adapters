@@ -1,5 +1,5 @@
 <tool id="biobb_md_pdb2gmx_ext" name="Pdb2gmx" version="3.0.0" >
-    <description>: Wrapper class for the GROMACS pdb2gmx  module.</description>
+    <description>: Wrapper class for the GROMACS pdb2gmx module.</description>
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>

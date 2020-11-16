@@ -1,5 +1,5 @@
 <tool id="biobb_md_make_ndx_ext" name="MakeNdx" version="3.0.0" >
-    <description>: Wrapper of the GROMACS make_ndx  module.</description>
+    <description>: Wrapper of the GROMACS make_ndx module.</description>
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>

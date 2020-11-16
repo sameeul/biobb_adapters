@@ -1,5 +1,5 @@
 <tool id="biobb_md_editconf_ext" name="Editconf" version="3.0.0" >
-    <description>: Wrapper of the GROMACS editconf  module.</description>
+    <description>: Wrapper of the GROMACS editconf module.</description>
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
@@ -59,7 +59,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="distance_to_molecule" type="text" value="1.0" min="" max="" label="distance_to_molecule" help="Distance of the box from the outermost atom in nm. ie 1.0nm = 10 Angstroms." />
+                  
                 
                   <param name="box_type" type="text" value="&#34;cubic&#34;" label="box_type" help="Geometrical shape of the solvent box. Available box types: (http://manual.gromacs.org/current/onlinehelp/gmx-editconf.html) -bt option." />
                 

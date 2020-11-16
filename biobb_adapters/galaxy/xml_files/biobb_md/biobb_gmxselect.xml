@@ -1,5 +1,5 @@
 <tool id="biobb_md_gmxselect_ext" name="Gmxselect" version="3.0.0" >
-    <description>: Wrapper of the GROMACS select  module.</description>
+    <description>: Wrapper of the GROMACS select module.</description>
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
