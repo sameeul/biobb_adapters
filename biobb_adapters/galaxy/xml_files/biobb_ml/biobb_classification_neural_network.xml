@@ -75,9 +75,13 @@
                 
                   <param name="target" type="text" value="None" label="target" help="Dependent variable or column from your dataset you want to predict." optional="false"/>
                 
-                  <param name="validation_size" type="integer" value="0.2" min="" max="" label="validation_size" help="Represents the proportion of the dataset to include in the validation split. It should be between 0.0 and 1.0." optional="false"/>
+                  <param name="validation_size" type="integer" value="0.2" 
+                     
+                           label="validation_size" help="Represents the proportion of the dataset to include in the validation split. It should be between 0.0 and 1.0." optional="false"/>
                 
-                  <param name="test_size" type="integer" value="0.1" min="" max="" label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." optional="false"/>
+                  <param name="test_size" type="integer" value="0.1" 
+                     
+                           label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." optional="false"/>
                 
                   <param name="hidden_layers" type="text" value="None" label="hidden_layers" help=" List of dictionaries with hidden layers values. Format: [ { &#39;size&#39;: 50, &#39;activation&#39;: &#39;relu&#39; } ]." optional="false"/>
                 
@@ -137,7 +141,9 @@
                     
                     </param>
                 
-                  <param name="learning_rate" type="integer" value="0.02" min="" max="" label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
+                  <param name="learning_rate" type="integer" value="0.02" 
+                     
+                           label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
                 
                   
                 

@@ -95,7 +95,9 @@
             </when>
             <when value="option4">
                 
-                  <param name="num_threads" type="integer" value="0" min="" max="" label="num_threads" help="Let GROMACS guess. The number of threads that are going to be used." optional="false"/>
+                  <param name="num_threads" type="integer" value="0" 
+                     
+                           label="num_threads" help="Let GROMACS guess. The number of threads that are going to be used." optional="false"/>
                 
                   <param name="use_gpu" type="boolean" 
                     

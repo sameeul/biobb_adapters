@@ -73,7 +73,9 @@
                 
                   <param name="target" type="text" value="None" label="target" help="Dependent variable or column from your dataset you want to predict." optional="false"/>
                 
-                  <param name="validation_size" type="integer" value="0.2" min="" max="" label="validation_size" help="Represents the proportion of the dataset to include in the validation split. It should be between 0.0 and 1.0." optional="false"/>
+                  <param name="validation_size" type="integer" value="0.2" 
+                     
+                           label="validation_size" help="Represents the proportion of the dataset to include in the validation split. It should be between 0.0 and 1.0." optional="false"/>
                 
                   
                 
@@ -117,7 +119,9 @@
                     
                     </param>
                 
-                  <param name="learning_rate" type="integer" value="0.02" min="" max="" label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
+                  <param name="learning_rate" type="integer" value="0.02" 
+                     
+                           label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
                 
                   
                 
