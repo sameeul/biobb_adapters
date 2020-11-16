@@ -67,7 +67,7 @@
             </when>
             <when value="option4">
                 
-                  
+                  <param name="in_parameters" type="text" label="in_parameters" help=" (Json)" value="{}" />
                 
                   <param name="cpptraj_path" type="text" value="cpptraj" label="cpptraj_path" help="Path to the cpptraj executable binary." optional="false"/>
                 

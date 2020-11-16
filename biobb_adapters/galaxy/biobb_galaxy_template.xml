@@ -84,6 +84,8 @@
                       checked="true"
                     {%- endif%}
                     label="{{ k }}" help="{{ v['description'] }}" /> 
+                  {%- elif v['type'] == 'object' -%}
+                    <param name="{{ k }}" type="text" label="{{ k }}" help="{{ v['description'] }} (Json)" value="{}" /> 
                   {%- endif %}
                 {% endfor %}
             </when>

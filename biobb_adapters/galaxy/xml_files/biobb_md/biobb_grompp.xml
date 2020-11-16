@@ -91,7 +91,7 @@
             </when>
             <when value="option4">
                 
-                  
+                  <param name="mdp" type="text" label="mdp" help="MDP options specification. (Used if *input_mdp_path* is None) (Json)" value="{}" />
                 
                   <param name="maxwarn" type="integer" value="10" 
                      min="0" max="1000"
