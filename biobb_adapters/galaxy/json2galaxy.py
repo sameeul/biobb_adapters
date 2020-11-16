@@ -116,9 +116,10 @@ def main():
                 'optional': f not in schema_data['required']
                 }
             
-            for v in schema_data['properties'][f]['enum']:
-                m = re.search(r"\w+", v)
-                tool_data['file_types'].append(m.group(0))
+            if enum in schema_data['properties'][f]:
+                for v in schema_data['properties'][f]['enum']:
+                    m = re.search(r"\w+", v)
+                    tool_data['file_types'].append(m.group(0))
         
             tool_data['format'] = ','.join(tool_data['file_types'])
             
@@ -141,11 +142,12 @@ def main():
                     ('description' in v and re.search('wf property', v['description'])) or\
                     ('wf_prop' in v and v['wf_prop']):
                     continue
-                m = re.search('(.*) Valid values: (.*)', v['description'])
-                if m:
-                    v['values'] = re.split(', *', m.group(2).replace('.',''))
-                    v['description'] = m.group(1)
-                    v['type'] = 'select'
+                if 'description' in v:
+                    m = re.search('(.*) Valid values: (.*)', v['description'])
+                    if m:
+                        v['values'] = re.split(', *', m.group(2).replace('.',''))
+                        v['description'] = m.group(1)
+                        v['type'] = 'select'
                 if 'enum' in v:
                     v['values'] = v['enum']
                     v['type'] = 'select'
