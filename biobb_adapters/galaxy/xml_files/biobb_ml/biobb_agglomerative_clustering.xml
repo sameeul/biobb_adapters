@@ -65,7 +65,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="predictors" type="text" value="None" label="predictors" help="Features or columns from your dataset you want to use for fitting." />
+                  <param name="predictors" type="text" value="None" label="predictors" help="Features or columns from your dataset you want to use for fitting." optional="false"/>
                 
                   
                 
@@ -89,7 +89,7 @@
                     
                     </param>
                 
-                  <param name="plots" type="text" value="None" label="plots" help="List of dictionaries with all plots you want to generate. Only 2D or 3D plots accepted. Format: [ { &#39;title&#39;: &#39;Plot 1&#39;, &#39;features&#39;: [&#39;feat1&#39;, &#39;feat2&#39;] } ]." />
+                  <param name="plots" type="text" value="None" label="plots" help="List of dictionaries with all plots you want to generate. Only 2D or 3D plots accepted. Format: [ { &#39;title&#39;: &#39;Plot 1&#39;, &#39;features&#39;: [&#39;feat1&#39;, &#39;feat2&#39;] } ]." optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

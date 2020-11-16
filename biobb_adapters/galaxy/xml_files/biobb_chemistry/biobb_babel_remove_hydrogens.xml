@@ -1175,9 +1175,9 @@
                     
                     </param>
                 
-                  <param name="ph" type="text" value="None" min="" max="" label="ph" help="Add hydrogens appropriate for pH." />
+                  <param name="ph" type="integer" value="None" min="" max="" label="ph" help="Add hydrogens appropriate for pH." optional="false"/>
                 
-                  <param name="obabel_path" type="text" value="obabel" label="obabel_path" help="Path to the obabel executable binary." />
+                  <param name="obabel_path" type="text" value="obabel" label="obabel_path" help="Path to the obabel executable binary." optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

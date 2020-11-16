@@ -59,7 +59,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="force_field" type="text" value="amber99sb-star-ildn-mut" label="force_field" help="Forcefield." />
+                  <param name="force_field" type="text" value="amber99sb-star-ildn-mut" label="force_field" help="Forcefield." optional="false"/>
                 
                   <param name="split" type="boolean" 
                     
@@ -77,11 +77,11 @@
                     
                     label="rna" help="Generate hybrid residue for the RNA nucleotides." />
                 
-                  <param name="output_top_name" type="text" value="gentop.top" label="output_top_name" help="Name of the output top file." />
+                  <param name="output_top_name" type="text" value="gentop.top" label="output_top_name" help="Name of the output top file." optional="false"/>
                 
-                  <param name="keyword_list" type="text" value="[&#39;Protein&#39;, &#39;DNA&#39;]" label="keyword_list" help="List of comma separated Keywords to match top and itp files." />
+                  <param name="keyword_list" type="text" value="[&#39;Protein&#39;, &#39;DNA&#39;]" label="keyword_list" help="List of comma separated Keywords to match top and itp files." optional="false"/>
                 
-                  <param name="pmx_cli_path" type="text" value="cli.py" label="pmx_cli_path" help="Path to the PMX Python2.7 client." />
+                  <param name="pmx_cli_path" type="text" value="cli.py" label="pmx_cli_path" help="Path to the PMX Python2.7 client." optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

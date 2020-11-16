@@ -127,7 +127,7 @@
                     
                     label="build" help="add H, including His sc NH, then rotate and flip groups (except for pre-existing methionine methyl hydrogens)" />
                 
-                  <param name="reduce_path" type="text" value="reduce" label="reduce_path" help="Path to the reduce executable binary." />
+                  <param name="reduce_path" type="text" value="reduce" label="reduce_path" help="Path to the reduce executable binary." optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

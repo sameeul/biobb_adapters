@@ -67,11 +67,11 @@
             </when>
             <when value="option4">
                 
-                  <param name="selection" type="text" value="&#34;a CA C N O&#34;" label="selection" help="Heavy atoms. Atom selection string." />
+                  <param name="selection" type="text" value="a CA C N O" label="selection" help="Heavy atoms. Atom selection string." optional="false"/>
                 
-                  <param name="gmx_path" type="text" value="&#34;gmx&#34;" label="gmx_path" help="Path to the GROMACS executable binary." />
+                  <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"/>
                 
-                  <param name="gmx_lib" type="text" value="None" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." />
+                  <param name="gmx_lib" type="text" value="" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"/>
                 
             </when>
         </conditional>

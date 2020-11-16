@@ -67,9 +67,9 @@
             </when>
             <when value="option4">
                 
-                  <param name="mutation_list" type="text" value="Val2Ala" label="mutation_list" help="separated by commas. If no chain is provided as chain code all the chains in the pdb file will be mutated. ie: &#34;A:ALA15CYS&#34;" />
+                  <param name="mutation_list" type="text" value="Val2Ala" label="mutation_list" help="separated by commas. If no chain is provided as chain code all the chains in the pdb file will be mutated. ie: &#34;A:ALA15CYS&#34;" optional="false"/>
                 
-                  <param name="force_field" type="text" value="amber99sb-star-ildn-mut" label="force_field" help="Forcefield." />
+                  <param name="force_field" type="text" value="amber99sb-star-ildn-mut" label="force_field" help="Forcefield." optional="false"/>
                 
                   <param name="resinfo" type="boolean" 
                     
@@ -83,7 +83,7 @@
                     
                     label="rna" help="Generate hybrid residue for the RNA nucleotides." />
                 
-                  <param name="pmx_cli_path" type="text" value="cli.py" label="pmx_cli_path" help="Path to the PMX Python2.7 client." />
+                  <param name="pmx_cli_path" type="text" value="cli.py" label="pmx_cli_path" help="Path to the PMX Python2.7 client." optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

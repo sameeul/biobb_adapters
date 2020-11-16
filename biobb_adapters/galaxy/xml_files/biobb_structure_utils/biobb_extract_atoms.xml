@@ -59,7 +59,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="regular_expression_pattern" type="text" value="^D" label="regular_expression_pattern" help="Python style regular expression matching the selected atom names." />
+                  <param name="regular_expression_pattern" type="text" value="^D" label="regular_expression_pattern" help="Python style regular expression matching the selected atom names." optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

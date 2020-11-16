@@ -163,7 +163,7 @@
                 
                   
                 
-                  <param name="output_name" type="text" value="output" label="output_name" help="File name for ensemble of output files." />
+                  <param name="output_name" type="text" value="output" label="output_name" help="File name for ensemble of output files." optional="false"/>
                 
                   <param name="output_type" type="select" label="output_type" help="File type for ensemble of output files.">
                     
@@ -181,7 +181,7 @@
                     
                     </param>
                 
-                  <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." />
+                  <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

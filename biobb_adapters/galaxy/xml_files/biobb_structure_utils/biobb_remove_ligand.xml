@@ -59,7 +59,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="ligand" type="text" value="AQ4" label="ligand" help="Residue code of the ligand to be removed." />
+                  <param name="ligand" type="text" value="AQ4" label="ligand" help="Residue code of the ligand to be removed." optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

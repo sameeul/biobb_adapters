@@ -59,7 +59,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="predictions" type="text" value="None" label="predictions" help="List of dictionaries with all values you want to predict targets." />
+                  <param name="predictions" type="text" value="None" label="predictions" help="List of dictionaries with all values you want to predict targets." optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

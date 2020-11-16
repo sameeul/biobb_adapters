@@ -59,7 +59,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="mutation_list" type="text" value="A:Val2Ala" label="mutation_list" help="separated by commas. If no chain is provided as chain code all the chains in the pdb file will be mutated. ie: &#34;A:ALA15CYS&#34;" />
+                  <param name="mutation_list" type="text" value="A:Val2Ala" label="mutation_list" help="separated by commas. If no chain is provided as chain code all the chains in the pdb file will be mutated. ie: &#34;A:ALA15CYS&#34;" optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

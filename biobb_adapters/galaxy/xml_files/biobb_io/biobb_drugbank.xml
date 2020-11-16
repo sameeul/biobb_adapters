@@ -51,7 +51,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="drugbank_id" type="text" value="DB00530" label="drugbank_id" help="Drugbank component id." />
+                  <param name="drugbank_id" type="text" value="DB00530" label="drugbank_id" help="Drugbank component id." optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

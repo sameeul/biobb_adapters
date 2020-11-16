@@ -73,9 +73,9 @@
             </when>
             <when value="option4">
                 
-                  <param name="output_top_path" type="text" value="&#34;gio.top&#34;" label="output_top_path" help="Path the output topology TOP file." />
+                  <param name="output_top_path" type="text" value="gio.top" label="output_top_path" help="Path the output topology TOP file." optional="false"/>
                 
-                  <param name="replaced_group" type="text" value="&#34;SOL&#34;" label="replaced_group" help="Group of molecules that will be replaced by the solvent." />
+                  <param name="replaced_group" type="text" value="SOL" label="replaced_group" help="Group of molecules that will be replaced by the solvent." optional="false"/>
                 
                   <param name="neutral" type="boolean" 
                     
@@ -83,11 +83,11 @@
                 
                   
                 
-                  <param name="seed" type="text" value="1993" min="" max="" label="seed" help="Seed for random number generator." />
+                  <param name="seed" type="integer" value="1993" min="" max="" label="seed" help="Seed for random number generator." optional="false"/>
                 
-                  <param name="gmx_lib" type="text" value="None" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." />
+                  <param name="gmx_lib" type="text" value="" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"/>
                 
-                  <param name="gmx_path" type="text" value="&#34;gmx&#34;" label="gmx_path" help="Path to the GROMACS executable binary." />
+                  <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"/>
                 
             </when>
         </conditional>

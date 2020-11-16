@@ -59,13 +59,13 @@
             </when>
             <when value="option4">
                 
-                  <param name="fix_chain" type="text" value="All" label="fix_chain" help="All | none | List - List of Backbone breaks to fix" />
+                  <param name="fix_chain" type="text" value="All" label="fix_chain" help="All | none | List - List of Backbone breaks to fix" optional="false"/>
                 
-                  <param name="extra_gap" type="text" value="0" min="" max="" label="extra_gap" help="Additional residues at eiher side of the gap to recover from modelled structure on break repair" />
+                  <param name="extra_gap" type="integer" value="0" min="" max="" label="extra_gap" help="Additional residues at eiher side of the gap to recover from modelled structure on break repair" optional="false"/>
                 
-                  <param name="fix_atoms" type="text" value="All" label="fix_atoms" help="All | none | List - List of Backbone residues with missing O atoms to fix" />
+                  <param name="fix_atoms" type="text" value="All" label="fix_atoms" help="All | none | List - List of Backbone residues with missing O atoms to fix" optional="false"/>
                 
-                  <param name="add_caps" type="text" value="none" label="add_caps" help="All | none | Terms | breaks | List - List of residues to cap with ACE or NME, Terms: True Terminal residues, Breaks: Terminals due to backbone breaks" />
+                  <param name="add_caps" type="text" value="none" label="add_caps" help="All | none | Terms | breaks | List - List of residues to cap with ACE or NME, Terms: True Terminal residues, Breaks: Terminals due to backbone breaks" optional="false"/>
                 
                   
                 

@@ -59,7 +59,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="criteria" type="text" value="1e-6" min="" max="" label="criteria" help="Convergence criteria" />
+                  <param name="criteria" type="integer" value="1e-6" min="" max="" label="criteria" help="Convergence criteria" optional="false"/>
                 
                   <param name="method" type="select" label="method" help="Method.">
                     
@@ -107,13 +107,13 @@
                     
                     label="cutoff" help="Use cut-off." />
                 
-                  <param name="rvdw" type="text" value="6.0" min="" max="" label="rvdw" help="VDW cut-off distance." />
+                  <param name="rvdw" type="integer" value="6.0" min="" max="" label="rvdw" help="VDW cut-off distance." optional="false"/>
                 
-                  <param name="rele" type="text" value="10.0" min="" max="" label="rele" help="Electrostatic cut-off distance." />
+                  <param name="rele" type="integer" value="10.0" min="" max="" label="rele" help="Electrostatic cut-off distance." optional="false"/>
                 
                   
                 
-                  <param name="obminimize_path" type="text" value="obminimize" label="obminimize_path" help="Path to the obminimize executable binary." />
+                  <param name="obminimize_path" type="text" value="obminimize" label="obminimize_path" help="Path to the obminimize executable binary." optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

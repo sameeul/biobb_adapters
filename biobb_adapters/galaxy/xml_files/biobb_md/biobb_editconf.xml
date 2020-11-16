@@ -61,15 +61,15 @@
                 
                   
                 
-                  <param name="box_type" type="text" value="&#34;cubic&#34;" label="box_type" help="Geometrical shape of the solvent box. Available box types: (http://manual.gromacs.org/current/onlinehelp/gmx-editconf.html) -bt option." />
+                  <param name="box_type" type="text" value="cubic" label="box_type" help="Geometrical shape of the solvent box. Available box types: (http://manual.gromacs.org/current/onlinehelp/gmx-editconf.html) -bt option." optional="false"/>
                 
                   <param name="center_molecule" type="boolean" 
                     
                     label="center_molecule" help="Center molecule in the box." />
                 
-                  <param name="gmx_lib" type="text" value="None" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." />
+                  <param name="gmx_lib" type="text" value="" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"/>
                 
-                  <param name="gmx_path" type="text" value="&#34;gmx&#34;" label="gmx_path" help="Path to the GROMACS executable binary." />
+                  <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"/>
                 
             </when>
         </conditional>

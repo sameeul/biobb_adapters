@@ -67,13 +67,13 @@
             </when>
             <when value="option4">
                 
-                  <param name="restrained_group" type="text" value="&#34;system&#34;" label="restrained_group" help="Index group that will be restrained." />
+                  <param name="restrained_group" type="text" value="system" label="restrained_group" help="Index group that will be restrained." optional="false"/>
                 
-                  <param name="force_constants" type="text" value="&#34;500 500 500&#34;" label="force_constants" help="Array of three floats defining the force constants" />
+                  <param name="force_constants" type="text" value="500 500 500" label="force_constants" help="Array of three floats defining the force constants" optional="false"/>
                 
-                  <param name="gmx_lib" type="text" value="None" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." />
+                  <param name="gmx_lib" type="text" value="" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"/>
                 
-                  <param name="gmx_path" type="text" value="&#34;gmx&#34;" label="gmx_path" help="Path to the GROMACS executable binary." />
+                  <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"/>
                 
             </when>
         </conditional>

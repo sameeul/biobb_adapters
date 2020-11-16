@@ -116,7 +116,7 @@ def main():
                 'optional': f not in schema_data['required']
                 }
             
-            if enum in schema_data['properties'][f]:
+            if 'enum' in schema_data['properties'][f]:
                 for v in schema_data['properties'][f]['enum']:
                     m = re.search(r"\w+", v)
                     tool_data['file_types'].append(m.group(0))
@@ -142,15 +142,22 @@ def main():
                     ('description' in v and re.search('wf property', v['description'])) or\
                     ('wf_prop' in v and v['wf_prop']):
                     continue
-                if 'description' in v:
-                    m = re.search('(.*) Valid values: (.*)', v['description'])
-                    if m:
-                        v['values'] = re.split(', *', m.group(2).replace('.',''))
-                        v['description'] = m.group(1)
-                        v['type'] = 'select'
                 if 'enum' in v:
                     v['values'] = v['enum']
                     v['type'] = 'select'
+                elif 'description' in v:
+                    m = re.search('(.*) Valid values: (.*)', v['description'])
+                    if m:
+                        v['values'] = re.split(', *', m.group(2).replace('.',''))
+                        v['type'] = 'select'
+                        v['description'] = m.group(1)                
+                if 'default' in v and isinstance(v['default'], str):
+                    v['default'] = v['default'].replace('"','')
+                    if v['default'] == 'None':
+                        v['default'] = ''
+                        v['optional'] = "true"
+                if 'optional' not in v:
+                    v['optional'] = "false"
                 data['props'][k] = v
                 
                 # Generating "galaxyfied" Json string for config parameter

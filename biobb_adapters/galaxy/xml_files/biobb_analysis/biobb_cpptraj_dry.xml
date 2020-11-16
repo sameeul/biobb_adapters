@@ -71,7 +71,7 @@
                 
                   
                 
-                  <param name="cpptraj_path" type="text" value="cpptraj" label="cpptraj_path" help="Path to the cpptraj executable binary." />
+                  <param name="cpptraj_path" type="text" value="cpptraj" label="cpptraj_path" help="Path to the cpptraj executable binary." optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

@@ -65,9 +65,9 @@
             </when>
             <when value="option4">
                 
-                  <param name="features" type="text" value="None" label="features" help="Features or columns from your dataset you want to use for fitting." />
+                  <param name="features" type="text" value="None" label="features" help="Features or columns from your dataset you want to use for fitting." optional="false"/>
                 
-                  <param name="target" type="text" value="None" label="target" help="Dependent variable or column from your dataset you want to predict." />
+                  <param name="target" type="text" value="None" label="target" help="Dependent variable or column from your dataset you want to predict." optional="false"/>
                 
                   <param name="optimise" type="boolean" 
                     

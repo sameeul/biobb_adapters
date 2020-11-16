@@ -95,21 +95,21 @@
             </when>
             <when value="option4">
                 
-                  <param name="num_threads" type="text" value="0" min="" max="" label="num_threads" help="Let GROMACS guess. The number of threads that are going to be used." />
+                  <param name="num_threads" type="integer" value="0" min="" max="" label="num_threads" help="Let GROMACS guess. The number of threads that are going to be used." optional="false"/>
                 
                   <param name="use_gpu" type="boolean" 
                     
                     label="use_gpu" help="Use settings appropriate for GPU" />
                 
-                  <param name="gmx_lib" type="text" value="None" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." />
+                  <param name="gmx_lib" type="text" value="" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"/>
                 
-                  <param name="gmx_path" type="text" value="&#34;gmx&#34;" label="gmx_path" help="Path to the GROMACS executable binary." />
+                  <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"/>
                 
-                  <param name="mpi_bin" type="text" value="None" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." />
+                  <param name="mpi_bin" type="text" value="" label="mpi_bin" help="Path to the MPI runner. Usually &#34;mpirun&#34; or &#34;srun&#34;." optional="true"/>
                 
-                  <param name="mpi_np" type="text" value="None" label="mpi_np" help="Number of MPI processes. Usually an integer bigger than 1." />
+                  <param name="mpi_np" type="text" value="" label="mpi_np" help="Number of MPI processes. Usually an integer bigger than 1." optional="true"/>
                 
-                  <param name="mpi_hostlist" type="text" value="None" label="mpi_hostlist" help="Path to the MPI hostlist file." />
+                  <param name="mpi_hostlist" type="text" value="" label="mpi_hostlist" help="Path to the MPI hostlist file." optional="true"/>
                 
             </when>
         </conditional>

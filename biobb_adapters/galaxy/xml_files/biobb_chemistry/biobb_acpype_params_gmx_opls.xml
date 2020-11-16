@@ -65,11 +65,11 @@
             </when>
             <when value="option4">
                 
-                  <param name="basename" type="text" value="BBB" label="basename" help="A basename for the project (folder and output files)." />
+                  <param name="basename" type="text" value="BBB" label="basename" help="A basename for the project (folder and output files)." optional="false"/>
                 
                   
                 
-                  <param name="acpype_path" type="text" value="acpype" label="acpype_path" help="Path to the acpype executable binary." />
+                  <param name="acpype_path" type="text" value="acpype" label="acpype_path" help="Path to the acpype executable binary." optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

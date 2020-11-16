@@ -59,7 +59,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="residue_name_list" type="text" value="[&#39;NA&#39;, &#39;CL&#39;, &#39;SOL&#39;]" label="residue_name_list" help="Ordered residue name list." />
+                  <param name="residue_name_list" type="text" value="[&#39;NA&#39;, &#39;CL&#39;, &#39;SOL&#39;]" label="residue_name_list" help="Ordered residue name list." optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

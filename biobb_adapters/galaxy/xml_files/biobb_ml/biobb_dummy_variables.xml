@@ -59,7 +59,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="columns" type="text" value="None" label="columns" help="List with all columns you want to map." />
+                  <param name="columns" type="text" value="None" label="columns" help="List with all columns you want to map." optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

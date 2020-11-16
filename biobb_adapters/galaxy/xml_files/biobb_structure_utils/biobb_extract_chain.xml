@@ -59,9 +59,9 @@
             </when>
             <when value="option4">
                 
-                  <param name="chains" type="text" value="None" label="chains" help="List of chains to be extracted from the input_structure_path file. If empty, all the chains of the structure will be returned." />
+                  <param name="chains" type="text" value="None" label="chains" help="List of chains to be extracted from the input_structure_path file. If empty, all the chains of the structure will be returned." optional="false"/>
                 
-                  <param name="check_structure_path" type="text" value="check_structure" label="check_structure_path" help="path to the check_structure application" />
+                  <param name="check_structure_path" type="text" value="check_structure" label="check_structure_path" help="path to the check_structure application" optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

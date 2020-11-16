@@ -81,7 +81,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="vina_path" type="text" value="&#39;vina&#39;" label="vina_path" help="path to vina in your local computer." />
+                  <param name="vina_path" type="text" value="&#39;vina&#39;" label="vina_path" help="path to vina in your local computer." optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

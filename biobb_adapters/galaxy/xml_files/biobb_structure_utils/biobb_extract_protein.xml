@@ -59,7 +59,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="check_structure_path" type="text" value="check_structure" label="check_structure_path" help="path to the check_structure application" />
+                  <param name="check_structure_path" type="text" value="check_structure" label="check_structure_path" help="path to the check_structure application" optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

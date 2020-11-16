@@ -93,11 +93,11 @@
                 
                   
                 
-                  <param name="maxwarn" type="text" value="10" min="0" max="1000" label="maxwarn" help="Maximum number of allowed warnings." />
+                  <param name="maxwarn" type="integer" value="10" min="0" max="1000" label="maxwarn" help="Maximum number of allowed warnings." optional="false"/>
                 
-                  <param name="gmx_lib" type="text" value="None" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." />
+                  <param name="gmx_lib" type="text" value="" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"/>
                 
-                  <param name="gmx_path" type="text" value="&#34;gmx&#34;" label="gmx_path" help="Path to the GROMACS executable binary." />
+                  <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"/>
                 
             </when>
         </conditional>

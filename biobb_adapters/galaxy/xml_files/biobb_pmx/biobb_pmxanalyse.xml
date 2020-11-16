@@ -73,9 +73,9 @@
             </when>
             <when value="option4">
                 
-                  <param name="method" type="text" value="CGI BAR JARZ" label="method" help="Choose one or more estimators to use from the available ones: CGI, BAR, JARZ." />
+                  <param name="method" type="text" value="CGI BAR JARZ" label="method" help="Choose one or more estimators to use from the available ones: CGI, BAR, JARZ." optional="false"/>
                 
-                  <param name="temperature" type="text" value="298.15" min="" max="" label="temperature" help="Temperature in Kelvin." />
+                  <param name="temperature" type="integer" value="298.15" min="" max="" label="temperature" help="Temperature in Kelvin." optional="false"/>
                 
                   
                 
@@ -99,7 +99,7 @@
                 
                   
                 
-                  <param name="units" type="text" value="KJ" label="units" help="The units of the output. Choose from &#34;kJ&#34;, &#34;kcal&#34;, &#34;kT&#34;." />
+                  <param name="units" type="text" value="KJ" label="units" help="The units of the output. Choose from &#34;kJ&#34;, &#34;kcal&#34;, &#34;kT&#34;." optional="false"/>
                 
                   <param name="no_ks" type="boolean" 
                     
@@ -109,7 +109,7 @@
                 
                   
                 
-                  <param name="pmx_cli_path" type="text" value="cli.py" label="pmx_cli_path" help="Path to the PMX Python2.7 client." />
+                  <param name="pmx_cli_path" type="text" value="cli.py" label="pmx_cli_path" help="Path to the PMX Python2.7 client." optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

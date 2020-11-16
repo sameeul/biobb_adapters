@@ -67,7 +67,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="offset" type="text" value="2.0" min="" max="" label="offset" help="between the last residue atom and the box boundary." />
+                  <param name="offset" type="integer" value="2.0" min="" max="" label="offset" help="between the last residue atom and the box boundary." optional="false"/>
                 
                   
                 

@@ -67,7 +67,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="posres_name" type="text" value="&#34;POSRES_LIGAND&#34;" label="posres_name" help="String to be included in the ifdef clause." />
+                  <param name="posres_name" type="text" value="POSRES_LIGAND" label="posres_name" help="String to be included in the ifdef clause." optional="false"/>
                 
             </when>
         </conditional>

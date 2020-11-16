@@ -59,7 +59,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="features" type="text" value="None" label="features" help="List with all features to compare." />
+                  <param name="features" type="text" value="None" label="features" help="List with all features to compare." optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

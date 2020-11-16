@@ -67,9 +67,9 @@
             </when>
             <when value="option4">
                 
-                  <param name="force_constants" type="text" value="&#34;500 500 500&#34;" label="force_constants" help="Array of three floats defining the force constants." />
+                  <param name="force_constants" type="text" value="500 500 500" label="force_constants" help="Array of three floats defining the force constants." optional="false"/>
                 
-                  <param name="ref_rest_chain_triplet_list" type="text" value="None" label="ref_rest_chain_triplet_list" help="Triplet list composed by (reference group, restrain group, chain) list." />
+                  <param name="ref_rest_chain_triplet_list" type="text" value="" label="ref_rest_chain_triplet_list" help="Triplet list composed by (reference group, restrain group, chain) list." optional="true"/>
                 
             </when>
         </conditional>

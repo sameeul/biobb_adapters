@@ -65,9 +65,9 @@
             </when>
             <when value="option4">
                 
-                  <param name="output_top_path" type="text" value="&#34;p2g.top&#34;" label="output_top_path" help="Path of the output TOP file." />
+                  <param name="output_top_path" type="text" value="p2g.top" label="output_top_path" help="Path of the output TOP file." optional="false"/>
                 
-                  <param name="output_itp_path" type="text" value="&#34;p2g.itp&#34;" label="output_itp_path" help="Path of the output itp file." />
+                  <param name="output_itp_path" type="text" value="p2g.itp" label="output_itp_path" help="Path of the output itp file." optional="false"/>
                 
                   <param name="water_type" type="select" label="water_type" help="Water molecule type. ">
                     
@@ -76,7 +76,7 @@
                       >spc</option>
                     
                       <option value="spce" 
-                      
+                      selected="true"
                       >spce</option>
                     
                       <option value="tip3p" 
@@ -148,7 +148,7 @@
                       >amber03</option>
                     
                       <option value="amber99sb-ildn" 
-                      
+                      selected="true"
                       >amber99sb-ildn</option>
                     
                       <option value="oplsaa" 
@@ -165,11 +165,11 @@
                     
                     label="ignh" help="Should pdb2gmx ignore the hidrogens in the original structure." />
                 
-                  <param name="his" type="text" value="None" label="his" help="Histidine protonation array." />
+                  <param name="his" type="text" value="" label="his" help="Histidine protonation array." optional="true"/>
                 
-                  <param name="gmx_lib" type="text" value="None" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." />
+                  <param name="gmx_lib" type="text" value="" label="gmx_lib" help="Path set GROMACS GMXLIB environment variable." optional="true"/>
                 
-                  <param name="gmx_path" type="text" value="&#34;gmx&#34;" label="gmx_path" help="Path to the GROMACS executable binary." />
+                  <param name="gmx_path" type="text" value="gmx" label="gmx_path" help="Path to the GROMACS executable binary." optional="false"/>
                 
             </when>
         </conditional>

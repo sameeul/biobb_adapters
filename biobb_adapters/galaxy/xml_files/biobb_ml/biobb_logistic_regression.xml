@@ -71,9 +71,9 @@
             </when>
             <when value="option4">
                 
-                  <param name="independent_vars" type="text" value="None" label="independent_vars" help="Independent variables or columns from your dataset you want to train." />
+                  <param name="independent_vars" type="text" value="None" label="independent_vars" help="Independent variables or columns from your dataset you want to train." optional="false"/>
                 
-                  <param name="target" type="text" value="None" label="target" help="Dependent variable or column from your dataset you want to predict." />
+                  <param name="target" type="text" value="None" label="target" help="Dependent variable or column from your dataset you want to predict." optional="false"/>
                 
                   <param name="solver" type="select" label="solver" help="Numerical optimizer to find parameters.">
                     
@@ -99,13 +99,13 @@
                     
                     </param>
                 
-                  <param name="c_parameter" type="text" value="0.01" min="" max="" label="c_parameter" help="Inverse of regularization strength; must be a positive float. Smaller values specify stronger regularization." />
+                  <param name="c_parameter" type="integer" value="0.01" min="" max="" label="c_parameter" help="Inverse of regularization strength; must be a positive float. Smaller values specify stronger regularization." optional="false"/>
                 
                   <param name="normalize_cm" type="boolean" 
                     
                     label="normalize_cm" help="Whether or not to normalize the confusion matrix." />
                 
-                  <param name="test_size" type="text" value="0.2" min="" max="" label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." />
+                  <param name="test_size" type="integer" value="0.2" min="" max="" label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." optional="false"/>
                 
                   <param name="remove_tmp" type="boolean" 
                     checked="true"

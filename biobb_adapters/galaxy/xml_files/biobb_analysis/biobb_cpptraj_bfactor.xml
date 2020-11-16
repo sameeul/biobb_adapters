@@ -1,5 +1,5 @@
-<tool id="biobb_analysis_cpptraj_rgyr_ext" name="CpptrajRgyr" version="3.0.0" >
-    <description>: Computes the radius of gyration (Rgyr) from a given cpptraj compatible trajectory.</description>
+<tool id="biobb_analysis_cpptraj_bfactor_ext" name="CpptrajBfactor" version="3.0.0" >
+    <description>: Calculates the Bfactor fluctuations of a given cpptraj compatible trajectory.</description>
     <requirements>
         <requirement type="binary">docker</requirement>
     </requirements>
@@ -9,10 +9,12 @@
         
           ln -f -s ${input_traj_path} ${input_traj_path}.${input_traj_path.ext};
         
+          ln -f -s ${input_exp_path} ${input_exp_path}.${input_exp_path.ext};
+        
         #if $config.sele == "option1":
           ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
         #end if
-        docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_analysis:3.0.0--py_0 cpptraj_rgyr
+        docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_analysis:3.0.0--py_0 cpptraj_bfactor
         #if $config.sele == "option1":
           --config ${config.properties}.${config.properties.ext}
         #else if $config.sele == "option2":
@@ -25,6 +27,8 @@
         
           --input_traj_path ${input_traj_path}.${input_traj_path.ext}
         
+          --input_exp_path ${input_exp_path}.${input_exp_path.ext}
+        
         
           --output_cpptraj_path $__root_dir__/database/files/000/$outname_output_cpptraj_path
         ;          
@@ -35,6 +39,8 @@
           rm -f ${input_top_path}.${input_top_path.ext};
         
           rm -f ${input_traj_path}.${input_traj_path.ext};
+        
+          rm -f ${input_exp_path}.${input_exp_path.ext};
         
         
           if test -f $__root_dir__/database/files/000/$outname_output_cpptraj_path; then mv $__root_dir__/database/files/000/$outname_output_cpptraj_path $output_cpptraj_path; fi;
@@ -47,8 +53,10 @@
         
           <param name="input_traj_path" type="data" format="crd,cdf,netcdf,restart,ncrestart,restartnc,dcd,charmm,cor,pdb,mol2,trr,gro,binpos,xtc,cif,arc,sqm,sdf,conflib"  optional="False" label="input CRD,CDF,NETCDF,RESTART,NCRESTART,RESTARTNC,DCD,CHARMM,COR,PDB,MOL2,TRR,GRO,BINPOS,XTC,CIF,ARC,SQM,SDF,CONFLIB file" help="Path to the input trajectory to be processed. Format: [input].[format]"/> 
         
+          <param name="input_exp_path" type="data" format=""  optional="True" label="input  file" help="Path to the experimental reference file (required if reference = experimental). Format: [input]."/> 
         
-          <param name="outname_output_cpptraj_path" type="text" value="mycpptraj_rgyr.dat" optional="False" label="output DAT,AGR,XMGR,GNU name" help="Path to the output analysis Format: [output].[format] "/>
+        
+          <param name="outname_output_cpptraj_path" type="text" value="mycpptraj_bfactor.dat" optional="False" label="output DAT,AGR,XMGR,GNU name" help="Path to the output processed analysis Format: [output].[format] "/>
         
         <conditional name="config">
             <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
