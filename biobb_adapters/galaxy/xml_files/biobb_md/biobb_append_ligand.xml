@@ -18,7 +18,7 @@
         #else if $config.sele == "option2":
           --config '${config.jsonstr}'
         #else if $config.sele == "option4":
-          --config "__oc____dq__posres_name__dq__:__dq__${config.posres_name}__dq__,__dq__remove_tmp__dq__:__dq__${config.remove_tmp}__dq__,__dq__restart__dq__:__dq__${config.restart}__dq____cc__"
+          --config "__oc____dq__posres_name__dq__:__dq__${config.posres_name}__dq____cc__"
         #end if
         
           --input_top_zip_path ${input_top_zip_path}.${input_top_zip_path.ext}
@@ -68,14 +68,6 @@
             <when value="option4">
                 
                   <param name="posres_name" type="text" value="&#34;POSRES_LIGAND&#34;" label="posres_name" help="String to be included in the ifdef clause." />
-                
-                  <param name="remove_tmp" type="boolean" 
-                    
-                    label="remove_tmp" help="Remove temporal files." />
-                
-                  <param name="restart" type="boolean" 
-                    
-                    label="restart" help="Do not execute if output files exist." />
                 
             </when>
         </conditional>
