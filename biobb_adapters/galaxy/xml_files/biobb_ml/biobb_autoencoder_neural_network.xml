@@ -115,7 +115,7 @@
                     
                     </param>
                 
-                  <param name="learning_rate" type="integer" value="0.02" 
+                  <param name="learning_rate" type="v['type']" value="0.02" 
                      
                            label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
                 

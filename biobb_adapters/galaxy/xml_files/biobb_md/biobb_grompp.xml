@@ -93,7 +93,7 @@
                 
                   <param name="mdp" type="text" label="mdp" help="MDP options specification. (Used if *input_mdp_path* is None) (Json)" value="{}" />
                 
-                  <param name="maxwarn" type="integer" value="10" 
+                  <param name="maxwarn" type="v['type']" value="10" 
                      min="0" max="1000"
                            label="maxwarn" help="Maximum number of allowed warnings." optional="false"/>
                 

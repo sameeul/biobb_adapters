@@ -59,7 +59,7 @@
             </when>
             <when value="option4">
                 
-                  <param name="criteria" type="integer" value="1e-6" 
+                  <param name="criteria" type="v['type']" value="1e-6" 
                      
                            label="criteria" help="Convergence criteria" optional="false"/>
                 
@@ -109,11 +109,11 @@
                     
                     label="cutoff" help="Use cut-off." />
                 
-                  <param name="rvdw" type="integer" value="6.0" 
+                  <param name="rvdw" type="v['type']" value="6.0" 
                      
                            label="rvdw" help="VDW cut-off distance." optional="false"/>
                 
-                  <param name="rele" type="integer" value="10.0" 
+                  <param name="rele" type="v['type']" value="10.0" 
                      
                            label="rele" help="Electrostatic cut-off distance." optional="false"/>
                 

@@ -61,7 +61,7 @@
                 
                   <param name="fix_chain" type="text" value="All" label="fix_chain" help="All | none | List - List of Backbone breaks to fix" optional="false"/>
                 
-                  <param name="extra_gap" type="integer" value="0" 
+                  <param name="extra_gap" type="v['type']" value="0" 
                      
                            label="extra_gap" help="Additional residues at eiher side of the gap to recover from modelled structure on break repair" optional="false"/>
                 
