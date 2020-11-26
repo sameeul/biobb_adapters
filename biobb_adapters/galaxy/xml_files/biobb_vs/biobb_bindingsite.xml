@@ -69,7 +69,7 @@
                 
                   <param name="ligand" type="text" value="None" label="ligand" help="Ligand to be found in the protein structure. If no ligand provided, no action will be executed." optional="false"/>
                 
-                  <param name="radius" type="integer" value="5.0" 
+                  <param name="radius" type="float" value="5.0" 
                      
                            label="radius" help="around ligand atoms to consider a protein atom as a binding site atom." optional="false"/>
                 
@@ -239,11 +239,11 @@
                     
                     </param>
                 
-                  <param name="gap_open" type="integer" value="-10.0" 
+                  <param name="gap_open" type="float" value="-10.0" 
                      
                            label="gap_open" help="Gap open penalty." optional="false"/>
                 
-                  <param name="gap_extend" type="integer" value="-0.5" 
+                  <param name="gap_extend" type="float" value="-0.5" 
                      
                            label="gap_extend" help="Gap extend penalty." optional="false"/>
                 

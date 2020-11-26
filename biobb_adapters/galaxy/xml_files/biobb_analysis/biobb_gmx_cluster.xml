@@ -263,7 +263,7 @@
                     
                     </param>
                 
-                  <param name="cutoff" type="integer" value="0.1" 
+                  <param name="cutoff" type="float" value="0.1" 
                      
                            label="cutoff" help="for two structures to be neighbor." optional="false"/>
                 

@@ -1175,7 +1175,7 @@
                     
                     </param>
                 
-                  <param name="ph" type="integer" value="None" 
+                  <param name="ph" type="float" value="None" 
                      
                            label="ph" help="Add hydrogens appropriate for pH." optional="false"/>
                 
