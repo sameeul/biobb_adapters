@@ -63,7 +63,7 @@
                   {% if v['type'] == 'string' or v['type'] == 'list' -%}
                     <param name="{{ k }}" type="text" value="{{ v['default']}}" label="{{ k }}" help="{{ v['description'] }}" optional="{{v['optional']}}"/> 
                   {%- elif v['type'] == 'float' or v['type'] == 'integer' -%}
-                    <param name="{{ k }}" type="v['type']" value="{{ v['default']}}" 
+                    <param name="{{ k }}" type="{{v['type']}}" value="{{ v['default']}}" 
                      {% if v['min'] -%}
                            min="{{ v['min'] }}" max="{{ v['max'] }}" 
                      {%- endif %}

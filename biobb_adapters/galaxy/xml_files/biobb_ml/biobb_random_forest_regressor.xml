@@ -79,7 +79,7 @@
                 
                   
                 
-                  <param name="test_size" type="v['type']" value="0.2" 
+                  <param name="test_size" type="float" value="0.2" 
                      
                            label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." optional="false"/>
                 

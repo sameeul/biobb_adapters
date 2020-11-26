@@ -75,7 +75,7 @@
                 
                   <param name="method" type="text" value="CGI BAR JARZ" label="method" help="Choose one or more estimators to use from the available ones: CGI, BAR, JARZ." optional="false"/>
                 
-                  <param name="temperature" type="v['type']" value="298.15" 
+                  <param name="temperature" type="float" value="298.15" 
                      
                            label="temperature" help="Temperature in Kelvin." optional="false"/>
                 

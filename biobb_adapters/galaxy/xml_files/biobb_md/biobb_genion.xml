@@ -83,7 +83,7 @@
                 
                   
                 
-                  <param name="seed" type="v['type']" value="1993" 
+                  <param name="seed" type="integer" value="1993" 
                      
                            label="seed" help="Seed for random number generator." optional="false"/>
                 
