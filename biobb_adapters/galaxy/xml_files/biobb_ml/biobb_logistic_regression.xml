@@ -99,7 +99,7 @@
                     
                     </param>
                 
-                  <param name="c_parameter" type="float" value="0.01" 
+                  <param name="c_parameter" type="integer" value="0.01" 
                      
                            label="c_parameter" help="Inverse of regularization strength; must be a positive float. Smaller values specify stronger regularization." optional="false"/>
                 
@@ -107,7 +107,7 @@
                     
                     label="normalize_cm" help="Whether or not to normalize the confusion matrix." />
                 
-                  <param name="test_size" type="float" value="0.2" 
+                  <param name="test_size" type="integer" value="0.2" 
                      
                            label="test_size" help="Represents the proportion of the dataset to include in the test split. It should be between 0.0 and 1.0." optional="false"/>
                 

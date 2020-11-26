@@ -158,8 +158,6 @@ def main():
                         v['optional'] = "true"
                 if 'optional' not in v:
                     v['optional'] = "false"
-                if v['type'] == 'number':
-                    v['type'] == 'integer'
                 data['props'][k] = v
                 
                 # Generating "galaxyfied" Json string for config parameter

@@ -67,7 +67,7 @@
                 
                   <param name="predictors" type="text" value="None" label="predictors" help="Features or columns from your dataset you want to use for fitting." optional="false"/>
                 
-                  <param name="eps" type="float" value="0.5" 
+                  <param name="eps" type="integer" value="0.5" 
                      
                            label="eps" help="The maximum distance between two samples for one to be considered as in the neighborhood of the other." optional="false"/>
                 
