@@ -3,6 +3,7 @@
 """Module containing the MDrunRmt class and the command line interface."""
 import os
 import argparse
+import json
 from biobb_common.configuration import settings
 from biobb_common.tools import file_utils as fu
 from biobb_common.tools.file_utils import launchlogger
@@ -37,11 +38,12 @@ class MdrunRmt:
             * **host** (*str*) - Remote host name (optional if keys_file is provided)
             * **userid** (*str*) - Remote user ida (optional if keys_file is provided) 
             * **queue_settings** (*str*) - One of queue settings predefined sets (default: whole HPC node open_mp)
+            * **queue_settings_patch** (*json*) - Patch to modified queue settings
             * **modules** (*str*) - One of modules predifined hpc module setsi (default: Biobb module)
             * **wait** (*bool*) - Wait for job completion
             * **poll_time** (*int*) - Time between job status checks (seconds)
             * **re_use_task** (*bool*) - Reuse remote working dir if available (requires task_data_path)
-            * **remove_tmp** (*bool*) - Remove remote working dir
+            * **remove_remote** (*bool*) - Remove remote working dir
        properties passed to mdrun
             * **num_threads** (*int*) - (0) Let GROMACS guess. The number of threads that are going to be used.
             * **gmx_lib** (*str*) - (None) Path set GROMACS GMXLIB environment variable.
@@ -49,14 +51,6 @@ class MdrunRmt:
             * **mpi_bin** (*str*) - (None) Path to the MPI runner. Usually "mpirun" or "srun".
             * **mpi_np** (*str*) - (None) Number of MPI processes. Usually an integer bigger than 1.
             * **mpi_hostlist** (*str*) - (None) Path to the MPI hostlist file.
-            * **remove_tmp** (*bool*) - (True) [WF property] Remove temporal files.
-            * **restart** (*bool*) - (False) [WF property] Do not execute if output files exist.
-            * **container_path** (*str*) - (None)  Path to the binary executable of your container.
-            * **container_image** (*str*) - ("gromacs/gromacs:latest") Container Image identifier.
-            * **container_volume_path** (*str*) - ("/data") Path to an internal directory in the container.
-            * **container_working_dir** (*str*) - (None) Path to the internal CWD in the container.
-            * **container_user_id** (*str*) - (None) User number id to be mapped inside the container.
-            * **container_shell_path** (*str*) - ("/bin/bash") Path to the binary executable of the container shell.
         """
 
     def __init__(self, input_tpr_path: str, output_trr_path: str, output_gro_path: str, 
@@ -66,13 +60,17 @@ class MdrunRmt:
                 remote_path: str=None, task_data_path: str= None,
                 properties: dict =None, **kwargs) -> None:
         self.properties = properties or {}      
-        
         self.host = properties.get('host', '')
         self.userid = properties.get('userid', '')
         self.queue_settings = properties.get('queue_settings', 'default')
+        self.queue_settings_patch = json.loads(properties.get('queue_settings', '{}'))
         self.modules = properties.get('modules', 'biobb')
-        self.poll_time = int(properties.get('poll_time', '10'))
         self.wait = properties.get('wait', True)
+        if self.wait:
+            self.poll_time = int(properties.get('poll_time', '10'))
+        else:
+            self.poll_time = 0
+        self.set_debug = properties.get('set_debug',False)
         self.re_use_task = properties.get('re_use_task', True)
 
         self.io_dict = {
@@ -91,11 +89,12 @@ class MdrunRmt:
         # Properties common in all BB
         self.can_write_console_log = properties.get('can_write_console_log', True)
         self.global_log = properties.get('global_log', None)
+        self.remove_remote = properties.get('remove_remote', False)
+        self.restart = properties.get('restart', False)
         self.prefix = properties.get('prefix', None)
         self.step = properties.get('step', None)
         self.path = properties.get('path', '')
         self.remove_tmp = properties.get('remove_tmp', False)
-        self.restart = properties.get('restart', False)
 
         
         self.files = {
@@ -109,7 +108,7 @@ class MdrunRmt:
             'output_dhdl_path' : output_dhdl_path
         }
         #clean local properties
-        for p in ('host', 'userid', 'queue_settings', 'modules', 'poll_time', 'wait'):
+        for p in ('host', 'userid', 'queue_settings', 'modules', 'poll_time', 'wait', 'working_dir_path','path','step','remote_tmp'):
             if p in self.properties:
                 del self.properties[p]
 
@@ -134,6 +133,8 @@ class MdrunRmt:
         if self.re_use_task:
             try:
                 slurm.load_data_from_file(self.io_dict['inout']['task_data_path'])
+                if slurm.task_data['remote_path']:
+                    self.io_dict['in']['remote_path'] = slurm.task_data['remote_path']
             except:
                 print("Warning: Task data not found")
                 pass
@@ -143,17 +144,26 @@ class MdrunRmt:
         slurm.task_data['local_data_bundle'].add_file(
             self.io_dict['in']['local_path'] + "/" + self.files['input_tpr_path']
         )
+        if not self.io_dict['in']['remote_path']:
+            print('Remote path not available')
+            return 1
         slurm.send_input_data(self.io_dict['in']['remote_path'], overwrite=False)
         slurm.save(self.io_dict['inout']['task_data_path'])
+        #queue settings
+        if self.queue_settings_patch:
+            slurm.set_custom_settings(ref_setting=self.queue_settings, patch=self.queue_settings_patch)
+            self.queue_settings = 'custom'
         slurm.submit(
             queue_settings=self.queue_settings,
             modules=self.modules,
             poll_time=self.poll_time,
+            set_debug=self.set_debug,
             local_run_script=slurm.get_remote_py_script(
                 'from biobb_md.gromacs.mdrun import Mdrun',
                 self.files, 
                 'Mdrun',
-                properties=self.properties)
+                properties=self.properties
+            )
         )
         slurm.save(self.io_dict['inout']['task_data_path'])
         if self.wait:
@@ -162,9 +172,10 @@ class MdrunRmt:
                 slurm.get_output_data(overwrite=False)
             out_log, err_log = slurm.get_logs()
             slurm.save(self.io_dict['inout']['task_data_path'])
-        if self.remove_tmp:
-            slurm.clean_remote()
-        #return returncode
+            if self.remove_remote:
+               slurm.clean_remote()
+        returncode = 0 #TODO
+        return returncode
 
 
 def main():
@@ -180,13 +191,16 @@ def main():
     required_args.add_argument('--output_edr_path', required=True)
     required_args.add_argument('--output_log_path', required=True)
     required_args.add_argument('--local_path', required=True)
-    required_args.add_argument('--remote_path', required=True)
     required_args.add_argument('--task_data_path', required=True)
-    required_args.add_argument('--host_config_path', required=False) 
+    required_args.add_argument('--host_config_path', required=True) 
+    required_args.add_argument('--queue_settings', required=True)
     parser.add_argument('--output_xtc_path', required=False)
     parser.add_argument('--output_cpt_path', required=False)
     parser.add_argument('--output_dhdl_path', required=False)
     parser.add_argument('--keys_file_path', required=False)
+    parser.add_argument('--queue_settings_patch', required=False)
+    parser.add_argument('--remote_path', required=False)
+    parser.add_argument('--set_debug', required=False)
     
     args = parser.parse_args()
     config = args.config if args.config else None
@@ -198,7 +212,8 @@ def main():
           output_log_path=args.output_log_path, output_xtc_path=args.output_xtc_path,
           output_cpt_path=args.output_cpt_path, output_dhdl_path=args.output_dhdl_path,
           host_config_path=args.host_config_path, keys_file=args.keys_file_path, local_path=args.local_path, 
-          remote_path=args.remote_path, task_data_path=args.task_data_path,
+          remote_path=args.remote_path, task_data_path=args.task_data_path,queue_settings=args.queue_settings,
+          queue_settings_patch=args.queue_settings_patch, set_debug=args.set_debug,
           properties=properties).launch()
 
 if __name__ == '__main__':
