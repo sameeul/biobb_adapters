@@ -71,8 +71,11 @@ class MdrunRmt:
         self.userid = properties.get('userid', '')
         self.queue_settings = properties.get('queue_settings', 'default')
         self.modules = properties.get('modules', 'biobb')
-        self.poll_time = properties.get('poll_time', '10')
         self.wait = properties.get('wait', True)
+        if self.wait:
+            self.poll_time = int(properties.get('poll_time', '10'))
+        else:
+            self.poll_time = 0
         self.re_use_task = properties.get('re_use_task', True)
 
         self.io_dict = {
@@ -109,7 +112,7 @@ class MdrunRmt:
             'output_dhdl_path' : output_dhdl_path
         }
         #clean local properties
-        for p in ('host', 'userid', 'queue_settings', 'modules', 'poll_time', 'wait'):
+        for p in ('host', 'userid', 'queue_settings', 'modules', 'poll_time', 'wait', 'working_dir_path','path'):
             if p in self.properties:
                 del self.properties[p]
 
