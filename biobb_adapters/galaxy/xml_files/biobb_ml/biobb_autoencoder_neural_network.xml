@@ -1,0 +1,173 @@
+<tool id="biobb_ml_autoencoder_neural_network_ext" name="AutoencoderNeuralNetwork" version="3.0.1" >
+    <description>: Trains and tests a given dataset and save the complete model for an Autoencoder Neural Network.</description>
+    <requirements>
+        <requirement type="binary">docker</requirement>
+    </requirements>
+    <command detect_errors="aggressive"><![CDATA[
+        
+          ln -f -s ${input_decode_path} ${input_decode_path}.${input_decode_path.ext};
+        
+          ln -f -s ${input_predict_path} ${input_predict_path}.${input_predict_path.ext};
+        
+        #if $config.sele == "option1":
+          ln -s -f ${config.properties} ${config.properties}.${config.properties.ext};
+        #end if
+        docker run --rm -v $__root_dir__/database/files:$__root_dir__/database/files quay.io/biocontainers/biobb_ml:3.0.1--py_0 autoencoder_neural_network
+        #if $config.sele == "option1":
+          --config ${config.properties}.${config.properties.ext}
+        #else if $config.sele == "option2":
+          --config '${config.jsonstr}'
+        #else if $config.sele == "option4":
+          --config "__oc____dq__optimizer__dq__:__dq__${config.optimizer}__dq__,__dq__learning_rate__dq__:__dq__${config.learning_rate}__dq__,__dq__batch_size__dq__:__dq__${config.batch_size}__dq__,__dq__max_epochs__dq__:__dq__${config.max_epochs}__dq____cc__"
+        #end if
+        
+          --input_decode_path ${input_decode_path}.${input_decode_path.ext}
+        
+          --input_predict_path ${input_predict_path}.${input_predict_path.ext}
+        
+        
+          --output_model_path $__root_dir__/database/files/000/$outname_output_model_path
+        
+          --output_test_decode_path $__root_dir__/database/files/000/$outname_output_test_decode_path
+        
+          --output_test_predict_path $__root_dir__/database/files/000/$outname_output_test_predict_path
+        ;          
+        #if $config.sele == "option1":
+          rm -f ${config.properties}.${config.properties.ext};
+        #end if
+        
+          rm -f ${input_decode_path}.${input_decode_path.ext};
+        
+          rm -f ${input_predict_path}.${input_predict_path.ext};
+        
+        
+          if test -f $__root_dir__/database/files/000/$outname_output_model_path; then mv $__root_dir__/database/files/000/$outname_output_model_path $output_model_path; fi;
+        
+          if test -f $__root_dir__/database/files/000/$outname_output_test_decode_path; then mv $__root_dir__/database/files/000/$outname_output_test_decode_path $output_test_decode_path; fi;
+        
+          if test -f $__root_dir__/database/files/000/$outname_output_test_predict_path; then mv $__root_dir__/database/files/000/$outname_output_test_predict_path $output_test_predict_path; fi;
+        
+    ]]>
+    </command>
+    <inputs>
+        
+          <param name="input_decode_path" type="data" format="csv"  optional="False" label="input CSV file" help="Path to the input decode dataset. Format: [input].csv"/> 
+        
+          <param name="input_predict_path" type="data" format="csv"  optional="True" label="input CSV file" help="Path to the input predict dataset. Format: [input].csv"/> 
+        
+        
+          <param name="outname_output_model_path" type="text" value="myautoencoder_neural_network.h5" optional="False" label="output H5 name" help="Path to the output model file Format: [output].h5 "/>
+        
+          <param name="outname_output_test_decode_path" type="text" value="myautoencoder_neural_network.csv" optional="True" label="output CSV name" help="Path to the test decode table file Format: [output].csv "/>
+        
+          <param name="outname_output_test_predict_path" type="text" value="myautoencoder_neural_network.csv" optional="True" label="output CSV name" help="Path to the test predict table file Format: [output].csv "/>
+        
+        <conditional name="config">
+            <param name="sele" type="select" label="Take tool settings:" help="Select where tool settings are to be read from">
+                <option value="option3" selected="true">use defaults</option>
+                <option value="option1">from configuration file</option>
+                <option value="option2">from JSON string</option>
+                <option value="option4"> Manual input</option>
+            </param>
+            <when value="option1">
+                <param name="properties" type="data" format="yml,json" optional="false" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+            </when>
+            <when value="option2">
+                <param name="jsonstr" type="text" value="{}" optional="false" label="JSON string" help="JSON string containing tool settings. See below for the syntax"/>
+            </when>
+            <when value="option3">
+            </when>
+            <when value="option4">
+                
+                  <param name="optimizer" type="select" label="optimizer" help="Name of optimizer instance.">
+                    
+                      <option value="Adadelta" 
+                      
+                      >Adadelta</option>
+                    
+                      <option value="Adagrad" 
+                      
+                      >Adagrad</option>
+                    
+                      <option value="Adam" 
+                      selected="true"
+                      >Adam</option>
+                    
+                      <option value="Adamax" 
+                      
+                      >Adamax</option>
+                    
+                      <option value="Ftrl" 
+                      
+                      >Ftrl</option>
+                    
+                      <option value="Nadam" 
+                      
+                      >Nadam</option>
+                    
+                      <option value="RMSprop" 
+                      
+                      >RMSprop</option>
+                    
+                      <option value="SGD" 
+                      
+                      >SGD</option>
+                    
+                    </param>
+                
+                  <param name="learning_rate" type="float" value="0.02" 
+                     
+                           label="learning_rate" help="Determines the step size at each iteration while moving toward a minimum of a loss function" optional="false"/>
+                
+                  
+                
+                  
+                
+            </when>
+        </conditional>
+    </inputs>
+    <outputs>
+        
+        <data name="output_model_path" format="h5" label="${outname_output_model_path}"/>
+        
+        <data name="output_test_decode_path" format="csv" label="${outname_output_test_decode_path}"/>
+        
+        <data name="output_test_predict_path" format="csv" label="${outname_output_test_predict_path}"/>
+        
+    </outputs>
+    <tests>
+        <test>
+        </test>
+    </tests>    
+    <help>
+.. class:: infomark
+        
+Check the syntax for the tool parameters at the original library documentation: https://biobb_ml.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png    
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+        
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+        
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-20},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_ml},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

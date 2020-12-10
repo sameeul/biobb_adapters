@@ -10,6 +10,7 @@ from biobb_common.tools.file_utils import launchlogger
 #from biobb_md.gromacs.common import get_gromacs_version
 #from biobb_md.gromacs.common import GromacsVersionError
 from biobb_remote.slurm import Slurm
+from biobb_remote.task import FINISHED
 from biobb_remote.ssh_credentials import SSHCredentials
 
 
@@ -70,8 +71,11 @@ class MdrunRmt:
         self.userid = properties.get('userid', '')
         self.queue_settings = properties.get('queue_settings', 'default')
         self.modules = properties.get('modules', 'biobb')
-        self.poll_time = properties.get('poll_time', '10')
         self.wait = properties.get('wait', True)
+        if self.wait:
+            self.poll_time = int(properties.get('poll_time', '10'))
+        else:
+            self.poll_time = 0
         self.re_use_task = properties.get('re_use_task', True)
 
         self.io_dict = {
@@ -108,7 +112,7 @@ class MdrunRmt:
             'output_dhdl_path' : output_dhdl_path
         }
         #clean local properties
-        for p in ('host', 'userid', 'queue_settings', 'modules', 'poll_time', 'wait'):
+        for p in ('host', 'userid', 'queue_settings', 'modules', 'poll_time', 'wait', 'working_dir_path','path'):
             if p in self.properties:
                 del self.properties[p]
 
@@ -145,18 +149,21 @@ class MdrunRmt:
         slurm.send_input_data(self.io_dict['in']['remote_path'], overwrite=False)
         slurm.save(self.io_dict['inout']['task_data_path'])
         slurm.submit(
-            self.queue_settings,
-            self.modules,
-            slurm.get_remote_py_script(
+            queue_settings=self.queue_settings,
+            modules=self.modules,
+            poll_time=self.poll_time,
+            local_run_script=slurm.get_remote_py_script(
                 'from biobb_md.gromacs.mdrun import Mdrun',
                 self.files, 
                 'Mdrun',
-                properties=self.properties)
+                properties=self.properties
+            )
         )
         slurm.save(self.io_dict['inout']['task_data_path'])
         if self.wait:
             slurm.check_job(poll_time=int(self.poll_time))
-            slurm.get_output_data(overwrite=False)
+            if slurm.task_data['status'] == FINISHED:
+                slurm.get_output_data(overwrite=False)
             out_log, err_log = slurm.get_logs()
             slurm.save(self.io_dict['inout']['task_data_path'])
         if self.remove_tmp:
@@ -176,10 +183,15 @@ def main():
     required_args.add_argument('--output_gro_path', required=True)
     required_args.add_argument('--output_edr_path', required=True)
     required_args.add_argument('--output_log_path', required=True)
+    required_args.add_argument('--local_path', required=True)
+    required_args.add_argument('--remote_path', required=True)
+    required_args.add_argument('--task_data_path', required=True)
+    required_args.add_argument('--host_config_path', required=False) 
     parser.add_argument('--output_xtc_path', required=False)
     parser.add_argument('--output_cpt_path', required=False)
     parser.add_argument('--output_dhdl_path', required=False)
-
+    parser.add_argument('--keys_file_path', required=False)
+    
     args = parser.parse_args()
     config = args.config if args.config else None
     properties = settings.ConfReader(config=config).get_prop_dic()
@@ -189,8 +201,9 @@ def main():
           output_gro_path=args.output_gro_path, output_edr_path=args.output_edr_path,
           output_log_path=args.output_log_path, output_xtc_path=args.output_xtc_path,
           output_cpt_path=args.output_cpt_path, output_dhdl_path=args.output_dhdl_path,
+          host_config_path=args.host_config_path, keys_file=args.keys_file_path, local_path=args.local_path, 
+          remote_path=args.remote_path, task_data_path=args.task_data_path,
           properties=properties).launch()
-
 
 if __name__ == '__main__':
     main()
