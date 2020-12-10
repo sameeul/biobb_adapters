@@ -71,7 +71,7 @@ class MdrunRmt:
         self.userid = properties.get('userid', '')
         self.queue_settings = properties.get('queue_settings', 'default')
         self.modules = properties.get('modules', 'biobb')
-        self.poll_time = properties.get('poll_time', '10')
+        self.poll_time = int(properties.get('poll_time', '10'))
         self.wait = properties.get('wait', True)
         self.re_use_task = properties.get('re_use_task', True)
 
