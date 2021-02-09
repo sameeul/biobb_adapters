@@ -3,12 +3,12 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
-label: Class to model the missing atoms in amino acid side chains of a PDB.
+label: Class to model the missing atoms in the backbone of a PDB structure.
 
 doc: |-
-  Model the missing atoms in amino acid side chains of a PDB using biobb_structure_checking if the use_modeller property is added the Modeller suite will also be used to rebuild the missing atoms.
+  Model the missing atoms in the backbone of a PDB structure using biobb_structure_checking and the Modeller suite.
 
-baseCommand: fix_side_chain
+baseCommand: fix_backbone
 
 hints:
   DockerRequirement:
@@ -30,6 +30,21 @@ inputs:
       position: 1
       prefix: --input_pdb_path
 
+  input_fasta_canonical_sequence_path:
+    label: Input FASTA file path
+    doc: |-
+      Input FASTA file path
+      Type: string
+      File type: input
+      Accepted formats: fasta
+      Example file: https://github.com/bioexcel/biobb_model/raw/master/biobb_model/test/data/model/2ki5.fasta
+    type: File
+    format:
+    - edam:format_1476
+    inputBinding:
+      position: 2
+      prefix: --input_fasta_canonical_sequence_path
+
   output_pdb_path:
     label: Output PDB file path
     doc: |-
@@ -42,14 +57,14 @@ inputs:
     format:
     - edam:format_1476
     inputBinding:
-      position: 2
+      position: 3
       prefix: --output_pdb_path
     default: system.pdb
 
   config:
-    label: Advanced configuration options for biobb_model FixSideChain
+    label: Advanced configuration options for biobb_model FixBackbone
     doc: |-
-      Advanced configuration options for biobb_model FixSideChain. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_model FixSideChain documentation: https://biobb-model.readthedocs.io/en/latest/model.html#module-model.fix_side_chain
+      Advanced configuration options for biobb_model FixBackbone. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_model FixBackbone documentation: https://biobb-model.readthedocs.io/en/latest/model.html#module-model.fix_backbone
     type: string?
     inputBinding:
       prefix: --config

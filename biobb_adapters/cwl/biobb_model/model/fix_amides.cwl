@@ -3,12 +3,12 @@ cwlVersion: v1.0
 
 class: CommandLineTool
 
-label: Class to model the missing atoms in amino acid side chains of a PDB.
+label: Fix amide groups from residues.
 
 doc: |-
-  Model the missing atoms in amino acid side chains of a PDB using biobb_structure_checking if the use_modeller property is added the Modeller suite will also be used to rebuild the missing atoms.
+  Flip the clashing amide groups to avoid clashes.
 
-baseCommand: fix_side_chain
+baseCommand: fix_amides
 
 hints:
   DockerRequirement:
@@ -22,7 +22,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: pdb
-      Example file: https://github.com/bioexcel/biobb_model/raw/master/biobb_model/test/data/model/2ki5.pdb
+      Example file: https://github.com/bioexcel/biobb_model/raw/master/biobb_model/test/data/model/5s2z.pdb
     type: File
     format:
     - edam:format_1476
@@ -37,7 +37,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: pdb
-      Example file: https://github.com/bioexcel/biobb_model/raw/master/biobb_model/test/reference/model/output_pdb_path.pdb
+      Example file: https://github.com/bioexcel/biobb_model/raw/master/biobb_model/test/reference/model/output_pdb_amide_path.pdb
     type: string
     format:
     - edam:format_1476
@@ -47,9 +47,9 @@ inputs:
     default: system.pdb
 
   config:
-    label: Advanced configuration options for biobb_model FixSideChain
+    label: Advanced configuration options for biobb_model FixAmides
     doc: |-
-      Advanced configuration options for biobb_model FixSideChain. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_model FixSideChain documentation: https://biobb-model.readthedocs.io/en/latest/model.html#module-model.fix_side_chain
+      Advanced configuration options for biobb_model FixAmides. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_model FixAmides documentation: https://biobb-model.readthedocs.io/en/latest/model.html#module-model.fix_amides
     type: string?
     inputBinding:
       prefix: --config
