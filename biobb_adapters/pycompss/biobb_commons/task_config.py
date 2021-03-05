@@ -18,3 +18,10 @@ def config_gromacs_multinode( properties , all_mpi=True):
        h_file.write(hostnames.replace(",","\n"))
     properties["mpi_hostlist"] = hostlist_file
 
+
+def pop_pmi(environ_dic):
+    environ_dic.pop('PMI_FD', None)
+    environ_dic.pop('PMI_JOBID', None)
+    environ_dic.pop('PMI_RANK', None)
+    environ_dic.pop('PMI_SIZE', None)
+
