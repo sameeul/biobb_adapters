@@ -31,7 +31,7 @@ def _mdrun(input_tpr_path, output_trr_path,
            output_dhdl_path, output_cpt_path,
            input_cpt_path,
            properties, **kwargs):
-    task_config.config_gromacs_multinode(properties)
+    task_config.config_multinode(properties)
     try:
         Mdrun(input_tpr_path=input_tpr_path, output_trr_path=output_trr_path,
               output_gro_path=output_gro_path, output_edr_path=output_edr_path,
