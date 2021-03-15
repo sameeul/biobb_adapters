@@ -13,17 +13,14 @@ from biobb_md.gromacs.genrestr import Genrestr  # Importing class instead of mod
 task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 
-@task(input_structure_path=FILE_IN, input_ndx_path=FILE_IN,
-      input_top_zip_path=FILE_IN, output_top_zip_path=FILE_OUT,
+@task(input_structure_path=FILE_IN, output_itp_path=FILE_OUT, input_ndx_path=FILE_IN, 
       on_failure="IGNORE", time_out=task_time_out)
-def _genrestr(input_structure_path, input_ndx_path,
-              input_top_zip_path, output_top_zip_path,
-              properties, **kwargs):
-    task_config.pop_pmi(os.environ)
+def _genrestr(input_structure_path, output_itp_path, input_ndx_path,  properties, **kwargs):
+    
+        task_config.pop_pmi(os.environ)
+    
     try:
-        Genrestr(input_structure_path=input_structure_path, input_ndx_path=input_ndx_path,
-                 input_top_zip_path=input_top_zip_path, output_top_zip_path=output_top_zip_path,
-                 properties=properties, **kwargs).launch()
+        Genrestr(input_structure_path=input_structure_path, output_itp_path=output_itp_path, input_ndx_path=input_ndx_path, properties=properties, **kwargs).launch()
     except Exception as e:
         traceback.print_exc()
         raise e
@@ -32,15 +29,10 @@ def _genrestr(input_structure_path, input_ndx_path,
         sys.stderr.flush()
 
 
-def genrestr(input_structure_path, input_ndx_path,
-             input_top_zip_path, output_top_zip_path,
-             properties=None, **kwargs):
-    if (input_structure_path is None or os.path.exists(input_structure_path)) and \
-       (input_ndx_path is None or os.path.exists(input_ndx_path)) and \
-       (input_top_zip_path is None or os.path.exists(input_top_zip_path)) and \
-       (output_top_zip_path is None or os.path.exists(output_top_zip_path)):
+def genrestr(input_structure_path, output_itp_path, input_ndx_path=None, properties=None, **kwargs):
+
+    if (output_itp_path is None or os.path.exists(output_itp_path)) and \
+       True:
         print("WARN: Task Genrestr already executed.")
     else:
-        _genrestr(input_structure_path, input_ndx_path,
-                  input_top_zip_path, output_top_zip_path,
-                  properties, **kwargs)
+        _genrestr( input_structure_path,  output_itp_path,  input_ndx_path,  properties, **kwargs)

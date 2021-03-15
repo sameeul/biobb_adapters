@@ -77,6 +77,20 @@ inputs:
       prefix: --output_top_zip_path
     default: system.zip
 
+  input_ndx_path:
+    label: Path to the input index NDX file
+    doc: |-
+      Path to the input index NDX file
+      Type: string
+      File type: input
+      Accepted formats: ndx
+      Example file: null
+    type: File?
+    format:
+    - edam:format_2330
+    inputBinding:
+      prefix: --input_ndx_path
+
   config:
     label: Advanced configuration options for biobb_md genion
     doc: |-

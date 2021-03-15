@@ -94,6 +94,20 @@ inputs:
       prefix: --output_log_path
     default: system.log
 
+  input_cpt_path:
+    label: Path to the input GROMACS checkpoint file CPT
+    doc: |-
+      Path to the input GROMACS checkpoint file CPT
+      Type: string
+      File type: input
+      Accepted formats: cpt
+      Example file: null
+    type: File?
+    format:
+    - edam:format_2333
+    inputBinding:
+      prefix: --input_cpt_path
+
   output_xtc_path:
     label: Path to the GROMACS compressed trajectory file XTC
     doc: |-

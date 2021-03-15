@@ -13,14 +13,14 @@ from biobb_md.gromacs.editconf import Editconf  # Importing class instead of mod
 task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 
-@task(input_gro_path=FILE_IN, output_gro_path=FILE_OUT,
+@task(input_gro_path=FILE_IN, output_gro_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
-def _editconf(input_gro_path, output_gro_path, properties, **kwargs):
-    task_config.pop_pmi(os.environ)
+def _editconf(input_gro_path, output_gro_path,  properties, **kwargs):
+    
+        task_config.pop_pmi(os.environ)
+    
     try:
-        Editconf(input_gro_path=input_gro_path,
-                 output_gro_path=output_gro_path,
-                 properties=properties, **kwargs).launch()
+        Editconf(input_gro_path=input_gro_path, output_gro_path=output_gro_path, properties=properties, **kwargs).launch()
     except Exception as e:
         traceback.print_exc()
         raise e
@@ -29,11 +29,10 @@ def _editconf(input_gro_path, output_gro_path, properties, **kwargs):
         sys.stderr.flush()
 
 
-def editconf(input_gro_path, output_gro_path,
-             properties=None, **kwargs):
+def editconf(input_gro_path, output_gro_path, properties=None, **kwargs):
 
-    if (input_gro_path is None or os.path.exists(input_gro_path)) and \
-       (input_gro_path is None or os.path.exists(input_gro_path)):
+    if (output_gro_path is None or os.path.exists(output_gro_path)) and \
+       True:
         print("WARN: Task Editconf already executed.")
     else:
-        _editconf(input_gro_path, output_gro_path, properties, **kwargs)
+        _editconf( input_gro_path,  output_gro_path,  properties, **kwargs)
