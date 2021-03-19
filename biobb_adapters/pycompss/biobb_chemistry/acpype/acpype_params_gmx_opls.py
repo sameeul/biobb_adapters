@@ -17,7 +17,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
       on_failure="IGNORE", time_out=task_time_out)
 def _acpypeparamsgmxopls(input_path, output_path_itp, output_path_top,  properties, **kwargs):
     
-        task_config.pop_pmi(os.environ)
+    task_config.pop_pmi(os.environ)
     
     try:
         AcpypeParamsGMXOPLS(input_path=input_path, output_path_itp=output_path_itp, output_path_top=output_path_top, properties=properties, **kwargs).launch()

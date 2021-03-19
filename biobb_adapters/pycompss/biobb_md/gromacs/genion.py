@@ -17,7 +17,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
       on_failure="IGNORE", time_out=task_time_out)
 def _genion(input_tpr_path, output_gro_path, input_top_zip_path, output_top_zip_path, input_ndx_path,  properties, **kwargs):
     
-        task_config.pop_pmi(os.environ)
+    task_config.pop_pmi(os.environ)
     
     try:
         genion(input_tpr_path=input_tpr_path, output_gro_path=output_gro_path, input_top_zip_path=input_top_zip_path, output_top_zip_path=output_top_zip_path, input_ndx_path=input_ndx_path, properties=properties, **kwargs).launch()

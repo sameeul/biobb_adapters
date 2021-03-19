@@ -17,7 +17,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
       on_failure="IGNORE", time_out=task_time_out)
 def _mdrun(input_tpr_path, output_trr_path, output_gro_path, output_edr_path, output_log_path, input_cpt_path, output_xtc_path, output_cpt_path, output_dhdl_path,  properties, **kwargs):
     
-        task_config.config_gromacs_multinode(properties)
+    task_config.config_gromacs_multinode(properties)
     
     try:
         Mdrun(input_tpr_path=input_tpr_path, output_trr_path=output_trr_path, output_gro_path=output_gro_path, output_edr_path=output_edr_path, output_log_path=output_log_path, input_cpt_path=input_cpt_path, output_xtc_path=output_xtc_path, output_cpt_path=output_cpt_path, output_dhdl_path=output_dhdl_path, properties=properties, **kwargs).launch()

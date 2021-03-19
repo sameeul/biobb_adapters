@@ -17,7 +17,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
       on_failure="IGNORE", time_out=task_time_out)
 def _acpypeparamsac(input_path, output_path_frcmod, output_path_inpcrd, output_path_lib, output_path_prmtop,  properties, **kwargs):
     
-        task_config.pop_pmi(os.environ)
+    task_config.pop_pmi(os.environ)
     
     try:
         AcpypeParamsAC(input_path=input_path, output_path_frcmod=output_path_frcmod, output_path_inpcrd=output_path_inpcrd, output_path_lib=output_path_lib, output_path_prmtop=output_path_prmtop, properties=properties, **kwargs).launch()

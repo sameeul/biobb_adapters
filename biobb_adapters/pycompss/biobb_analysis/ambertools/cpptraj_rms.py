@@ -17,7 +17,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
       on_failure="IGNORE", time_out=task_time_out)
 def _cpptrajrms(input_top_path, input_traj_path, output_cpptraj_path, input_exp_path,  properties, **kwargs):
     
-        task_config.pop_pmi(os.environ)
+    task_config.pop_pmi(os.environ)
     
     try:
         CpptrajRms(input_top_path=input_top_path, input_traj_path=input_traj_path, output_cpptraj_path=output_cpptraj_path, input_exp_path=input_exp_path, properties=properties, **kwargs).launch()

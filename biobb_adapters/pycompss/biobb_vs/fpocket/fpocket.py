@@ -17,7 +17,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
       on_failure="IGNORE", time_out=task_time_out)
 def _fpocket(input_pdb_path, output_pockets_zip, output_summary,  properties, **kwargs):
     
-        task_config.pop_pmi(os.environ)
+    task_config.pop_pmi(os.environ)
     
     try:
         FPocket(input_pdb_path=input_pdb_path, output_pockets_zip=output_pockets_zip, output_summary=output_summary, properties=properties, **kwargs).launch()

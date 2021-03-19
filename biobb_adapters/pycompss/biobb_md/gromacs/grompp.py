@@ -17,7 +17,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
       on_failure="IGNORE", time_out=task_time_out)
 def _grompp(input_gro_path, input_top_zip_path, output_tpr_path, input_cpt_path, input_ndx_path, input_mdp_path,  properties, **kwargs):
     
-        task_config.pop_pmi(os.environ)
+    task_config.pop_pmi(os.environ)
     
     try:
         Grompp(input_gro_path=input_gro_path, input_top_zip_path=input_top_zip_path, output_tpr_path=output_tpr_path, input_cpt_path=input_cpt_path, input_ndx_path=input_ndx_path, input_mdp_path=input_mdp_path, properties=properties, **kwargs).launch()

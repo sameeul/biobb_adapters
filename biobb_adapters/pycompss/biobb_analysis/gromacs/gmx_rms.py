@@ -17,7 +17,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
       on_failure="IGNORE", time_out=task_time_out)
 def _gmxcluster(input_structure_path, input_traj_path, output_xvg_path, input_index_path,  properties, **kwargs):
     
-        task_config.pop_pmi(os.environ)
+    task_config.pop_pmi(os.environ)
     
     try:
         GMXCluster(input_structure_path=input_structure_path, input_traj_path=input_traj_path, output_xvg_path=output_xvg_path, input_index_path=input_index_path, properties=properties, **kwargs).launch()

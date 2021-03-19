@@ -17,7 +17,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
       on_failure="IGNORE", time_out=task_time_out)
 def _autodockvina(input_ligand_pdbqt_path, input_receptor_pdbqt_path, input_box_path, output_pdbqt_path, output_log_path,  properties, **kwargs):
     
-        task_config.pop_pmi(os.environ)
+    task_config.pop_pmi(os.environ)
     
     try:
         AutoDockVina(input_ligand_pdbqt_path=input_ligand_pdbqt_path, input_receptor_pdbqt_path=input_receptor_pdbqt_path, input_box_path=input_box_path, output_pdbqt_path=output_pdbqt_path, output_log_path=output_log_path, properties=properties, **kwargs).launch()

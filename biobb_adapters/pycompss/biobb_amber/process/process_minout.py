@@ -17,7 +17,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
       on_failure="IGNORE", time_out=task_time_out)
 def _processminout(input_log_path, output_dat_path,  properties, **kwargs):
     
-        task_config.pop_pmi(os.environ)
+    task_config.pop_pmi(os.environ)
     
     try:
         ProcessMinOut(input_log_path=input_log_path, output_dat_path=output_dat_path, properties=properties, **kwargs).launch()

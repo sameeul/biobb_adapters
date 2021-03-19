@@ -17,7 +17,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
       on_failure="IGNORE", time_out=task_time_out)
 def _acpypeparamscns(input_path, output_path_par, output_path_inp, output_path_top,  properties, **kwargs):
     
-        task_config.pop_pmi(os.environ)
+    task_config.pop_pmi(os.environ)
     
     try:
         AcpypeParamsCNS(input_path=input_path, output_path_par=output_path_par, output_path_inp=output_path_inp, output_path_top=output_path_top, properties=properties, **kwargs).launch()

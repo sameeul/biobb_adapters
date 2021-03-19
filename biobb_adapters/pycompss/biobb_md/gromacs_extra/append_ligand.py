@@ -17,7 +17,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
       on_failure="IGNORE", time_out=task_time_out)
 def _appendligand(input_top_zip_path, input_itp_path, output_top_zip_path, input_posres_itp_path,  properties, **kwargs):
     
-        task_config.pop_pmi(os.environ)
+    task_config.pop_pmi(os.environ)
     
     try:
         AppendLigand(input_top_zip_path=input_top_zip_path, input_itp_path=input_itp_path, output_top_zip_path=output_top_zip_path, input_posres_itp_path=input_posres_itp_path, properties=properties, **kwargs).launch()

@@ -17,7 +17,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
       on_failure="IGNORE", time_out=task_time_out)
 def _pmemdmdrun(input_top_path, input_crd_path, output_log_path, output_traj_path, output_rst_path, input_mdin_path, input_cpin_path, input_ref_path, output_cpout_path, output_cprst_path, output_mdinfo_path,  properties, **kwargs):
     
-        task_config.pop_pmi(os.environ)
+    task_config.pop_pmi(os.environ)
     
     try:
         PmemdMDRun(input_top_path=input_top_path, input_crd_path=input_crd_path, output_log_path=output_log_path, output_traj_path=output_traj_path, output_rst_path=output_rst_path, input_mdin_path=input_mdin_path, input_cpin_path=input_cpin_path, input_ref_path=input_ref_path, output_cpout_path=output_cpout_path, output_cprst_path=output_cprst_path, output_mdinfo_path=output_mdinfo_path, properties=properties, **kwargs).launch()

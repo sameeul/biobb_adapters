@@ -17,7 +17,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
       on_failure="IGNORE", time_out=task_time_out)
 def _genrestr(input_structure_path, output_itp_path, input_ndx_path,  properties, **kwargs):
     
-        task_config.pop_pmi(os.environ)
+    task_config.pop_pmi(os.environ)
     
     try:
         Genrestr(input_structure_path=input_structure_path, output_itp_path=output_itp_path, input_ndx_path=input_ndx_path, properties=properties, **kwargs).launch()

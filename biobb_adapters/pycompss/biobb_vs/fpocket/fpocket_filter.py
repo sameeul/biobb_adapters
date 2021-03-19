@@ -17,7 +17,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
       on_failure="IGNORE", time_out=task_time_out)
 def _fpocketfilter(input_pockets_zip, input_summary, output_filter_pockets_zip,  properties, **kwargs):
     
-        task_config.pop_pmi(os.environ)
+    task_config.pop_pmi(os.environ)
     
     try:
         FPocketFilter(input_pockets_zip=input_pockets_zip, input_summary=input_summary, output_filter_pockets_zip=output_filter_pockets_zip, properties=properties, **kwargs).launch()

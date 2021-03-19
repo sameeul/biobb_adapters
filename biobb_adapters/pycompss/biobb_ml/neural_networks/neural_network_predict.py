@@ -17,7 +17,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
       on_failure="IGNORE", time_out=task_time_out)
 def _predictneuralnetwork(input_model_path, output_results_path, input_dataset_path,  properties, **kwargs):
     
-        task_config.pop_pmi(os.environ)
+    task_config.pop_pmi(os.environ)
     
     try:
         PredictNeuralNetwork(input_model_path=input_model_path, output_results_path=output_results_path, input_dataset_path=input_dataset_path, properties=properties, **kwargs).launch()

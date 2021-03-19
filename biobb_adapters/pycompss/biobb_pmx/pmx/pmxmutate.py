@@ -17,7 +17,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
       on_failure="IGNORE", time_out=task_time_out)
 def _pmxmutate(input_structure_path, output_structure_path, input_b_structure_path,  properties, **kwargs):
     
-        task_config.pop_pmi(os.environ)
+    task_config.pop_pmi(os.environ)
     
     try:
         Pmxmutate(input_structure_path=input_structure_path, output_structure_path=output_structure_path, input_b_structure_path=input_b_structure_path, properties=properties, **kwargs).launch()

@@ -17,7 +17,7 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
       on_failure="IGNORE", time_out=task_time_out)
 def _pdbvariants(output_mutations_list_txt,  properties, **kwargs):
     
-        task_config.pop_pmi(os.environ)
+    task_config.pop_pmi(os.environ)
     
     try:
         PdbVariants(output_mutations_list_txt=output_mutations_list_txt, properties=properties, **kwargs).launch()
