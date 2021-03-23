@@ -29,7 +29,7 @@ def _makendx(input_structure_path, output_ndx_path, input_ndx_path,  properties,
         sys.stderr.flush()
 
 
-def makendx(input_structure_path, output_ndx_path, input_ndx_path=None, properties=None, **kwargs):
+def make_ndx(input_structure_path, output_ndx_path, input_ndx_path=None, properties=None, **kwargs):
 
     if (output_ndx_path is None or os.path.exists(output_ndx_path)) and \
        True:
