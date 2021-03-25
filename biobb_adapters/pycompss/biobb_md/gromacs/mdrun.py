@@ -4,9 +4,9 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
+from pycompss.api.parameter import FILE_IN, FILE_OUT
 from pycompss.api.multinode import multinode
 from pycompss.api.constraint import constraint
-from pycompss.api.parameter import FILE_IN, FILE_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
@@ -16,11 +16,11 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 computing_nodes = str(os.environ.get('TASK_COMPUTING_NODES', "1"))
 computing_units = str(os.environ.get('TASK_COMPUTING_UNITS', "1"))
 
+
 @constraint(computing_units=computing_units)
 @multinode(computing_nodes=computing_nodes)
 @task(input_tpr_path=FILE_IN, output_trr_path=FILE_OUT, output_gro_path=FILE_OUT, output_edr_path=FILE_OUT, output_log_path=FILE_OUT, input_cpt_path=FILE_IN, output_xtc_path=FILE_IN, output_cpt_path=FILE_IN, output_dhdl_path=FILE_IN, 
       on_failure="IGNORE", time_out=task_time_out)
-
 def _mdrun(input_tpr_path, output_trr_path, output_gro_path, output_edr_path, output_log_path, input_cpt_path, output_xtc_path, output_cpt_path, output_dhdl_path,  properties, **kwargs):
     
     task_config.config_multinode(properties)
