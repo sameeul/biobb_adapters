@@ -4,6 +4,8 @@ import sys
 import traceback
 # Pycompss
 from pycompss.api.task import task
+from pycompss.api.multinode import multinode
+from pycompss.api.constraint import constraint
 from pycompss.api.parameter import FILE_IN, FILE_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config

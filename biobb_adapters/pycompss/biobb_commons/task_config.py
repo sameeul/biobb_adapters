@@ -25,17 +25,17 @@ def config_multinode( properties , all_mpi=True):
         properties["mpi_np"] = num_nodes * num_threads
         #properties["num_omp_threads"] = 1
         os.environ["OMP_NUM_THREADS"] = "1"
-        os.environ["SLURM_NODELIST"] = str(hostnames)
-        os.environ["SLURM_JOB_NODELIST"] = str(hostnames)
-        os.environ["SLURM_NNODES"] = str(num_nodes)
-        os.environ['SLURM_JOB_NUM_NODES'] = str(num_nodes)
-        os.environ["SLURM_JOB_CPUS_PER_NODE"] = str(num_threads) + "(x" + str(num_nodes) + ")"
-        os.environ["SLURM_NTASKS"] = str(total_threads)
-        os.environ["OCS_NTASKS"] = str(total_threads)
-        os.environ["SLURM_NPROCS"] = str(total_threads)
-        os.environ["SLURM_TASKS_PER_NODE"] = str(num_threads) + "(x" + str(num_nodes) + ")"
+        #os.environ["SLURM_NODELIST"] = str(hostnames)
+        #os.environ["SLURM_JOB_NODELIST"] = str(hostnames)
+        #os.environ["SLURM_NNODES"] = str(num_nodes)
+        #os.environ['SLURM_JOB_NUM_NODES'] = str(num_nodes)
+        #os.environ["SLURM_JOB_CPUS_PER_NODE"] = str(num_threads) + "(x" + str(num_nodes) + ")"
+        #os.environ["SLURM_NTASKS"] = str(total_threads)
+        #os.environ["OCS_NTASKS"] = str(total_threads)
+        #os.environ["SLURM_NPROCS"] = str(total_threads)
+        #os.environ["SLURM_TASKS_PER_NODE"] = str(num_threads) + "(x" + str(num_nodes) + ")"
     else :
-        #properties["num_omp_threads"] = num_threads
+        properties["num_omp_threads"] = num_threads
         properties["mpi_np"] = num_nodes
     properties["mpi_flags"] = create_mpi_flags(mpi_env.upper(), mpi_extra_flags)
     print(os.environ)
