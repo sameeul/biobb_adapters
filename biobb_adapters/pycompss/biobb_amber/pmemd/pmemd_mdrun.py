@@ -19,7 +19,7 @@ computing_units = str(os.environ.get('TASK_COMPUTING_UNITS', "1"))
 
 @constraint(computing_units=computing_units)
 @multinode(computing_nodes=computing_nodes)
-@task(input_top_path=FILE_IN, input_crd_path=FILE_IN, output_log_path=FILE_OUT, output_traj_path=FILE_OUT, output_rst_path=FILE_OUT, input_mdin_path=FILE_IN, input_cpin_path=FILE_IN, input_ref_path=FILE_IN, output_cpout_path=FILE_IN, output_cprst_path=FILE_IN, output_mdinfo_path=FILE_IN,
+@task(input_top_path=FILE_IN, input_crd_path=FILE_IN, output_log_path=FILE_OUT, output_traj_path=FILE_OUT, output_rst_path=FILE_OUT, input_mdin_path=FILE_IN, input_cpin_path=FILE_IN, input_ref_path=FILE_IN, output_cpout_path=FILE_OUT, output_cprst_path=FILE_OUT, output_mdinfo_path=FILE_OUT,
       on_failure="IGNORE", time_out=task_time_out)
 def _pmemdmdrun(input_top_path, input_crd_path, output_log_path, output_traj_path, output_rst_path, input_mdin_path, input_cpin_path, input_ref_path, output_cpout_path, output_cprst_path, output_mdinfo_path,  properties, **kwargs):
     
