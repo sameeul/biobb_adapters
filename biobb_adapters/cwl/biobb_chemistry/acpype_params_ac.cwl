@@ -13,7 +13,7 @@ baseCommand: acpype_params_ac
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_chemistry:3.5.0--py_0
+    dockerPull: https://quay.io/biocontainers/biobb_chemistry:3.6.0--pyhdfd78af_0
 
 inputs:
   input_path:

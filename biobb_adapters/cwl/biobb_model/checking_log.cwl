@@ -12,7 +12,7 @@ baseCommand: checking_log
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_model:3.5.1--py_1
+    dockerPull: https://quay.io/biocontainers/biobb_model:3.6.0--py_1
 
 inputs:
   input_pdb_path:

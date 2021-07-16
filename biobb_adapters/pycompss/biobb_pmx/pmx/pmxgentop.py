@@ -8,7 +8,7 @@ from pycompss.api.parameter import FILE_IN, FILE_OUT
 # Adapters commons pycompss
 from biobb_adapters.pycompss.biobb_commons import task_config
 # Wrapped Biobb
-from biobb_pmx.pmx.pmxgentop import Pmxgentop # Importing class instead of module to avoid name collision
+from biobb_pmx.pmx.pmxgentop import Pmxgentop  # Importing class instead of module to avoid name collision
 
 task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 

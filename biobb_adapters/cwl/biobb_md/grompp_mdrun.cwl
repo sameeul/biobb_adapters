@@ -12,7 +12,7 @@ baseCommand: grompp_mdrun
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_md:3.5.1--py_0
+    dockerPull: https://quay.io/biocontainers/biobb_md:3.6.0--py_0
 
 inputs:
   input_gro_path:

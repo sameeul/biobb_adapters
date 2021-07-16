@@ -12,7 +12,7 @@ baseCommand: regression_neural_network
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_ml:3.5.0--py_2
+    dockerPull: https://quay.io/biocontainers/biobb_ml:3.6.0--pyh53442f1_0
 
 inputs:
   input_dataset_path:

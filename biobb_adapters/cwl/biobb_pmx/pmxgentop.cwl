@@ -47,9 +47,9 @@ inputs:
     default: system.zip
 
   config:
-    label: Advanced configuration options for biobb_pmx Pmxanalyse
+    label: Advanced configuration options for biobb_pmx Pmxgentop
     doc: |-
-      Advanced configuration options for biobb_pmx Pmxanalyse. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pmx Pmxanalyse documentation: https://biobb-pmx.readthedocs.io/en/latest/pmx.html#module-pmx.pmxgentop
+      Advanced configuration options for biobb_pmx Pmxgentop. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pmx Pmxgentop documentation: https://biobb-pmx.readthedocs.io/en/latest/pmx.html#module-pmx.pmxgentop
     type: string?
     inputBinding:
       prefix: --config

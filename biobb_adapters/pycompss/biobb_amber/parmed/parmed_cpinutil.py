@@ -13,7 +13,7 @@ from biobb_amber.parmed.parmed_cpinutil import ParmedCpinUtil  # Importing class
 task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 
-@task(input_top_path=FILE_IN, output_cpin_path=FILE_OUT, output_top_path=FILE_OUT, 
+@task(input_top_path=FILE_IN, output_cpin_path=FILE_OUT, output_top_path=FILE_OUT,
       on_failure="IGNORE", time_out=task_time_out)
 def _parmedcpinutil(input_top_path, output_cpin_path, output_top_path,  properties, **kwargs):
     
