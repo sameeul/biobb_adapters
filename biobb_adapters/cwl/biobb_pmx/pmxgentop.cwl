@@ -12,7 +12,7 @@ baseCommand: pmxgentop
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_pmx:3.5.0--py_0
+    dockerPull: https://quay.io/biocontainers/biobb_pmx:3.6.0--pyhdfd78af_0
 
 inputs:
   input_top_zip_path:

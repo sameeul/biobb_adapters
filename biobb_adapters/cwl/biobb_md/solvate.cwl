@@ -12,7 +12,7 @@ baseCommand: solvate
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_md:3.6.0--py_0
+    dockerPull: https://quay.io/biocontainers/biobb_md:3.6.0--pyhdfd78af_0
 
 inputs:
   input_solute_gro_path:
