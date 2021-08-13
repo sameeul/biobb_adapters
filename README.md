@@ -9,7 +9,7 @@ The latest documentation of this package can be found in our readthedocs site:
 [latest API documentation](http://biobb_adapters.readthedocs.io/en/latest/).
 
 ### Version
-3.6.0 2021.2
+3.6.1 2021.2
 
 ### Copyright & Licensing
 This software has been developed in the [MMB group](http://mmb.irbbarcelona.org) at the [BSC](http://www.bsc.es/) & [IRB](https://www.irbbarcelona.org/) for the [European BioExcel](http://bioexcel.eu/), funded by the European Commission (EU H2020 [823830](http://cordis.europa.eu/projects/823830), EU H2020 [675728](http://cordis.europa.eu/projects/675728)).
