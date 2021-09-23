@@ -33,6 +33,6 @@ def gmxrms(input_structure_path, input_traj_path, output_xvg_path, input_index_p
 
     if (output_xvg_path is None or os.path.exists(output_xvg_path)) and \
        True:
-        print("WARN: Task GMXCluster already executed.")
+        print("WARN: Task GMXRms already executed.")
     else:
-        _gmxrms(input_structure_path,  input_traj_path,  output_xvg_path,  input_index_path,  properties, **kwargs)
+        _gmxrms( input_structure_path,  input_traj_path,  output_xvg_path,  input_index_path,  properties, **kwargs)

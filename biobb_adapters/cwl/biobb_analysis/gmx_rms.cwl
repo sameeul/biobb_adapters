@@ -88,9 +88,9 @@ inputs:
       prefix: --input_index_path
 
   config:
-    label: Advanced configuration options for biobb_analysis GMXCluster
+    label: Advanced configuration options for biobb_analysis GMXRms
     doc: |-
-      Advanced configuration options for biobb_analysis GMXCluster. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_analysis GMXCluster documentation: https://biobb-analysis.readthedocs.io/en/latest/gromacs.html#module-gromacs.gmx_rms
+      Advanced configuration options for biobb_analysis GMXRms. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_analysis GMXRms documentation: https://biobb-analysis.readthedocs.io/en/latest/gromacs.html#module-gromacs.gmx_rms
     type: string?
     inputBinding:
       prefix: --config

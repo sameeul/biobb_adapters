@@ -100,7 +100,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: log
-      Example file: null
+      Example file: https://github.com/bioexcel/biobb_md/raw/master/biobb_md/test/reference/gromacs/ref_gmx_mdrun.log
     type: string
     format:
     - edam:format_2330
