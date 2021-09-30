@@ -29,7 +29,7 @@ def _nabbuilddnastructure(output_pdb_path,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def nabbuilddnastructure(output_pdb_path, properties=None, **kwargs):
+def nab_build_dna_structure(output_pdb_path, properties=None, **kwargs):
 
     if (output_pdb_path is None or os.path.exists(output_pdb_path)) and \
        True:

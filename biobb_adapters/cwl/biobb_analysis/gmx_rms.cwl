@@ -13,7 +13,7 @@ baseCommand: gmx_rms
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_analysis:3.6.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_analysis:3.6.0--pyhdfd78af_0
 
 inputs:
   input_structure_path:

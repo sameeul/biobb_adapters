@@ -29,7 +29,7 @@ def _apibindingsite(output_json_path,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def apibindingsite(output_json_path, properties=None, **kwargs):
+def api_binding_site(output_json_path, properties=None, **kwargs):
 
     if (output_json_path is None or os.path.exists(output_json_path)) and \
        True:

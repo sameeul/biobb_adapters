@@ -29,7 +29,7 @@ def _sortgroresidues(input_gro_path, output_gro_path,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def sortgroresidues(input_gro_path, output_gro_path, properties=None, **kwargs):
+def sort_gro_residues(input_gro_path, output_gro_path, properties=None, **kwargs):
 
     if (output_gro_path is None or os.path.exists(output_gro_path)) and \
        True:

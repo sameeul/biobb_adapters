@@ -29,7 +29,7 @@ def _structureinfo(output_json_path,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def structureinfo(output_json_path, properties=None, **kwargs):
+def structure_info(output_json_path, properties=None, **kwargs):
 
     if (output_json_path is None or os.path.exists(output_json_path)) and \
        True:

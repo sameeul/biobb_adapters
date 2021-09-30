@@ -29,7 +29,7 @@ def _removeligand(input_structure_path, output_structure_path,  properties, **kw
         sys.stderr.flush()
 
 
-def removeligand(input_structure_path, output_structure_path, properties=None, **kwargs):
+def remove_ligand(input_structure_path, output_structure_path, properties=None, **kwargs):
 
     if (output_structure_path is None or os.path.exists(output_structure_path)) and \
        True:

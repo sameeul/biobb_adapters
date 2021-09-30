@@ -29,7 +29,7 @@ def _acpypeparamscns(input_path, output_path_par, output_path_inp, output_path_t
         sys.stderr.flush()
 
 
-def acpypeparamscns(input_path, output_path_par, output_path_inp, output_path_top, properties=None, **kwargs):
+def acpype_params_cns(input_path, output_path_par, output_path_inp, output_path_top, properties=None, **kwargs):
 
     if (output_path_par is None or os.path.exists(output_path_par)) and \
        (output_path_inp is None or os.path.exists(output_path_inp)) and \

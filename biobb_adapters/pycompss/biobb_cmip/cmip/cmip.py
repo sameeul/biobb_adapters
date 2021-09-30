@@ -13,7 +13,7 @@ from biobb_cmip.cmip.cmip import Titration  # Importing class instead of module 
 task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 
-@task(input_pdb_path=FILE_IN, input_probe_pdb_path=FILE_IN, output_pdb_path=FILE_IN, output_grd_path=FILE_IN, output_cube_path=FILE_IN, output_rst_path=FILE_IN, output_byat_path=FILE_IN, input_vdw_params_path=FILE_IN, input_params_path=FILE_IN, 
+@task(input_pdb_path=FILE_IN, input_probe_pdb_path=FILE_IN, output_pdb_path=FILE_OUT, output_grd_path=FILE_OUT, output_cube_path=FILE_OUT, output_rst_path=FILE_OUT, output_byat_path=FILE_OUT, input_vdw_params_path=FILE_IN, input_params_path=FILE_IN, 
       on_failure="IGNORE", time_out=task_time_out)
 def _titration(input_pdb_path, input_probe_pdb_path, output_pdb_path, output_grd_path, output_cube_path, output_rst_path, output_byat_path, input_vdw_params_path, input_params_path,  properties, **kwargs):
     
@@ -29,9 +29,14 @@ def _titration(input_pdb_path, input_probe_pdb_path, output_pdb_path, output_grd
         sys.stderr.flush()
 
 
-def titration(input_pdb_path, input_probe_pdb_path=None, output_pdb_path=None, output_grd_path=None, output_cube_path=None, output_rst_path=None, output_byat_path=None, input_vdw_params_path=None, input_params_path=None, properties=None, **kwargs):
+def cmip(input_pdb_path, input_probe_pdb_path=None, output_pdb_path=None, output_grd_path=None, output_cube_path=None, output_rst_path=None, output_byat_path=None, input_vdw_params_path=None, input_params_path=None, properties=None, **kwargs):
 
-    if True:
+    if (output_pdb_path is None or os.path.exists(output_pdb_path)) and \
+       (output_grd_path is None or os.path.exists(output_grd_path)) and \
+       (output_cube_path is None or os.path.exists(output_cube_path)) and \
+       (output_rst_path is None or os.path.exists(output_rst_path)) and \
+       (output_byat_path is None or os.path.exists(output_byat_path)) and \
+       True:
         print("WARN: Task Titration already executed.")
     else:
         _titration( input_pdb_path,  input_probe_pdb_path,  output_pdb_path,  output_grd_path,  output_cube_path,  output_rst_path,  output_byat_path,  input_vdw_params_path,  input_params_path,  properties, **kwargs)

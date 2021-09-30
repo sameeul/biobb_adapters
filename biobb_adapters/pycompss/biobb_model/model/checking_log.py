@@ -29,7 +29,7 @@ def _checkinglog(input_pdb_path, output_log_path,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def checkinglog(input_pdb_path, output_log_path, properties=None, **kwargs):
+def checking_log(input_pdb_path, output_log_path, properties=None, **kwargs):
 
     if (output_log_path is None or os.path.exists(output_log_path)) and \
        True:

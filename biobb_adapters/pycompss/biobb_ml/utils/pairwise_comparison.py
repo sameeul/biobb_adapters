@@ -29,7 +29,7 @@ def _pairwisecomparison(input_dataset_path, output_plot_path,  properties, **kwa
         sys.stderr.flush()
 
 
-def pairwisecomparison(input_dataset_path, output_plot_path, properties=None, **kwargs):
+def pairwise_comparison(input_dataset_path, output_plot_path, properties=None, **kwargs):
 
     if (output_plot_path is None or os.path.exists(output_plot_path)) and \
        True:

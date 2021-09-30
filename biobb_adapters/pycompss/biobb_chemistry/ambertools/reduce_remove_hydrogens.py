@@ -29,7 +29,7 @@ def _reduceremovehydrogens(input_path, output_path,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def reduceremovehydrogens(input_path, output_path, properties=None, **kwargs):
+def reduce_remove_hydrogens(input_path, output_path, properties=None, **kwargs):
 
     if (output_path is None or os.path.exists(output_path)) and \
        True:

@@ -29,7 +29,7 @@ def _fpocketfilter(input_pockets_zip, input_summary, output_filter_pockets_zip, 
         sys.stderr.flush()
 
 
-def fpocketfilter(input_pockets_zip, input_summary, output_filter_pockets_zip, properties=None, **kwargs):
+def fpocket_filter(input_pockets_zip, input_summary, output_filter_pockets_zip, properties=None, **kwargs):
 
     if (output_filter_pockets_zip is None or os.path.exists(output_filter_pockets_zip)) and \
        True:

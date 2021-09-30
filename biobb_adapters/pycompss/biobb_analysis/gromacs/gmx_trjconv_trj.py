@@ -29,7 +29,7 @@ def _gmxtrjconvtrj(input_traj_path, output_traj_path, input_index_path,  propert
         sys.stderr.flush()
 
 
-def gmxtrjconvtrj(input_traj_path, output_traj_path, input_index_path=None, properties=None, **kwargs):
+def gmx_trjconv_trj(input_traj_path, output_traj_path, input_index_path=None, properties=None, **kwargs):
 
     if (output_traj_path is None or os.path.exists(output_traj_path)) and \
        True:

@@ -29,7 +29,7 @@ def _extractheteroatoms(input_structure_path, output_heteroatom_path,  propertie
         sys.stderr.flush()
 
 
-def extractheteroatoms(input_structure_path, output_heteroatom_path, properties=None, **kwargs):
+def extract_heteroatoms(input_structure_path, output_heteroatom_path, properties=None, **kwargs):
 
     if (output_heteroatom_path is None or os.path.exists(output_heteroatom_path)) and \
        True:

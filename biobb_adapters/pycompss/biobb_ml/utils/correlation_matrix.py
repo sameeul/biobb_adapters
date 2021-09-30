@@ -29,7 +29,7 @@ def _correlationmatrix(input_dataset_path, output_plot_path,  properties, **kwar
         sys.stderr.flush()
 
 
-def correlationmatrix(input_dataset_path, output_plot_path, properties=None, **kwargs):
+def correlation_matrix(input_dataset_path, output_plot_path, properties=None, **kwargs):
 
     if (output_plot_path is None or os.path.exists(output_plot_path)) and \
        True:

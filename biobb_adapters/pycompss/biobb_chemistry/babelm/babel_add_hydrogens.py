@@ -29,7 +29,7 @@ def _babeladdhydrogens(input_path, output_path,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def babeladdhydrogens(input_path, output_path, properties=None, **kwargs):
+def babel_add_hydrogens(input_path, output_path, properties=None, **kwargs):
 
     if (output_path is None or os.path.exists(output_path)) and \
        True:

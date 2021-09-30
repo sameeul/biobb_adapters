@@ -29,7 +29,7 @@ def _memprotmdsim(output_simulation,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def memprotmdsim(output_simulation, properties=None, **kwargs):
+def memprotmd_sim(output_simulation, properties=None, **kwargs):
 
     if (output_simulation is None or os.path.exists(output_simulation)) and \
        True:

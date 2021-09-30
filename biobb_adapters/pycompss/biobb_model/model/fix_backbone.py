@@ -29,7 +29,7 @@ def _fixbackbone(input_pdb_path, input_fasta_canonical_sequence_path, output_pdb
         sys.stderr.flush()
 
 
-def fixbackbone(input_pdb_path, input_fasta_canonical_sequence_path, output_pdb_path, properties=None, **kwargs):
+def fix_backbone(input_pdb_path, input_fasta_canonical_sequence_path, output_pdb_path, properties=None, **kwargs):
 
     if (output_pdb_path is None or os.path.exists(output_pdb_path)) and \
        True:

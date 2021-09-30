@@ -29,7 +29,7 @@ def _fpocketselect(input_pockets_zip, output_pocket_pdb, output_pocket_pqr,  pro
         sys.stderr.flush()
 
 
-def fpocketselect(input_pockets_zip, output_pocket_pdb, output_pocket_pqr, properties=None, **kwargs):
+def fpocket_select(input_pockets_zip, output_pocket_pdb, output_pocket_pqr, properties=None, **kwargs):
 
     if (output_pocket_pdb is None or os.path.exists(output_pocket_pdb)) and \
        (output_pocket_pqr is None or os.path.exists(output_pocket_pqr)) and \

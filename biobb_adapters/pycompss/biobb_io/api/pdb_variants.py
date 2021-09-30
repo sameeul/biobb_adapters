@@ -29,7 +29,7 @@ def _pdbvariants(output_mutations_list_txt,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def pdbvariants(output_mutations_list_txt, properties=None, **kwargs):
+def pdb_variants(output_mutations_list_txt, properties=None, **kwargs):
 
     if (output_mutations_list_txt is None or os.path.exists(output_mutations_list_txt)) and \
        True:

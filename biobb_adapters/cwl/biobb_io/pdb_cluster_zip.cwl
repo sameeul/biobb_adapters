@@ -13,7 +13,7 @@ baseCommand: pdb_cluster_zip
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_io:3.6.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_io:3.6.0--pyhdfd78af_0
 
 inputs:
   output_pdb_zip_path:

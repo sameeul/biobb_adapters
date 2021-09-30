@@ -29,7 +29,7 @@ def _fpocketrun(input_pdb_path, output_pockets_zip, output_summary,  properties,
         sys.stderr.flush()
 
 
-def fpocketrun(input_pdb_path, output_pockets_zip, output_summary, properties=None, **kwargs):
+def fpocket_run(input_pdb_path, output_pockets_zip, output_summary, properties=None, **kwargs):
 
     if (output_pockets_zip is None or os.path.exists(output_pockets_zip)) and \
        (output_summary is None or os.path.exists(output_summary)) and \

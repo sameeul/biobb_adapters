@@ -29,7 +29,7 @@ def _removepdbwater(input_pdb_path, output_pdb_path,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def removepdbwater(input_pdb_path, output_pdb_path, properties=None, **kwargs):
+def remove_pdb_water(input_pdb_path, output_pdb_path, properties=None, **kwargs):
 
     if (output_pdb_path is None or os.path.exists(output_pdb_path)) and \
        True:

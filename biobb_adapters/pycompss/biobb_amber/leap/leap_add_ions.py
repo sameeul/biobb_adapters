@@ -29,7 +29,7 @@ def _leapaddions(input_pdb_path, output_pdb_path, output_top_path, output_crd_pa
         sys.stderr.flush()
 
 
-def leapaddions(input_pdb_path, output_pdb_path, output_top_path, output_crd_path, input_lib_path=None, input_frcmod_path=None, input_params_path=None, input_source_path=None, properties=None, **kwargs):
+def leap_add_ions(input_pdb_path, output_pdb_path, output_top_path, output_crd_path, input_lib_path=None, input_frcmod_path=None, input_params_path=None, input_source_path=None, properties=None, **kwargs):
 
     if (output_pdb_path is None or os.path.exists(output_pdb_path)) and \
        (output_top_path is None or os.path.exists(output_top_path)) and \

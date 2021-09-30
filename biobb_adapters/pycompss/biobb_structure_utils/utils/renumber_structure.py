@@ -29,7 +29,7 @@ def _renumberstructure(input_structure_path, output_structure_path, output_mappi
         sys.stderr.flush()
 
 
-def renumberstructure(input_structure_path, output_structure_path, output_mapping_json_path, properties=None, **kwargs):
+def renumber_structure(input_structure_path, output_structure_path, output_mapping_json_path, properties=None, **kwargs):
 
     if (output_structure_path is None or os.path.exists(output_structure_path)) and \
        (output_mapping_json_path is None or os.path.exists(output_mapping_json_path)) and \

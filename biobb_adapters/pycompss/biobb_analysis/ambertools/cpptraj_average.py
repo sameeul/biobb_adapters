@@ -29,7 +29,7 @@ def _cpptrajaverage(input_top_path, input_traj_path, output_cpptraj_path,  prope
         sys.stderr.flush()
 
 
-def cpptrajaverage(input_top_path, input_traj_path, output_cpptraj_path, properties=None, **kwargs):
+def cpptraj_average(input_top_path, input_traj_path, output_cpptraj_path, properties=None, **kwargs):
 
     if (output_cpptraj_path is None or os.path.exists(output_cpptraj_path)) and \
        True:

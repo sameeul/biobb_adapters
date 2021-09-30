@@ -29,7 +29,7 @@ def _canonicalfasta(output_fasta_path,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def canonicalfasta(output_fasta_path, properties=None, **kwargs):
+def canonical_fasta(output_fasta_path, properties=None, **kwargs):
 
     if (output_fasta_path is None or os.path.exists(output_fasta_path)) and \
        True:

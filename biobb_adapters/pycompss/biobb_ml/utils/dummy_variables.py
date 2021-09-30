@@ -29,7 +29,7 @@ def _dummyvariables(input_dataset_path, output_dataset_path,  properties, **kwar
         sys.stderr.flush()
 
 
-def dummyvariables(input_dataset_path, output_dataset_path, properties=None, **kwargs):
+def dummy_variables(input_dataset_path, output_dataset_path, properties=None, **kwargs):
 
     if (output_dataset_path is None or os.path.exists(output_dataset_path)) and \
        True:

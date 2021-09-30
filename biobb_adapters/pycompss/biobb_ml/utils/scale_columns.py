@@ -29,7 +29,7 @@ def _scalecolumns(input_dataset_path, output_dataset_path,  properties, **kwargs
         sys.stderr.flush()
 
 
-def scalecolumns(input_dataset_path, output_dataset_path, properties=None, **kwargs):
+def scale_columns(input_dataset_path, output_dataset_path, properties=None, **kwargs):
 
     if (output_dataset_path is None or os.path.exists(output_dataset_path)) and \
        True:

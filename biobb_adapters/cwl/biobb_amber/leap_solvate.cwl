@@ -12,7 +12,7 @@ baseCommand: leap_solvate
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_amber:3.6.0--pyhdfd78af_1
+    dockerPull: quay.io/biocontainers/biobb_amber:3.6.0--pyhdfd78af_1
 
 inputs:
   input_pdb_path:

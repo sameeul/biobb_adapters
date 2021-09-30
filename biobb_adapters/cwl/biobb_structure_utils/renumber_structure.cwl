@@ -12,7 +12,7 @@ baseCommand: renumber_structure
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_structure_utils:3.6.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_structure_utils:3.6.1--pyhdfd78af_0
 
 inputs:
   input_structure_path:

@@ -29,7 +29,7 @@ def _structurecheck(input_structure_path, output_summary_path,  properties, **kw
         sys.stderr.flush()
 
 
-def structurecheck(input_structure_path, output_summary_path, properties=None, **kwargs):
+def structure_check(input_structure_path, output_summary_path, properties=None, **kwargs):
 
     if (output_summary_path is None or os.path.exists(output_summary_path)) and \
        True:

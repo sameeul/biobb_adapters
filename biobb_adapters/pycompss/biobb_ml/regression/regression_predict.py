@@ -29,7 +29,7 @@ def _regressionpredict(input_model_path, output_results_path, input_dataset_path
         sys.stderr.flush()
 
 
-def regressionpredict(input_model_path, output_results_path, input_dataset_path=None, properties=None, **kwargs):
+def regression_predict(input_model_path, output_results_path, input_dataset_path=None, properties=None, **kwargs):
 
     if (output_results_path is None or os.path.exists(output_results_path)) and \
        True:

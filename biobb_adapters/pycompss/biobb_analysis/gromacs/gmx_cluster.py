@@ -29,7 +29,7 @@ def _gmxcluster(input_structure_path, input_traj_path, output_pdb_path, input_in
         sys.stderr.flush()
 
 
-def gmxcluster(input_structure_path, input_traj_path, output_pdb_path, input_index_path=None, properties=None, **kwargs):
+def gmx_cluster(input_structure_path, input_traj_path, output_pdb_path, input_index_path=None, properties=None, **kwargs):
 
     if (output_pdb_path is None or os.path.exists(output_pdb_path)) and \
        True:

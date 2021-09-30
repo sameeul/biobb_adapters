@@ -29,7 +29,7 @@ def _ambertopdb(input_top_path, input_crd_path, output_pdb_path,  properties, **
         sys.stderr.flush()
 
 
-def ambertopdb(input_top_path, input_crd_path, output_pdb_path, properties=None, **kwargs):
+def amber_to_pdb(input_top_path, input_crd_path, output_pdb_path, properties=None, **kwargs):
 
     if (output_pdb_path is None or os.path.exists(output_pdb_path)) and \
        True:

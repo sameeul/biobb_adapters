@@ -29,7 +29,7 @@ def _pdbclusterzip(output_pdb_zip_path,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def pdbclusterzip(output_pdb_zip_path, properties=None, **kwargs):
+def pdb_cluster_zip(output_pdb_zip_path, properties=None, **kwargs):
 
     if (output_pdb_zip_path is None or os.path.exists(output_pdb_zip_path)) and \
        True:

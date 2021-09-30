@@ -29,7 +29,7 @@ def _cpptrajimage(input_top_path, input_traj_path, output_cpptraj_path,  propert
         sys.stderr.flush()
 
 
-def cpptrajimage(input_top_path, input_traj_path, output_cpptraj_path, properties=None, **kwargs):
+def cpptraj_image(input_top_path, input_traj_path, output_cpptraj_path, properties=None, **kwargs):
 
     if (output_cpptraj_path is None or os.path.exists(output_cpptraj_path)) and \
        True:

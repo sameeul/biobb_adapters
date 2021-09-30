@@ -29,7 +29,7 @@ def _cpptrajbfactor(input_top_path, input_traj_path, output_cpptraj_path, input_
         sys.stderr.flush()
 
 
-def cpptrajbfactor(input_top_path, input_traj_path, output_cpptraj_path, input_exp_path=None, properties=None, **kwargs):
+def cpptraj_bfactor(input_top_path, input_traj_path, output_cpptraj_path, input_exp_path=None, properties=None, **kwargs):
 
     if (output_cpptraj_path is None or os.path.exists(output_cpptraj_path)) and \
        True:

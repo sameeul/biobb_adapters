@@ -12,7 +12,7 @@ baseCommand: mdrun
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_md:3.6.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_md:3.6.0--pyhdfd78af_0
 
 inputs:
   input_tpr_path:

@@ -29,7 +29,7 @@ def _gmxrgyr(input_structure_path, input_traj_path, output_xvg_path, input_index
         sys.stderr.flush()
 
 
-def gmxrgyr(input_structure_path, input_traj_path, output_xvg_path, input_index_path=None, properties=None, **kwargs):
+def gmx_rgyr(input_structure_path, input_traj_path, output_xvg_path, input_index_path=None, properties=None, **kwargs):
 
     if (output_xvg_path is None or os.path.exists(output_xvg_path)) and \
        True:

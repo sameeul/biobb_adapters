@@ -29,7 +29,7 @@ def _extractmolecule(input_structure_path, output_molecule_path,  properties, **
         sys.stderr.flush()
 
 
-def extractmolecule(input_structure_path, output_molecule_path, properties=None, **kwargs):
+def extract_molecule(input_structure_path, output_molecule_path, properties=None, **kwargs):
 
     if (output_molecule_path is None or os.path.exists(output_molecule_path)) and \
        True:

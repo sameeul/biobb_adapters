@@ -29,7 +29,7 @@ def _idealsdf(output_sdf_path,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def idealsdf(output_sdf_path, properties=None, **kwargs):
+def ideal_sdf(output_sdf_path, properties=None, **kwargs):
 
     if (output_sdf_path is None or os.path.exists(output_sdf_path)) and \
        True:

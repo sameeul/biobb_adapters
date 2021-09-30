@@ -29,7 +29,7 @@ def _pdb4amberrun(input_pdb_path, output_pdb_path,  properties, **kwargs):
         sys.stderr.flush()
 
 
-def pdb4amberrun(input_pdb_path, output_pdb_path, properties=None, **kwargs):
+def pdb4amber_run(input_pdb_path, output_pdb_path, properties=None, **kwargs):
 
     if True:
         print("WARN: Task Pdb4amberRun already executed.")

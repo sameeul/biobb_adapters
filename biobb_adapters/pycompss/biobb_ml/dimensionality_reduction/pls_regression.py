@@ -13,7 +13,7 @@ from biobb_ml.dimensionality_reduction.pls_regression import PLS_Regression  # I
 task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 
-@task(input_dataset_path=FILE_IN, output_results_path=FILE_OUT, output_plot_path=FILE_IN, 
+@task(input_dataset_path=FILE_IN, output_results_path=FILE_OUT, output_plot_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
 def _pls_regression(input_dataset_path, output_results_path, output_plot_path,  properties, **kwargs):
     
@@ -32,6 +32,7 @@ def _pls_regression(input_dataset_path, output_results_path, output_plot_path,  
 def pls_regression(input_dataset_path, output_results_path, output_plot_path=None, properties=None, **kwargs):
 
     if (output_results_path is None or os.path.exists(output_results_path)) and \
+       (output_plot_path is None or os.path.exists(output_plot_path)) and \
        True:
         print("WARN: Task PLS_Regression already executed.")
     else:

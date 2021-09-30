@@ -12,7 +12,7 @@ baseCommand: sander_mdrun
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_amber:3.6.0--pyhdfd78af_1
+    dockerPull: quay.io/biocontainers/biobb_amber:3.6.0--pyhdfd78af_1
 
 inputs:
   input_top_path:

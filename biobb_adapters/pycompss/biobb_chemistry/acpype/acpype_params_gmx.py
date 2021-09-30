@@ -29,7 +29,7 @@ def _acpypeparamsgmx(input_path, output_path_gro, output_path_itp, output_path_t
         sys.stderr.flush()
 
 
-def acpypeparamsgmx(input_path, output_path_gro, output_path_itp, output_path_top, properties=None, **kwargs):
+def acpype_params_gmx(input_path, output_path_gro, output_path_itp, output_path_top, properties=None, **kwargs):
 
     if (output_path_gro is None or os.path.exists(output_path_gro)) and \
        (output_path_itp is None or os.path.exists(output_path_itp)) and \

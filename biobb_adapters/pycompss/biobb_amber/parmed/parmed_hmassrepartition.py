@@ -29,7 +29,7 @@ def _parmedhmassrepartition(input_top_path, output_top_path,  properties, **kwar
         sys.stderr.flush()
 
 
-def parmedhmassrepartition(input_top_path, output_top_path, properties=None, **kwargs):
+def parmed_hmassrepartition(input_top_path, output_top_path, properties=None, **kwargs):
 
     if (output_top_path is None or os.path.exists(output_top_path)) and \
        True:
