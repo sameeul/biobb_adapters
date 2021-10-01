@@ -12,7 +12,7 @@ baseCommand: leap_add_ions
 
 hints:
   DockerRequirement:
-    dockerPull: ''
+    dockerPull: quay.io/biocontainers/biobb_amber:3.6.0--pyhdfd78af_1
 
 inputs:
   input_pdb_path:

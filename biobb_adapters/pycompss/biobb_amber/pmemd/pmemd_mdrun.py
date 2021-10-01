@@ -16,10 +16,9 @@ task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 computing_nodes = str(os.environ.get('TASK_COMPUTING_NODES', "1"))
 computing_units = str(os.environ.get('TASK_COMPUTING_UNITS', "1"))
 
-
 @constraint(computing_units=computing_units)
 @multinode(computing_nodes=computing_nodes)
-@task(input_top_path=FILE_IN, input_crd_path=FILE_IN, output_log_path=FILE_OUT, output_traj_path=FILE_OUT, output_rst_path=FILE_OUT, input_mdin_path=FILE_IN, input_cpin_path=FILE_IN, input_ref_path=FILE_IN, output_cpout_path=FILE_OUT, output_cprst_path=FILE_OUT, output_mdinfo_path=FILE_OUT,
+@task(input_top_path=FILE_IN, input_crd_path=FILE_IN, output_log_path=FILE_OUT, output_traj_path=FILE_OUT, output_rst_path=FILE_OUT, input_mdin_path=FILE_IN, input_cpin_path=FILE_IN, input_ref_path=FILE_IN, output_cpout_path=FILE_OUT, output_cprst_path=FILE_OUT, output_mdinfo_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
 def _pmemdmdrun(input_top_path, input_crd_path, output_log_path, output_traj_path, output_rst_path, input_mdin_path, input_cpin_path, input_ref_path, output_cpout_path, output_cprst_path, output_mdinfo_path,  properties, **kwargs):
     
@@ -35,11 +34,14 @@ def _pmemdmdrun(input_top_path, input_crd_path, output_log_path, output_traj_pat
         sys.stderr.flush()
 
 
-def pmemdmdrun(input_top_path, input_crd_path, output_log_path, output_traj_path, output_rst_path, input_mdin_path=None, input_cpin_path=None, input_ref_path=None, output_cpout_path=None, output_cprst_path=None, output_mdinfo_path=None, properties=None, **kwargs):
+def pmemd_mdrun(input_top_path, input_crd_path, output_log_path, output_traj_path, output_rst_path, input_mdin_path=None, input_cpin_path=None, input_ref_path=None, output_cpout_path=None, output_cprst_path=None, output_mdinfo_path=None, properties=None, **kwargs):
 
     if (output_log_path is None or os.path.exists(output_log_path)) and \
        (output_traj_path is None or os.path.exists(output_traj_path)) and \
        (output_rst_path is None or os.path.exists(output_rst_path)) and \
+       (output_cpout_path is None or os.path.exists(output_cpout_path)) and \
+       (output_cprst_path is None or os.path.exists(output_cprst_path)) and \
+       (output_mdinfo_path is None or os.path.exists(output_mdinfo_path)) and \
        True:
         print("WARN: Task PmemdMDRun already executed.")
     else:

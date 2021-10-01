@@ -12,7 +12,7 @@ baseCommand: process_mdout
 
 hints:
   DockerRequirement:
-    dockerPull: ''
+    dockerPull: quay.io/biocontainers/biobb_amber:3.6.0--pyhdfd78af_1
 
 inputs:
   input_log_path:
