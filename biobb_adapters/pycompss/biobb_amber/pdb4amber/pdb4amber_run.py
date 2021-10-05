@@ -13,7 +13,7 @@ from biobb_amber.pdb4amber.pdb4amber_run import Pdb4amberRun  # Importing class 
 task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 
-@task(input_pdb_path=FILE_IN, output_pdb_path=FILE_IN, 
+@task(input_pdb_path=FILE_IN, output_pdb_path=FILE_OUT, 
       on_failure="IGNORE", time_out=task_time_out)
 def _pdb4amberrun(input_pdb_path, output_pdb_path,  properties, **kwargs):
     
@@ -31,7 +31,8 @@ def _pdb4amberrun(input_pdb_path, output_pdb_path,  properties, **kwargs):
 
 def pdb4amber_run(input_pdb_path, output_pdb_path, properties=None, **kwargs):
 
-    if True:
+    if (output_pdb_path is None or os.path.exists(output_pdb_path)) and \
+       True:
         print("WARN: Task Pdb4amberRun already executed.")
     else:
         _pdb4amberrun( input_pdb_path,  output_pdb_path,  properties, **kwargs)

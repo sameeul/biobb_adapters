@@ -12,7 +12,7 @@ baseCommand: leap_add_ions
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_amber:3.6.0--pyhdfd78af_1
+    dockerPull: quay.io/biocontainers/biobb_amber:3.6.2--pyhdfd78af_0
 
 inputs:
   input_pdb_path:
@@ -119,7 +119,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: in, leapin, txt, zip
-      Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/leap/frcmod.ionsdang_spce
+      Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/leap/frcmod.ionsdang_spce.txt
     type: File?
     format:
     - edam:format_2330
@@ -136,7 +136,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: in, leapin, txt, zip
-      Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/leap/leaprc.water.spce
+      Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/leap/leaprc.water.spce.txt
     type: File?
     format:
     - edam:format_2330

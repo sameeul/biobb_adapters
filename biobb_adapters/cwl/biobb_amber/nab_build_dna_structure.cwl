@@ -12,7 +12,7 @@ baseCommand: nab_build_dna_structure
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_amber:3.6.0--pyhdfd78af_1
+    dockerPull: quay.io/biocontainers/biobb_amber:3.6.2--pyhdfd78af_0
 
 inputs:
   output_pdb_path:

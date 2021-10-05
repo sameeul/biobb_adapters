@@ -12,7 +12,7 @@ baseCommand: pdb4amber_run
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_amber:3.6.0--pyhdfd78af_1
+    dockerPull: quay.io/biocontainers/biobb_amber:3.6.2--pyhdfd78af_0
 
 inputs:
   input_pdb_path:
@@ -35,15 +35,16 @@ inputs:
     doc: |-
       Output 3D structure PDB file
       Type: string
-      File type: input
+      File type: output
       Accepted formats: pdb
       Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/reference/pdb4amber/structure.pdb4amber.pdb
-    type: File
+    type: string
     format:
     - edam:format_1476
     inputBinding:
       position: 2
       prefix: --output_pdb_path
+    default: system.pdb
 
   config:
     label: Advanced configuration options for biobb_amber.pdb4amber.pdb4amber_run
@@ -54,7 +55,15 @@ inputs:
     inputBinding:
       prefix: --config
 
-outputs: {}
+outputs:
+  output_pdb_path:
+    label: Output 3D structure PDB file
+    doc: |-
+      Output 3D structure PDB file
+    type: File
+    outputBinding:
+      glob: $(inputs.output_pdb_path)
+    format: edam:format_1476
 
 $namespaces:
   edam: http://edamontology.org/
