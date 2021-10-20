@@ -35,7 +35,7 @@ def create_mpi_flags(mpi_env, mpi_extra_flags, num_threads):
     
     hostnames = os.environ["COMPSS_HOSTNAMES"]
     if mpi_env == SLURM:
-        mpi_flags = []
+        mpi_flags = [SLURM_HOSTLIST_FLAG + os.environ['SLURM_NODELIST']]
     elif mpi_env == OMPI:
         hostlist_file=str(uuid.uuid1())+".hostfile"
         create_hostfile_ompi(hostlist_file, hostnames, num_threads)
