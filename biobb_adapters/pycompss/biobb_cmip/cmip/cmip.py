@@ -31,11 +31,11 @@ def _titration(input_pdb_path, input_probe_pdb_path, output_pdb_path, output_grd
 
 def cmip(input_pdb_path, input_probe_pdb_path=None, output_pdb_path=None, output_grd_path=None, output_cube_path=None, output_rst_path=None, output_byat_path=None, input_vdw_params_path=None, input_params_path=None, properties=None, **kwargs):
 
-    if (output_pdb_path is None or os.path.exists(output_pdb_path)) and \
-       (output_grd_path is None or os.path.exists(output_grd_path)) and \
-       (output_cube_path is None or os.path.exists(output_cube_path)) and \
-       (output_rst_path is None or os.path.exists(output_rst_path)) and \
-       (output_byat_path is None or os.path.exists(output_byat_path)) and \
+    if (output_pdb_path is None or (os.path.exists(output_pdb_path) and os.stat(output_pdb_path).st_size > 0)) and \
+       (output_grd_path is None or (os.path.exists(output_grd_path) and os.stat(output_grd_path).st_size > 0)) and \
+       (output_cube_path is None or (os.path.exists(output_cube_path) and os.stat(output_cube_path).st_size > 0)) and \
+       (output_rst_path is None or (os.path.exists(output_rst_path) and os.stat(output_rst_path).st_size > 0)) and \
+       (output_byat_path is None or (os.path.exists(output_byat_path) and os.stat(output_byat_path).st_size > 0)) and \
        True:
         print("WARN: Task Titration already executed.")
     else:

@@ -31,13 +31,13 @@ def _gromppmdrun(input_gro_path, input_top_zip_path, output_trr_path, output_gro
 
 def grompp_mdrun(input_gro_path, input_top_zip_path, output_trr_path, output_gro_path, output_edr_path, output_log_path, input_cpt_path=None, input_ndx_path=None, input_mdp_path=None, output_xtc_path=None, output_cpt_path=None, output_dhdl_path=None, properties=None, **kwargs):
 
-    if (output_trr_path is None or os.path.exists(output_trr_path)) and \
-       (output_gro_path is None or os.path.exists(output_gro_path)) and \
-       (output_edr_path is None or os.path.exists(output_edr_path)) and \
-       (output_log_path is None or os.path.exists(output_log_path)) and \
-       (output_xtc_path is None or os.path.exists(output_xtc_path)) and \
-       (output_cpt_path is None or os.path.exists(output_cpt_path)) and \
-       (output_dhdl_path is None or os.path.exists(output_dhdl_path)) and \
+    if (output_trr_path is None or (os.path.exists(output_trr_path) and os.stat(output_trr_path).st_size > 0)) and \
+       (output_gro_path is None or (os.path.exists(output_gro_path) and os.stat(output_gro_path).st_size > 0)) and \
+       (output_edr_path is None or (os.path.exists(output_edr_path) and os.stat(output_edr_path).st_size > 0)) and \
+       (output_log_path is None or (os.path.exists(output_log_path) and os.stat(output_log_path).st_size > 0)) and \
+       (output_xtc_path is None or (os.path.exists(output_xtc_path) and os.stat(output_xtc_path).st_size > 0)) and \
+       (output_cpt_path is None or (os.path.exists(output_cpt_path) and os.stat(output_cpt_path).st_size > 0)) and \
+       (output_dhdl_path is None or (os.path.exists(output_dhdl_path) and os.stat(output_dhdl_path).st_size > 0)) and \
        True:
         print("WARN: Task GromppMdrun already executed.")
     else:

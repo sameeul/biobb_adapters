@@ -31,7 +31,7 @@ def _checkinglog(input_pdb_path, output_log_path,  properties, **kwargs):
 
 def checking_log(input_pdb_path, output_log_path, properties=None, **kwargs):
 
-    if (output_log_path is None or os.path.exists(output_log_path)) and \
+    if (output_log_path is None or (os.path.exists(output_log_path) and os.stat(output_log_path).st_size > 0)) and \
        True:
         print("WARN: Task CheckingLog already executed.")
     else:

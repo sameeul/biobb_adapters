@@ -31,8 +31,8 @@ def _renumberstructure(input_structure_path, output_structure_path, output_mappi
 
 def renumber_structure(input_structure_path, output_structure_path, output_mapping_json_path, properties=None, **kwargs):
 
-    if (output_structure_path is None or os.path.exists(output_structure_path)) and \
-       (output_mapping_json_path is None or os.path.exists(output_mapping_json_path)) and \
+    if (output_structure_path is None or (os.path.exists(output_structure_path) and os.stat(output_structure_path).st_size > 0)) and \
+       (output_mapping_json_path is None or (os.path.exists(output_mapping_json_path) and os.stat(output_mapping_json_path).st_size > 0)) and \
        True:
         print("WARN: Task RenumberStructure already executed.")
     else:

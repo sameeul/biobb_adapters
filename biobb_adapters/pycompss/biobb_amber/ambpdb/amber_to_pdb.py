@@ -31,7 +31,7 @@ def _ambertopdb(input_top_path, input_crd_path, output_pdb_path,  properties, **
 
 def amber_to_pdb(input_top_path, input_crd_path, output_pdb_path, properties=None, **kwargs):
 
-    if (output_pdb_path is None or os.path.exists(output_pdb_path)) and \
+    if (output_pdb_path is None or (os.path.exists(output_pdb_path) and os.stat(output_pdb_path).st_size > 0)) and \
        True:
         print("WARN: Task AmberToPDB already executed.")
     else:

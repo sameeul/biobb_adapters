@@ -31,7 +31,7 @@ def _babelminimize(input_path, output_path,  properties, **kwargs):
 
 def babel_minimize(input_path, output_path, properties=None, **kwargs):
 
-    if (output_path is None or os.path.exists(output_path)) and \
+    if (output_path is None or (os.path.exists(output_path) and os.stat(output_path).st_size > 0)) and \
        True:
         print("WARN: Task BabelMinimize already executed.")
     else:

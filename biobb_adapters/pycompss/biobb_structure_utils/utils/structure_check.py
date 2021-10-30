@@ -31,7 +31,7 @@ def _structurecheck(input_structure_path, output_summary_path,  properties, **kw
 
 def structure_check(input_structure_path, output_summary_path, properties=None, **kwargs):
 
-    if (output_summary_path is None or os.path.exists(output_summary_path)) and \
+    if (output_summary_path is None or (os.path.exists(output_summary_path) and os.stat(output_summary_path).st_size > 0)) and \
        True:
         print("WARN: Task StructureCheck already executed.")
     else:

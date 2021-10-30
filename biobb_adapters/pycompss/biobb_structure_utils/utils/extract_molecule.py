@@ -31,7 +31,7 @@ def _extractmolecule(input_structure_path, output_molecule_path,  properties, **
 
 def extract_molecule(input_structure_path, output_molecule_path, properties=None, **kwargs):
 
-    if (output_molecule_path is None or os.path.exists(output_molecule_path)) and \
+    if (output_molecule_path is None or (os.path.exists(output_molecule_path) and os.stat(output_molecule_path).st_size > 0)) and \
        True:
         print("WARN: Task ExtractMolecule already executed.")
     else:

@@ -31,8 +31,8 @@ def _cpptrajrandomizeions(input_top_path, input_crd_path, output_pdb_path, outpu
 
 def cpptraj_randomize_ions(input_top_path, input_crd_path, output_pdb_path, output_crd_path, properties=None, **kwargs):
 
-    if (output_pdb_path is None or os.path.exists(output_pdb_path)) and \
-       (output_crd_path is None or os.path.exists(output_crd_path)) and \
+    if (output_pdb_path is None or (os.path.exists(output_pdb_path) and os.stat(output_pdb_path).st_size > 0)) and \
+       (output_crd_path is None or (os.path.exists(output_crd_path) and os.stat(output_crd_path).st_size > 0)) and \
        True:
         print("WARN: Task CpptrajRandomizeIons already executed.")
     else:

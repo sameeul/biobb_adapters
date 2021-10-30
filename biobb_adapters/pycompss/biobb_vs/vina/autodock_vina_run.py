@@ -31,8 +31,8 @@ def _autodockvinarun(input_ligand_pdbqt_path, input_receptor_pdbqt_path, input_b
 
 def autodock_vina_run(input_ligand_pdbqt_path, input_receptor_pdbqt_path, input_box_path, output_pdbqt_path, output_log_path=None, properties=None, **kwargs):
 
-    if (output_pdbqt_path is None or os.path.exists(output_pdbqt_path)) and \
-       (output_log_path is None or os.path.exists(output_log_path)) and \
+    if (output_pdbqt_path is None or (os.path.exists(output_pdbqt_path) and os.stat(output_pdbqt_path).st_size > 0)) and \
+       (output_log_path is None or (os.path.exists(output_log_path) and os.stat(output_log_path).st_size > 0)) and \
        True:
         print("WARN: Task AutoDockVinaRun already executed.")
     else:

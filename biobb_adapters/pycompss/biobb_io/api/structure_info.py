@@ -31,7 +31,7 @@ def _structureinfo(output_json_path,  properties, **kwargs):
 
 def structure_info(output_json_path, properties=None, **kwargs):
 
-    if (output_json_path is None or os.path.exists(output_json_path)) and \
+    if (output_json_path is None or (os.path.exists(output_json_path) and os.stat(output_json_path).st_size > 0)) and \
        True:
         print("WARN: Task StructureInfo already executed.")
     else:

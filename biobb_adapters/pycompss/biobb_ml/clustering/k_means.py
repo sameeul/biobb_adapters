@@ -31,9 +31,9 @@ def _kmeansclustering(input_dataset_path, output_results_path, output_model_path
 
 def k_means(input_dataset_path, output_results_path, output_model_path, output_plot_path=None, properties=None, **kwargs):
 
-    if (output_results_path is None or os.path.exists(output_results_path)) and \
-       (output_model_path is None or os.path.exists(output_model_path)) and \
-       (output_plot_path is None or os.path.exists(output_plot_path)) and \
+    if (output_results_path is None or (os.path.exists(output_results_path) and os.stat(output_results_path).st_size > 0)) and \
+       (output_model_path is None or (os.path.exists(output_model_path) and os.stat(output_model_path).st_size > 0)) and \
+       (output_plot_path is None or (os.path.exists(output_plot_path) and os.stat(output_plot_path).st_size > 0)) and \
        True:
         print("WARN: Task KMeansClustering already executed.")
     else:

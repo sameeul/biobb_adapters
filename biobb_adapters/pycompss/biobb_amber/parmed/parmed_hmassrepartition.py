@@ -31,7 +31,7 @@ def _parmedhmassrepartition(input_top_path, output_top_path,  properties, **kwar
 
 def parmed_hmassrepartition(input_top_path, output_top_path, properties=None, **kwargs):
 
-    if (output_top_path is None or os.path.exists(output_top_path)) and \
+    if (output_top_path is None or (os.path.exists(output_top_path) and os.stat(output_top_path).st_size > 0)) and \
        True:
         print("WARN: Task ParmedHMassRepartition already executed.")
     else:

@@ -31,7 +31,7 @@ def _apibindingsite(output_json_path,  properties, **kwargs):
 
 def api_binding_site(output_json_path, properties=None, **kwargs):
 
-    if (output_json_path is None or os.path.exists(output_json_path)) and \
+    if (output_json_path is None or (os.path.exists(output_json_path) and os.stat(output_json_path).st_size > 0)) and \
        True:
         print("WARN: Task ApiBindingSite already executed.")
     else:

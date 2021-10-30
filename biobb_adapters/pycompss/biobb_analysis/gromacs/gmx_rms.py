@@ -31,7 +31,7 @@ def _gmxrms(input_structure_path, input_traj_path, output_xvg_path, input_index_
 
 def gmx_rms(input_structure_path, input_traj_path, output_xvg_path, input_index_path=None, properties=None, **kwargs):
 
-    if (output_xvg_path is None or os.path.exists(output_xvg_path)) and \
+    if (output_xvg_path is None or (os.path.exists(output_xvg_path) and os.stat(output_xvg_path).st_size > 0)) and \
        True:
         print("WARN: Task GMXRms already executed.")
     else:

@@ -31,8 +31,8 @@ def _titration(input_pdb_path, output_pdb_path, output_log_path, input_vdw_param
 
 def titration(input_pdb_path, output_pdb_path, output_log_path, input_vdw_params_path=None, input_params_path=None, properties=None, **kwargs):
 
-    if (output_pdb_path is None or os.path.exists(output_pdb_path)) and \
-       (output_log_path is None or os.path.exists(output_log_path)) and \
+    if (output_pdb_path is None or (os.path.exists(output_pdb_path) and os.stat(output_pdb_path).st_size > 0)) and \
+       (output_log_path is None or (os.path.exists(output_log_path) and os.stat(output_log_path).st_size > 0)) and \
        True:
         print("WARN: Task Titration already executed.")
     else:

@@ -31,9 +31,9 @@ def _autoencoderneuralnetwork(input_decode_path, output_model_path, input_predic
 
 def autoencoder_neural_network(input_decode_path, output_model_path, input_predict_path=None, output_test_decode_path=None, output_test_predict_path=None, properties=None, **kwargs):
 
-    if (output_model_path is None or os.path.exists(output_model_path)) and \
-       (output_test_decode_path is None or os.path.exists(output_test_decode_path)) and \
-       (output_test_predict_path is None or os.path.exists(output_test_predict_path)) and \
+    if (output_model_path is None or (os.path.exists(output_model_path) and os.stat(output_model_path).st_size > 0)) and \
+       (output_test_decode_path is None or (os.path.exists(output_test_decode_path) and os.stat(output_test_decode_path).st_size > 0)) and \
+       (output_test_predict_path is None or (os.path.exists(output_test_predict_path) and os.stat(output_test_predict_path).st_size > 0)) and \
        True:
         print("WARN: Task AutoencoderNeuralNetwork already executed.")
     else:

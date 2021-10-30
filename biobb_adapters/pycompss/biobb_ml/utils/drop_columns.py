@@ -31,7 +31,7 @@ def _dropcolumns(input_dataset_path, output_dataset_path,  properties, **kwargs)
 
 def drop_columns(input_dataset_path, output_dataset_path, properties=None, **kwargs):
 
-    if (output_dataset_path is None or os.path.exists(output_dataset_path)) and \
+    if (output_dataset_path is None or (os.path.exists(output_dataset_path) and os.stat(output_dataset_path).st_size > 0)) and \
        True:
         print("WARN: Task DropColumns already executed.")
     else:

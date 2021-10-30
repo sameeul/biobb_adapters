@@ -31,7 +31,7 @@ def _regressionpredict(input_model_path, output_results_path, input_dataset_path
 
 def regression_predict(input_model_path, output_results_path, input_dataset_path=None, properties=None, **kwargs):
 
-    if (output_results_path is None or os.path.exists(output_results_path)) and \
+    if (output_results_path is None or (os.path.exists(output_results_path) and os.stat(output_results_path).st_size > 0)) and \
        True:
         print("WARN: Task RegressionPredict already executed.")
     else:

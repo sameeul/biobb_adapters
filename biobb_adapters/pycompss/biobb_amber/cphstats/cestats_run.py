@@ -31,12 +31,12 @@ def _cestatsrun(input_cein_path, input_ceout_path, output_dat_path, output_popul
 
 def cestats_run(input_cein_path, input_ceout_path, output_dat_path, output_population_path=None, output_chunk_path=None, output_cumulative_path=None, output_conditional_path=None, output_chunk_conditional_path=None, properties=None, **kwargs):
 
-    if (output_dat_path is None or os.path.exists(output_dat_path)) and \
-       (output_population_path is None or os.path.exists(output_population_path)) and \
-       (output_chunk_path is None or os.path.exists(output_chunk_path)) and \
-       (output_cumulative_path is None or os.path.exists(output_cumulative_path)) and \
-       (output_conditional_path is None or os.path.exists(output_conditional_path)) and \
-       (output_chunk_conditional_path is None or os.path.exists(output_chunk_conditional_path)) and \
+    if (output_dat_path is None or (os.path.exists(output_dat_path) and os.stat(output_dat_path).st_size > 0)) and \
+       (output_population_path is None or (os.path.exists(output_population_path) and os.stat(output_population_path).st_size > 0)) and \
+       (output_chunk_path is None or (os.path.exists(output_chunk_path) and os.stat(output_chunk_path).st_size > 0)) and \
+       (output_cumulative_path is None or (os.path.exists(output_cumulative_path) and os.stat(output_cumulative_path).st_size > 0)) and \
+       (output_conditional_path is None or (os.path.exists(output_conditional_path) and os.stat(output_conditional_path).st_size > 0)) and \
+       (output_chunk_conditional_path is None or (os.path.exists(output_chunk_conditional_path) and os.stat(output_chunk_conditional_path).st_size > 0)) and \
        True:
         print("WARN: Task CestatsRun already executed.")
     else:

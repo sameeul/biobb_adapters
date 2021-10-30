@@ -31,9 +31,9 @@ def _randomforestregressor(input_dataset_path, output_model_path, output_test_ta
 
 def random_forest_regressor(input_dataset_path, output_model_path, output_test_table_path=None, output_plot_path=None, properties=None, **kwargs):
 
-    if (output_model_path is None or os.path.exists(output_model_path)) and \
-       (output_test_table_path is None or os.path.exists(output_test_table_path)) and \
-       (output_plot_path is None or os.path.exists(output_plot_path)) and \
+    if (output_model_path is None or (os.path.exists(output_model_path) and os.stat(output_model_path).st_size > 0)) and \
+       (output_test_table_path is None or (os.path.exists(output_test_table_path) and os.stat(output_test_table_path).st_size > 0)) and \
+       (output_plot_path is None or (os.path.exists(output_plot_path) and os.stat(output_plot_path).st_size > 0)) and \
        True:
         print("WARN: Task RandomForestRegressor already executed.")
     else:

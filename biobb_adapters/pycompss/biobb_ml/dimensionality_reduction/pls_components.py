@@ -31,8 +31,8 @@ def _plscomponents(input_dataset_path, output_results_path, output_plot_path,  p
 
 def pls_components(input_dataset_path, output_results_path, output_plot_path=None, properties=None, **kwargs):
 
-    if (output_results_path is None or os.path.exists(output_results_path)) and \
-       (output_plot_path is None or os.path.exists(output_plot_path)) and \
+    if (output_results_path is None or (os.path.exists(output_results_path) and os.stat(output_results_path).st_size > 0)) and \
+       (output_plot_path is None or (os.path.exists(output_plot_path) and os.stat(output_plot_path).st_size > 0)) and \
        True:
         print("WARN: Task PLSComponents already executed.")
     else:

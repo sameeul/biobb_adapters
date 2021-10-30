@@ -31,8 +31,8 @@ def _decodingneuralnetwork(input_decode_path, input_model_path, output_decode_pa
 
 def neural_network_decode(input_decode_path, input_model_path, output_decode_path, output_predict_path=None, properties=None, **kwargs):
 
-    if (output_decode_path is None or os.path.exists(output_decode_path)) and \
-       (output_predict_path is None or os.path.exists(output_predict_path)) and \
+    if (output_decode_path is None or (os.path.exists(output_decode_path) and os.stat(output_decode_path).st_size > 0)) and \
+       (output_predict_path is None or (os.path.exists(output_predict_path) and os.stat(output_predict_path).st_size > 0)) and \
        True:
         print("WARN: Task DecodingNeuralNetwork already executed.")
     else:

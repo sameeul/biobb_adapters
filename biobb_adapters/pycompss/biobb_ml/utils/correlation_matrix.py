@@ -31,7 +31,7 @@ def _correlationmatrix(input_dataset_path, output_plot_path,  properties, **kwar
 
 def correlation_matrix(input_dataset_path, output_plot_path, properties=None, **kwargs):
 
-    if (output_plot_path is None or os.path.exists(output_plot_path)) and \
+    if (output_plot_path is None or (os.path.exists(output_plot_path) and os.stat(output_plot_path).st_size > 0)) and \
        True:
         print("WARN: Task CorrelationMatrix already executed.")
     else:

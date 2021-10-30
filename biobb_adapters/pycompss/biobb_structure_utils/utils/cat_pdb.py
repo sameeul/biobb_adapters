@@ -31,7 +31,7 @@ def _catpdb(input_structure1, input_structure2, output_structure_path,  properti
 
 def cat_pdb(input_structure1, input_structure2, output_structure_path, properties=None, **kwargs):
 
-    if (output_structure_path is None or os.path.exists(output_structure_path)) and \
+    if (output_structure_path is None or (os.path.exists(output_structure_path) and os.stat(output_structure_path).st_size > 0)) and \
        True:
         print("WARN: Task CatPDB already executed.")
     else:
