@@ -12,7 +12,7 @@ baseCommand: extract_heteroatoms
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_structure_utils:3.6.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_structure_utils:3.7.1--pyhdfd78af_0
 
 inputs:
   input_structure_path:

@@ -38,11 +38,12 @@ inputs:
       Output ceout file (AMBER ceout)
       Type: string
       File type: input
-      Accepted formats: ceout, zip, gzip
+      Accepted formats: ceout, zip, gzip, gz
       Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/cphstats/sander.ceout.gz
     type: File
     format:
     - edam:format_2330
+    - edam:format_3987
     - edam:format_3987
     - edam:format_3987
     inputBinding:
@@ -177,6 +178,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_dat_path)
+    format: edam:format_2330
 
   output_population_path:
     label: Output file where protonation state populations are printed for every state
@@ -186,6 +188,7 @@ outputs:
     type: File?
     outputBinding:
       glob: $(inputs.output_population_path)
+    format: edam:format_2330
 
   output_chunk_path:
     label: Output file where the time series data calculated over chunks of the simulation
@@ -195,6 +198,7 @@ outputs:
     type: File?
     outputBinding:
       glob: $(inputs.output_chunk_path)
+    format: edam:format_2330
 
   output_cumulative_path:
     label: Output file where the cumulative time series data is printed
@@ -203,6 +207,7 @@ outputs:
     type: File?
     outputBinding:
       glob: $(inputs.output_cumulative_path)
+    format: edam:format_2330
 
   output_conditional_path:
     label: Output file with requested conditional probabilities
@@ -211,6 +216,7 @@ outputs:
     type: File?
     outputBinding:
       glob: $(inputs.output_conditional_path)
+    format: edam:format_2330
 
   output_chunk_conditional_path:
     label: Output file with a time series of the conditional probabilities over a
@@ -220,6 +226,7 @@ outputs:
     type: File?
     outputBinding:
       glob: $(inputs.output_chunk_conditional_path)
+    format: edam:format_2330
 
 $namespaces:
   edam: http://edamontology.org/

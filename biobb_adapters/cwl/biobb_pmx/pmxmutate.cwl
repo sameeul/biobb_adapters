@@ -79,6 +79,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_structure_path)
+    format: edam:format_1476
 
 $namespaces:
   edam: http://edamontology.org/

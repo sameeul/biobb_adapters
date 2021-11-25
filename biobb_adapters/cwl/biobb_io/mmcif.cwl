@@ -49,6 +49,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_mmcif_path)
+    format: edam:format_1477
 
 $namespaces:
   edam: http://edamontology.org/

@@ -113,6 +113,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_cpptraj_path)
+    format: edam:format_3878
 
 $namespaces:
   edam: http://edamontology.org/

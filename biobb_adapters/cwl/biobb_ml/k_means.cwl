@@ -12,7 +12,7 @@ baseCommand: k_means
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_ml:3.7.0--pyhdfd78af_1
+    dockerPull: quay.io/biocontainers/biobb_ml:3.7.0--pyhdfd78af_2
 
 inputs:
   input_dataset_path:

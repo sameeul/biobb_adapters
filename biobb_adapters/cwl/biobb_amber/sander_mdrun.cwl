@@ -223,6 +223,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_log_path)
+    format: edam:format_2330
 
   output_traj_path:
     label: Output trajectory file
@@ -231,6 +232,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_traj_path)
+    format: edam:format_3878
 
   output_rst_path:
     label: Output restart file
@@ -239,6 +241,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_rst_path)
+    format: edam:format_3886
 
   output_cpout_path:
     label: Output constant pH file (AMBER cpout)
@@ -256,6 +259,7 @@ outputs:
     type: File?
     outputBinding:
       glob: $(inputs.output_cprst_path)
+    format: edam:format_3886
 
   output_mdinfo_path:
     label: Output MD info

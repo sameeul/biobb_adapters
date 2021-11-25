@@ -171,6 +171,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_top_path)
+    format: edam:format_3881
 
   output_crd_path:
     label: Output coordinates file (AMBER crd)
@@ -179,6 +180,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_crd_path)
+    format: edam:format_3878
 
 $namespaces:
   edam: http://edamontology.org/
