@@ -58,7 +58,7 @@ inputs:
       Example file: https://github.com/bioexcel/biobb_md/raw/master/biobb_md/test/data/gromacs/genrestr.ndx
     type: File?
     format:
-    - edam:format_2330
+    - edam:format_2033
     inputBinding:
       prefix: --input_ndx_path
 

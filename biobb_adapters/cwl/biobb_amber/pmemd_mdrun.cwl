@@ -49,7 +49,7 @@ inputs:
     - edam:format_3886
     - edam:format_3650
     - edam:format_3650
-    - edam:format_3650
+    - edam:format_3886
     inputBinding:
       position: 2
       prefix: --input_crd_path
@@ -108,7 +108,7 @@ inputs:
     - edam:format_3886
     - edam:format_3650
     - edam:format_3650
-    - edam:format_3650
+    - edam:format_3886
     inputBinding:
       position: 5
       prefix: --output_rst_path
@@ -161,7 +161,7 @@ inputs:
     - edam:format_3886
     - edam:format_3650
     - edam:format_3650
-    - edam:format_3650
+    - edam:format_3886
     inputBinding:
       prefix: --input_ref_path
 

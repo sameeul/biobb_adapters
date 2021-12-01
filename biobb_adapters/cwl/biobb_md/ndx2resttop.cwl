@@ -25,7 +25,7 @@ inputs:
       Example file: https://github.com/bioexcel/biobb_md/raw/master/biobb_md/test/data/gromacs_extra/ndx2resttop.ndx
     type: File
     format:
-    - edam:format_2330
+    - edam:format_2033
     inputBinding:
       position: 1
       prefix: --input_ndx_path

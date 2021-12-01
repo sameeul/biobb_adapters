@@ -85,7 +85,7 @@ inputs:
       Example file: null
     type: File?
     format:
-    - edam:format_2330
+    - edam:format_2033
     inputBinding:
       prefix: --input_ndx_path
 
