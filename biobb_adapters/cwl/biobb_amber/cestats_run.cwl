@@ -38,11 +38,12 @@ inputs:
       Output ceout file (AMBER ceout)
       Type: string
       File type: input
-      Accepted formats: ceout, zip, gzip
+      Accepted formats: ceout, zip, gzip, gz
       Example file: https://github.com/bioexcel/biobb_amber/raw/master/biobb_amber/test/data/cphstats/sander.ceout.gz
     type: File
     format:
     - edam:format_2330
+    - edam:format_3987
     - edam:format_3987
     - edam:format_3987
     inputBinding:

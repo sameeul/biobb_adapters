@@ -12,7 +12,7 @@ baseCommand: append_ligand
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_md:3.7.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_md:3.7.1--pyhdfd78af_0
 
 inputs:
   input_top_zip_path:
