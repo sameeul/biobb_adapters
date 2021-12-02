@@ -13,7 +13,7 @@ baseCommand: mmcif
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_io:3.5.1--py_0
+    dockerPull: quay.io/biocontainers/biobb_io:3.7.0--pyhdfd78af_0
 
 inputs:
   output_mmcif_path:
@@ -49,9 +49,10 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_mmcif_path)
+    format: edam:format_1477
 
 $namespaces:
-  edam: http://edamontology.org/
+  edam: https://edamontology.org/
 
 $schemas:
 - https://raw.githubusercontent.com/edamontology/edamontology/master/EDAM_dev.owl

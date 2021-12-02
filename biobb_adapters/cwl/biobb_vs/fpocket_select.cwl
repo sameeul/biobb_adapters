@@ -12,7 +12,7 @@ baseCommand: fpocket_select
 
 hints:
   DockerRequirement:
-    dockerPull: ''
+    dockerPull: quay.io/biocontainers/biobb_vs:3.7.1--pyhdfd78af_0
 
 inputs:
   input_pockets_zip:
@@ -90,7 +90,7 @@ outputs:
     format: edam:format_1476
 
 $namespaces:
-  edam: http://edamontology.org/
+  edam: https://edamontology.org/
 
 $schemas:
 - https://raw.githubusercontent.com/edamontology/edamontology/master/EDAM_dev.owl

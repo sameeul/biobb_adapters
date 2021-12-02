@@ -13,7 +13,7 @@ baseCommand: canonical_fasta
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_io:3.5.1--py_0
+    dockerPull: quay.io/biocontainers/biobb_io:3.7.0--pyhdfd78af_0
 
 inputs:
   output_fasta_path:
@@ -51,7 +51,7 @@ outputs:
     format: edam:format_1929
 
 $namespaces:
-  edam: http://edamontology.org/
+  edam: https://edamontology.org/
 
 $schemas:
 - https://raw.githubusercontent.com/edamontology/edamontology/master/EDAM_dev.owl

@@ -13,7 +13,7 @@ baseCommand: gmx_trjconv_str_ens
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_analysis:3.5.0--py_0
+    dockerPull: quay.io/biocontainers/biobb_analysis:3.7.0--pyhdfd78af_1
 
 inputs:
   input_traj_path:
@@ -106,7 +106,7 @@ outputs:
     format: edam:format_3987
 
 $namespaces:
-  edam: http://edamontology.org/
+  edam: https://edamontology.org/
 
 $schemas:
 - https://raw.githubusercontent.com/edamontology/edamontology/master/EDAM_dev.owl

@@ -12,7 +12,7 @@ baseCommand: grompp
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_md:3.5.1--py_0
+    dockerPull: quay.io/biocontainers/biobb_md:3.7.1--pyhdfd78af_0
 
 inputs:
   input_gro_path:
@@ -85,7 +85,7 @@ inputs:
       Example file: null
     type: File?
     format:
-    - edam:format_2330
+    - edam:format_2033
     inputBinding:
       prefix: --input_ndx_path
 
@@ -122,7 +122,7 @@ outputs:
     format: edam:format_2333
 
 $namespaces:
-  edam: http://edamontology.org/
+  edam: https://edamontology.org/
 
 $schemas:
 - https://raw.githubusercontent.com/edamontology/edamontology/master/EDAM_dev.owl

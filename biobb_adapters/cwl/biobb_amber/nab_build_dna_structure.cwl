@@ -12,7 +12,7 @@ baseCommand: nab_build_dna_structure
 
 hints:
   DockerRequirement:
-    dockerPull: ''
+    dockerPull: quay.io/biocontainers/biobb_amber:3.7.1--pyhdfd78af_0
 
 inputs:
   output_pdb_path:
@@ -51,7 +51,7 @@ outputs:
     format: edam:format_1476
 
 $namespaces:
-  edam: http://edamontology.org/
+  edam: https://edamontology.org/
 
 $schemas:
 - https://raw.githubusercontent.com/edamontology/edamontology/master/EDAM_dev.owl

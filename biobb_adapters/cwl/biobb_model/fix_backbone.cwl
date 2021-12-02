@@ -12,7 +12,7 @@ baseCommand: fix_backbone
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_model:3.5.1--py_1
+    dockerPull: quay.io/biocontainers/biobb_model:3.7.0--pyhdfd78af_0
 
 inputs:
   input_pdb_path:
@@ -80,7 +80,7 @@ outputs:
     format: edam:format_1476
 
 $namespaces:
-  edam: http://edamontology.org/
+  edam: https://edamontology.org/
 
 $schemas:
 - https://raw.githubusercontent.com/edamontology/edamontology/master/EDAM_dev.owl

@@ -13,7 +13,7 @@ baseCommand: acpype_params_ac
 
 hints:
   DockerRequirement:
-    dockerPull: https://quay.io/biocontainers/biobb_chemistry:3.5.0--py_0
+    dockerPull: quay.io/biocontainers/biobb_chemistry:3.7.0--pyhdfd78af_0
 
 inputs:
   input_path:
@@ -143,7 +143,7 @@ outputs:
     format: edam:format_3881
 
 $namespaces:
-  edam: http://edamontology.org/
+  edam: https://edamontology.org/
 
 $schemas:
 - https://raw.githubusercontent.com/edamontology/edamontology/master/EDAM_dev.owl
