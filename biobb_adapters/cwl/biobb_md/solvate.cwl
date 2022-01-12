@@ -36,11 +36,12 @@ inputs:
       Path to the output GRO file
       Type: string
       File type: output
-      Accepted formats: gro
+      Accepted formats: gro, pdb
       Example file: https://github.com/bioexcel/biobb_md/raw/master/biobb_md/test/reference/gromacs/ref_solvate.gro
     type: string
     format:
     - edam:format_2033
+    - edam:format_1476
     inputBinding:
       position: 2
       prefix: --output_gro_path
