@@ -12,7 +12,7 @@ baseCommand: cmip
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_cmip:3.6.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_cmip:3.7.8--pyhdfd78af_0
 
 inputs:
   input_pdb_path:
@@ -119,6 +119,21 @@ inputs:
       prefix: --output_byat_path
     default: system.txt
 
+  output_log_path:
+    label: Path to the output CMIP log file LOG
+    doc: |-
+      Path to the output CMIP log file LOG
+      Type: string
+      File type: output
+      Accepted formats: log
+      Example file: https://github.com/bioexcel/biobb_cmip/raw/master/biobb_cmip/test/reference/cmip/ref_cmip.log
+    type: string
+    format:
+    - edam:format_2330
+    inputBinding:
+      prefix: --output_log_path
+    default: system.log
+
   input_vdw_params_path:
     label: Path to the CMIP input Van der Waals force parameters, if not provided
       the CMIP conda installation one is used ("$CONDA_PREFIX/share/cmip/dat/vdwprm")
@@ -147,6 +162,49 @@ inputs:
     - edam:format_2330
     inputBinding:
       prefix: --input_params_path
+
+  output_json_box_path:
+    label: Path to the output CMIP box in JSON format
+    doc: |-
+      Path to the output CMIP box in JSON format
+      Type: string
+      File type: output
+      Accepted formats: json
+      Example file: https://github.com/bioexcel/biobb_cmip/raw/master/biobb_cmip/test/reference/cmip/ref_box.json
+    type: string
+    format:
+    - edam:format_3464
+    inputBinding:
+      prefix: --output_json_box_path
+    default: system.json
+
+  input_json_box_path:
+    label: Path to the input CMIP box in JSON format
+    doc: |-
+      Path to the input CMIP box in JSON format
+      Type: string
+      File type: input
+      Accepted formats: json
+      Example file: https://github.com/bioexcel/biobb_cmip/raw/master/biobb_cmip/test/reference/cmip/ref_box.json
+    type: File?
+    format:
+    - edam:format_3464
+    inputBinding:
+      prefix: --input_json_box_path
+
+  input_json_external_box_path:
+    label: Path to the input CMIP box in JSON format
+    doc: |-
+      Path to the input CMIP box in JSON format
+      Type: string
+      File type: input
+      Accepted formats: json
+      Example file: https://github.com/bioexcel/biobb_cmip/raw/master/biobb_cmip/test/reference/cmip/ref_box.json
+    type: File?
+    format:
+    - edam:format_3464
+    inputBinding:
+      prefix: --input_json_external_box_path
 
   config:
     label: Advanced configuration options for biobb_cmip Titration
@@ -202,8 +260,26 @@ outputs:
       glob: $(inputs.output_byat_path)
     format: edam:format_2330
 
+  output_log_path:
+    label: Path to the output CMIP log file LOG
+    doc: |-
+      Path to the output CMIP log file LOG
+    type: File?
+    outputBinding:
+      glob: $(inputs.output_log_path)
+    format: edam:format_2330
+
+  output_json_box_path:
+    label: Path to the output CMIP box in JSON format
+    doc: |-
+      Path to the output CMIP box in JSON format
+    type: File?
+    outputBinding:
+      glob: $(inputs.output_json_box_path)
+    format: edam:format_3464
+
 $namespaces:
-  edam: http://edamontology.org/
+  edam: https://edamontology.org/
 
 $schemas:
 - https://raw.githubusercontent.com/edamontology/edamontology/master/EDAM_dev.owl

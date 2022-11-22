@@ -12,7 +12,7 @@ baseCommand: titration
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_cmip:3.6.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_cmip:3.7.8--pyhdfd78af_0
 
 inputs:
   input_pdb_path:
@@ -46,22 +46,6 @@ inputs:
       prefix: --output_pdb_path
     default: system.pdb
 
-  output_log_path:
-    label: Path to the output Tritration log file LOG
-    doc: |-
-      Path to the output Tritration log file LOG
-      Type: string
-      File type: output
-      Accepted formats: log
-      Example file: null
-    type: string
-    format:
-    - edam:format_2330
-    inputBinding:
-      position: 3
-      prefix: --output_log_path
-    default: system.log
-
   input_vdw_params_path:
     label: Path to the CMIP input Van der Waals force parameters, if not provided
       the CMIP conda installation one is used ("$CONDA_PREFIX/share/cmip/dat/vdwprm")
@@ -94,7 +78,7 @@ inputs:
   config:
     label: Advanced configuration options for biobb_cmip Titration
     doc: |-
-      Advanced configuration options for biobb_cmip Titration. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_cmip Titration documentation: https://biobb-cmip.readthedocs.io/en/latest/cmip.html#module-titration.titration
+      Advanced configuration options for biobb_cmip Titration. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_cmip Titration documentation: https://biobb-cmip.readthedocs.io/en/latest/cmip.html#module-cmip.titration
     type: string?
     inputBinding:
       prefix: --config
@@ -109,17 +93,8 @@ outputs:
       glob: $(inputs.output_pdb_path)
     format: edam:format_1476
 
-  output_log_path:
-    label: Path to the output Tritration log file LOG
-    doc: |-
-      Path to the output Tritration log file LOG
-    type: File
-    outputBinding:
-      glob: $(inputs.output_log_path)
-    format: edam:format_2330
-
 $namespaces:
-  edam: http://edamontology.org/
+  edam: https://edamontology.org/
 
 $schemas:
 - https://raw.githubusercontent.com/edamontology/edamontology/master/EDAM_dev.owl

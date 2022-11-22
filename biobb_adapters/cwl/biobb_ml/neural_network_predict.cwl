@@ -12,7 +12,7 @@ baseCommand: neural_network_predict
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_ml:3.7.0--pyhdfd78af_2
+    dockerPull: quay.io/biocontainers/biobb_ml:3.8.0--pyhdfd78af_0
 
 inputs:
   input_model_path:

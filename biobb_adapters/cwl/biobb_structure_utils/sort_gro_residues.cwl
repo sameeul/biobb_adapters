@@ -12,7 +12,7 @@ baseCommand: sort_gro_residues
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_structure_utils:3.7.2--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_structure_utils:3.8.0--pyhdfd78af_0
 
 inputs:
   input_gro_path:

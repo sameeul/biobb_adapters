@@ -13,7 +13,7 @@ baseCommand: cpptraj_rmsf
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_analysis:3.7.0--pyhdfd78af_1
+    dockerPull: quay.io/biocontainers/biobb_analysis:3.8.0--pyhdfd78af_0
 
 inputs:
   input_top_path:
@@ -41,12 +41,13 @@ inputs:
       Path to the input trajectory to be processed
       Type: string
       File type: input
-      Accepted formats: mdcrd, crd, cdf, netcdf, restart, ncrestart, restartnc, dcd, charmm, cor, pdb, mol2, trr, gro, binpos, xtc, cif, arc, sqm, sdf, conflib
+      Accepted formats: mdcrd, crd, cdf, netcdf, nc, restart, ncrestart, restartnc, dcd, charmm, cor, pdb, mol2, trr, gro, binpos, xtc, cif, arc, sqm, sdf, conflib
       Example file: https://github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/data/ambertools/cpptraj.traj.dcd
     type: File
     format:
     - edam:format_3878
     - edam:format_3878
+    - edam:format_3650
     - edam:format_3650
     - edam:format_3650
     - edam:format_3886

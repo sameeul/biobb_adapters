@@ -13,7 +13,7 @@ baseCommand: gmx_trjconv_trj
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_analysis:3.7.0--pyhdfd78af_1
+    dockerPull: quay.io/biocontainers/biobb_analysis:3.8.0--pyhdfd78af_0
 
 inputs:
   input_traj_path:
@@ -58,6 +58,25 @@ inputs:
       position: 2
       prefix: --output_traj_path
     default: system.xtc
+
+  input_top_path:
+    label: Path to the GROMACS input topology file
+    doc: |-
+      Path to the GROMACS input topology file
+      Type: string
+      File type: input
+      Accepted formats: tpr, gro, g96, pdb, brk, ent
+      Example file: https://github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/data/gromacs/topology.tpr
+    type: File?
+    format:
+    - edam:format_2333
+    - edam:format_2033
+    - edam:format_2033
+    - edam:format_1476
+    - edam:format_2033
+    - edam:format_1476
+    inputBinding:
+      prefix: --input_top_path
 
   input_index_path:
     label: Path to the GROMACS index file

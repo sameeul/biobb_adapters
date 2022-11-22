@@ -12,7 +12,7 @@ baseCommand: extract_heteroatoms
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_structure_utils:3.7.2--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_structure_utils:3.8.0--pyhdfd78af_0
 
 inputs:
   input_structure_path:
@@ -21,10 +21,11 @@ inputs:
       Input structure file path
       Type: string
       File type: input
-      Accepted formats: pdb
+      Accepted formats: pdb, pdbqt
       Example file: https://github.com/bioexcel/biobb_structure_utils/raw/master/biobb_structure_utils/test/data/utils/extract_heteroatom.pdb
     type: File
     format:
+    - edam:format_1476
     - edam:format_1476
     inputBinding:
       position: 1
@@ -36,10 +37,11 @@ inputs:
       Output heteroatom file path
       Type: string
       File type: output
-      Accepted formats: pdb
+      Accepted formats: pdb, pdbqt
       Example file: https://github.com/bioexcel/biobb_structure_utils/raw/master/biobb_structure_utils/test/reference/utils/ref_extract_heteroatom.pdb
     type: string
     format:
+    - edam:format_1476
     - edam:format_1476
     inputBinding:
       position: 2

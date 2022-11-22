@@ -12,7 +12,7 @@ baseCommand: fpocket_select
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_vs:3.7.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_vs:3.8.1--pyhdfd78af_0
 
 inputs:
   input_pockets_zip:
