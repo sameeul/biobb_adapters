@@ -13,7 +13,7 @@ baseCommand: gmx_trjconv_str
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_analysis:3.8.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_analysis:3.7.0--pyhdfd78af_1
 
 inputs:
   input_structure_path:
@@ -63,21 +63,21 @@ inputs:
       Path to the output file
       Type: string
       File type: output
-      Accepted formats: pdb, xtc, trr, cpt, gro, g96, tng
+      Accepted formats: xtc, trr, cpt, gro, g96, pdb, tng
       Example file: https://github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/reference/gromacs/ref_trjconv.str.pdb
     type: string
     format:
-    - edam:format_1476
     - edam:format_3875
     - edam:format_3910
     - edam:format_2333
     - edam:format_2033
     - edam:format_2033
+    - edam:format_1476
     - edam:format_3876
     inputBinding:
       position: 3
       prefix: --output_str_path
-    default: system.pdb
+    default: system.xtc
 
   input_index_path:
     label: Path to the GROMACS index file
@@ -109,7 +109,7 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.output_str_path)
-    format: edam:format_1476
+    format: edam:format_3875
 
 $namespaces:
   edam: https://edamontology.org/

@@ -13,7 +13,7 @@ baseCommand: structure_info
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_io:3.8.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_io:3.7.0--pyhdfd78af_0
 
 inputs:
   output_json_path:
