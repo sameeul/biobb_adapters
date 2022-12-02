@@ -13,7 +13,7 @@ baseCommand: gmx_energy
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_analysis:3.7.0--pyhdfd78af_1
+    dockerPull: quay.io/biocontainers/biobb_analysis:3.8.0--pyhdfd78af_0
 
 inputs:
   input_energy_path:

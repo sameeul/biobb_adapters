@@ -12,7 +12,7 @@ baseCommand: bipopulations
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_dna:3.7.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_dna:3.8.2--pyhdfd78af_1
 
 inputs:
   input_epsilC_path:
@@ -22,7 +22,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: ser
-      Example file: null
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_dna/master/biobb_dna/test/data/backbone/canal_output_epsilC.ser
     type: File
     format:
     - edam:format_2330
@@ -37,7 +37,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: ser
-      Example file: null
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_dna/master/biobb_dna/test/data/backbone/canal_output_epsilW.ser
     type: File
     format:
     - edam:format_2330
@@ -52,7 +52,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: ser
-      Example file: null
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_dna/master/biobb_dna/test/data/backbone/canal_output_zetaC.ser
     type: File
     format:
     - edam:format_2330
@@ -67,7 +67,7 @@ inputs:
       Type: string
       File type: input
       Accepted formats: ser
-      Example file: null
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_dna/master/biobb_dna/test/data/backbone/canal_output_zetaW.ser
     type: File
     format:
     - edam:format_2330
@@ -82,7 +82,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: csv
-      Example file: null
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_dna/master/biobb_dna/test/reference/backbone/bipop_ref.csv
     type: string
     format:
     - edam:format_3752
@@ -98,7 +98,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: jpg
-      Example file: null
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_dna/master/biobb_dna/test/reference/backbone/bipop_ref.jpg
     type: string
     format:
     - edam:format_3579
