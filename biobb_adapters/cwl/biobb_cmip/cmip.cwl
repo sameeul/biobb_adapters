@@ -104,16 +104,32 @@ inputs:
       prefix: --output_rst_path
     default: system.txt
 
-  output_byat_path:
-    label: Path to the output atom by atom energy file
+  input_rst_path:
+    label: Path to the input restart file
     doc: |-
-      Path to the output atom by atom energy file
+      Path to the input restart file
       Type: string
       File type: output
       Accepted formats: txt
       Example file: null
     type: string
     format:
+    - edam:format_2330
+    inputBinding:
+      prefix: --input_rst_path
+    default: system.txt
+
+  output_byat_path:
+    label: Path to the output atom by atom energy file
+    doc: |-
+      Path to the output atom by atom energy file
+      Type: string
+      File type: output
+      Accepted formats: txt, out
+      Example file: null
+    type: string
+    format:
+    - edam:format_2330
     - edam:format_2330
     inputBinding:
       prefix: --output_byat_path
@@ -176,6 +192,21 @@ inputs:
     - edam:format_3464
     inputBinding:
       prefix: --output_json_box_path
+    default: system.json
+
+  output_json_external_box_path:
+    label: Path to the output external CMIP box in JSON format
+    doc: |-
+      Path to the output external CMIP box in JSON format
+      Type: string
+      File type: output
+      Accepted formats: json
+      Example file: https://github.com/bioexcel/biobb_cmip/raw/master/biobb_cmip/test/reference/cmip/ref_box.json
+    type: string
+    format:
+    - edam:format_3464
+    inputBinding:
+      prefix: --output_json_external_box_path
     default: system.json
 
   input_json_box_path:
@@ -251,6 +282,15 @@ outputs:
       glob: $(inputs.output_rst_path)
     format: edam:format_2330
 
+  input_rst_path:
+    label: Path to the input restart file
+    doc: |-
+      Path to the input restart file
+    type: File?
+    outputBinding:
+      glob: $(inputs.input_rst_path)
+    format: edam:format_2330
+
   output_byat_path:
     label: Path to the output atom by atom energy file
     doc: |-
@@ -276,6 +316,15 @@ outputs:
     type: File?
     outputBinding:
       glob: $(inputs.output_json_box_path)
+    format: edam:format_3464
+
+  output_json_external_box_path:
+    label: Path to the output external CMIP box in JSON format
+    doc: |-
+      Path to the output external CMIP box in JSON format
+    type: File?
+    outputBinding:
+      glob: $(inputs.output_json_external_box_path)
     format: edam:format_3464
 
 $namespaces:

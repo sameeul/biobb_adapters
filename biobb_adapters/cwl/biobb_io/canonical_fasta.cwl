@@ -13,7 +13,7 @@ baseCommand: canonical_fasta
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_io:3.8.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_io:3.9.0--pyhdfd78af_0
 
 inputs:
   output_fasta_path:

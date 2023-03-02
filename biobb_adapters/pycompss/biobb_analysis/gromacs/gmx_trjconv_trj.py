@@ -13,14 +13,14 @@ from biobb_analysis.gromacs.gmx_trjconv_trj import GMXTrjConvTrj  # Importing cl
 task_time_out = int(os.environ.get('TASK_TIME_OUT', 0))
 
 
-@task(input_traj_path=FILE_IN, output_traj_path=FILE_OUT, input_index_path=FILE_IN, 
+@task(input_traj_path=FILE_IN, output_traj_path=FILE_OUT, input_top_path=FILE_IN, input_index_path=FILE_IN, 
       on_failure="IGNORE", time_out=task_time_out)
-def _gmxtrjconvtrj(input_traj_path, output_traj_path, input_index_path,  properties, **kwargs):
+def _gmxtrjconvtrj(input_traj_path, output_traj_path, input_top_path, input_index_path,  properties, **kwargs):
     
     task_config.pop_pmi(os.environ)
     
     try:
-        GMXTrjConvTrj(input_traj_path=input_traj_path, output_traj_path=output_traj_path, input_index_path=input_index_path, properties=properties, **kwargs).launch()
+        GMXTrjConvTrj(input_traj_path=input_traj_path, output_traj_path=output_traj_path, input_top_path=input_top_path, input_index_path=input_index_path, properties=properties, **kwargs).launch()
     except Exception as e:
         traceback.print_exc()
         raise e
@@ -29,10 +29,10 @@ def _gmxtrjconvtrj(input_traj_path, output_traj_path, input_index_path,  propert
         sys.stderr.flush()
 
 
-def gmx_trjconv_trj(input_traj_path, output_traj_path, input_index_path=None, properties=None, **kwargs):
+def gmx_trjconv_trj(input_traj_path, output_traj_path, input_top_path=None, input_index_path=None, properties=None, **kwargs):
 
     if (output_traj_path is None or (os.path.exists(output_traj_path) and os.stat(output_traj_path).st_size > 0)) and \
        True:
         print("WARN: Task GMXTrjConvTrj already executed.")
     else:
-        _gmxtrjconvtrj( input_traj_path,  output_traj_path,  input_index_path,  properties, **kwargs)
+        _gmxtrjconvtrj( input_traj_path,  output_traj_path,  input_top_path,  input_index_path,  properties, **kwargs)

@@ -13,7 +13,7 @@ baseCommand: box_residues
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_vs:3.8.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_vs:3.9.0--pyhdfd78af_0
 
 inputs:
   input_pdb_path:

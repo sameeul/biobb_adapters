@@ -12,7 +12,7 @@ baseCommand: cestats_run
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_amber:3.8.0--pyhdfd78af_1
+    dockerPull: quay.io/biocontainers/biobb_amber:3.9.0--pyhdfd78af_0
 
 inputs:
   input_cein_path:

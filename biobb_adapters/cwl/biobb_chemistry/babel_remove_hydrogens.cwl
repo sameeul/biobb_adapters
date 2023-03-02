@@ -12,7 +12,7 @@ baseCommand: babel_remove_hydrogens
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_chemistry:3.8.0--pyhdfd78af_1
+    dockerPull: quay.io/biocontainers/biobb_chemistry:3.9.0--pyhdfd78af_0
 
 inputs:
   input_path:
