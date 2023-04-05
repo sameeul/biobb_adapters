@@ -1,4 +1,0 @@
-input_structure_path:
-    class: File
-    location: ../data/utils/extract_model.pdb
-output_protein_path: output.pdb

@@ -12,7 +12,7 @@ baseCommand: editconf
 
 hints:
   DockerRequirement:
-    dockerPull: ''
+    dockerPull: quay.io/biocontainers/biobb_gromacs:4.0.0--pyhdfd78af_0
 
 inputs:
   input_gro_path:

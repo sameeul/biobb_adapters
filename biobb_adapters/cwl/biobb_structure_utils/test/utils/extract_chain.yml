@@ -1,5 +1,0 @@
-input_structure_path:
-    class: File
-    location: ../data/utils/extract_chain.pdb
-output_structure_path: output.pdb
-config: "{\"chains\": [\"B\",\"C\"] }"

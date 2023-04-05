@@ -1,4 +1,0 @@
-input_path:
-    class: File
-    location: ../data/ambertools/reduce.H.pdb
-output_path: output.pdb
