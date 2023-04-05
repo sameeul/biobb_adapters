@@ -13,7 +13,7 @@ baseCommand: cpptraj_rms
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_analysis:3.9.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_analysis:4.0.0--pyhdfd78af_0
 
 inputs:
   input_top_path:
@@ -104,6 +104,42 @@ inputs:
     inputBinding:
       prefix: --input_exp_path
 
+  output_traj_path:
+    label: Path to the output processed trajectory
+    doc: |-
+      Path to the output processed trajectory
+      Type: string
+      File type: output
+      Accepted formats: mdcrd, crd, cdf, netcdf, nc, restart, ncrestart, restartnc, dcd, charmm, cor, pdb, mol2, trr, gro, binpos, xtc, cif, arc, sqm, sdf, conflib
+      Example file: https://github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/data/ambertools/cpptraj.traj.dcd
+    type: string
+    format:
+    - edam:format_3878
+    - edam:format_3878
+    - edam:format_3650
+    - edam:format_3650
+    - edam:format_3650
+    - edam:format_3886
+    - edam:format_3886
+    - edam:format_3886
+    - edam:format_3878
+    - edam:format_3887
+    - edam:format_2033
+    - edam:format_1476
+    - edam:format_3816
+    - edam:format_3910
+    - edam:format_2033
+    - edam:format_3885
+    - edam:format_3875
+    - edam:format_1477
+    - edam:format_2333
+    - edam:format_2033
+    - edam:format_3814
+    - edam:format_2033
+    inputBinding:
+      prefix: --output_traj_path
+    default: system.mdcrd
+
   config:
     label: Advanced configuration options for biobb_analysis CpptrajRms
     doc: |-
@@ -121,6 +157,15 @@ outputs:
     outputBinding:
       glob: $(inputs.output_cpptraj_path)
     format: edam:format_1637
+
+  output_traj_path:
+    label: Path to the output processed trajectory
+    doc: |-
+      Path to the output processed trajectory
+    type: File?
+    outputBinding:
+      glob: $(inputs.output_traj_path)
+    format: edam:format_3878
 
 $namespaces:
   edam: https://edamontology.org/
