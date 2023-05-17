@@ -12,7 +12,7 @@ baseCommand: biobb_curves
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_dna:3.9.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_dna:4.0.0--pyhdfd78af_0
 
 inputs:
   input_struc_path:
@@ -21,12 +21,14 @@ inputs:
       Trajectory or PDB input file
       Type: string
       File type: input
-      Accepted formats: trj, pdb
+      Accepted formats: trj, pdb, netcdf, nc
       Example file: https://raw.githubusercontent.com/bioexcel/biobb_dna/master/biobb_dna/test/data/curvesplus/structure.stripped.trj
     type: File
     format:
     - edam:format_3910
     - edam:format_1476
+    - edam:format_3650
+    - edam:format_3650
     inputBinding:
       position: 1
       prefix: --input_struc_path

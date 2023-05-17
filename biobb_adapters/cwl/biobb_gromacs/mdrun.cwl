@@ -12,7 +12,7 @@ baseCommand: mdrun
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_gromacs:4.0.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_gromacs:4.0.0--pyhdfd78af_1
 
 inputs:
   input_tpr_path:
@@ -30,22 +30,6 @@ inputs:
       position: 1
       prefix: --input_tpr_path
 
-  output_trr_path:
-    label: Path to the GROMACS uncompressed raw trajectory file TRR
-    doc: |-
-      Path to the GROMACS uncompressed raw trajectory file TRR
-      Type: string
-      File type: output
-      Accepted formats: trr
-      Example file: https://github.com/bioexcel/biobb_gromacs/raw/master/biobb_gromacs/test/reference/gromacs/ref_mdrun.trr
-    type: string
-    format:
-    - edam:format_3910
-    inputBinding:
-      position: 2
-      prefix: --output_trr_path
-    default: system.trr
-
   output_gro_path:
     label: Path to the output GROMACS structure GRO file
     doc: |-
@@ -58,7 +42,7 @@ inputs:
     format:
     - edam:format_2033
     inputBinding:
-      position: 3
+      position: 2
       prefix: --output_gro_path
     default: system.gro
 
@@ -74,7 +58,7 @@ inputs:
     format:
     - edam:format_2330
     inputBinding:
-      position: 4
+      position: 3
       prefix: --output_edr_path
     default: system.edr
 
@@ -90,9 +74,24 @@ inputs:
     format:
     - edam:format_2330
     inputBinding:
-      position: 5
+      position: 4
       prefix: --output_log_path
     default: system.log
+
+  output_trr_path:
+    label: Path to the GROMACS uncompressed raw trajectory file TRR
+    doc: |-
+      Path to the GROMACS uncompressed raw trajectory file TRR
+      Type: string
+      File type: output
+      Accepted formats: trr
+      Example file: https://github.com/bioexcel/biobb_gromacs/raw/master/biobb_gromacs/test/reference/gromacs/ref_mdrun.trr
+    type: string
+    format:
+    - edam:format_3910
+    inputBinding:
+      prefix: --output_trr_path
+    default: system.trr
 
   input_cpt_path:
     label: Path to the input GROMACS checkpoint file CPT
@@ -163,15 +162,6 @@ inputs:
       prefix: --config
 
 outputs:
-  output_trr_path:
-    label: Path to the GROMACS uncompressed raw trajectory file TRR
-    doc: |-
-      Path to the GROMACS uncompressed raw trajectory file TRR
-    type: File
-    outputBinding:
-      glob: $(inputs.output_trr_path)
-    format: edam:format_3910
-
   output_gro_path:
     label: Path to the output GROMACS structure GRO file
     doc: |-
@@ -198,6 +188,15 @@ outputs:
     outputBinding:
       glob: $(inputs.output_log_path)
     format: edam:format_2330
+
+  output_trr_path:
+    label: Path to the GROMACS uncompressed raw trajectory file TRR
+    doc: |-
+      Path to the GROMACS uncompressed raw trajectory file TRR
+    type: File?
+    outputBinding:
+      glob: $(inputs.output_trr_path)
+    format: edam:format_3910
 
   output_xtc_path:
     label: Path to the GROMACS compressed trajectory file XTC

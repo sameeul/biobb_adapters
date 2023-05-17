@@ -13,7 +13,7 @@ baseCommand: gmx_cluster
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_analysis:4.0.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_analysis:4.0.0--pyhdfd78af_1
 
 inputs:
   input_structure_path:
@@ -93,6 +93,51 @@ inputs:
     inputBinding:
       prefix: --input_index_path
 
+  output_cluster_log_path:
+    label: Path to the output log file
+    doc: |-
+      Path to the output log file
+      Type: string
+      File type: output
+      Accepted formats: log
+      Example file: https://github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/reference/gmx_cluster_cluster.log
+    type: string
+    format:
+    - edam:format_2330
+    inputBinding:
+      prefix: --output_cluster_log_path
+    default: system.log
+
+  output_rmsd_cluster_xpm_path:
+    label: Path to the output X PixMap compatible matrix file
+    doc: |-
+      Path to the output X PixMap compatible matrix file
+      Type: string
+      File type: output
+      Accepted formats: xpm
+      Example file: https://github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/reference/gmx_cluster_rmsd-clust.xpm
+    type: string
+    format:
+    - edam:format_3599
+    inputBinding:
+      prefix: --output_rmsd_cluster_xpm_path
+    default: system.xpm
+
+  output_rmsd_dist_xvg_path:
+    label: Path to xvgr/xmgr file
+    doc: |-
+      Path to xvgr/xmgr file
+      Type: string
+      File type: output
+      Accepted formats: xvg
+      Example file: https://github.com/bioexcel/biobb_analysis/raw/master/biobb_analysis/test/reference/gmx_cluster_rmsd-dist.xvg
+    type: string
+    format:
+    - edam:format_2330
+    inputBinding:
+      prefix: --output_rmsd_dist_xvg_path
+    default: system.xvg
+
   config:
     label: Advanced configuration options for biobb_analysis GMXCluster
     doc: |-
@@ -110,6 +155,33 @@ outputs:
     outputBinding:
       glob: $(inputs.output_pdb_path)
     format: edam:format_3875
+
+  output_cluster_log_path:
+    label: Path to the output log file
+    doc: |-
+      Path to the output log file
+    type: File?
+    outputBinding:
+      glob: $(inputs.output_cluster_log_path)
+    format: edam:format_2330
+
+  output_rmsd_cluster_xpm_path:
+    label: Path to the output X PixMap compatible matrix file
+    doc: |-
+      Path to the output X PixMap compatible matrix file
+    type: File?
+    outputBinding:
+      glob: $(inputs.output_rmsd_cluster_xpm_path)
+    format: edam:format_3599
+
+  output_rmsd_dist_xvg_path:
+    label: Path to xvgr/xmgr file
+    doc: |-
+      Path to xvgr/xmgr file
+    type: File?
+    outputBinding:
+      glob: $(inputs.output_rmsd_dist_xvg_path)
+    format: edam:format_2330
 
 $namespaces:
   edam: https://edamontology.org/

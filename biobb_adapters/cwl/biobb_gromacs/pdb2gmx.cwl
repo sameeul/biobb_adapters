@@ -12,7 +12,7 @@ baseCommand: pdb2gmx
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_gromacs:4.0.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_gromacs:4.0.0--pyhdfd78af_1
 
 inputs:
   input_pdb_path:

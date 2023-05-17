@@ -13,7 +13,7 @@ baseCommand: mmcif
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_io:3.9.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_io:4.0.0--pyhdfd78af_0
 
 inputs:
   output_mmcif_path:
