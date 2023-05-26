@@ -13,7 +13,7 @@ baseCommand: gmx_trjconv_trj
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_analysis:4.0.0--pyhdfd78af_1
+    dockerPull: quay.io/biocontainers/biobb_analysis:4.0.1--pyhdfd78af_0
 
 inputs:
   input_traj_path:

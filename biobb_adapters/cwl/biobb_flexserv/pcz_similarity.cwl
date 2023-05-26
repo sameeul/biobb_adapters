@@ -12,7 +12,7 @@ baseCommand: pcz_similarity
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_flexserv:3.9.1--pyhdfd78af_1
+    dockerPull: quay.io/biocontainers/biobb_flexserv:4.0.0--pyhdfd78af_0
 
 inputs:
   input_pcz_path1:
