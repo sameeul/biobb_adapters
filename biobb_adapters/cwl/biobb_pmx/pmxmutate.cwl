@@ -12,7 +12,7 @@ baseCommand: pmxmutate
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_pmx:3.8.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_pmx:4.0.0--pyhdfd78af_0
 
 inputs:
   input_structure_path:
