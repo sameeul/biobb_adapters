@@ -12,7 +12,7 @@ baseCommand: pmxatom_mapping
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_pmx:4.0.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_pmx:4.1.0--pyhdfd78af_0
 
 inputs:
   input_structure1_path:

@@ -12,7 +12,7 @@ baseCommand: k_neighbors_coefficient
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_ml:4.0.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_ml:4.1.0--pyhdfd78af_0
 
 inputs:
   input_dataset_path:
