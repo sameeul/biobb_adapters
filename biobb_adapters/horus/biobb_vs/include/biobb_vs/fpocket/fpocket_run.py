@@ -214,7 +214,7 @@ def fpocket_run_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_gromacs:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_vs:4.1.2--pyhdfd78af_0",
             "fpocket_run",
             "--config",
             "/tmp/fpocket_run.json",

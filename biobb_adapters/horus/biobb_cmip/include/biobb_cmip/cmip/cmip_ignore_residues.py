@@ -121,7 +121,7 @@ def cmip_ignore_residues_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_gromacs:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_cmip:4.1.1--pyhdfd78af_0",
             "cmip_ignore_residues",
             "--config",
             "/tmp/cmip_ignore_residues.json",

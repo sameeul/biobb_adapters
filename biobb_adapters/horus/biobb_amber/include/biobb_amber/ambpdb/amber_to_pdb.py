@@ -178,7 +178,7 @@ def amber_to_pdb_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_gromacs:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_amber:4.1.0--pyhdfd78af_0",
             "amber_to_pdb",
             "--config",
             "/tmp/amber_to_pdb.json",

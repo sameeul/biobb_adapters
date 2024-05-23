@@ -130,7 +130,7 @@ def fix_side_chain_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_gromacs:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_model:4.1.0--pyhdfd78af_0",
             "fix_side_chain",
             "--config",
             "/tmp/fix_side_chain.json",

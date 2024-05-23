@@ -121,7 +121,7 @@ def structure_check_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_gromacs:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_structure_utils:4.1.0--pyhdfd78af_0",
             "structure_check",
             "--config",
             "/tmp/structure_check.json",

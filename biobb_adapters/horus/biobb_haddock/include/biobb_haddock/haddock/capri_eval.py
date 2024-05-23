@@ -211,7 +211,7 @@ def capri_eval_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_gromacs:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_haddock:4.1.0--pyhdfd78af_0",
             "capri_eval",
             "--config",
             "/tmp/capri_eval.json",

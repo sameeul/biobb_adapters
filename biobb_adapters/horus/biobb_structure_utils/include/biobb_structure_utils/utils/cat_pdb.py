@@ -115,7 +115,7 @@ def cat_pdb_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_gromacs:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_structure_utils:4.1.0--pyhdfd78af_0",
             "cat_pdb",
             "--config",
             "/tmp/cat_pdb.json",

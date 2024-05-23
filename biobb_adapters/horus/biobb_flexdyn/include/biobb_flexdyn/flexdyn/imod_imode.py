@@ -112,7 +112,7 @@ def imod_imode_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_gromacs:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_flexdyn:4.1.0--pyhdfd78af_0",
             "imod_imode",
             "--config",
             "/tmp/imod_imode.json",

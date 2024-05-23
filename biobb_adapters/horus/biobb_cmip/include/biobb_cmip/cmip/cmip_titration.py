@@ -244,7 +244,7 @@ def cmip_titration_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_gromacs:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_cmip:4.1.1--pyhdfd78af_0",
             "cmip_titration",
             "--config",
             "/tmp/cmip_titration.json",

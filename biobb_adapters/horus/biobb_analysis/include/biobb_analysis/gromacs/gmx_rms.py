@@ -208,7 +208,7 @@ def gmx_rms_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_gromacs:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_analysis:4.1.0--pyhdfd78af_0",
             "gmx_rms",
             "--config",
             "/tmp/gmx_rms.json",

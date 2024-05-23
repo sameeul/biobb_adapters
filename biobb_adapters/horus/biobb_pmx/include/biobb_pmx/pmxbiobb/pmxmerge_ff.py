@@ -157,7 +157,7 @@ def pmxmerge_ff_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_gromacs:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_pmx:4.1.0--pyhdfd78af_0",
             "pmxmerge_ff",
             "--config",
             "/tmp/pmxmerge_ff.json",

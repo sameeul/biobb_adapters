@@ -340,7 +340,7 @@ def pmxligand_hybrid_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_gromacs:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_pmx:4.1.0--pyhdfd78af_0",
             "pmxligand_hybrid",
             "--config",
             "/tmp/pmxligand_hybrid.json",

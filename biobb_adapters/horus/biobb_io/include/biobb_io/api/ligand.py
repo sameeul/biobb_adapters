@@ -109,7 +109,7 @@ def ligand_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_gromacs:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_io:4.1.1--pyhdfd78af_0",
             "ligand",
             "--config",
             "/tmp/ligand.json",

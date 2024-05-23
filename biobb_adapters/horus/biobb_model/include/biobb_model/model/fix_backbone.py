@@ -142,7 +142,7 @@ def fix_backbone_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_gromacs:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_model:4.1.0--pyhdfd78af_0",
             "fix_backbone",
             "--config",
             "/tmp/fix_backbone.json",

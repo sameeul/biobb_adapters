@@ -121,7 +121,7 @@ def checking_log_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_gromacs:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_model:4.1.0--pyhdfd78af_0",
             "checking_log",
             "--config",
             "/tmp/checking_log.json",

@@ -142,7 +142,7 @@ def nma_run_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_gromacs:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_flexserv:4.1.0--pypl5321hdfd78af_0",
             "nma_run",
             "--config",
             "/tmp/nma_run.json",

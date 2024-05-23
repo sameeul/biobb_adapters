@@ -190,7 +190,7 @@ def nab_build_dna_structure_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_gromacs:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_amber:4.1.0--pyhdfd78af_0",
             "nab_build_dna_structure",
             "--config",
             "/tmp/nab_build_dna_structure.json",

@@ -337,7 +337,7 @@ def reduce_add_hydrogens_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_gromacs:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_chemistry:4.1.0--pyhdfd78af_0",
             "reduce_add_hydrogens",
             "--config",
             "/tmp/reduce_add_hydrogens.json",
