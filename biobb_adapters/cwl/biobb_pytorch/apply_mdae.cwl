@@ -12,7 +12,7 @@ baseCommand: apply_mdae
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_pytorch:4.1.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_pytorch:4.1.3--pyhdfd78af_0
 
 inputs:
   input_data_npy_path:

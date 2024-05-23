@@ -109,15 +109,14 @@ inputs:
     doc: |-
       Path to the input restart file
       Type: string
-      File type: output
+      File type: input
       Accepted formats: txt
       Example file: null
-    type: string
+    type: File?
     format:
     - edam:format_2330
     inputBinding:
       prefix: --input_rst_path
-    default: system.txt
 
   output_byat_path:
     label: Path to the output atom by atom energy file
@@ -280,15 +279,6 @@ outputs:
     type: File?
     outputBinding:
       glob: $(inputs.output_rst_path)
-    format: edam:format_2330
-
-  input_rst_path:
-    label: Path to the input restart file
-    doc: |-
-      Path to the input restart file
-    type: File?
-    outputBinding:
-      glob: $(inputs.input_rst_path)
     format: edam:format_2330
 
   output_byat_path:

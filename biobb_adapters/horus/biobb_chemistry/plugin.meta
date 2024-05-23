@@ -1,0 +1,8 @@
+{
+    "name": "biobb_chemistry",
+    "description": "The Horus adapter for biobb_chemistry",
+    "author": "Pau Andrio",
+    "version": "4.1.0",
+    "pluginFile": "plugin.py",
+    "dependencies": []
+}

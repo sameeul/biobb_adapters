@@ -81,6 +81,22 @@ inputs:
       prefix: --output_path_top
     default: system.top
 
+  output_path_pdb:
+    label: Path to the PDB output file
+    doc: |-
+      Path to the PDB output file
+      Type: string
+      File type: output
+      Accepted formats: pdb
+      Example file: https://github.com/bioexcel/biobb_chemistry/raw/master/biobb_chemistry/test/reference/acpype/ref_acpype.cns.pdb
+    type: string
+    format:
+    - edam:format_1476
+    inputBinding:
+      position: 5
+      prefix: --output_path_pdb
+    default: system.pdb
+
   config:
     label: Advanced configuration options for biobb_chemistry AcpypeParamsCNS
     doc: |-
@@ -116,6 +132,15 @@ outputs:
     outputBinding:
       glob: $(inputs.output_path_top)
     format: edam:format_3881
+
+  output_path_pdb:
+    label: Path to the PDB output file
+    doc: |-
+      Path to the PDB output file
+    type: File
+    outputBinding:
+      glob: $(inputs.output_path_pdb)
+    format: edam:format_1476
 
 $namespaces:
   edam: https://edamontology.org/

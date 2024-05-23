@@ -1,0 +1,8 @@
+{
+    "name": "biobb_cmip",
+    "description": "The Horus adapter for biobb_cmip",
+    "author": "Pau Andrio",
+    "version": "4.1.1",
+    "pluginFile": "plugin.py",
+    "dependencies": []
+}

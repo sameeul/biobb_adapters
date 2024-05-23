@@ -1,0 +1,8 @@
+{
+    "name": "biobb_model",
+    "description": "The Horus adapter for biobb_model",
+    "author": "Pau Andrio",
+    "version": "4.1.0",
+    "pluginFile": "plugin.py",
+    "dependencies": []
+}

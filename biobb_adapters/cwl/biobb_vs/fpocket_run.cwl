@@ -12,7 +12,7 @@ baseCommand: fpocket_run
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_vs:4.1.1--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_vs:4.1.2--pyhdfd78af_0
 
 inputs:
   input_pdb_path:

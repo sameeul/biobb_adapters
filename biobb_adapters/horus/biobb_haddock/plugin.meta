@@ -1,0 +1,8 @@
+{
+    "name": "biobb_haddock",
+    "description": "The Horus adapter for biobb_haddock",
+    "author": "Pau Andrio",
+    "version": "4.1.0",
+    "pluginFile": "plugin.py",
+    "dependencies": []
+}
