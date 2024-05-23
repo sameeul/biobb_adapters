@@ -1,0 +1,8 @@
+{
+    "name": "biobb_gromacs",
+    "description": "The Horus adapter for biobb_gromacs",
+    "author": "Pau Andrio",
+    "version": "4.1.1",
+    "pluginFile": "plugin.py",
+    "dependencies": []
+}
