@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_ligand_pdbqt_path = PluginVariable(
     id="input_ligand_pdbqt_path",  # ID of the variable, will allow us to identify the value
     name="input_ligand_pdbqt_path",  # The name that will appear in the frontend
-    description='Path to the input PDBQT ligand',  # The description that will appear in the frontend
+    description="Path to the input PDBQT ligand",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_ligand_pdbqt_path = PluginVariable(
 input_receptor_pdbqt_path = PluginVariable(
     id="input_receptor_pdbqt_path",  # ID of the variable, will allow us to identify the value
     name="input_receptor_pdbqt_path",  # The name that will appear in the frontend
-    description='Path to the input PDBQT receptor',  # The description that will appear in the frontend
+    description="Path to the input PDBQT receptor",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -32,7 +32,7 @@ input_receptor_pdbqt_path = PluginVariable(
 input_box_path = PluginVariable(
     id="input_box_path",  # ID of the variable, will allow us to identify the value
     name="input_box_path",  # The name that will appear in the frontend
-    description='Path to the PDB containig the residues belonging to the binding site',  # The description that will appear in the frontend
+    description="Path to the PDB containig the residues belonging to the binding site",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -43,7 +43,7 @@ input_box_path = PluginVariable(
 output_pdbqt_path = PluginVariable(
     id="output_pdbqt_path",  # ID of the variable, will allow us to identify the value
     name="output_pdbqt_path",  # The name that will appear in the frontend
-    description='Path to the output PDBQT file',  # The description that will appear in the frontend
+    description="Path to the output PDBQT file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -53,7 +53,7 @@ output_pdbqt_path = PluginVariable(
 output_log_path = PluginVariable(
     id="output_log_path",  # ID of the variable, will allow us to identify the value
     name="output_log_path",  # The name that will appear in the frontend
-    description='Path to the log file',  # The description that will appear in the frontend
+    description="Path to the log file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -68,98 +68,98 @@ output_log_path = PluginVariable(
 cpu = PluginVariable(
     id="cpu",
     name="cpu",
-    description='the number of CPUs to use.',
+    description="the number of CPUs to use.",
     type=VariableTypes.INTEGER
 )
 
 exhaustiveness = PluginVariable(
     id="exhaustiveness",
     name="exhaustiveness",
-    description='exhaustiveness of the global search (roughly proportional to time).',
+    description="exhaustiveness of the global search (roughly proportional to time).",
     type=VariableTypes.INTEGER
 )
 
 num_modes = PluginVariable(
     id="num_modes",
     name="num_modes",
-    description='maximum number of binding modes to generate.',
+    description="maximum number of binding modes to generate.",
     type=VariableTypes.INTEGER
 )
 
 min_rmsd = PluginVariable(
     id="min_rmsd",
     name="min_rmsd",
-    description='minimum RMSD between output poses.',
+    description="minimum RMSD between output poses.",
     type=VariableTypes.INTEGER
 )
 
 energy_range = PluginVariable(
     id="energy_range",
     name="energy_range",
-    description='maximum energy difference between the best binding mode and the worst one displayed (kcal/mol).',
+    description="maximum energy difference between the best binding mode and the worst one displayed (kcal/mol).",
     type=VariableTypes.INTEGER
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='path to vina in your local computer.',
+    description="path to vina in your local computer.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Container path definition.',
+    description="Container path definition.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container image definition.',
+    description="Container image definition.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Container volume path definition.',
+    description="Container volume path definition.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Container working directory definition.',
+    description="Container working directory definition.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='Container user_id definition.',
+    description="Container user_id definition.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to default shell inside the container.',
+    description="Path to default shell inside the container.",
     type=VariableTypes.STRING
 )
 
@@ -364,7 +364,7 @@ autodock_vina_run_block = PluginBlock(
     # The name which will appear on the frontend
     name="autodock_vina_run",
     # Its description
-    description='Wrapper of the AutoDock Vina software.',
+    description="Wrapper of the AutoDock Vina software.",
     # The action
     action=autodock_vina_run_action,
     # A list of inputs, variables and outputs

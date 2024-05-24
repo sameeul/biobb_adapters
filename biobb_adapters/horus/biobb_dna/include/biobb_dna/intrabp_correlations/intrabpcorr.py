@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_filename_shear = PluginVariable(
     id="input_filename_shear",  # ID of the variable, will allow us to identify the value
     name="input_filename_shear",  # The name that will appear in the frontend
-    description='Path to .ser file with data for helical parameter 'shear'',  # The description that will appear in the frontend
+    description="Path to .ser file with data for helical parameter 'shear'",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_filename_shear = PluginVariable(
 input_filename_stretch = PluginVariable(
     id="input_filename_stretch",  # ID of the variable, will allow us to identify the value
     name="input_filename_stretch",  # The name that will appear in the frontend
-    description='Path to .ser file with data for helical parameter 'stretch'',  # The description that will appear in the frontend
+    description="Path to .ser file with data for helical parameter 'stretch'",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -32,7 +32,7 @@ input_filename_stretch = PluginVariable(
 input_filename_stagger = PluginVariable(
     id="input_filename_stagger",  # ID of the variable, will allow us to identify the value
     name="input_filename_stagger",  # The name that will appear in the frontend
-    description='Path to .ser file with data for helical parameter 'stagger'',  # The description that will appear in the frontend
+    description="Path to .ser file with data for helical parameter 'stagger'",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -42,7 +42,7 @@ input_filename_stagger = PluginVariable(
 input_filename_buckle = PluginVariable(
     id="input_filename_buckle",  # ID of the variable, will allow us to identify the value
     name="input_filename_buckle",  # The name that will appear in the frontend
-    description='Path to .ser file with data for helical parameter 'buckle'',  # The description that will appear in the frontend
+    description="Path to .ser file with data for helical parameter 'buckle'",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -52,7 +52,7 @@ input_filename_buckle = PluginVariable(
 input_filename_propel = PluginVariable(
     id="input_filename_propel",  # ID of the variable, will allow us to identify the value
     name="input_filename_propel",  # The name that will appear in the frontend
-    description='Path to .ser file with data for helical parameter 'propel'',  # The description that will appear in the frontend
+    description="Path to .ser file with data for helical parameter 'propel'",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -62,7 +62,7 @@ input_filename_propel = PluginVariable(
 input_filename_opening = PluginVariable(
     id="input_filename_opening",  # ID of the variable, will allow us to identify the value
     name="input_filename_opening",  # The name that will appear in the frontend
-    description='Path to .ser file with data for helical parameter 'opening'',  # The description that will appear in the frontend
+    description="Path to .ser file with data for helical parameter 'opening'",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -73,7 +73,7 @@ input_filename_opening = PluginVariable(
 output_csv_path = PluginVariable(
     id="output_csv_path",  # ID of the variable, will allow us to identify the value
     name="output_csv_path",  # The name that will appear in the frontend
-    description='Path to directory where output is saved',  # The description that will appear in the frontend
+    description="Path to directory where output is saved",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -83,7 +83,7 @@ output_csv_path = PluginVariable(
 output_jpg_path = PluginVariable(
     id="output_jpg_path",  # ID of the variable, will allow us to identify the value
     name="output_jpg_path",  # The name that will appear in the frontend
-    description='Path to .jpg file where output is saved',  # The description that will appear in the frontend
+    description="Path to .jpg file where output is saved",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -98,28 +98,28 @@ output_jpg_path = PluginVariable(
 sequence = PluginVariable(
     id="sequence",
     name="sequence",
-    description='Nucleic acid sequence for the input .ser file. Length of sequence is expected to be the same as the total number of columns in the .ser file, minus the index column (even if later on a subset of columns is selected with the *seqpos* option).',
+    description="Nucleic acid sequence for the input .ser file. Length of sequence is expected to be the same as the total number of columns in the .ser file, minus the index column (even if later on a subset of columns is selected with the *seqpos* option).",
     type=VariableTypes.STRING
 )
 
 seqpos = PluginVariable(
     id="seqpos",
     name="seqpos",
-    description='list of sequence positions (columns indices starting by 0) to analyze.  If not specified it will analyse the complete sequence.',
-    type=VariableTypes.ARRAY
+    description="list of sequence positions (columns indices starting by 0) to analyze.  If not specified it will analyse the complete sequence.",
+    type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -305,7 +305,7 @@ intrabpcorr_block = PluginBlock(
     # The name which will appear on the frontend
     name="intrabpcorr",
     # Its description
-    description='Calculate correlation between all intra-base pairs of a single sequence and for a single helical parameter.',
+    description="Calculate correlation between all intra-base pairs of a single sequence and for a single helical parameter.",
     # The action
     action=intrabpcorr_action,
     # A list of inputs, variables and outputs

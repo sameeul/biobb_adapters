@@ -2,7 +2,7 @@
     "name": "biobb_amber",
     "description": "The Horus adapter for biobb_amber",
     "author": "Pau Andrio",
-    "version": "4.1.0",
+    "version": "4.2.0",
     "pluginFile": "plugin.py",
     "dependencies": []
 }

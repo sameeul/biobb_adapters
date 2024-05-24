@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_pdb_path = PluginVariable(
     id="input_pdb_path",  # ID of the variable, will allow us to identify the value
     name="input_pdb_path",  # The name that will appear in the frontend
-    description='Input 3D structure PDB file',  # The description that will appear in the frontend
+    description="Input 3D structure PDB file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_pdb_path = PluginVariable(
 input_lib_path = PluginVariable(
     id="input_lib_path",  # ID of the variable, will allow us to identify the value
     name="input_lib_path",  # The name that will appear in the frontend
-    description='Input ligand library parameters file',  # The description that will appear in the frontend
+    description="Input ligand library parameters file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -32,7 +32,7 @@ input_lib_path = PluginVariable(
 input_frcmod_path = PluginVariable(
     id="input_frcmod_path",  # ID of the variable, will allow us to identify the value
     name="input_frcmod_path",  # The name that will appear in the frontend
-    description='Input ligand frcmod parameters file',  # The description that will appear in the frontend
+    description="Input ligand frcmod parameters file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -42,7 +42,7 @@ input_frcmod_path = PluginVariable(
 input_params_path = PluginVariable(
     id="input_params_path",  # ID of the variable, will allow us to identify the value
     name="input_params_path",  # The name that will appear in the frontend
-    description='Additional leap parameter files to load with loadAmberParams Leap command',  # The description that will appear in the frontend
+    description="Additional leap parameter files to load with loadAmberParams Leap command",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -52,7 +52,7 @@ input_params_path = PluginVariable(
 input_source_path = PluginVariable(
     id="input_source_path",  # ID of the variable, will allow us to identify the value
     name="input_source_path",  # The name that will appear in the frontend
-    description='Additional leap command files to load with source Leap command',  # The description that will appear in the frontend
+    description="Additional leap command files to load with source Leap command",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -63,7 +63,7 @@ input_source_path = PluginVariable(
 output_pdb_path = PluginVariable(
     id="output_pdb_path",  # ID of the variable, will allow us to identify the value
     name="output_pdb_path",  # The name that will appear in the frontend
-    description='Output 3D structure PDB file matching the topology file',  # The description that will appear in the frontend
+    description="Output 3D structure PDB file matching the topology file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -73,7 +73,7 @@ output_pdb_path = PluginVariable(
 output_top_path = PluginVariable(
     id="output_top_path",  # ID of the variable, will allow us to identify the value
     name="output_top_path",  # The name that will appear in the frontend
-    description='Output topology file (AMBER ParmTop)',  # The description that will appear in the frontend
+    description="Output topology file (AMBER ParmTop)",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -83,7 +83,7 @@ output_top_path = PluginVariable(
 output_crd_path = PluginVariable(
     id="output_crd_path",  # ID of the variable, will allow us to identify the value
     name="output_crd_path",  # The name that will appear in the frontend
-    description='Output coordinates file (AMBER crd)',  # The description that will appear in the frontend
+    description="Output coordinates file (AMBER crd)",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -98,147 +98,147 @@ output_crd_path = PluginVariable(
 forcefield = PluginVariable(
     id="forcefield",
     name="forcefield",
-    description='Forcefield to be used for the structure generation. ',
-    type=VariableTypes.ARRAY
+    description="Forcefield to be used for the structure generation. ",
+    type=VariableTypes.STRING
 )
 
 water_type = PluginVariable(
     id="water_type",
     name="water_type",
-    description='Water molecule parameters to be used for the topology. ',
+    description="Water molecule parameters to be used for the topology. ",
     type=VariableTypes.STRING
 )
 
 box_type = PluginVariable(
     id="box_type",
     name="box_type",
-    description='Type for the MD system box. ',
+    description="Type for the MD system box. ",
     type=VariableTypes.STRING
 )
 
 ions_type = PluginVariable(
     id="ions_type",
     name="ions_type",
-    description='Ions type. ',
+    description="Ions type. ",
     type=VariableTypes.STRING
 )
 
 neutralise = PluginVariable(
     id="neutralise",
     name="neutralise",
-    description='Energetically neutralise the system adding the necessary counterions.',
+    description="Energetically neutralise the system adding the necessary counterions.",
     type=VariableTypes.BOOLEAN
 )
 
 iso = PluginVariable(
     id="iso",
     name="iso",
-    description='Make the box isometric.',
+    description="Make the box isometric.",
     type=VariableTypes.BOOLEAN
 )
 
 positive_ions_number = PluginVariable(
     id="positive_ions_number",
     name="positive_ions_number",
-    description='Number of additional positive ions to include in the system box.',
+    description="Number of additional positive ions to include in the system box.",
     type=VariableTypes.INTEGER
 )
 
 negative_ions_number = PluginVariable(
     id="negative_ions_number",
     name="negative_ions_number",
-    description='Number of additional negative ions to include in the system box.',
+    description="Number of additional negative ions to include in the system box.",
     type=VariableTypes.INTEGER
 )
 
 positive_ions_type = PluginVariable(
     id="positive_ions_type",
     name="positive_ions_type",
-    description='Type of additional positive ions to include in the system box. ',
+    description="Type of additional positive ions to include in the system box. ",
     type=VariableTypes.STRING
 )
 
 negative_ions_type = PluginVariable(
     id="negative_ions_type",
     name="negative_ions_type",
-    description='Type of additional negative ions to include in the system box. ',
+    description="Type of additional negative ions to include in the system box. ",
     type=VariableTypes.STRING
 )
 
 distance_to_molecule = PluginVariable(
     id="distance_to_molecule",
     name="distance_to_molecule",
-    description='Size for the MD system box -in Angstroms-, defined such as the minimum distance between any atom originally present in solute and the edge of the periodic box is given by this distance parameter.',
+    description="Size for the MD system box -in Angstroms-, defined such as the minimum distance between any atom originally present in solute and the edge of the periodic box is given by this distance parameter.",
     type=VariableTypes.NUMBER
 )
 
 closeness = PluginVariable(
     id="closeness",
     name="closeness",
-    description='How close, in Å, solvent ATOMs may come to solute ATOMs.',
+    description="How close, in Å, solvent ATOMs may come to solute ATOMs.",
     type=VariableTypes.NUMBER
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Path to the tleap executable binary.',
+    description="Path to the tleap executable binary.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Container path definition.',
+    description="Container path definition.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container image definition.',
+    description="Container image definition.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Container volume path definition.',
+    description="Container volume path definition.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Container working directory definition.',
+    description="Container working directory definition.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='Container user_id definition.',
+    description="Container user_id definition.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to default shell inside the container.',
+    description="Path to default shell inside the container.",
     type=VariableTypes.STRING
 )
 
@@ -346,7 +346,7 @@ def leap_solvate_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_amber:4.1.0--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_amber:4.2.0--pyhdfd78af_0",
             "leap_solvate",
             "--config",
             "/tmp/leap_solvate.json",
@@ -499,7 +499,7 @@ leap_solvate_block = PluginBlock(
     # The name which will appear on the frontend
     name="leap_solvate",
     # Its description
-    description='Wrapper of the AmberTools (AMBER MD Package) leap tool module.',
+    description="Wrapper of the AmberTools (AMBER MD Package) leap tool module.",
     # The action
     action=leap_solvate_action,
     # A list of inputs, variables and outputs

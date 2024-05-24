@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_ser_path = PluginVariable(
     id="input_ser_path",  # ID of the variable, will allow us to identify the value
     name="input_ser_path",  # The name that will appear in the frontend
-    description='Path to .ser file for helical parameter. File is expected to be a table, with the first column being an index and the rest the helical parameter values for each base/basepair',  # The description that will appear in the frontend
+    description="Path to .ser file for helical parameter. File is expected to be a table, with the first column being an index and the rest the helical parameter values for each base/basepair",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_ser_path = PluginVariable(
 output_zip_path = PluginVariable(
     id="output_zip_path",  # ID of the variable, will allow us to identify the value
     name="output_zip_path",  # The name that will appear in the frontend
-    description='Path to output .zip files where data is saved',  # The description that will appear in the frontend
+    description="Path to output .zip files where data is saved",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -38,49 +38,49 @@ output_zip_path = PluginVariable(
 sequence = PluginVariable(
     id="sequence",
     name="sequence",
-    description='Nucleic acid sequence corresponding to the input .ser file. Length of sequence is expected to be the same as the total number of columns in the .ser file, minus the index column (even if later on a subset of columns is selected with the *usecols* option).',
+    description="Nucleic acid sequence corresponding to the input .ser file. Length of sequence is expected to be the same as the total number of columns in the .ser file, minus the index column (even if later on a subset of columns is selected with the *usecols* option).",
     type=VariableTypes.STRING
 )
 
 bins = PluginVariable(
     id="bins",
     name="bins",
-    description='Bins for histogram. Parameter has same options as matplotlib.pyplot.hist.',
+    description="Bins for histogram. Parameter has same options as matplotlib.pyplot.hist.",
     type=VariableTypes.INTEGER
 )
 
 helpar_name = PluginVariable(
     id="helpar_name",
     name="helpar_name",
-    description='helical parameter name.',
+    description="helical parameter name.",
     type=VariableTypes.STRING
 )
 
 stride = PluginVariable(
     id="stride",
     name="stride",
-    description='granularity of the number of snapshots for plotting time series.',
+    description="granularity of the number of snapshots for plotting time series.",
     type=VariableTypes.INTEGER
 )
 
 seqpos = PluginVariable(
     id="seqpos",
     name="seqpos",
-    description='list of sequence positions (columns indices starting by 0) to analyze.  If not specified it will analyse the complete sequence.',
-    type=VariableTypes.ARRAY
+    description="list of sequence positions (columns indices starting by 0) to analyze.  If not specified it will analyse the complete sequence.",
+    type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -229,7 +229,7 @@ dna_timeseries_block = PluginBlock(
     # The name which will appear on the frontend
     name="dna_timeseries",
     # Its description
-    description='Created time series and histogram plots for each base pair from a helical parameter series file.',
+    description="Created time series and histogram plots for each base pair from a helical parameter series file.",
     # The action
     action=dna_timeseries_action,
     # A list of inputs, variables and outputs

@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_structure_path = PluginVariable(
     id="input_structure_path",  # ID of the variable, will allow us to identify the value
     name="input_structure_path",  # The name that will appear in the frontend
-    description='Input structure file path',  # The description that will appear in the frontend
+    description="Input structure file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_structure_path = PluginVariable(
 output_structure_path = PluginVariable(
     id="output_structure_path",  # ID of the variable, will allow us to identify the value
     name="output_structure_path",  # The name that will appear in the frontend
-    description='Output structure file path',  # The description that will appear in the frontend
+    description="Output structure file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -38,21 +38,21 @@ output_structure_path = PluginVariable(
 ligand = PluginVariable(
     id="ligand",
     name="ligand",
-    description='Residue code of the ligand to be removed.',
+    description="Residue code of the ligand to be removed.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -185,7 +185,7 @@ remove_ligand_block = PluginBlock(
     # The name which will appear on the frontend
     name="remove_ligand",
     # Its description
-    description='Class to remove the selected ligand atoms from a 3D structure.',
+    description="Class to remove the selected ligand atoms from a 3D structure.",
     # The action
     action=remove_ligand_action,
     # A list of inputs, variables and outputs

@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_pdbqt_path = PluginVariable(
     id="input_pdbqt_path",  # ID of the variable, will allow us to identify the value
     name="input_pdbqt_path",  # The name that will appear in the frontend
-    description='Input PDBQT file',  # The description that will appear in the frontend
+    description="Input PDBQT file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_pdbqt_path = PluginVariable(
 output_pdbqt_path = PluginVariable(
     id="output_pdbqt_path",  # ID of the variable, will allow us to identify the value
     name="output_pdbqt_path",  # The name that will appear in the frontend
-    description='Output PDBQT file',  # The description that will appear in the frontend
+    description="Output PDBQT file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -38,21 +38,21 @@ output_pdbqt_path = PluginVariable(
 model = PluginVariable(
     id="model",
     name="model",
-    description='Model number to extract from input_pdbqt_path.',
+    description="Model number to extract from input_pdbqt_path.",
     type=VariableTypes.INTEGER
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -185,7 +185,7 @@ extract_model_pdbqt_block = PluginBlock(
     # The name which will appear on the frontend
     name="extract_model_pdbqt",
     # Its description
-    description='Extracts a model from a PDBQT file with several models.',
+    description="Extracts a model from a PDBQT file with several models.",
     # The action
     action=extract_model_pdbqt_action,
     # A list of inputs, variables and outputs

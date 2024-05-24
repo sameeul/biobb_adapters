@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_top_path = PluginVariable(
     id="input_top_path",  # ID of the variable, will allow us to identify the value
     name="input_top_path",  # The name that will appear in the frontend
-    description='Input topology file (AMBER ParmTop)',  # The description that will appear in the frontend
+    description="Input topology file (AMBER ParmTop)",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_top_path = PluginVariable(
 input_crd_path = PluginVariable(
     id="input_crd_path",  # ID of the variable, will allow us to identify the value
     name="input_crd_path",  # The name that will appear in the frontend
-    description='Input coordinates file (AMBER crd)',  # The description that will appear in the frontend
+    description="Input coordinates file (AMBER crd)",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -32,7 +32,7 @@ input_crd_path = PluginVariable(
 input_mdin_path = PluginVariable(
     id="input_mdin_path",  # ID of the variable, will allow us to identify the value
     name="input_mdin_path",  # The name that will appear in the frontend
-    description='Input configuration file (MD run options) (AMBER mdin)',  # The description that will appear in the frontend
+    description="Input configuration file (MD run options) (AMBER mdin)",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -42,7 +42,7 @@ input_mdin_path = PluginVariable(
 input_cpin_path = PluginVariable(
     id="input_cpin_path",  # ID of the variable, will allow us to identify the value
     name="input_cpin_path",  # The name that will appear in the frontend
-    description='Input constant pH file (AMBER cpin)',  # The description that will appear in the frontend
+    description="Input constant pH file (AMBER cpin)",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -52,7 +52,7 @@ input_cpin_path = PluginVariable(
 input_ref_path = PluginVariable(
     id="input_ref_path",  # ID of the variable, will allow us to identify the value
     name="input_ref_path",  # The name that will appear in the frontend
-    description='Input reference coordinates for position restraints',  # The description that will appear in the frontend
+    description="Input reference coordinates for position restraints",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -63,7 +63,7 @@ input_ref_path = PluginVariable(
 output_log_path = PluginVariable(
     id="output_log_path",  # ID of the variable, will allow us to identify the value
     name="output_log_path",  # The name that will appear in the frontend
-    description='Output log file',  # The description that will appear in the frontend
+    description="Output log file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -73,7 +73,7 @@ output_log_path = PluginVariable(
 output_traj_path = PluginVariable(
     id="output_traj_path",  # ID of the variable, will allow us to identify the value
     name="output_traj_path",  # The name that will appear in the frontend
-    description='Output trajectory file',  # The description that will appear in the frontend
+    description="Output trajectory file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -83,7 +83,7 @@ output_traj_path = PluginVariable(
 output_rst_path = PluginVariable(
     id="output_rst_path",  # ID of the variable, will allow us to identify the value
     name="output_rst_path",  # The name that will appear in the frontend
-    description='Output restart file',  # The description that will appear in the frontend
+    description="Output restart file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -93,7 +93,7 @@ output_rst_path = PluginVariable(
 output_cpout_path = PluginVariable(
     id="output_cpout_path",  # ID of the variable, will allow us to identify the value
     name="output_cpout_path",  # The name that will appear in the frontend
-    description='Output constant pH file (AMBER cpout)',  # The description that will appear in the frontend
+    description="Output constant pH file (AMBER cpout)",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -103,7 +103,7 @@ output_cpout_path = PluginVariable(
 output_cprst_path = PluginVariable(
     id="output_cprst_path",  # ID of the variable, will allow us to identify the value
     name="output_cprst_path",  # The name that will appear in the frontend
-    description='Output constant pH restart file (AMBER rstout)',  # The description that will appear in the frontend
+    description="Output constant pH restart file (AMBER rstout)",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -113,7 +113,7 @@ output_cprst_path = PluginVariable(
 output_mdinfo_path = PluginVariable(
     id="output_mdinfo_path",  # ID of the variable, will allow us to identify the value
     name="output_mdinfo_path",  # The name that will appear in the frontend
-    description='Output MD info',  # The description that will appear in the frontend
+    description="Output MD info",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -128,105 +128,105 @@ output_mdinfo_path = PluginVariable(
 mdin = PluginVariable(
     id="mdin",
     name="mdin",
-    description='Sander MD run options specification. (Used if *input_mdin_path* is None)',
+    description="Sander MD run options specification. (Used if *input_mdin_path* is None)",
     type=VariableTypes.STRING
 )
 
 simulation_type = PluginVariable(
     id="simulation_type",
     name="simulation_type",
-    description='Default options for the mdin file. Each creates a different mdin file. ',
+    description="Default options for the mdin file. Each creates a different mdin file. ",
     type=VariableTypes.STRING
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='sander binary path to be used.',
+    description="sander binary path to be used.",
     type=VariableTypes.STRING
 )
 
 direct_mdin = PluginVariable(
     id="direct_mdin",
     name="direct_mdin",
-    description='Use input_mdin_path as it is, skip file parsing.',
+    description="Use input_mdin_path as it is, skip file parsing.",
     type=VariableTypes.BOOLEAN
 )
 
 mpi_bin = PluginVariable(
     id="mpi_bin",
     name="mpi_bin",
-    description='Path to the MPI runner. Usually "mpirun" or "srun".',
+    description="Path to the MPI runner. Usually 'mpirun' or 'srun'.",
     type=VariableTypes.STRING
 )
 
 mpi_np = PluginVariable(
     id="mpi_np",
     name="mpi_np",
-    description='Number of MPI processes. Usually an integer bigger than 1.',
+    description="Number of MPI processes. Usually an integer bigger than 1.",
     type=VariableTypes.INTEGER
 )
 
 mpi_flags = PluginVariable(
     id="mpi_flags",
     name="mpi_flags",
-    description='Path to the MPI hostlist file.',
+    description="Path to the MPI hostlist file.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Container path definition.',
+    description="Container path definition.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container image definition.',
+    description="Container image definition.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Container volume path definition.',
+    description="Container volume path definition.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Container working directory definition.',
+    description="Container working directory definition.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='Container user_id definition.',
+    description="Container user_id definition.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to default shell inside the container.',
+    description="Path to default shell inside the container.",
     type=VariableTypes.STRING
 )
 
@@ -328,7 +328,7 @@ def sander_mdrun_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_amber:4.1.0--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_amber:4.2.0--pyhdfd78af_0",
             "sander_mdrun",
             "--config",
             "/tmp/sander_mdrun.json",
@@ -505,7 +505,7 @@ sander_mdrun_block = PluginBlock(
     # The name which will appear on the frontend
     name="sander_mdrun",
     # Its description
-    description='Wrapper of the AmberTools (AMBER MD Package) sander tool module.',
+    description="Wrapper of the AmberTools (AMBER MD Package) sander tool module.",
     # The action
     action=sander_mdrun_action,
     # A list of inputs, variables and outputs

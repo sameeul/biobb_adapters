@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Wrapper for the Canal executable that is part of the Curves+ software suite.
 
 doc: |-
-  None
+  The Canal program is used to analyze the curvature of DNA structures.
 
 baseCommand: biobb_canal
 

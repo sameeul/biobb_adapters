@@ -13,7 +13,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 output_simulations = PluginVariable(
     id="output_simulations",  # ID of the variable, will allow us to identify the value
     name="output_simulations",  # The name that will appear in the frontend
-    description='Path to the output JSON file',  # The description that will appear in the frontend
+    description="Path to the output JSON file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -28,14 +28,14 @@ output_simulations = PluginVariable(
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -157,7 +157,7 @@ memprotmd_sim_list_block = PluginBlock(
     # The name which will appear on the frontend
     name="memprotmd_sim_list",
     # Its description
-    description='This class is a wrapper of the MemProtMD to get all available membrane-protein systems from its REST API.',
+    description="This class is a wrapper of the MemProtMD to get all available membrane-protein systems from its REST API.",
     # The action
     action=memprotmd_sim_list_action,
     # A list of inputs, variables and outputs

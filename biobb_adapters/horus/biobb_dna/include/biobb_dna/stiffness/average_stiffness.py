@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_ser_path = PluginVariable(
     id="input_ser_path",  # ID of the variable, will allow us to identify the value
     name="input_ser_path",  # The name that will appear in the frontend
-    description='Path to .ser file for helical parameter. File is expected to be a table, with the first column being an index and the rest the helical parameter values for each base/basepair',  # The description that will appear in the frontend
+    description="Path to .ser file for helical parameter. File is expected to be a table, with the first column being an index and the rest the helical parameter values for each base/basepair",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_ser_path = PluginVariable(
 output_csv_path = PluginVariable(
     id="output_csv_path",  # ID of the variable, will allow us to identify the value
     name="output_csv_path",  # The name that will appear in the frontend
-    description='Path to .csv file where output is saved',  # The description that will appear in the frontend
+    description="Path to .csv file where output is saved",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ output_csv_path = PluginVariable(
 output_jpg_path = PluginVariable(
     id="output_jpg_path",  # ID of the variable, will allow us to identify the value
     name="output_jpg_path",  # The name that will appear in the frontend
-    description='Path to .jpg file where output is saved',  # The description that will appear in the frontend
+    description="Path to .jpg file where output is saved",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -48,42 +48,42 @@ output_jpg_path = PluginVariable(
 KT = PluginVariable(
     id="KT",
     name="KT",
-    description='Value of Boltzmann temperature factor.',
+    description="Value of Boltzmann temperature factor.",
     type=VariableTypes.NUMBER
 )
 
 sequence = PluginVariable(
     id="sequence",
     name="sequence",
-    description='Nucleic acid sequence corresponding to the input .ser file. Length of sequence is expected to be the same as the total number of columns in the .ser file, minus the index column (even if later on a subset of columns is selected with the *usecols* option).',
+    description="Nucleic acid sequence corresponding to the input .ser file. Length of sequence is expected to be the same as the total number of columns in the .ser file, minus the index column (even if later on a subset of columns is selected with the *usecols* option).",
     type=VariableTypes.STRING
 )
 
 helpar_name = PluginVariable(
     id="helpar_name",
     name="helpar_name",
-    description='helical parameter name.',
+    description="helical parameter name.",
     type=VariableTypes.STRING
 )
 
 seqpos = PluginVariable(
     id="seqpos",
     name="seqpos",
-    description='list of sequence positions (columns indices starting by 0) to analyze.  If not specified it will analyse the complete sequence.',
-    type=VariableTypes.ARRAY
+    description="list of sequence positions (columns indices starting by 0) to analyze.  If not specified it will analyse the complete sequence.",
+    type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -242,7 +242,7 @@ average_stiffness_block = PluginBlock(
     # The name which will appear on the frontend
     name="average_stiffness",
     # Its description
-    description='Calculate average stiffness constants for each base pair of a trajectory's series.',
+    description="Calculate average stiffness constants for each base pair of a trajectory's series.",
     # The action
     action=average_stiffness_action,
     # A list of inputs, variables and outputs

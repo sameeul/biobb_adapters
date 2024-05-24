@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_pdb_path = PluginVariable(
     id="input_pdb_path",  # ID of the variable, will allow us to identify the value
     name="input_pdb_path",  # The name that will appear in the frontend
-    description='Path to the input PDB file',  # The description that will appear in the frontend
+    description="Path to the input PDB file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_pdb_path = PluginVariable(
 input_probe_pdb_path = PluginVariable(
     id="input_probe_pdb_path",  # ID of the variable, will allow us to identify the value
     name="input_probe_pdb_path",  # The name that will appear in the frontend
-    description='Path to the input probe file in PDB format',  # The description that will appear in the frontend
+    description="Path to the input probe file in PDB format",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -32,7 +32,7 @@ input_probe_pdb_path = PluginVariable(
 input_rst_path = PluginVariable(
     id="input_rst_path",  # ID of the variable, will allow us to identify the value
     name="input_rst_path",  # The name that will appear in the frontend
-    description='Path to the input restart file',  # The description that will appear in the frontend
+    description="Path to the input restart file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -42,7 +42,7 @@ input_rst_path = PluginVariable(
 input_vdw_params_path = PluginVariable(
     id="input_vdw_params_path",  # ID of the variable, will allow us to identify the value
     name="input_vdw_params_path",  # The name that will appear in the frontend
-    description='Path to the CMIP input Van der Waals force parameters, if not provided the CMIP conda installation one is used ("$CONDA_PREFIX/share/cmip/dat/vdwprm")',  # The description that will appear in the frontend
+    description="Path to the CMIP input Van der Waals force parameters, if not provided the CMIP conda installation one is used ('$CONDA_PREFIX/share/cmip/dat/vdwprm')",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -52,7 +52,7 @@ input_vdw_params_path = PluginVariable(
 input_params_path = PluginVariable(
     id="input_params_path",  # ID of the variable, will allow us to identify the value
     name="input_params_path",  # The name that will appear in the frontend
-    description='Path to the CMIP input parameters file',  # The description that will appear in the frontend
+    description="Path to the CMIP input parameters file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -62,7 +62,7 @@ input_params_path = PluginVariable(
 input_json_box_path = PluginVariable(
     id="input_json_box_path",  # ID of the variable, will allow us to identify the value
     name="input_json_box_path",  # The name that will appear in the frontend
-    description='Path to the input CMIP box in JSON format',  # The description that will appear in the frontend
+    description="Path to the input CMIP box in JSON format",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -72,7 +72,7 @@ input_json_box_path = PluginVariable(
 input_json_external_box_path = PluginVariable(
     id="input_json_external_box_path",  # ID of the variable, will allow us to identify the value
     name="input_json_external_box_path",  # The name that will appear in the frontend
-    description='Path to the input CMIP box in JSON format',  # The description that will appear in the frontend
+    description="Path to the input CMIP box in JSON format",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -83,7 +83,7 @@ input_json_external_box_path = PluginVariable(
 output_pdb_path = PluginVariable(
     id="output_pdb_path",  # ID of the variable, will allow us to identify the value
     name="output_pdb_path",  # The name that will appear in the frontend
-    description='Path to the output PDB file',  # The description that will appear in the frontend
+    description="Path to the output PDB file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -93,7 +93,7 @@ output_pdb_path = PluginVariable(
 output_grd_path = PluginVariable(
     id="output_grd_path",  # ID of the variable, will allow us to identify the value
     name="output_grd_path",  # The name that will appear in the frontend
-    description='Path to the output grid file in GRD format',  # The description that will appear in the frontend
+    description="Path to the output grid file in GRD format",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -103,7 +103,7 @@ output_grd_path = PluginVariable(
 output_cube_path = PluginVariable(
     id="output_cube_path",  # ID of the variable, will allow us to identify the value
     name="output_cube_path",  # The name that will appear in the frontend
-    description='Path to the output grid file in cube format',  # The description that will appear in the frontend
+    description="Path to the output grid file in cube format",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -113,7 +113,7 @@ output_cube_path = PluginVariable(
 output_rst_path = PluginVariable(
     id="output_rst_path",  # ID of the variable, will allow us to identify the value
     name="output_rst_path",  # The name that will appear in the frontend
-    description='Path to the output restart file',  # The description that will appear in the frontend
+    description="Path to the output restart file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -123,7 +123,7 @@ output_rst_path = PluginVariable(
 output_byat_path = PluginVariable(
     id="output_byat_path",  # ID of the variable, will allow us to identify the value
     name="output_byat_path",  # The name that will appear in the frontend
-    description='Path to the output atom by atom energy file',  # The description that will appear in the frontend
+    description="Path to the output atom by atom energy file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -133,7 +133,7 @@ output_byat_path = PluginVariable(
 output_log_path = PluginVariable(
     id="output_log_path",  # ID of the variable, will allow us to identify the value
     name="output_log_path",  # The name that will appear in the frontend
-    description='Path to the output CMIP log file LOG',  # The description that will appear in the frontend
+    description="Path to the output CMIP log file LOG",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -143,7 +143,7 @@ output_log_path = PluginVariable(
 output_json_box_path = PluginVariable(
     id="output_json_box_path",  # ID of the variable, will allow us to identify the value
     name="output_json_box_path",  # The name that will appear in the frontend
-    description='Path to the output CMIP box in JSON format',  # The description that will appear in the frontend
+    description="Path to the output CMIP box in JSON format",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -153,7 +153,7 @@ output_json_box_path = PluginVariable(
 output_json_external_box_path = PluginVariable(
     id="output_json_external_box_path",  # ID of the variable, will allow us to identify the value
     name="output_json_external_box_path",  # The name that will appear in the frontend
-    description='Path to the output external CMIP box in JSON format',  # The description that will appear in the frontend
+    description="Path to the output external CMIP box in JSON format",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -168,77 +168,77 @@ output_json_external_box_path = PluginVariable(
 execution_type = PluginVariable(
     id="execution_type",
     name="execution_type",
-    description='Default options for the params file, each one creates a different params file. ',
+    description="Default options for the params file, each one creates a different params file. ",
     type=VariableTypes.STRING
 )
 
 params = PluginVariable(
     id="params",
     name="params",
-    description='CMIP options specification.',
+    description="CMIP options specification.",
     type=VariableTypes.STRING
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Path to the CMIP cmip executable binary.',
+    description="Path to the CMIP cmip executable binary.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Path to the binary executable of your container.',
+    description="Path to the binary executable of your container.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container Image identifier.',
+    description="Container Image identifier.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Path to an internal directory in the container.',
+    description="Path to an internal directory in the container.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Path to the internal CWD in the container.',
+    description="Path to the internal CWD in the container.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='User number id to be mapped inside the container.',
+    description="User number id to be mapped inside the container.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to the binary executable of the container shell.',
+    description="Path to the binary executable of the container shell.",
     type=VariableTypes.STRING
 )
 
@@ -340,7 +340,7 @@ def cmip_run_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_cmip:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_cmip:4.2.0--pyhdfd78af_0",
             "cmip_run",
             "--config",
             "/tmp/cmip_run.json",
@@ -543,7 +543,7 @@ cmip_run_block = PluginBlock(
     # The name which will appear on the frontend
     name="cmip_run",
     # Its description
-    description='Wrapper class for the CMIP cmip module.',
+    description="Wrapper class for the CMIP cmip module.",
     # The action
     action=cmip_run_action,
     # A list of inputs, variables and outputs

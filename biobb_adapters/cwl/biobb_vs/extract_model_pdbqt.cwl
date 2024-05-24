@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Extracts a model from a PDBQT file with several models.
 
 doc: |-
-  None
+  Extracts a model from a PDBQT file with several models. The model number to extract is defined by the user.
 
 baseCommand: extract_model_pdbqt
 

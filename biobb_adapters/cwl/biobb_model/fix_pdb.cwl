@@ -7,7 +7,7 @@ label: Class to renumerate residues in a PDB structure according to a reference 
   from UniProt.
 
 doc: |-
-  None
+  Fix the residue numbering in a PDB structure according to a reference sequence from UniProt.
 
 baseCommand: fix_pdb
 

@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_pdb_path = PluginVariable(
     id="input_pdb_path",  # ID of the variable, will allow us to identify the value
     name="input_pdb_path",  # The name that will appear in the frontend
-    description='Input PDB file',  # The description that will appear in the frontend
+    description="Input PDB file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_pdb_path = PluginVariable(
 input_crd_path = PluginVariable(
     id="input_crd_path",  # ID of the variable, will allow us to identify the value
     name="input_crd_path",  # The name that will appear in the frontend
-    description='Input Trajectory file',  # The description that will appear in the frontend
+    description="Input Trajectory file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ input_crd_path = PluginVariable(
 output_pcz_path = PluginVariable(
     id="output_pcz_path",  # ID of the variable, will allow us to identify the value
     name="output_pcz_path",  # The name that will appear in the frontend
-    description='Output compressed trajectory',  # The description that will appear in the frontend
+    description="Output compressed trajectory",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -48,49 +48,49 @@ output_pcz_path = PluginVariable(
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='pcazip binary path to be used.',
+    description="pcazip binary path to be used.",
     type=VariableTypes.STRING
 )
 
 neigenv = PluginVariable(
     id="neigenv",
     name="neigenv",
-    description='Number of generated eigenvectors',
+    description="Number of generated eigenvectors",
     type=VariableTypes.INTEGER
 )
 
 variance = PluginVariable(
     id="variance",
     name="variance",
-    description='Percentage of variance captured by the final set of eigenvectors',
+    description="Percentage of variance captured by the final set of eigenvectors",
     type=VariableTypes.INTEGER
 )
 
 verbose = PluginVariable(
     id="verbose",
     name="verbose",
-    description='Make output verbose',
+    description="Make output verbose",
     type=VariableTypes.BOOLEAN
 )
 
 gauss_rmsd = PluginVariable(
     id="gauss_rmsd",
     name="gauss_rmsd",
-    description='Use a gaussian RMSd for fitting',
+    description="Use a gaussian RMSd for fitting",
     type=VariableTypes.BOOLEAN
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -246,7 +246,7 @@ pcz_zip_block = PluginBlock(
     # The name which will appear on the frontend
     name="pcz_zip",
     # Its description
-    description='Wrapper of the pcazip tool from the PCAsuite FlexServ module.',
+    description="Wrapper of the pcazip tool from the PCAsuite FlexServ module.",
     # The action
     action=pcz_zip_action,
     # A list of inputs, variables and outputs

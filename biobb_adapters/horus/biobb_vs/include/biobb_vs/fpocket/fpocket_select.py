@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_pockets_zip = PluginVariable(
     id="input_pockets_zip",  # ID of the variable, will allow us to identify the value
     name="input_pockets_zip",  # The name that will appear in the frontend
-    description='Path to the pockets found by fpocket',  # The description that will appear in the frontend
+    description="Path to the pockets found by fpocket",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_pockets_zip = PluginVariable(
 output_pocket_pdb = PluginVariable(
     id="output_pocket_pdb",  # ID of the variable, will allow us to identify the value
     name="output_pocket_pdb",  # The name that will appear in the frontend
-    description='Path to the PDB file with the cavity found by fpocket',  # The description that will appear in the frontend
+    description="Path to the PDB file with the cavity found by fpocket",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ output_pocket_pdb = PluginVariable(
 output_pocket_pqr = PluginVariable(
     id="output_pocket_pqr",  # ID of the variable, will allow us to identify the value
     name="output_pocket_pqr",  # The name that will appear in the frontend
-    description='Path to the PQR file with the pocket found by fpocket',  # The description that will appear in the frontend
+    description="Path to the PQR file with the pocket found by fpocket",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -48,21 +48,21 @@ output_pocket_pqr = PluginVariable(
 pocket = PluginVariable(
     id="pocket",
     name="pocket",
-    description='Pocket id from the summary json given by the fpocket building block.',
+    description="Pocket id from the summary json given by the fpocket building block.",
     type=VariableTypes.INTEGER
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -209,7 +209,7 @@ fpocket_select_block = PluginBlock(
     # The name which will appear on the frontend
     name="fpocket_select",
     # Its description
-    description='Selects a single pocket in the outputs of the fpocket building block.',
+    description="Selects a single pocket in the outputs of the fpocket building block.",
     # The action
     action=fpocket_select_action,
     # A list of inputs, variables and outputs

@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Class to concat two PDB structures in a single PDB file.
 
 doc: |-
-  None
+  Class to concat two PDB structures in a single PDB file.
 
 baseCommand: cat_pdb
 

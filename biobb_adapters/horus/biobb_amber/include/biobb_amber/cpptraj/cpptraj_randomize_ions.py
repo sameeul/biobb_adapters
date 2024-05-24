@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_top_path = PluginVariable(
     id="input_top_path",  # ID of the variable, will allow us to identify the value
     name="input_top_path",  # The name that will appear in the frontend
-    description='Input topology file (AMBER ParmTop)',  # The description that will appear in the frontend
+    description="Input topology file (AMBER ParmTop)",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_top_path = PluginVariable(
 input_crd_path = PluginVariable(
     id="input_crd_path",  # ID of the variable, will allow us to identify the value
     name="input_crd_path",  # The name that will appear in the frontend
-    description='Input coordinates file (AMBER crd)',  # The description that will appear in the frontend
+    description="Input coordinates file (AMBER crd)",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ input_crd_path = PluginVariable(
 output_pdb_path = PluginVariable(
     id="output_pdb_path",  # ID of the variable, will allow us to identify the value
     name="output_pdb_path",  # The name that will appear in the frontend
-    description='Structure PDB file with randomized ions',  # The description that will appear in the frontend
+    description="Structure PDB file with randomized ions",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -43,7 +43,7 @@ output_pdb_path = PluginVariable(
 output_crd_path = PluginVariable(
     id="output_crd_path",  # ID of the variable, will allow us to identify the value
     name="output_crd_path",  # The name that will appear in the frontend
-    description='Structure CRD file with coordinates including randomized ions',  # The description that will appear in the frontend
+    description="Structure CRD file with coordinates including randomized ions",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -58,91 +58,91 @@ output_crd_path = PluginVariable(
 ion_mask = PluginVariable(
     id="ion_mask",
     name="ion_mask",
-    description='Ions to be randomized. Cpptraj mask syntax can be found at the official Cpptraj manual.',
+    description="Ions to be randomized. Cpptraj mask syntax can be found at the official Cpptraj manual.",
     type=VariableTypes.STRING
 )
 
 solute_mask = PluginVariable(
     id="solute_mask",
     name="solute_mask",
-    description='Solute (or set of atoms) around which the ions can get no closer than the distance specified. Cpptraj mask syntax can be found at the official Cpptraj manual.',
+    description="Solute (or set of atoms) around which the ions can get no closer than the distance specified. Cpptraj mask syntax can be found at the official Cpptraj manual.",
     type=VariableTypes.STRING
 )
 
 distance = PluginVariable(
     id="distance",
     name="distance",
-    description='Minimum distance cutoff for the ions around the defined solute.',
+    description="Minimum distance cutoff for the ions around the defined solute.",
     type=VariableTypes.NUMBER
 )
 
 overlap = PluginVariable(
     id="overlap",
     name="overlap",
-    description='Minimum distance between ions.',
+    description="Minimum distance between ions.",
     type=VariableTypes.NUMBER
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Path to the cpptraj executable binary.',
+    description="Path to the cpptraj executable binary.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Container path definition.',
+    description="Container path definition.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container image definition.',
+    description="Container image definition.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Container volume path definition.',
+    description="Container volume path definition.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Container working directory definition.',
+    description="Container working directory definition.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='Container user_id definition.',
+    description="Container user_id definition.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to default shell inside the container.',
+    description="Path to default shell inside the container.",
     type=VariableTypes.STRING
 )
 
@@ -226,7 +226,7 @@ def cpptraj_randomize_ions_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_amber:4.1.0--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_amber:4.2.0--pyhdfd78af_0",
             "cpptraj_randomize_ions",
             "--config",
             "/tmp/cpptraj_randomize_ions.json",
@@ -336,7 +336,7 @@ cpptraj_randomize_ions_block = PluginBlock(
     # The name which will appear on the frontend
     name="cpptraj_randomize_ions",
     # Its description
-    description='Wrapper of the AmberTools (AMBER MD Package) cpptraj tool module.',
+    description="Wrapper of the AmberTools (AMBER MD Package) cpptraj tool module.",
     # The action
     action=cpptraj_randomize_ions_action,
     # A list of inputs, variables and outputs

@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Calculate Canonical Alpha/Gamma populations from alpha and gamma parameters.
 
 doc: |-
-  None
+  Calculate Canonical Alpha/Gamma populations from alpha and gamma parameters.
 
 baseCommand: canonicalag
 

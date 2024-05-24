@@ -13,7 +13,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 output_pdb_path = PluginVariable(
     id="output_pdb_path",  # ID of the variable, will allow us to identify the value
     name="output_pdb_path",  # The name that will appear in the frontend
-    description='Path to the output PDB file',  # The description that will appear in the frontend
+    description="Path to the output PDB file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -28,35 +28,35 @@ output_pdb_path = PluginVariable(
 pdb_code = PluginVariable(
     id="pdb_code",
     name="pdb_code",
-    description='RSCB PDB code.',
+    description="RSCB PDB code.",
     type=VariableTypes.STRING
 )
 
 filter = PluginVariable(
     id="filter",
     name="filter",
-    description='Array of groups to be kept. If value is None or False no filter will be applied. All the possible values are defined in the official PDB specification.',
+    description="Array of groups to be kept. If value is None or False no filter will be applied. All the possible values are defined in the official PDB specification.",
     type=VariableTypes.STRING
 )
 
 api_id = PluginVariable(
     id="api_id",
     name="api_id",
-    description='Identifier of the PDB REST API from which the PDB structure will be downloaded. ',
+    description="Identifier of the PDB REST API from which the PDB structure will be downloaded. ",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -190,7 +190,7 @@ pdb_block = PluginBlock(
     # The name which will appear on the frontend
     name="pdb",
     # Its description
-    description='This class is a wrapper for downloading a PDB structure from the Protein Data Bank.',
+    description="This class is a wrapper for downloading a PDB structure from the Protein Data Bank.",
     # The action
     action=pdb_action,
     # A list of inputs, variables and outputs

@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_log_path = PluginVariable(
     id="input_log_path",  # ID of the variable, will allow us to identify the value
     name="input_log_path",  # The name that will appear in the frontend
-    description='AMBER (sander) Minimization output (log) file',  # The description that will appear in the frontend
+    description="AMBER (sander) Minimization output (log) file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_log_path = PluginVariable(
 output_dat_path = PluginVariable(
     id="output_dat_path",  # ID of the variable, will allow us to identify the value
     name="output_dat_path",  # The name that will appear in the frontend
-    description='Dat output file containing data from the specified terms along the minimization process',  # The description that will appear in the frontend
+    description="Dat output file containing data from the specified terms along the minimization process",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -38,70 +38,70 @@ output_dat_path = PluginVariable(
 terms = PluginVariable(
     id="terms",
     name="terms",
-    description='Statistics descriptors. ',
-    type=VariableTypes.ARRAY
+    description="Statistics descriptors. ",
+    type=VariableTypes.STRING
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Path to the process_minout.perl executable binary.',
+    description="Path to the process_minout.perl executable binary.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Container path definition.',
+    description="Container path definition.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container image definition.',
+    description="Container image definition.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Container volume path definition.',
+    description="Container volume path definition.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Container working directory definition.',
+    description="Container working directory definition.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='Container user_id definition.',
+    description="Container user_id definition.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to default shell inside the container.',
+    description="Path to default shell inside the container.",
     type=VariableTypes.STRING
 )
 
@@ -175,7 +175,7 @@ def process_minout_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_amber:4.1.0--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_amber:4.2.0--pyhdfd78af_0",
             "process_minout",
             "--config",
             "/tmp/process_minout.json",
@@ -262,7 +262,7 @@ process_minout_block = PluginBlock(
     # The name which will appear on the frontend
     name="process_minout",
     # Its description
-    description='Wrapper of the AmberTools (AMBER MD Package) process_minout tool module.',
+    description="Wrapper of the AmberTools (AMBER MD Package) process_minout tool module.",
     # The action
     action=process_minout_action,
     # A list of inputs, variables and outputs

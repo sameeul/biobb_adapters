@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Wrapper for the Cur+ executable  that is part of the Curves+ software suite.
 
 doc: |-
-  None
+  The Cur+ program is used to analyze the structure of nucleic acids and their complexes.
 
 baseCommand: biobb_curves
 

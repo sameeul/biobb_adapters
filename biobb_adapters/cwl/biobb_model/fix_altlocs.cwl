@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Fix alternate locations from residues.
 
 doc: |-
-  None
+  Fix alternate locations using the altlocs list or occupancy.
 
 baseCommand: fix_altlocs
 

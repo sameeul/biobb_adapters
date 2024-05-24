@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_top_path = PluginVariable(
     id="input_top_path",  # ID of the variable, will allow us to identify the value
     name="input_top_path",  # The name that will appear in the frontend
-    description='Path to the input structure or topology file',  # The description that will appear in the frontend
+    description="Path to the input structure or topology file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_top_path = PluginVariable(
 input_traj_path = PluginVariable(
     id="input_traj_path",  # ID of the variable, will allow us to identify the value
     name="input_traj_path",  # The name that will appear in the frontend
-    description='Path to the input trajectory to be processed',  # The description that will appear in the frontend
+    description="Path to the input trajectory to be processed",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ input_traj_path = PluginVariable(
 output_cpptraj_path = PluginVariable(
     id="output_cpptraj_path",  # ID of the variable, will allow us to identify the value
     name="output_cpptraj_path",  # The name that will appear in the frontend
-    description='Path to the output analysis',  # The description that will appear in the frontend
+    description="Path to the output analysis",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -48,91 +48,91 @@ output_cpptraj_path = PluginVariable(
 start = PluginVariable(
     id="start",
     name="start",
-    description='Starting frame for slicing.',
+    description="Starting frame for slicing.",
     type=VariableTypes.INTEGER
 )
 
 end = PluginVariable(
     id="end",
     name="end",
-    description='Ending frame for slicing.',
+    description="Ending frame for slicing.",
     type=VariableTypes.INTEGER
 )
 
 steps = PluginVariable(
     id="steps",
     name="steps",
-    description='Step for slicing.',
+    description="Step for slicing.",
     type=VariableTypes.INTEGER
 )
 
 mask = PluginVariable(
     id="mask",
     name="mask",
-    description='Mask definition. ',
+    description="Mask definition. ",
     type=VariableTypes.STRING
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Path to the cpptraj executable binary.',
+    description="Path to the cpptraj executable binary.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Container path definition.',
+    description="Container path definition.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container image definition.',
+    description="Container image definition.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Container volume path definition.',
+    description="Container volume path definition.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Container working directory definition.',
+    description="Container working directory definition.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='Container user_id definition.',
+    description="Container user_id definition.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to default shell inside the container.',
+    description="Path to default shell inside the container.",
     type=VariableTypes.STRING
 )
 
@@ -214,7 +214,7 @@ def cpptraj_rgyr_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_analysis:4.1.0--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_analysis:4.2.0--pyhdfd78af_0",
             "cpptraj_rgyr",
             "--config",
             "/tmp/cpptraj_rgyr.json",
@@ -312,7 +312,7 @@ cpptraj_rgyr_block = PluginBlock(
     # The name which will appear on the frontend
     name="cpptraj_rgyr",
     # Its description
-    description='Wrapper of the Ambertools Cpptraj module for computing the radius of gyration (Rgyr) from a given cpptraj compatible trajectory.',
+    description="Wrapper of the Ambertools Cpptraj module for computing the radius of gyration (Rgyr) from a given cpptraj compatible trajectory.",
     # The action
     action=cpptraj_rgyr_action,
     # A list of inputs, variables and outputs

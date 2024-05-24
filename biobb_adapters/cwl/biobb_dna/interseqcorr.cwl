@@ -7,7 +7,7 @@ label: Calculate correlation between all base pairs of a single sequence and for
   single helical parameter.
 
 doc: |-
-  None
+  Calculate correlation between all base pairs of a single sequence and for a single helical parameter.
 
 baseCommand: interseqcorr
 

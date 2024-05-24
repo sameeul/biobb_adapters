@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_structure1_path = PluginVariable(
     id="input_structure1_path",  # ID of the variable, will allow us to identify the value
     name="input_structure1_path",  # The name that will appear in the frontend
-    description='Path to the input ligand structure file 1',  # The description that will appear in the frontend
+    description="Path to the input ligand structure file 1",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_structure1_path = PluginVariable(
 input_structure2_path = PluginVariable(
     id="input_structure2_path",  # ID of the variable, will allow us to identify the value
     name="input_structure2_path",  # The name that will appear in the frontend
-    description='Path to the input ligand structure file 2',  # The description that will appear in the frontend
+    description="Path to the input ligand structure file 2",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ input_structure2_path = PluginVariable(
 output_pairs1_path = PluginVariable(
     id="output_pairs1_path",  # ID of the variable, will allow us to identify the value
     name="output_pairs1_path",  # The name that will appear in the frontend
-    description='Path to the output pairs for the ligand structure 1',  # The description that will appear in the frontend
+    description="Path to the output pairs for the ligand structure 1",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -43,7 +43,7 @@ output_pairs1_path = PluginVariable(
 output_pairs2_path = PluginVariable(
     id="output_pairs2_path",  # ID of the variable, will allow us to identify the value
     name="output_pairs2_path",  # The name that will appear in the frontend
-    description='Path to the output pairs for the ligand structure 2',  # The description that will appear in the frontend
+    description="Path to the output pairs for the ligand structure 2",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -53,7 +53,7 @@ output_pairs2_path = PluginVariable(
 output_log_path = PluginVariable(
     id="output_log_path",  # ID of the variable, will allow us to identify the value
     name="output_log_path",  # The name that will appear in the frontend
-    description='Path to the log file',  # The description that will appear in the frontend
+    description="Path to the log file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -63,7 +63,7 @@ output_log_path = PluginVariable(
 output_structure1_path = PluginVariable(
     id="output_structure1_path",  # ID of the variable, will allow us to identify the value
     name="output_structure1_path",  # The name that will appear in the frontend
-    description='Path to the superimposed structure for the ligand structure 1',  # The description that will appear in the frontend
+    description="Path to the superimposed structure for the ligand structure 1",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -73,7 +73,7 @@ output_structure1_path = PluginVariable(
 output_structure2_path = PluginVariable(
     id="output_structure2_path",  # ID of the variable, will allow us to identify the value
     name="output_structure2_path",  # The name that will appear in the frontend
-    description='Path to the superimposed structure for the ligand structure 2',  # The description that will appear in the frontend
+    description="Path to the superimposed structure for the ligand structure 2",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -83,7 +83,7 @@ output_structure2_path = PluginVariable(
 output_morph1_path = PluginVariable(
     id="output_morph1_path",  # ID of the variable, will allow us to identify the value
     name="output_morph1_path",  # The name that will appear in the frontend
-    description='Path to the morphable atoms for the ligand structure 1',  # The description that will appear in the frontend
+    description="Path to the morphable atoms for the ligand structure 1",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -93,7 +93,7 @@ output_morph1_path = PluginVariable(
 output_morph2_path = PluginVariable(
     id="output_morph2_path",  # ID of the variable, will allow us to identify the value
     name="output_morph2_path",  # The name that will appear in the frontend
-    description='Path to the morphable atoms for the ligand structure 2',  # The description that will appear in the frontend
+    description="Path to the morphable atoms for the ligand structure 2",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -103,7 +103,7 @@ output_morph2_path = PluginVariable(
 output_scaffold1_path = PluginVariable(
     id="output_scaffold1_path",  # ID of the variable, will allow us to identify the value
     name="output_scaffold1_path",  # The name that will appear in the frontend
-    description='Path to the index of atoms to consider for the ligand structure 1',  # The description that will appear in the frontend
+    description="Path to the index of atoms to consider for the ligand structure 1",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -113,7 +113,7 @@ output_scaffold1_path = PluginVariable(
 output_scaffold2_path = PluginVariable(
     id="output_scaffold2_path",  # ID of the variable, will allow us to identify the value
     name="output_scaffold2_path",  # The name that will appear in the frontend
-    description='Path to the index of atoms to consider for the ligand structure 2',  # The description that will appear in the frontend
+    description="Path to the index of atoms to consider for the ligand structure 2",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -123,7 +123,7 @@ output_scaffold2_path = PluginVariable(
 output_score_path = PluginVariable(
     id="output_score_path",  # ID of the variable, will allow us to identify the value
     name="output_score_path",  # The name that will appear in the frontend
-    description='Path to the morphing score',  # The description that will appear in the frontend
+    description="Path to the morphing score",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -138,133 +138,133 @@ output_score_path = PluginVariable(
 noalignment = PluginVariable(
     id="noalignment",
     name="noalignment",
-    description='Should the alignment method be disabled.',
+    description="Should the alignment method be disabled.",
     type=VariableTypes.BOOLEAN
 )
 
 nomcs = PluginVariable(
     id="nomcs",
     name="nomcs",
-    description='Should the MCS method be disabled.',
+    description="Should the MCS method be disabled.",
     type=VariableTypes.BOOLEAN
 )
 
 noH2H = PluginVariable(
     id="noH2H",
     name="noH2H",
-    description='Should non-polar hydrogens be discarded from morphing into any other hydrogen.',
+    description="Should non-polar hydrogens be discarded from morphing into any other hydrogen.",
     type=VariableTypes.BOOLEAN
 )
 
 H2Hpolar = PluginVariable(
     id="H2Hpolar",
     name="H2Hpolar",
-    description='Should polar hydrogens be morphed into polar hydrogens.',
+    description="Should polar hydrogens be morphed into polar hydrogens.",
     type=VariableTypes.BOOLEAN
 )
 
 H2Heavy = PluginVariable(
     id="H2Heavy",
     name="H2Heavy",
-    description='Should hydrogen be morphed into a heavy atom.',
+    description="Should hydrogen be morphed into a heavy atom.",
     type=VariableTypes.BOOLEAN
 )
 
 RingsOnly = PluginVariable(
     id="RingsOnly",
     name="RingsOnly",
-    description='Should rings only be used in the MCS search and alignemnt.',
+    description="Should rings only be used in the MCS search and alignemnt.",
     type=VariableTypes.BOOLEAN
 )
 
 dMCS = PluginVariable(
     id="dMCS",
     name="dMCS",
-    description='Should the distance criterium be also applied in the MCS based search.',
+    description="Should the distance criterium be also applied in the MCS based search.",
     type=VariableTypes.BOOLEAN
 )
 
 swap = PluginVariable(
     id="swap",
     name="swap",
-    description='Try swapping the molecule order which would be a cross-check and require double execution time.',
+    description="Try swapping the molecule order which would be a cross-check and require double execution time.",
     type=VariableTypes.BOOLEAN
 )
 
 nochirality = PluginVariable(
     id="nochirality",
     name="nochirality",
-    description='Perform chirality check for MCS mapping.',
+    description="Perform chirality check for MCS mapping.",
     type=VariableTypes.BOOLEAN
 )
 
 distance = PluginVariable(
     id="distance",
     name="distance",
-    description='Distance (nm) between atoms to consider them morphable for alignment approach.',
+    description="Distance (nm) between atoms to consider them morphable for alignment approach.",
     type=VariableTypes.NUMBER
 )
 
 timeout = PluginVariable(
     id="timeout",
     name="timeout",
-    description='Maximum time (s) for an MCS search.',
+    description="Maximum time (s) for an MCS search.",
     type=VariableTypes.INTEGER
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Path to the binary executable of your container.',
+    description="Path to the binary executable of your container.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container Image identifier.',
+    description="Container Image identifier.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Path to an internal directory in the container.',
+    description="Path to an internal directory in the container.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Path to the internal CWD in the container.',
+    description="Path to the internal CWD in the container.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='User number id to be mapped inside the container.',
+    description="User number id to be mapped inside the container.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to the binary executable of the container shell.',
+    description="Path to the binary executable of the container shell.",
     type=VariableTypes.STRING
 )
 
@@ -594,7 +594,7 @@ pmxatom_mapping_block = PluginBlock(
     # The name which will appear on the frontend
     name="pmxatom_mapping",
     # Its description
-    description='Wrapper class for the PMX atom_mapping module.',
+    description="Wrapper class for the PMX atom_mapping module.",
     # The action
     action=pmxatom_mapping_action,
     # A list of inputs, variables and outputs

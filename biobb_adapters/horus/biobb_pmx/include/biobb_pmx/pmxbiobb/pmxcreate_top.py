@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_topology1_path = PluginVariable(
     id="input_topology1_path",  # ID of the variable, will allow us to identify the value
     name="input_topology1_path",  # The name that will appear in the frontend
-    description='Path to the input topology file 1',  # The description that will appear in the frontend
+    description="Path to the input topology file 1",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_topology1_path = PluginVariable(
 input_topology2_path = PluginVariable(
     id="input_topology2_path",  # ID of the variable, will allow us to identify the value
     name="input_topology2_path",  # The name that will appear in the frontend
-    description='Path to the input topology file 2',  # The description that will appear in the frontend
+    description="Path to the input topology file 2",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ input_topology2_path = PluginVariable(
 output_topology_path = PluginVariable(
     id="output_topology_path",  # ID of the variable, will allow us to identify the value
     name="output_topology_path",  # The name that will appear in the frontend
-    description='Path to the complete ligand topology file',  # The description that will appear in the frontend
+    description="Path to the complete ligand topology file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -48,84 +48,84 @@ output_topology_path = PluginVariable(
 force_field = PluginVariable(
     id="force_field",
     name="force_field",
-    description='Force-field to be included in the generated topology.',
+    description="Force-field to be included in the generated topology.",
     type=VariableTypes.STRING
 )
 
 water = PluginVariable(
     id="water",
     name="water",
-    description='Water model to be included in the generated topology.',
+    description="Water model to be included in the generated topology.",
     type=VariableTypes.STRING
 )
 
 system_name = PluginVariable(
     id="system_name",
     name="system_name",
-    description='System name to be included in the generated topology.',
+    description="System name to be included in the generated topology.",
     type=VariableTypes.STRING
 )
 
 mols = PluginVariable(
     id="mols",
     name="mols",
-    description='Molecules to be included in the generated topology.',
-    type=VariableTypes.ARRAY
+    description="Molecules to be included in the generated topology.",
+    type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Path to the binary executable of your container.',
+    description="Path to the binary executable of your container.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container Image identifier.',
+    description="Container Image identifier.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Path to an internal directory in the container.',
+    description="Path to an internal directory in the container.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Path to the internal CWD in the container.',
+    description="Path to the internal CWD in the container.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='User number id to be mapped inside the container.',
+    description="User number id to be mapped inside the container.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to the binary executable of the container shell.',
+    description="Path to the binary executable of the container shell.",
     type=VariableTypes.STRING
 )
 
@@ -301,7 +301,7 @@ pmxcreate_top_block = PluginBlock(
     # The name which will appear on the frontend
     name="pmxcreate_top",
     # Its description
-    description='Wrapper class for the PMX create_top module.',
+    description="Wrapper class for the PMX create_top module.",
     # The action
     action=pmxcreate_top_action,
     # A list of inputs, variables and outputs

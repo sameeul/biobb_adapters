@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Class to extract residues from a 3D structure using Biopython.
 
 doc: |-
-  None
+  Extracts a list of residues from a 3D structure using Biopython.
 
 baseCommand: extract_residues
 

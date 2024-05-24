@@ -7,7 +7,7 @@ label: Created time series and histogram plots for each base pair from a helical
   series file.
 
 doc: |-
-  None
+  The helical parameter series file is expected to be a table, with the first column being an index and the rest the helical parameter values for each base/basepair.
 
 baseCommand: dna_timeseries
 

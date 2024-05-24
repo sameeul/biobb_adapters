@@ -13,7 +13,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 output_mutations_list_txt = PluginVariable(
     id="output_mutations_list_txt",  # ID of the variable, will allow us to identify the value
     name="output_mutations_list_txt",  # The name that will appear in the frontend
-    description='Path to the TXT file containing an ASCII comma separated values of the mutations',  # The description that will appear in the frontend
+    description="Path to the TXT file containing an ASCII comma separated values of the mutations",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -28,21 +28,21 @@ output_mutations_list_txt = PluginVariable(
 pdb_code = PluginVariable(
     id="pdb_code",
     name="pdb_code",
-    description='RSCB PDB four letter code.',
+    description="RSCB PDB four letter code.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -168,7 +168,7 @@ pdb_variants_block = PluginBlock(
     # The name which will appear on the frontend
     name="pdb_variants",
     # Its description
-    description='This class creates a text file containing a list of all the variants mapped to a PDB code from the corresponding UNIPROT entries.',
+    description="This class creates a text file containing a list of all the variants mapped to a PDB code from the corresponding UNIPROT entries.",
     # The action
     action=pdb_variants_action,
     # A list of inputs, variables and outputs

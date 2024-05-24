@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_structure_path = PluginVariable(
     id="input_structure_path",  # ID of the variable, will allow us to identify the value
     name="input_structure_path",  # The name that will appear in the frontend
-    description='Input structure file',  # The description that will appear in the frontend
+    description="Input structure file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_structure_path = PluginVariable(
 output_pdb_path = PluginVariable(
     id="output_pdb_path",  # ID of the variable, will allow us to identify the value
     name="output_pdb_path",  # The name that will appear in the frontend
-    description='Output pdb file',  # The description that will appear in the frontend
+    description="Output pdb file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ output_pdb_path = PluginVariable(
 output_gro_path = PluginVariable(
     id="output_gro_path",  # ID of the variable, will allow us to identify the value
     name="output_gro_path",  # The name that will appear in the frontend
-    description='Output gro file',  # The description that will appear in the frontend
+    description="Output gro file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -43,7 +43,7 @@ output_gro_path = PluginVariable(
 output_dat_path = PluginVariable(
     id="output_dat_path",  # ID of the variable, will allow us to identify the value
     name="output_dat_path",  # The name that will appear in the frontend
-    description='Output dat with structure interpretation and bond definitions',  # The description that will appear in the frontend
+    description="Output dat with structure interpretation and bond definitions",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -58,77 +58,77 @@ output_dat_path = PluginVariable(
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Concoord dist binary path to be used.',
+    description="Concoord dist binary path to be used.",
     type=VariableTypes.STRING
 )
 
 vdw = PluginVariable(
     id="vdw",
     name="vdw",
-    description='Select a set of Van der Waals parameters. ',
+    description="Select a set of Van der Waals parameters. ",
     type=VariableTypes.INTEGER
 )
 
 bond_angle = PluginVariable(
     id="bond_angle",
     name="bond_angle",
-    description='Select a set of bond/angle parameters. ',
+    description="Select a set of bond/angle parameters. ",
     type=VariableTypes.INTEGER
 )
 
 retain_hydrogens = PluginVariable(
     id="retain_hydrogens",
     name="retain_hydrogens",
-    description='Retain hydrogen atoms',
+    description="Retain hydrogen atoms",
     type=VariableTypes.BOOLEAN
 )
 
 nb_interactions = PluginVariable(
     id="nb_interactions",
     name="nb_interactions",
-    description='Try to find alternatives for non-bonded interactions (by default the native contacts will be preserved)',
+    description="Try to find alternatives for non-bonded interactions (by default the native contacts will be preserved)",
     type=VariableTypes.BOOLEAN
 )
 
 cutoff = PluginVariable(
     id="cutoff",
     name="cutoff",
-    description='cut-off radius (Angstroms) for non-bonded interacting pairs (the cut-off distances are additional to the sum of VDW radii)',
+    description="cut-off radius (Angstroms) for non-bonded interacting pairs (the cut-off distances are additional to the sum of VDW radii)",
     type=VariableTypes.NUMBER
 )
 
 min_distances = PluginVariable(
     id="min_distances",
     name="min_distances",
-    description='Minimum number of distances to be defined for each atom',
+    description="Minimum number of distances to be defined for each atom",
     type=VariableTypes.INTEGER
 )
 
 damp = PluginVariable(
     id="damp",
     name="damp",
-    description='Multiply each distance margin by this value',
+    description="Multiply each distance margin by this value",
     type=VariableTypes.NUMBER
 )
 
 fixed_atoms = PluginVariable(
     id="fixed_atoms",
     name="fixed_atoms",
-    description='Interpret zero occupancy as atoms to keep fixed',
+    description="Interpret zero occupancy as atoms to keep fixed",
     type=VariableTypes.BOOLEAN
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -321,7 +321,7 @@ concoord_dist_block = PluginBlock(
     # The name which will appear on the frontend
     name="concoord_dist",
     # Its description
-    description='Wrapper of the Dist tool from the Concoord package.',
+    description="Wrapper of the Dist tool from the Concoord package.",
     # The action
     action=concoord_dist_action,
     # A list of inputs, variables and outputs

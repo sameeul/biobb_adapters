@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Fix SS bonds from residues.
 
 doc: |-
-  None
+  Fix the SS bonds in a PDB structure.
 
 baseCommand: fix_ssbonds
 

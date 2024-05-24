@@ -13,7 +13,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 output_pdb_path = PluginVariable(
     id="output_pdb_path",  # ID of the variable, will allow us to identify the value
     name="output_pdb_path",  # The name that will appear in the frontend
-    description='Linear (unfolded) 3D structure PDB file',  # The description that will appear in the frontend
+    description="Linear (unfolded) 3D structure PDB file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -28,84 +28,84 @@ output_pdb_path = PluginVariable(
 sequence = PluginVariable(
     id="sequence",
     name="sequence",
-    description='Aminoacid sequence to convert to a linear 3D structure. Aminoacids should be written in 3-letter code, with a blank space between them.',
+    description="Aminoacid sequence to convert to a linear 3D structure. Aminoacids should be written in 3-letter code, with a blank space between them.",
     type=VariableTypes.STRING
 )
 
 forcefield = PluginVariable(
     id="forcefield",
     name="forcefield",
-    description='Forcefield to be used for the structure generation. ',
-    type=VariableTypes.ARRAY
+    description="Forcefield to be used for the structure generation. ",
+    type=VariableTypes.STRING
 )
 
 build_library = PluginVariable(
     id="build_library",
     name="build_library",
-    description='Generate AMBER lib file for the structure.',
+    description="Generate AMBER lib file for the structure.",
     type=VariableTypes.BOOLEAN
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Path to the tleap executable binary.',
+    description="Path to the tleap executable binary.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Container path definition.',
+    description="Container path definition.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container image definition.',
+    description="Container image definition.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Container volume path definition.',
+    description="Container volume path definition.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Container working directory definition.',
+    description="Container working directory definition.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='Container user_id definition.',
+    description="Container user_id definition.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to default shell inside the container.',
+    description="Path to default shell inside the container.",
     type=VariableTypes.STRING
 )
 
@@ -181,7 +181,7 @@ def leap_build_linear_structure_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_amber:4.1.0--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_amber:4.2.0--pyhdfd78af_0",
             "leap_build_linear_structure",
             "--config",
             "/tmp/leap_build_linear_structure.json",
@@ -267,7 +267,7 @@ leap_build_linear_structure_block = PluginBlock(
     # The name which will appear on the frontend
     name="leap_build_linear_structure",
     # Its description
-    description='Wrapper of the AmberTools (AMBER MD Package) leap tool module.',
+    description="Wrapper of the AmberTools (AMBER MD Package) leap tool module.",
     # The action
     action=leap_build_linear_structure_action,
     # A list of inputs, variables and outputs

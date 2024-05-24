@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_pcz_path = PluginVariable(
     id="input_pcz_path",  # ID of the variable, will allow us to identify the value
     name="input_pcz_path",  # The name that will appear in the frontend
-    description='Input compressed trajectory file',  # The description that will appear in the frontend
+    description="Input compressed trajectory file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_pcz_path = PluginVariable(
 output_dat_path = PluginVariable(
     id="output_dat_path",  # ID of the variable, will allow us to identify the value
     name="output_dat_path",  # The name that will appear in the frontend
-    description='Output Bfactor x residue x PCA mode file',  # The description that will appear in the frontend
+    description="Output Bfactor x residue x PCA mode file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ output_dat_path = PluginVariable(
 output_pdb_path = PluginVariable(
     id="output_pdb_path",  # ID of the variable, will allow us to identify the value
     name="output_pdb_path",  # The name that will appear in the frontend
-    description='Output PDB with Bfactor x residue x PCA mode file',  # The description that will appear in the frontend
+    description="Output PDB with Bfactor x residue x PCA mode file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -48,35 +48,35 @@ output_pdb_path = PluginVariable(
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='pczdump binary path to be used.',
+    description="pczdump binary path to be used.",
     type=VariableTypes.STRING
 )
 
 eigenvector = PluginVariable(
     id="eigenvector",
     name="eigenvector",
-    description='PCA mode (eigenvector) from which to extract bfactor values per residue (0 means average over all modes).',
+    description="PCA mode (eigenvector) from which to extract bfactor values per residue (0 means average over all modes).",
     type=VariableTypes.INTEGER
 )
 
 pdb = PluginVariable(
     id="pdb",
     name="pdb",
-    description='Generate a PDB file with the computed bfactors (to be easily represented with colour scale)',
+    description="Generate a PDB file with the computed bfactors (to be easily represented with colour scale)",
     type=VariableTypes.BOOLEAN
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -231,7 +231,7 @@ pcz_bfactor_block = PluginBlock(
     # The name which will appear on the frontend
     name="pcz_bfactor",
     # Its description
-    description='Extract residue bfactors x PCA mode from a compressed PCZ file.',
+    description="Extract residue bfactors x PCA mode from a compressed PCZ file.",
     # The action
     action=pcz_bfactor_action,
     # A list of inputs, variables and outputs

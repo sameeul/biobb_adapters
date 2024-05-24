@@ -7,7 +7,7 @@ label: Calculate average stiffness constants for each base pair of a trajectory'
   series.
 
 doc: |-
-  None
+  Calculate the average stiffness constants for each base pair of a trajectory's series. The input is a .ser file with the helical parameter values for each base/basepair. The output is a .csv file with the average stiffness constants for each base pair and a .jpg file with a plot of the average stiffness constants for each base pair.
 
 baseCommand: average_stiffness
 

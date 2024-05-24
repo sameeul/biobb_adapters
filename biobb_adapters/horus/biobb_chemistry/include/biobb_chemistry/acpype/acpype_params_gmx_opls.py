@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_path = PluginVariable(
     id="input_path",  # ID of the variable, will allow us to identify the value
     name="input_path",  # The name that will appear in the frontend
-    description='Path to the input file',  # The description that will appear in the frontend
+    description="Path to the input file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_path = PluginVariable(
 output_path_itp = PluginVariable(
     id="output_path_itp",  # ID of the variable, will allow us to identify the value
     name="output_path_itp",  # The name that will appear in the frontend
-    description='Path to the ITP output file',  # The description that will appear in the frontend
+    description="Path to the ITP output file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ output_path_itp = PluginVariable(
 output_path_top = PluginVariable(
     id="output_path_top",  # ID of the variable, will allow us to identify the value
     name="output_path_top",  # The name that will appear in the frontend
-    description='Path to the TOP output file',  # The description that will appear in the frontend
+    description="Path to the TOP output file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -48,77 +48,77 @@ output_path_top = PluginVariable(
 basename = PluginVariable(
     id="basename",
     name="basename",
-    description='A basename for the project (folder and output files).',
+    description="A basename for the project (folder and output files).",
     type=VariableTypes.STRING
 )
 
 charge = PluginVariable(
     id="charge",
     name="charge",
-    description='Net molecular charge, for gas default is 0. If None the charge is guessed by acpype.',
+    description="Net molecular charge, for gas default is 0. If None the charge is guessed by acpype.",
     type=VariableTypes.INTEGER
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Path to the acpype executable binary.',
+    description="Path to the acpype executable binary.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Container path definition.',
+    description="Container path definition.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container image definition.',
+    description="Container image definition.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Container volume path definition.',
+    description="Container volume path definition.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Container working directory definition.',
+    description="Container working directory definition.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='Container user_id definition.',
+    description="Container user_id definition.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to default shell inside the container.',
+    description="Path to default shell inside the container.",
     type=VariableTypes.STRING
 )
 
@@ -196,7 +196,7 @@ def acpype_params_gmx_opls_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_chemistry:4.1.0--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_chemistry:4.2.0--pyhdfd78af_0",
             "acpype_params_gmx_opls",
             "--config",
             "/tmp/acpype_params_gmx_opls.json",
@@ -297,7 +297,7 @@ acpype_params_gmx_opls_block = PluginBlock(
     # The name which will appear on the frontend
     name="acpype_params_gmx_opls",
     # Its description
-    description='This class is a wrapper of Acpype tool for generation of topologies for OPLS/AA.',
+    description="This class is a wrapper of Acpype tool for generation of topologies for OPLS/AA.",
     # The action
     action=acpype_params_gmx_opls_action,
     # A list of inputs, variables and outputs

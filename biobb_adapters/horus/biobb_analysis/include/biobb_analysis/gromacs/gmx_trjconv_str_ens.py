@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_traj_path = PluginVariable(
     id="input_traj_path",  # ID of the variable, will allow us to identify the value
     name="input_traj_path",  # The name that will appear in the frontend
-    description='Path to the GROMACS trajectory file',  # The description that will appear in the frontend
+    description="Path to the GROMACS trajectory file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_traj_path = PluginVariable(
 input_top_path = PluginVariable(
     id="input_top_path",  # ID of the variable, will allow us to identify the value
     name="input_top_path",  # The name that will appear in the frontend
-    description='Path to the GROMACS input topology file',  # The description that will appear in the frontend
+    description="Path to the GROMACS input topology file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -32,7 +32,7 @@ input_top_path = PluginVariable(
 input_index_path = PluginVariable(
     id="input_index_path",  # ID of the variable, will allow us to identify the value
     name="input_index_path",  # The name that will appear in the frontend
-    description='Path to the GROMACS index file',  # The description that will appear in the frontend
+    description="Path to the GROMACS index file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -43,7 +43,7 @@ input_index_path = PluginVariable(
 output_str_ens_path = PluginVariable(
     id="output_str_ens_path",  # ID of the variable, will allow us to identify the value
     name="output_str_ens_path",  # The name that will appear in the frontend
-    description='Path to the output file',  # The description that will appear in the frontend
+    description="Path to the output file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -58,112 +58,112 @@ output_str_ens_path = PluginVariable(
 selection = PluginVariable(
     id="selection",
     name="selection",
-    description='Group where the trjconv will be performed. If **input_index_path** provided, check the file for the accepted values. ',
+    description="Group where the trjconv will be performed. If **input_index_path** provided, check the file for the accepted values. ",
     type=VariableTypes.STRING
 )
 
 skip = PluginVariable(
     id="skip",
     name="skip",
-    description='Only write every nr-th frame.',
+    description="Only write every nr-th frame.",
     type=VariableTypes.INTEGER
 )
 
 start = PluginVariable(
     id="start",
     name="start",
-    description='Time of first frame to read from trajectory (default unit ps).',
+    description="Time of first frame to read from trajectory (default unit ps).",
     type=VariableTypes.INTEGER
 )
 
 end = PluginVariable(
     id="end",
     name="end",
-    description='Time of last frame to read from trajectory (default unit ps).',
+    description="Time of last frame to read from trajectory (default unit ps).",
     type=VariableTypes.INTEGER
 )
 
 dt = PluginVariable(
     id="dt",
     name="dt",
-    description='Only write frame when t MOD dt = first time (ps).',
+    description="Only write frame when t MOD dt = first time (ps).",
     type=VariableTypes.INTEGER
 )
 
 output_name = PluginVariable(
     id="output_name",
     name="output_name",
-    description='File name for ensemble of output files.',
+    description="File name for ensemble of output files.",
     type=VariableTypes.STRING
 )
 
 output_type = PluginVariable(
     id="output_type",
     name="output_type",
-    description='File type for ensemble of output files. ',
+    description="File type for ensemble of output files. ",
     type=VariableTypes.STRING
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Path to the GROMACS executable binary.',
+    description="Path to the GROMACS executable binary.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Container path definition.',
+    description="Container path definition.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container image definition.',
+    description="Container image definition.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Container volume path definition.',
+    description="Container volume path definition.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Container working directory definition.',
+    description="Container working directory definition.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='Container user_id definition.',
+    description="Container user_id definition.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to default shell inside the container.',
+    description="Path to default shell inside the container.",
     type=VariableTypes.STRING
 )
 
@@ -253,7 +253,7 @@ def gmx_trjconv_str_ens_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_analysis:4.1.0--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_analysis:4.2.0--pyhdfd78af_0",
             "gmx_trjconv_str_ens",
             "--config",
             "/tmp/gmx_trjconv_str_ens.json",
@@ -362,7 +362,7 @@ gmx_trjconv_str_ens_block = PluginBlock(
     # The name which will appear on the frontend
     name="gmx_trjconv_str_ens",
     # Its description
-    description='Wrapper of the GROMACS trjconv module for extracting an ensemble of frames containing a selection of atoms from GROMACS compatible trajectory files.',
+    description="Wrapper of the GROMACS trjconv module for extracting an ensemble of frames containing a selection of atoms from GROMACS compatible trajectory files.",
     # The action
     action=gmx_trjconv_str_ens_action,
     # A list of inputs, variables and outputs

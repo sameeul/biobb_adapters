@@ -13,7 +13,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 output_sdf_path = PluginVariable(
     id="output_sdf_path",  # ID of the variable, will allow us to identify the value
     name="output_sdf_path",  # The name that will appear in the frontend
-    description='Path to the output SDF component file',  # The description that will appear in the frontend
+    description="Path to the output SDF component file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -28,21 +28,21 @@ output_sdf_path = PluginVariable(
 drugbank_id = PluginVariable(
     id="drugbank_id",
     name="drugbank_id",
-    description='Drugbank component id.',
+    description="Drugbank component id.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -168,7 +168,7 @@ drugbank_block = PluginBlock(
     # The name which will appear on the frontend
     name="drugbank",
     # Its description
-    description='This class is a wrapper for the Drugbank REST API.',
+    description="This class is a wrapper for the Drugbank REST API.",
     # The action
     action=drugbank_action,
     # A list of inputs, variables and outputs

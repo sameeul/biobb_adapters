@@ -7,7 +7,7 @@ label: Calculate correlation between all intra-base pairs of a single sequence a
   for a single helical parameter.
 
 doc: |-
-  None
+  Calculate correlation between neighboring base pairs and pairs of helical parameters.
 
 baseCommand: intrabpcorr
 

@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_ndx_path = PluginVariable(
     id="input_ndx_path",  # ID of the variable, will allow us to identify the value
     name="input_ndx_path",  # The name that will appear in the frontend
-    description='Path to the input NDX index file',  # The description that will appear in the frontend
+    description="Path to the input NDX index file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_ndx_path = PluginVariable(
 input_top_zip_path = PluginVariable(
     id="input_top_zip_path",  # ID of the variable, will allow us to identify the value
     name="input_top_zip_path",  # The name that will appear in the frontend
-    description='Path the input TOP topology in zip format',  # The description that will appear in the frontend
+    description="Path the input TOP topology in zip format",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ input_top_zip_path = PluginVariable(
 output_top_zip_path = PluginVariable(
     id="output_top_zip_path",  # ID of the variable, will allow us to identify the value
     name="output_top_zip_path",  # The name that will appear in the frontend
-    description='Path the output TOP topology in zip format',  # The description that will appear in the frontend
+    description="Path the output TOP topology in zip format",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -48,14 +48,14 @@ output_top_zip_path = PluginVariable(
 force_constants = PluginVariable(
     id="force_constants",
     name="force_constants",
-    description='Array of three floats defining the force constants.',
+    description="Array of three floats defining the force constants.",
     type=VariableTypes.STRING
 )
 
 ref_rest_chain_triplet_list = PluginVariable(
     id="ref_rest_chain_triplet_list",
     name="ref_rest_chain_triplet_list",
-    description='Triplet list composed by (reference group, restrain group, chain) list.',
+    description="Triplet list composed by (reference group, restrain group, chain) list.",
     type=VariableTypes.STRING
 )
 
@@ -191,7 +191,7 @@ ndx2resttop_block = PluginBlock(
     # The name which will appear on the frontend
     name="ndx2resttop",
     # Its description
-    description='Generate a restrained topology from an index NDX file.',
+    description="Generate a restrained topology from an index NDX file.",
     # The action
     action=ndx2resttop_action,
     # A list of inputs, variables and outputs

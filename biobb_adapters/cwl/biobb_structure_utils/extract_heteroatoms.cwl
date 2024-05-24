@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Class to extract hetero-atoms from a 3D structure using Biopython.
 
 doc: |-
-  None
+  Extracts a list of heteroatoms from a 3D structure using Biopython.
 
 baseCommand: extract_heteroatoms
 

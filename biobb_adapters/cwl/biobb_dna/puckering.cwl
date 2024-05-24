@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Calculate Puckering from phase parameters.
 
 doc: |-
-  None
+  Calculate North/East/West/South distribution of sugar puckering backbone torsions.
 
 baseCommand: puckering
 

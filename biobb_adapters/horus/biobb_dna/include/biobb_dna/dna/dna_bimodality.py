@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_csv_file = PluginVariable(
     id="input_csv_file",  # ID of the variable, will allow us to identify the value
     name="input_csv_file",  # The name that will appear in the frontend
-    description='Path to .csv file with helical parameter series. If `input_zip_file` is passed, this should be just the filename of the .csv file inside .zip',  # The description that will appear in the frontend
+    description="Path to .csv file with helical parameter series. If `input_zip_file` is passed, this should be just the filename of the .csv file inside .zip",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_csv_file = PluginVariable(
 input_zip_file = PluginVariable(
     id="input_zip_file",  # ID of the variable, will allow us to identify the value
     name="input_zip_file",  # The name that will appear in the frontend
-    description='.zip file containing the `input_csv_file` .csv file',  # The description that will appear in the frontend
+    description=".zip file containing the `input_csv_file` .csv file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ input_zip_file = PluginVariable(
 output_csv_path = PluginVariable(
     id="output_csv_path",  # ID of the variable, will allow us to identify the value
     name="output_csv_path",  # The name that will appear in the frontend
-    description='Path to .csv file where output is saved',  # The description that will appear in the frontend
+    description="Path to .csv file where output is saved",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -43,7 +43,7 @@ output_csv_path = PluginVariable(
 output_jpg_path = PluginVariable(
     id="output_jpg_path",  # ID of the variable, will allow us to identify the value
     name="output_jpg_path",  # The name that will appear in the frontend
-    description='Path to .jpg file where output is saved',  # The description that will appear in the frontend
+    description="Path to .jpg file where output is saved",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -58,42 +58,42 @@ output_jpg_path = PluginVariable(
 helpar_name = PluginVariable(
     id="helpar_name",
     name="helpar_name",
-    description='helical parameter name.',
+    description="helical parameter name.",
     type=VariableTypes.STRING
 )
 
 confidence_level = PluginVariable(
     id="confidence_level",
     name="confidence_level",
-    description='Confidence level for Byes Factor test (in percentage).',
+    description="Confidence level for Byes Factor test (in percentage).",
     type=VariableTypes.NUMBER
 )
 
 max_iter = PluginVariable(
     id="max_iter",
     name="max_iter",
-    description='Number of maximum iterations for EM algorithm.',
+    description="Number of maximum iterations for EM algorithm.",
     type=VariableTypes.INTEGER
 )
 
 tol = PluginVariable(
     id="tol",
     name="tol",
-    description='Tolerance value for EM algorithm.',
+    description="Tolerance value for EM algorithm.",
     type=VariableTypes.NUMBER
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.1',
+    description="Do not execute if output files exist.1",
     type=VariableTypes.BOOLEAN
 )
 
@@ -259,7 +259,7 @@ dna_bimodality_block = PluginBlock(
     # The name which will appear on the frontend
     name="dna_bimodality",
     # Its description
-    description='Determine binormality/bimodality from a helical parameter series dataset.',
+    description="Determine binormality/bimodality from a helical parameter series dataset.",
     # The action
     action=dna_bimodality_action,
     # A list of inputs, variables and outputs

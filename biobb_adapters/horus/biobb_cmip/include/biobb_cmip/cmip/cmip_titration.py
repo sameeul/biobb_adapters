@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_pdb_path = PluginVariable(
     id="input_pdb_path",  # ID of the variable, will allow us to identify the value
     name="input_pdb_path",  # The name that will appear in the frontend
-    description='Path to the input PDB file',  # The description that will appear in the frontend
+    description="Path to the input PDB file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_pdb_path = PluginVariable(
 input_vdw_params_path = PluginVariable(
     id="input_vdw_params_path",  # ID of the variable, will allow us to identify the value
     name="input_vdw_params_path",  # The name that will appear in the frontend
-    description='Path to the CMIP input Van der Waals force parameters, if not provided the CMIP conda installation one is used ("$CONDA_PREFIX/share/cmip/dat/vdwprm")',  # The description that will appear in the frontend
+    description="Path to the CMIP input Van der Waals force parameters, if not provided the CMIP conda installation one is used ('$CONDA_PREFIX/share/cmip/dat/vdwprm')",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -32,7 +32,7 @@ input_vdw_params_path = PluginVariable(
 input_params_path = PluginVariable(
     id="input_params_path",  # ID of the variable, will allow us to identify the value
     name="input_params_path",  # The name that will appear in the frontend
-    description='Path to the CMIP input parameters file',  # The description that will appear in the frontend
+    description="Path to the CMIP input parameters file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -43,7 +43,7 @@ input_params_path = PluginVariable(
 output_pdb_path = PluginVariable(
     id="output_pdb_path",  # ID of the variable, will allow us to identify the value
     name="output_pdb_path",  # The name that will appear in the frontend
-    description='Path to the output PDB file',  # The description that will appear in the frontend
+    description="Path to the output PDB file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -58,105 +58,105 @@ output_pdb_path = PluginVariable(
 params = PluginVariable(
     id="params",
     name="params",
-    description='CMIP options specification.',
+    description="CMIP options specification.",
     type=VariableTypes.STRING
 )
 
 energy_cutoff = PluginVariable(
     id="energy_cutoff",
     name="energy_cutoff",
-    description='Energy cutoff, extremely hight value to enable the addition of all the ions and waters before reaching the cutoff.',
+    description="Energy cutoff, extremely hight value to enable the addition of all the ions and waters before reaching the cutoff.",
     type=VariableTypes.NUMBER
 )
 
 num_wats = PluginVariable(
     id="num_wats",
     name="num_wats",
-    description='Number of water molecules to be added.',
+    description="Number of water molecules to be added.",
     type=VariableTypes.INTEGER
 )
 
 neutral = PluginVariable(
     id="neutral",
     name="neutral",
-    description='Neutralize the charge of the system. If selected *num_positive_ions* and *num_negative_ions* values will not be taken into account.',
+    description="Neutralize the charge of the system. If selected *num_positive_ions* and *num_negative_ions* values will not be taken into account.",
     type=VariableTypes.BOOLEAN
 )
 
 num_positive_ions = PluginVariable(
     id="num_positive_ions",
     name="num_positive_ions",
-    description='Number of positive ions to be added (Tipatom IP=Na+).',
+    description="Number of positive ions to be added (Tipatom IP=Na+).",
     type=VariableTypes.INTEGER
 )
 
 num_negative_ions = PluginVariable(
     id="num_negative_ions",
     name="num_negative_ions",
-    description='Number of negative ions to be added (Tipatom IM=Cl-).',
+    description="Number of negative ions to be added (Tipatom IM=Cl-).",
     type=VariableTypes.INTEGER
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Path to the CMIP Titration executable binary.',
+    description="Path to the CMIP Titration executable binary.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Path to the binary executable of your container.',
+    description="Path to the binary executable of your container.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container Image identifier.',
+    description="Container Image identifier.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Path to an internal directory in the container.',
+    description="Path to an internal directory in the container.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Path to the internal CWD in the container.',
+    description="Path to the internal CWD in the container.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='User number id to be mapped inside the container.',
+    description="User number id to be mapped inside the container.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to the binary executable of the container shell.',
+    description="Path to the binary executable of the container shell.",
     type=VariableTypes.STRING
 )
 
@@ -244,7 +244,7 @@ def cmip_titration_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_cmip:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_cmip:4.2.0--pyhdfd78af_0",
             "cmip_titration",
             "--config",
             "/tmp/cmip_titration.json",
@@ -351,7 +351,7 @@ cmip_titration_block = PluginBlock(
     # The name which will appear on the frontend
     name="cmip_titration",
     # Its description
-    description='Wrapper class for the CMIP titration module.',
+    description="Wrapper class for the CMIP titration module.",
     # The action
     action=cmip_titration_action,
     # A list of inputs, variables and outputs

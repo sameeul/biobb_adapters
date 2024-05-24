@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_alphaC_path = PluginVariable(
     id="input_alphaC_path",  # ID of the variable, will allow us to identify the value
     name="input_alphaC_path",  # The name that will appear in the frontend
-    description='Path to .ser file for helical parameter 'alphaC'. File type: input',  # The description that will appear in the frontend
+    description="Path to .ser file for helical parameter 'alphaC'. File type: input",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_alphaC_path = PluginVariable(
 input_alphaW_path = PluginVariable(
     id="input_alphaW_path",  # ID of the variable, will allow us to identify the value
     name="input_alphaW_path",  # The name that will appear in the frontend
-    description='Path to .ser file for helical parameter 'alphaW'. File type: input',  # The description that will appear in the frontend
+    description="Path to .ser file for helical parameter 'alphaW'. File type: input",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -32,7 +32,7 @@ input_alphaW_path = PluginVariable(
 input_gammaC_path = PluginVariable(
     id="input_gammaC_path",  # ID of the variable, will allow us to identify the value
     name="input_gammaC_path",  # The name that will appear in the frontend
-    description='Path to .ser file for helical parameter 'gammaC'. File type: input',  # The description that will appear in the frontend
+    description="Path to .ser file for helical parameter 'gammaC'. File type: input",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -42,7 +42,7 @@ input_gammaC_path = PluginVariable(
 input_gammaW_path = PluginVariable(
     id="input_gammaW_path",  # ID of the variable, will allow us to identify the value
     name="input_gammaW_path",  # The name that will appear in the frontend
-    description='Path to .ser file for helical parameter 'gammaW'. File type: input',  # The description that will appear in the frontend
+    description="Path to .ser file for helical parameter 'gammaW'. File type: input",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -53,7 +53,7 @@ input_gammaW_path = PluginVariable(
 output_csv_path = PluginVariable(
     id="output_csv_path",  # ID of the variable, will allow us to identify the value
     name="output_csv_path",  # The name that will appear in the frontend
-    description='Path to .csv file where output is saved. File type: output',  # The description that will appear in the frontend
+    description="Path to .csv file where output is saved. File type: output",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -63,7 +63,7 @@ output_csv_path = PluginVariable(
 output_jpg_path = PluginVariable(
     id="output_jpg_path",  # ID of the variable, will allow us to identify the value
     name="output_jpg_path",  # The name that will appear in the frontend
-    description='Path to .jpg file where output is saved. File type: output',  # The description that will appear in the frontend
+    description="Path to .jpg file where output is saved. File type: output",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -78,28 +78,28 @@ output_jpg_path = PluginVariable(
 sequence = PluginVariable(
     id="sequence",
     name="sequence",
-    description='Nucleic acid sequence corresponding to the input .ser file. Length of sequence is expected to be the same as the total number of columns in the .ser file, minus the index column (even if later on a subset of columns is selected with the *seqpos* option).',
+    description="Nucleic acid sequence corresponding to the input .ser file. Length of sequence is expected to be the same as the total number of columns in the .ser file, minus the index column (even if later on a subset of columns is selected with the *seqpos* option).",
     type=VariableTypes.STRING
 )
 
 seqpos = PluginVariable(
     id="seqpos",
     name="seqpos",
-    description='list of sequence positions (columns indices starting by 0) to analyze.  If not specified it will analyse the complete sequence.',
-    type=VariableTypes.ARRAY
+    description="list of sequence positions (columns indices starting by 0) to analyze.  If not specified it will analyse the complete sequence.",
+    type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -271,7 +271,7 @@ canonicalag_block = PluginBlock(
     # The name which will appear on the frontend
     name="canonicalag",
     # Its description
-    description='Calculate Canonical Alpha/Gamma populations from alpha and gamma parameters.',
+    description="Calculate Canonical Alpha/Gamma populations from alpha and gamma parameters.",
     # The action
     action=canonicalag_action,
     # A list of inputs, variables and outputs

@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Class to remove molecules from a 3D structure using Biopython.
 
 doc: |-
-  None
+  Remove a list of molecules from a 3D structure using Biopython.
 
 baseCommand: remove_molecules
 

@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Wrapper class for the PMX gentop module.
 
 doc: |-
-  None
+  Generate a topology file for a morphing simulation.
 
 baseCommand: pmxgentop
 

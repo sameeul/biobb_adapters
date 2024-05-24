@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_structure_path = PluginVariable(
     id="input_structure_path",  # ID of the variable, will allow us to identify the value
     name="input_structure_path",  # The name that will appear in the frontend
-    description='Input structure file path',  # The description that will appear in the frontend
+    description="Input structure file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_structure_path = PluginVariable(
 output_residues_path = PluginVariable(
     id="output_residues_path",  # ID of the variable, will allow us to identify the value
     name="output_residues_path",  # The name that will appear in the frontend
-    description='Output molcules file path',  # The description that will appear in the frontend
+    description="Output molcules file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -38,35 +38,35 @@ output_residues_path = PluginVariable(
 residues = PluginVariable(
     id="residues",
     name="residues",
-    description='List of comma separated res_id or list of dictionaries with the name | res_id  | chain | model of the residues to find the closest neighbours. Format: [{"name": "HIS", "res_id": "72", "chain": "A", "model": "1"}].',
-    type=VariableTypes.ARRAY
+    description="List of comma separated res_id or list of dictionaries with the name | res_id  | chain | model of the residues to find the closest neighbours. Format: [{'name': 'HIS', 'res_id': '72', 'chain': 'A', 'model': '1'}].",
+    type=VariableTypes.STRING
 )
 
 radius = PluginVariable(
     id="radius",
     name="radius",
-    description='Distance in Ångströms to neighbours of the given list of residues.',
+    description="Distance in Ångströms to neighbours of the given list of residues.",
     type=VariableTypes.NUMBER
 )
 
 preserve_target = PluginVariable(
     id="preserve_target",
     name="preserve_target",
-    description='Whether or not to preserve the target residues in the output structure.',
+    description="Whether or not to preserve the target residues in the output structure.",
     type=VariableTypes.BOOLEAN
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -207,7 +207,7 @@ closest_residues_block = PluginBlock(
     # The name which will appear on the frontend
     name="closest_residues",
     # Its description
-    description='Class to search closest residues from a 3D structure using Biopython.',
+    description="Class to search closest residues from a 3D structure using Biopython.",
     # The action
     action=closest_residues_action,
     # A list of inputs, variables and outputs

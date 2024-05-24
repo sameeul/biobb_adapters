@@ -13,7 +13,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 output_simulation = PluginVariable(
     id="output_simulation",  # ID of the variable, will allow us to identify the value
     name="output_simulation",  # The name that will appear in the frontend
-    description='Path to the output simulation in a ZIP file',  # The description that will appear in the frontend
+    description="Path to the output simulation in a ZIP file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -28,21 +28,21 @@ output_simulation = PluginVariable(
 pdb_code = PluginVariable(
     id="pdb_code",
     name="pdb_code",
-    description='RSCB PDB code.',
+    description="RSCB PDB code.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -168,7 +168,7 @@ memprotmd_sim_block = PluginBlock(
     # The name which will appear on the frontend
     name="memprotmd_sim",
     # Its description
-    description='This class is a wrapper of the MemProtMD to download a simulation using its REST API.',
+    description="This class is a wrapper of the MemProtMD to download a simulation using its REST API.",
     # The action
     action=memprotmd_sim_action,
     # A list of inputs, variables and outputs

@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Wrapper for the Canion executable  that is part of the Curves+ software suite.
 
 doc: |-
-  None
+  Analyzes the trajectory of ions around a DNA molecule.
 
 baseCommand: biobb_canion
 

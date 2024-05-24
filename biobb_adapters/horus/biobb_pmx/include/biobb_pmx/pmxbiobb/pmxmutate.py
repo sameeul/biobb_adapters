@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_structure_path = PluginVariable(
     id="input_structure_path",  # ID of the variable, will allow us to identify the value
     name="input_structure_path",  # The name that will appear in the frontend
-    description='Path to the input structure file',  # The description that will appear in the frontend
+    description="Path to the input structure file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_structure_path = PluginVariable(
 input_b_structure_path = PluginVariable(
     id="input_b_structure_path",  # ID of the variable, will allow us to identify the value
     name="input_b_structure_path",  # The name that will appear in the frontend
-    description='Path to the mutated input structure file',  # The description that will appear in the frontend
+    description="Path to the mutated input structure file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ input_b_structure_path = PluginVariable(
 output_structure_path = PluginVariable(
     id="output_structure_path",  # ID of the variable, will allow us to identify the value
     name="output_structure_path",  # The name that will appear in the frontend
-    description='Path to the output structure file',  # The description that will appear in the frontend
+    description="Path to the output structure file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -48,91 +48,91 @@ output_structure_path = PluginVariable(
 mutation_list = PluginVariable(
     id="mutation_list",
     name="mutation_list",
-    description='Mutation list in the format "Chain:Resnum MUT_AA_Code" or "Chain:Resnum MUT_NA_Code"  (no spaces between the elements) separated by commas. If no chain is provided as chain code all the chains in the pdb file will be mutated. ie: "A:15CYS". Possible MUT_AA_Code: 'ALA', 'ARG', 'ASN', 'ASP', 'ASPH', 'ASPP', 'ASH', 'CYS', 'CYS2', 'CYN', 'CYX', 'CYM', 'CYSH', 'GLU', 'GLUH', 'GLUP', 'GLH', 'GLN', 'GLY', 'HIS', 'HIE', 'HISE', 'HSE', 'HIP', 'HSP', 'HISH', 'HID', 'HSD', 'ILE', 'LEU', 'LYS', 'LYSH', 'LYP', 'LYN', 'LSN', 'MET', 'PHE', 'PRO', 'SER', 'SP1', 'SP2', 'THR', 'TRP', 'TYR', 'VAL'. Possible MUT_NA_Codes: 'A', 'T', 'C', 'G', 'U'.',
+    description="Mutation list in the format 'Chain:Resnum MUT_AA_Code' or 'Chain:Resnum MUT_NA_Code'  (no spaces between the elements) separated by commas. If no chain is provided as chain code all the chains in the pdb file will be mutated. ie: 'A:15CYS'. Possible MUT_AA_Code: 'ALA', 'ARG', 'ASN', 'ASP', 'ASPH', 'ASPP', 'ASH', 'CYS', 'CYS2', 'CYN', 'CYX', 'CYM', 'CYSH', 'GLU', 'GLUH', 'GLUP', 'GLH', 'GLN', 'GLY', 'HIS', 'HIE', 'HISE', 'HSE', 'HIP', 'HSP', 'HISH', 'HID', 'HSD', 'ILE', 'LEU', 'LYS', 'LYSH', 'LYP', 'LYN', 'LSN', 'MET', 'PHE', 'PRO', 'SER', 'SP1', 'SP2', 'THR', 'TRP', 'TYR', 'VAL'. Possible MUT_NA_Codes: 'A', 'T', 'C', 'G', 'U'.",
     type=VariableTypes.STRING
 )
 
 force_field = PluginVariable(
     id="force_field",
     name="force_field",
-    description='Forcefield to use.',
+    description="Forcefield to use.",
     type=VariableTypes.STRING
 )
 
 resinfo = PluginVariable(
     id="resinfo",
     name="resinfo",
-    description='Show the list of 3-letter -> 1-letter residues.',
+    description="Show the list of 3-letter -> 1-letter residues.",
     type=VariableTypes.BOOLEAN
 )
 
 gmx_lib = PluginVariable(
     id="gmx_lib",
     name="gmx_lib",
-    description='Path to the GMXLIB folder in your computer.',
+    description="Path to the GMXLIB folder in your computer.",
     type=VariableTypes.STRING
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Path to the PMX command line interface.',
+    description="Path to the PMX command line interface.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Path to the binary executable of your container.',
+    description="Path to the binary executable of your container.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container Image identifier.',
+    description="Container Image identifier.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Path to an internal directory in the container.',
+    description="Path to an internal directory in the container.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Path to the internal CWD in the container.',
+    description="Path to the internal CWD in the container.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='User number id to be mapped inside the container.',
+    description="User number id to be mapped inside the container.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to the binary executable of the container shell.',
+    description="Path to the binary executable of the container shell.",
     type=VariableTypes.STRING
 )
 
@@ -312,7 +312,7 @@ pmxmutate_block = PluginBlock(
     # The name which will appear on the frontend
     name="pmxmutate",
     # Its description
-    description='Wrapper class for the PMX mutate module.',
+    description="Wrapper class for the PMX mutate module.",
     # The action
     action=pmxmutate_action,
     # A list of inputs, variables and outputs

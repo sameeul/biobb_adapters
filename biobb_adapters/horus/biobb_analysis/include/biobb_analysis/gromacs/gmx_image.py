@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_traj_path = PluginVariable(
     id="input_traj_path",  # ID of the variable, will allow us to identify the value
     name="input_traj_path",  # The name that will appear in the frontend
-    description='Path to the GROMACS trajectory file',  # The description that will appear in the frontend
+    description="Path to the GROMACS trajectory file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_traj_path = PluginVariable(
 input_top_path = PluginVariable(
     id="input_top_path",  # ID of the variable, will allow us to identify the value
     name="input_top_path",  # The name that will appear in the frontend
-    description='Path to the GROMACS input topology file',  # The description that will appear in the frontend
+    description="Path to the GROMACS input topology file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -32,7 +32,7 @@ input_top_path = PluginVariable(
 input_index_path = PluginVariable(
     id="input_index_path",  # ID of the variable, will allow us to identify the value
     name="input_index_path",  # The name that will appear in the frontend
-    description='Path to the GROMACS index file',  # The description that will appear in the frontend
+    description="Path to the GROMACS index file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -43,7 +43,7 @@ input_index_path = PluginVariable(
 output_traj_path = PluginVariable(
     id="output_traj_path",  # ID of the variable, will allow us to identify the value
     name="output_traj_path",  # The name that will appear in the frontend
-    description='Path to the output file',  # The description that will appear in the frontend
+    description="Path to the output file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -58,119 +58,119 @@ output_traj_path = PluginVariable(
 fit_selection = PluginVariable(
     id="fit_selection",
     name="fit_selection",
-    description='Group where the fitting will be performed. If **input_index_path** provided, check the file for the accepted values. ',
+    description="Group where the fitting will be performed. If **input_index_path** provided, check the file for the accepted values. ",
     type=VariableTypes.STRING
 )
 
 center_selection = PluginVariable(
     id="center_selection",
     name="center_selection",
-    description='Group where the trjconv will be performed. If **input_index_path** provided, check the file for the accepted values. ',
+    description="Group where the trjconv will be performed. If **input_index_path** provided, check the file for the accepted values. ",
     type=VariableTypes.STRING
 )
 
 cluster_selection = PluginVariable(
     id="cluster_selection",
     name="cluster_selection",
-    description='Group assigned to be the cluster, onto which all atoms are wrapped around the box, such that they are closest to the center of mass of the cluster, which is iteratively updated. If **input_index_path** provided, check the file for the accepted values. ',
+    description="Group assigned to be the cluster, onto which all atoms are wrapped around the box, such that they are closest to the center of mass of the cluster, which is iteratively updated. If **input_index_path** provided, check the file for the accepted values. ",
     type=VariableTypes.STRING
 )
 
 output_selection = PluginVariable(
     id="output_selection",
     name="output_selection",
-    description='Group that is going to be written in the output trajectory. If **input_index_path** provided, check the file for the accepted values. ',
+    description="Group that is going to be written in the output trajectory. If **input_index_path** provided, check the file for the accepted values. ",
     type=VariableTypes.STRING
 )
 
 pbc = PluginVariable(
     id="pbc",
     name="pbc",
-    description='. ',
+    description=". ",
     type=VariableTypes.STRING
 )
 
 center = PluginVariable(
     id="center",
     name="center",
-    description='Center atoms in box.',
+    description="Center atoms in box.",
     type=VariableTypes.BOOLEAN
 )
 
 ur = PluginVariable(
     id="ur",
     name="ur",
-    description='Unit-cell representation. ',
+    description="Unit-cell representation. ",
     type=VariableTypes.STRING
 )
 
 fit = PluginVariable(
     id="fit",
     name="fit",
-    description='Fit molecule to ref structure in the structure file. ',
+    description="Fit molecule to ref structure in the structure file. ",
     type=VariableTypes.STRING
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Path to the GROMACS executable binary.',
+    description="Path to the GROMACS executable binary.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Container path definition.',
+    description="Container path definition.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container image definition.',
+    description="Container image definition.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Container volume path definition.',
+    description="Container volume path definition.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Container working directory definition.',
+    description="Container working directory definition.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='Container user_id definition.',
+    description="Container user_id definition.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to default shell inside the container.',
+    description="Path to default shell inside the container.",
     type=VariableTypes.STRING
 )
 
@@ -262,7 +262,7 @@ def gmx_image_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_analysis:4.1.0--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_analysis:4.2.0--pyhdfd78af_0",
             "gmx_image",
             "--config",
             "/tmp/gmx_image.json",
@@ -373,7 +373,7 @@ gmx_image_block = PluginBlock(
     # The name which will appear on the frontend
     name="gmx_image",
     # Its description
-    description='Wrapper of the GROMACS trjconv module for correcting periodicity (image) from a given GROMACS compatible trajectory file.',
+    description="Wrapper of the GROMACS trjconv module for correcting periodicity (image) from a given GROMACS compatible trajectory file.",
     # The action
     action=gmx_image_action,
     # A list of inputs, variables and outputs

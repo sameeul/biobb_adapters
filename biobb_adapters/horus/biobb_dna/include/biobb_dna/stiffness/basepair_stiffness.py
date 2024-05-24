@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_filename_shift = PluginVariable(
     id="input_filename_shift",  # ID of the variable, will allow us to identify the value
     name="input_filename_shift",  # The name that will appear in the frontend
-    description='Path to csv file with data for helical parameter 'shift'',  # The description that will appear in the frontend
+    description="Path to csv file with data for helical parameter 'shift'",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_filename_shift = PluginVariable(
 input_filename_slide = PluginVariable(
     id="input_filename_slide",  # ID of the variable, will allow us to identify the value
     name="input_filename_slide",  # The name that will appear in the frontend
-    description='Path to csv file with data for helical parameter 'slide'',  # The description that will appear in the frontend
+    description="Path to csv file with data for helical parameter 'slide'",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -32,7 +32,7 @@ input_filename_slide = PluginVariable(
 input_filename_rise = PluginVariable(
     id="input_filename_rise",  # ID of the variable, will allow us to identify the value
     name="input_filename_rise",  # The name that will appear in the frontend
-    description='Path to csv file with data for helical parameter 'rise'',  # The description that will appear in the frontend
+    description="Path to csv file with data for helical parameter 'rise'",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -42,7 +42,7 @@ input_filename_rise = PluginVariable(
 input_filename_tilt = PluginVariable(
     id="input_filename_tilt",  # ID of the variable, will allow us to identify the value
     name="input_filename_tilt",  # The name that will appear in the frontend
-    description='Path to csv file with data for helical parameter 'tilt'',  # The description that will appear in the frontend
+    description="Path to csv file with data for helical parameter 'tilt'",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -52,7 +52,7 @@ input_filename_tilt = PluginVariable(
 input_filename_roll = PluginVariable(
     id="input_filename_roll",  # ID of the variable, will allow us to identify the value
     name="input_filename_roll",  # The name that will appear in the frontend
-    description='Path to csv file with data for helical parameter 'roll'',  # The description that will appear in the frontend
+    description="Path to csv file with data for helical parameter 'roll'",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -62,7 +62,7 @@ input_filename_roll = PluginVariable(
 input_filename_twist = PluginVariable(
     id="input_filename_twist",  # ID of the variable, will allow us to identify the value
     name="input_filename_twist",  # The name that will appear in the frontend
-    description='Path to csv file with data for helical parameter 'twist'',  # The description that will appear in the frontend
+    description="Path to csv file with data for helical parameter 'twist'",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -73,7 +73,7 @@ input_filename_twist = PluginVariable(
 output_csv_path = PluginVariable(
     id="output_csv_path",  # ID of the variable, will allow us to identify the value
     name="output_csv_path",  # The name that will appear in the frontend
-    description='Path to directory where stiffness matrix file is saved as a csv file',  # The description that will appear in the frontend
+    description="Path to directory where stiffness matrix file is saved as a csv file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -83,7 +83,7 @@ output_csv_path = PluginVariable(
 output_jpg_path = PluginVariable(
     id="output_jpg_path",  # ID of the variable, will allow us to identify the value
     name="output_jpg_path",  # The name that will appear in the frontend
-    description='Path to directory where stiffness heatmap image is saved as a jpg file',  # The description that will appear in the frontend
+    description="Path to directory where stiffness heatmap image is saved as a jpg file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -98,28 +98,28 @@ output_jpg_path = PluginVariable(
 KT = PluginVariable(
     id="KT",
     name="KT",
-    description='Value of Boltzmann temperature factor.',
+    description="Value of Boltzmann temperature factor.",
     type=VariableTypes.NUMBER
 )
 
 scaling = PluginVariable(
     id="scaling",
     name="scaling",
-    description='Values by which to scale stiffness. Positions correspond to helical parameters in the order: shift, slide, rise, tilt, roll, twist.',
-    type=VariableTypes.ARRAY
+    description="Values by which to scale stiffness. Positions correspond to helical parameters in the order: shift, slide, rise, tilt, roll, twist.",
+    type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -305,7 +305,7 @@ basepair_stiffness_block = PluginBlock(
     # The name which will appear on the frontend
     name="basepair_stiffness",
     # Its description
-    description='Calculate stiffness constants matrix between all six helical parameters for a single base pair step.',
+    description="Calculate stiffness constants matrix between all six helical parameters for a single base pair step.",
     # The action
     action=basepair_stiffness_action,
     # A list of inputs, variables and outputs

@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_solute_gro_path = PluginVariable(
     id="input_solute_gro_path",  # ID of the variable, will allow us to identify the value
     name="input_solute_gro_path",  # The name that will appear in the frontend
-    description='Path to the input GRO file',  # The description that will appear in the frontend
+    description="Path to the input GRO file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_solute_gro_path = PluginVariable(
 input_top_zip_path = PluginVariable(
     id="input_top_zip_path",  # ID of the variable, will allow us to identify the value
     name="input_top_zip_path",  # The name that will appear in the frontend
-    description='Path the input TOP topology in zip format',  # The description that will appear in the frontend
+    description="Path the input TOP topology in zip format",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -32,7 +32,7 @@ input_top_zip_path = PluginVariable(
 input_solvent_gro_path = PluginVariable(
     id="input_solvent_gro_path",  # ID of the variable, will allow us to identify the value
     name="input_solvent_gro_path",  # The name that will appear in the frontend
-    description='(spc216.gro) Path to the GRO file containing the structure of the solvent',  # The description that will appear in the frontend
+    description="(spc216.gro) Path to the GRO file containing the structure of the solvent",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -43,7 +43,7 @@ input_solvent_gro_path = PluginVariable(
 output_gro_path = PluginVariable(
     id="output_gro_path",  # ID of the variable, will allow us to identify the value
     name="output_gro_path",  # The name that will appear in the frontend
-    description='Path to the output GRO file',  # The description that will appear in the frontend
+    description="Path to the output GRO file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -53,7 +53,7 @@ output_gro_path = PluginVariable(
 output_top_zip_path = PluginVariable(
     id="output_top_zip_path",  # ID of the variable, will allow us to identify the value
     name="output_top_zip_path",  # The name that will appear in the frontend
-    description='Path the output topology in zip format',  # The description that will appear in the frontend
+    description="Path the output topology in zip format",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -68,77 +68,77 @@ output_top_zip_path = PluginVariable(
 shell = PluginVariable(
     id="shell",
     name="shell",
-    description='Thickness in nanometers of optional water layer around solute.',
+    description="Thickness in nanometers of optional water layer around solute.",
     type=VariableTypes.NUMBER
 )
 
 gmx_lib = PluginVariable(
     id="gmx_lib",
     name="gmx_lib",
-    description='Path set GROMACS GMXLIB environment variable.',
+    description="Path set GROMACS GMXLIB environment variable.",
     type=VariableTypes.STRING
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Path to the GROMACS executable binary.',
+    description="Path to the GROMACS executable binary.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Path to the binary executable of your container.',
+    description="Path to the binary executable of your container.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container Image identifier.',
+    description="Container Image identifier.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Path to an internal directory in the container.',
+    description="Path to an internal directory in the container.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Path to the internal CWD in the container.',
+    description="Path to the internal CWD in the container.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='User number id to be mapped inside the container.',
+    description="User number id to be mapped inside the container.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to the binary executable of the container shell.',
+    description="Path to the binary executable of the container shell.",
     type=VariableTypes.STRING
 )
 
@@ -331,7 +331,7 @@ solvate_block = PluginBlock(
     # The name which will appear on the frontend
     name="solvate",
     # Its description
-    description='Wrapper of the GROMACS solvate module.',
+    description="Wrapper of the GROMACS solvate module.",
     # The action
     action=solvate_action,
     # A list of inputs, variables and outputs

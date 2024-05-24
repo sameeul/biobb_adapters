@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Wrapper class for the PMX ligand_hybrid module.
 
 doc: |-
-  None
+  Create a hybrid topology and structure based on two ligand structures.
 
 baseCommand: pmxligand_hybrid
 

@@ -7,7 +7,7 @@ label: Load .ser file for a given helical parameter and read each column corresp
   to a base calculating average over each one.
 
 doc: |-
-  None
+  Calculate average values for each base pair and save them in a .csv file.
 
 baseCommand: dna_averages
 

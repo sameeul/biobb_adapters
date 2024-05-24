@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_structure_path = PluginVariable(
     id="input_structure_path",  # ID of the variable, will allow us to identify the value
     name="input_structure_path",  # The name that will appear in the frontend
-    description='Input structure file path',  # The description that will appear in the frontend
+    description="Input structure file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_structure_path = PluginVariable(
 output_molecule_path = PluginVariable(
     id="output_molecule_path",  # ID of the variable, will allow us to identify the value
     name="output_molecule_path",  # The name that will appear in the frontend
-    description='Output molecule file path',  # The description that will appear in the frontend
+    description="Output molecule file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -38,35 +38,35 @@ output_molecule_path = PluginVariable(
 molecule_type = PluginVariable(
     id="molecule_type",
     name="molecule_type",
-    description='type of molecule to be extracted. If all, only waters and ligands will be removed from the original structure. ',
+    description="type of molecule to be extracted. If all, only waters and ligands will be removed from the original structure. ",
     type=VariableTypes.STRING
 )
 
 chains = PluginVariable(
     id="chains",
     name="chains",
-    description='if chains selected in **molecule_type**, specify them here, e.g: ["A", "C", "N"].',
-    type=VariableTypes.ARRAY
+    description="if chains selected in **molecule_type**, specify them here, e.g: ['A', 'C', 'N'].",
+    type=VariableTypes.STRING
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='path to the check_structure application',
+    description="path to the check_structure application",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -207,7 +207,7 @@ extract_molecule_block = PluginBlock(
     # The name which will appear on the frontend
     name="extract_molecule",
     # Its description
-    description='This class is a wrapper of the Structure Checking tool to extract a molecule from a 3D structure.',
+    description="This class is a wrapper of the Structure Checking tool to extract a molecule from a 3D structure.",
     # The action
     action=extract_molecule_action,
     # A list of inputs, variables and outputs

@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_structure_path = PluginVariable(
     id="input_structure_path",  # ID of the variable, will allow us to identify the value
     name="input_structure_path",  # The name that will appear in the frontend
-    description='Input structure file path',  # The description that will appear in the frontend
+    description="Input structure file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_structure_path = PluginVariable(
 output_heteroatom_path = PluginVariable(
     id="output_heteroatom_path",  # ID of the variable, will allow us to identify the value
     name="output_heteroatom_path",  # The name that will appear in the frontend
-    description='Output heteroatom file path',  # The description that will appear in the frontend
+    description="Output heteroatom file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -38,28 +38,28 @@ output_heteroatom_path = PluginVariable(
 heteroatoms = PluginVariable(
     id="heteroatoms",
     name="heteroatoms",
-    description='List of dictionaries with the name | res_id | chain | model of the heteroatoms to be extracted. Format: [{"name": "ZZ7", "res_id": "302", "chain": "B", "model": "1"}]. If empty, all the heteroatoms of the structure will be returned.',
-    type=VariableTypes.ARRAY
+    description="List of dictionaries with the name | res_id | chain | model of the heteroatoms to be extracted. Format: [{'name': 'ZZ7', 'res_id': '302', 'chain': 'B', 'model': '1'}]. If empty, all the heteroatoms of the structure will be returned.",
+    type=VariableTypes.STRING
 )
 
 water = PluginVariable(
     id="water",
     name="water",
-    description='Add or not waters.',
+    description="Add or not waters.",
     type=VariableTypes.BOOLEAN
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -196,7 +196,7 @@ extract_heteroatoms_block = PluginBlock(
     # The name which will appear on the frontend
     name="extract_heteroatoms",
     # Its description
-    description='Class to extract hetero-atoms from a 3D structure using Biopython.',
+    description="Class to extract hetero-atoms from a 3D structure using Biopython.",
     # The action
     action=extract_heteroatoms_action,
     # A list of inputs, variables and outputs

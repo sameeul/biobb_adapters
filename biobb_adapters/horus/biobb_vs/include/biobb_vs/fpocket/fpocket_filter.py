@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_pockets_zip = PluginVariable(
     id="input_pockets_zip",  # ID of the variable, will allow us to identify the value
     name="input_pockets_zip",  # The name that will appear in the frontend
-    description='Path to all the pockets found by fpocket',  # The description that will appear in the frontend
+    description="Path to all the pockets found by fpocket",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_pockets_zip = PluginVariable(
 input_summary = PluginVariable(
     id="input_summary",  # ID of the variable, will allow us to identify the value
     name="input_summary",  # The name that will appear in the frontend
-    description='Path to the JSON summary file returned by fpocket',  # The description that will appear in the frontend
+    description="Path to the JSON summary file returned by fpocket",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ input_summary = PluginVariable(
 output_filter_pockets_zip = PluginVariable(
     id="output_filter_pockets_zip",  # ID of the variable, will allow us to identify the value
     name="output_filter_pockets_zip",  # The name that will appear in the frontend
-    description='Path to the selected pockets after filtering',  # The description that will appear in the frontend
+    description="Path to the selected pockets after filtering",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -48,35 +48,35 @@ output_filter_pockets_zip = PluginVariable(
 score = PluginVariable(
     id="score",
     name="score",
-    description='List of two float numbers between 0 and 1 indicating the score range. Indicates the fpocket score after the evaluation of pocket prediction accuracy as defined in the fpocket paper.',
-    type=VariableTypes.ARRAY
+    description="List of two float numbers between 0 and 1 indicating the score range. Indicates the fpocket score after the evaluation of pocket prediction accuracy as defined in the fpocket paper.",
+    type=VariableTypes.STRING
 )
 
 druggability_score = PluginVariable(
     id="druggability_score",
     name="druggability_score",
-    description='List of two float numbers between 0 and 1 indicating the druggability_score range. It's a value between 0 and 1, 0 signifying that the pocket is likely to not bind a drug like molecule and 1, that it is very likely to bind the latter.',
-    type=VariableTypes.ARRAY
+    description="List of two float numbers between 0 and 1 indicating the druggability_score range. It's a value between 0 and 1, 0 signifying that the pocket is likely to not bind a drug like molecule and 1, that it is very likely to bind the latter.",
+    type=VariableTypes.STRING
 )
 
 volume = PluginVariable(
     id="volume",
     name="volume",
-    description='List of two float numbers indicating the volume range. Indicates the pocket volume.',
-    type=VariableTypes.ARRAY
+    description="List of two float numbers indicating the volume range. Indicates the pocket volume.",
+    type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -224,7 +224,7 @@ fpocket_filter_block = PluginBlock(
     # The name which will appear on the frontend
     name="fpocket_filter",
     # Its description
-    description='Performs a search over the outputs of the fpocket building block.',
+    description="Performs a search over the outputs of the fpocket building block.",
     # The action
     action=fpocket_filter_action,
     # A list of inputs, variables and outputs

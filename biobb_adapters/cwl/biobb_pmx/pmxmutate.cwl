@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Wrapper class for the PMX mutate module.
 
 doc: |-
-  None
+  Mutate residues in a protein structure.
 
 baseCommand: pmxmutate
 

@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_cein_path = PluginVariable(
     id="input_cein_path",  # ID of the variable, will allow us to identify the value
     name="input_cein_path",  # The name that will appear in the frontend
-    description='Input cein or cpein file (from pmemd or sander) with titrating residue information',  # The description that will appear in the frontend
+    description="Input cein or cpein file (from pmemd or sander) with titrating residue information",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_cein_path = PluginVariable(
 input_ceout_path = PluginVariable(
     id="input_ceout_path",  # ID of the variable, will allow us to identify the value
     name="input_ceout_path",  # The name that will appear in the frontend
-    description='Output ceout file (AMBER ceout)',  # The description that will appear in the frontend
+    description="Output ceout file (AMBER ceout)",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ input_ceout_path = PluginVariable(
 output_dat_path = PluginVariable(
     id="output_dat_path",  # ID of the variable, will allow us to identify the value
     name="output_dat_path",  # The name that will appear in the frontend
-    description='Output file to which the standard calceo-type statistics are written',  # The description that will appear in the frontend
+    description="Output file to which the standard calceo-type statistics are written",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -43,7 +43,7 @@ output_dat_path = PluginVariable(
 output_population_path = PluginVariable(
     id="output_population_path",  # ID of the variable, will allow us to identify the value
     name="output_population_path",  # The name that will appear in the frontend
-    description='Output file where protonation state populations are printed for every state of every residue',  # The description that will appear in the frontend
+    description="Output file where protonation state populations are printed for every state of every residue",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -53,7 +53,7 @@ output_population_path = PluginVariable(
 output_chunk_path = PluginVariable(
     id="output_chunk_path",  # ID of the variable, will allow us to identify the value
     name="output_chunk_path",  # The name that will appear in the frontend
-    description='Output file where the time series data calculated over chunks of the simulation are printed',  # The description that will appear in the frontend
+    description="Output file where the time series data calculated over chunks of the simulation are printed",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -63,7 +63,7 @@ output_chunk_path = PluginVariable(
 output_cumulative_path = PluginVariable(
     id="output_cumulative_path",  # ID of the variable, will allow us to identify the value
     name="output_cumulative_path",  # The name that will appear in the frontend
-    description='Output file where the cumulative time series data is printed',  # The description that will appear in the frontend
+    description="Output file where the cumulative time series data is printed",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -73,7 +73,7 @@ output_cumulative_path = PluginVariable(
 output_conditional_path = PluginVariable(
     id="output_conditional_path",  # ID of the variable, will allow us to identify the value
     name="output_conditional_path",  # The name that will appear in the frontend
-    description='Output file with requested conditional probabilities',  # The description that will appear in the frontend
+    description="Output file with requested conditional probabilities",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -83,7 +83,7 @@ output_conditional_path = PluginVariable(
 output_chunk_conditional_path = PluginVariable(
     id="output_chunk_conditional_path",  # ID of the variable, will allow us to identify the value
     name="output_chunk_conditional_path",  # The name that will appear in the frontend
-    description='Output file with a time series of the conditional probabilities over a trajectory split up into chunks',  # The description that will appear in the frontend
+    description="Output file with a time series of the conditional probabilities over a trajectory split up into chunks",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -98,140 +98,140 @@ output_chunk_conditional_path = PluginVariable(
 timestep = PluginVariable(
     id="timestep",
     name="timestep",
-    description='Simulation time step -in ps-, used to print data as a function of time.',
+    description="Simulation time step -in ps-, used to print data as a function of time.",
     type=VariableTypes.NUMBER
 )
 
 verbose = PluginVariable(
     id="verbose",
     name="verbose",
-    description='Controls how much information is printed to the calceo-style output file. Options are: False - Just print fraction protonated. True - Print everything calceo prints.',
+    description="Controls how much information is printed to the calceo-style output file. Options are: False - Just print fraction protonated. True - Print everything calceo prints.",
     type=VariableTypes.BOOLEAN
 )
 
 interval = PluginVariable(
     id="interval",
     name="interval",
-    description='Interval between which to print out time series data like chunks, cumulative data, and running averages. It is also used as the window of the conditional probability time series.',
+    description="Interval between which to print out time series data like chunks, cumulative data, and running averages. It is also used as the window of the conditional probability time series.",
     type=VariableTypes.INTEGER
 )
 
 reduced = PluginVariable(
     id="reduced",
     name="reduced",
-    description='Print out reduction fraction instead of oxidation fraction in time series data.',
+    description="Print out reduction fraction instead of oxidation fraction in time series data.",
     type=VariableTypes.BOOLEAN
 )
 
 eos = PluginVariable(
     id="eos",
     name="eos",
-    description='Print predicted Eos -via Nernst equation- in place of fraction reduced or oxidized.',
+    description="Print predicted Eos -via Nernst equation- in place of fraction reduced or oxidized.",
     type=VariableTypes.BOOLEAN
 )
 
 calceo = PluginVariable(
     id="calceo",
     name="calceo",
-    description='Triggers the calceo-style output.',
+    description="Triggers the calceo-style output.",
     type=VariableTypes.BOOLEAN
 )
 
 running_avg_window = PluginVariable(
     id="running_avg_window",
     name="running_avg_window",
-    description='Defines a window size -in MD steps- for a moving, running average time series.',
+    description="Defines a window size -in MD steps- for a moving, running average time series.",
     type=VariableTypes.INTEGER
 )
 
 chunk_window = PluginVariable(
     id="chunk_window",
     name="chunk_window",
-    description='Computes the time series data over a chunk of the simulation of this specified size -window- time steps.',
+    description="Computes the time series data over a chunk of the simulation of this specified size -window- time steps.",
     type=VariableTypes.INTEGER
 )
 
 cumulative = PluginVariable(
     id="cumulative",
     name="cumulative",
-    description='Computes the cumulative average time series data over the course of the trajectory.',
+    description="Computes the cumulative average time series data over the course of the trajectory.",
     type=VariableTypes.BOOLEAN
 )
 
 fix_remd = PluginVariable(
     id="fix_remd",
     name="fix_remd",
-    description='This option will trigger cestats to reassemble the titration data into pH-specific ensembles. This is an exclusive mode of the program, no other analyses will be done.',
+    description="This option will trigger cestats to reassemble the titration data into pH-specific ensembles. This is an exclusive mode of the program, no other analyses will be done.",
     type=VariableTypes.STRING
 )
 
 conditional = PluginVariable(
     id="conditional",
     name="conditional",
-    description='Evaluates conditional probabilities. CONDITIONAL should be a string of the format: <resid>:<state>,<resid>:<state>,... or <resid>:PROT,<resid>:DEPROT,... or <resid>:<state1>;<state2>,<resid>:PROT,... where <resid> is the residue number in the prmtop and <state> is either the state number or -p-rotonated or -d-eprotonated, case-insensitive.',
+    description="Evaluates conditional probabilities. CONDITIONAL should be a string of the format: <resid>:<state>,<resid>:<state>,... or <resid>:PROT,<resid>:DEPROT,... or <resid>:<state1>;<state2>,<resid>:PROT,... where <resid> is the residue number in the prmtop and <state> is either the state number or -p-rotonated or -d-eprotonated, case-insensitive.",
     type=VariableTypes.STRING
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Path to the cestats executable binary.',
+    description="Path to the cestats executable binary.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Container path definition.',
+    description="Container path definition.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container image definition.',
+    description="Container image definition.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Container volume path definition.',
+    description="Container volume path definition.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Container working directory definition.',
+    description="Container working directory definition.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='Container user_id definition.',
+    description="Container user_id definition.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to default shell inside the container.',
+    description="Path to default shell inside the container.",
     type=VariableTypes.STRING
 )
 
@@ -337,7 +337,7 @@ def cestats_run_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_amber:4.1.0--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_amber:4.2.0--pyhdfd78af_0",
             "cestats_run",
             "--config",
             "/tmp/cestats_run.json",
@@ -509,7 +509,7 @@ cestats_run_block = PluginBlock(
     # The name which will appear on the frontend
     name="cestats_run",
     # Its description
-    description='Wrapper of the AmberTools (AMBER MD Package) cestats tool module.',
+    description="Wrapper of the AmberTools (AMBER MD Package) cestats tool module.",
     # The action
     action=cestats_run_action,
     # A list of inputs, variables and outputs

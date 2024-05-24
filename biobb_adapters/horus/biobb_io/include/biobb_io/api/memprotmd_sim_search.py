@@ -13,7 +13,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 output_simulations = PluginVariable(
     id="output_simulations",  # ID of the variable, will allow us to identify the value
     name="output_simulations",  # The name that will appear in the frontend
-    description='Path to the output JSON file',  # The description that will appear in the frontend
+    description="Path to the output JSON file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -28,28 +28,28 @@ output_simulations = PluginVariable(
 collection_name = PluginVariable(
     id="collection_name",
     name="collection_name",
-    description='Name of the collection to query.',
+    description="Name of the collection to query.",
     type=VariableTypes.STRING
 )
 
 keyword = PluginVariable(
     id="keyword",
     name="keyword",
-    description='String to search for in the database metadata. Examples are families like gpcr or porin. ',
+    description="String to search for in the database metadata. Examples are families like gpcr or porin. ",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -179,7 +179,7 @@ memprotmd_sim_search_block = PluginBlock(
     # The name which will appear on the frontend
     name="memprotmd_sim_search",
     # Its description
-    description='This class is a wrapper of the MemProtMD to perform advanced searches in the MemProtMD DB using its REST API.',
+    description="This class is a wrapper of the MemProtMD to perform advanced searches in the MemProtMD DB using its REST API.",
     # The action
     action=memprotmd_sim_search_action,
     # A list of inputs, variables and outputs

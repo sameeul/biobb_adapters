@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_pdb_path = PluginVariable(
     id="input_pdb_path",  # ID of the variable, will allow us to identify the value
     name="input_pdb_path",  # The name that will appear in the frontend
-    description='Path to the PDB structure where the binding site is to be found',  # The description that will appear in the frontend
+    description="Path to the PDB structure where the binding site is to be found",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_pdb_path = PluginVariable(
 input_clusters_zip = PluginVariable(
     id="input_clusters_zip",  # ID of the variable, will allow us to identify the value
     name="input_clusters_zip",  # The name that will appear in the frontend
-    description='Path to the ZIP file with all the PDB members of the identity cluster',  # The description that will appear in the frontend
+    description="Path to the ZIP file with all the PDB members of the identity cluster",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ input_clusters_zip = PluginVariable(
 output_pdb_path = PluginVariable(
     id="output_pdb_path",  # ID of the variable, will allow us to identify the value
     name="output_pdb_path",  # The name that will appear in the frontend
-    description='Path to the PDB containig the residues belonging to the binding site',  # The description that will appear in the frontend
+    description="Path to the PDB containig the residues belonging to the binding site",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -48,56 +48,56 @@ output_pdb_path = PluginVariable(
 ligand = PluginVariable(
     id="ligand",
     name="ligand",
-    description='Ligand to be found in the protein structure. If no ligand provided, the largest one will be selected, if more than one.',
+    description="Ligand to be found in the protein structure. If no ligand provided, the largest one will be selected, if more than one.",
     type=VariableTypes.STRING
 )
 
 radius = PluginVariable(
     id="radius",
     name="radius",
-    description='Cut-off distance (Ångstroms) around ligand atoms to consider a protein atom as a binding site atom.',
+    description="Cut-off distance (Ångstroms) around ligand atoms to consider a protein atom as a binding site atom.",
     type=VariableTypes.NUMBER
 )
 
 max_num_ligands = PluginVariable(
     id="max_num_ligands",
     name="max_num_ligands",
-    description='Total number of superimposed ligands to be extracted from the identity cluster. For populated clusters, the restriction avoids to superimpose redundant structures. If 0, all ligands extracted will be considered.',
+    description="Total number of superimposed ligands to be extracted from the identity cluster. For populated clusters, the restriction avoids to superimpose redundant structures. If 0, all ligands extracted will be considered.",
     type=VariableTypes.INTEGER
 )
 
 matrix_name = PluginVariable(
     id="matrix_name",
     name="matrix_name",
-    description='Substitution matrices for use in alignments. ',
+    description="Substitution matrices for use in alignments. ",
     type=VariableTypes.STRING
 )
 
 gap_open = PluginVariable(
     id="gap_open",
     name="gap_open",
-    description='Gap open penalty.',
+    description="Gap open penalty.",
     type=VariableTypes.NUMBER
 )
 
 gap_extend = PluginVariable(
     id="gap_extend",
     name="gap_extend",
-    description='Gap extend penalty.',
+    description="Gap extend penalty.",
     type=VariableTypes.NUMBER
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -257,7 +257,7 @@ bindingsite_block = PluginBlock(
     # The name which will appear on the frontend
     name="bindingsite",
     # Its description
-    description='This class finds the binding site of the input_pdb.',
+    description="This class finds the binding site of the input_pdb.",
     # The action
     action=bindingsite_action,
     # A list of inputs, variables and outputs

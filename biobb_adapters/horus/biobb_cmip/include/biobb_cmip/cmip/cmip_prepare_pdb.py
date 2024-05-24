@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_pdb_path = PluginVariable(
     id="input_pdb_path",  # ID of the variable, will allow us to identify the value
     name="input_pdb_path",  # The name that will appear in the frontend
-    description='Input PDB file path',  # The description that will appear in the frontend
+    description="Input PDB file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_pdb_path = PluginVariable(
 output_cmip_pdb_path = PluginVariable(
     id="output_cmip_pdb_path",  # ID of the variable, will allow us to identify the value
     name="output_cmip_pdb_path",  # The name that will appear in the frontend
-    description='Output PDB file path',  # The description that will appear in the frontend
+    description="Output PDB file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -38,49 +38,49 @@ output_cmip_pdb_path = PluginVariable(
 remove_water = PluginVariable(
     id="remove_water",
     name="remove_water",
-    description='Remove Water molecules.',
+    description="Remove Water molecules.",
     type=VariableTypes.BOOLEAN
 )
 
 add_hydrogen = PluginVariable(
     id="add_hydrogen",
     name="add_hydrogen",
-    description='Add Hydrogen atoms to the structure.',
+    description="Add Hydrogen atoms to the structure.",
     type=VariableTypes.BOOLEAN
 )
 
 keep_hydrogen = PluginVariable(
     id="keep_hydrogen",
     name="keep_hydrogen",
-    description='If **add_hydrogen** is True. All hydrogen atoms will be removed before adding the new ones unless this option is set True.',
+    description="If **add_hydrogen** is True. All hydrogen atoms will be removed before adding the new ones unless this option is set True.",
     type=VariableTypes.BOOLEAN
 )
 
 fix_sidechains = PluginVariable(
     id="fix_sidechains",
     name="fix_sidechains",
-    description='Complete side chains (heavy atoms, protein only).',
+    description="Complete side chains (heavy atoms, protein only).",
     type=VariableTypes.BOOLEAN
 )
 
 fix_backbone_atoms = PluginVariable(
     id="fix_backbone_atoms",
     name="fix_backbone_atoms",
-    description='Add missing O, OXT backbone atoms.',
+    description="Add missing O, OXT backbone atoms.",
     type=VariableTypes.BOOLEAN
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -148,7 +148,7 @@ def cmip_prepare_pdb_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_cmip:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_cmip:4.2.0--pyhdfd78af_0",
             "cmip_prepare_pdb",
             "--config",
             "/tmp/cmip_prepare_pdb.json",
@@ -229,7 +229,7 @@ cmip_prepare_pdb_block = PluginBlock(
     # The name which will appear on the frontend
     name="cmip_prepare_pdb",
     # Its description
-    description='Class to add CMIP charges and atom types.',
+    description="Class to add CMIP charges and atom types.",
     # The action
     action=cmip_prepare_pdb_action,
     # A list of inputs, variables and outputs

@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_pdb_path = PluginVariable(
     id="input_pdb_path",  # ID of the variable, will allow us to identify the value
     name="input_pdb_path",  # The name that will appear in the frontend
-    description='Input PDB file',  # The description that will appear in the frontend
+    description="Input PDB file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_pdb_path = PluginVariable(
 input_dat_path = PluginVariable(
     id="input_dat_path",  # ID of the variable, will allow us to identify the value
     name="input_dat_path",  # The name that will appear in the frontend
-    description='Input dat with normal modes',  # The description that will appear in the frontend
+    description="Input dat with normal modes",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ input_dat_path = PluginVariable(
 output_pdb_path = PluginVariable(
     id="output_pdb_path",  # ID of the variable, will allow us to identify the value
     name="output_pdb_path",  # The name that will appear in the frontend
-    description='Output multi-model PDB file with the generated animation by Principal Component',  # The description that will appear in the frontend
+    description="Output multi-model PDB file with the generated animation by Principal Component",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -48,28 +48,28 @@ output_pdb_path = PluginVariable(
 pc = PluginVariable(
     id="pc",
     name="pc",
-    description='Principal Component.',
+    description="Principal Component.",
     type=VariableTypes.INTEGER
 )
 
 num_frames = PluginVariable(
     id="num_frames",
     name="num_frames",
-    description='Number of frames to be generated',
+    description="Number of frames to be generated",
     type=VariableTypes.INTEGER
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -213,7 +213,7 @@ imod_imove_block = PluginBlock(
     # The name which will appear on the frontend
     name="imod_imove",
     # Its description
-    description='Wrapper of the imove tool',
+    description="Wrapper of the imove tool",
     # The action
     action=imod_imove_action,
     # A list of inputs, variables and outputs

@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_pcz_path1 = PluginVariable(
     id="input_pcz_path1",  # ID of the variable, will allow us to identify the value
     name="input_pcz_path1",  # The name that will appear in the frontend
-    description='Input compressed trajectory file 1',  # The description that will appear in the frontend
+    description="Input compressed trajectory file 1",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_pcz_path1 = PluginVariable(
 input_pcz_path2 = PluginVariable(
     id="input_pcz_path2",  # ID of the variable, will allow us to identify the value
     name="input_pcz_path2",  # The name that will appear in the frontend
-    description='Input compressed trajectory file 2',  # The description that will appear in the frontend
+    description="Input compressed trajectory file 2",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ input_pcz_path2 = PluginVariable(
 output_json_path = PluginVariable(
     id="output_json_path",  # ID of the variable, will allow us to identify the value
     name="output_json_path",  # The name that will appear in the frontend
-    description='Output json file with PCA Similarity results',  # The description that will appear in the frontend
+    description="Output json file with PCA Similarity results",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -48,28 +48,28 @@ output_json_path = PluginVariable(
 amplifying_factor = PluginVariable(
     id="amplifying_factor",
     name="amplifying_factor",
-    description='common displacement (dx) along the different eigenvectors. If 0, the result is the absolute similarity index (dot product).',
+    description="common displacement (dx) along the different eigenvectors. If 0, the result is the absolute similarity index (dot product).",
     type=VariableTypes.NUMBER
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='pczdump binary path to be used.',
+    description="pczdump binary path to be used.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -213,7 +213,7 @@ pcz_similarity_block = PluginBlock(
     # The name which will appear on the frontend
     name="pcz_similarity",
     # Its description
-    description='Compute PCA similarity between two given compressed PCZ files.',
+    description="Compute PCA similarity between two given compressed PCZ files.",
     # The action
     action=pcz_similarity_action,
     # A list of inputs, variables and outputs

@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_struc_path = PluginVariable(
     id="input_struc_path",  # ID of the variable, will allow us to identify the value
     name="input_struc_path",  # The name that will appear in the frontend
-    description='Trajectory or PDB input file',  # The description that will appear in the frontend
+    description="Trajectory or PDB input file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_struc_path = PluginVariable(
 input_top_path = PluginVariable(
     id="input_top_path",  # ID of the variable, will allow us to identify the value
     name="input_top_path",  # The name that will appear in the frontend
-    description='Topology file, needed along with .trj file (optional)',  # The description that will appear in the frontend
+    description="Topology file, needed along with .trj file (optional)",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ input_top_path = PluginVariable(
 output_cda_path = PluginVariable(
     id="output_cda_path",  # ID of the variable, will allow us to identify the value
     name="output_cda_path",  # The name that will appear in the frontend
-    description='Filename for Curves+ output .cda file',  # The description that will appear in the frontend
+    description="Filename for Curves+ output .cda file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -43,7 +43,7 @@ output_cda_path = PluginVariable(
 output_lis_path = PluginVariable(
     id="output_lis_path",  # ID of the variable, will allow us to identify the value
     name="output_lis_path",  # The name that will appear in the frontend
-    description='Filename for Curves+ output .lis file',  # The description that will appear in the frontend
+    description="Filename for Curves+ output .lis file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -53,7 +53,7 @@ output_lis_path = PluginVariable(
 output_zip_path = PluginVariable(
     id="output_zip_path",  # ID of the variable, will allow us to identify the value
     name="output_zip_path",  # The name that will appear in the frontend
-    description='Filename for .zip files containing Curves+ output that is not .cda or .lis files',  # The description that will appear in the frontend
+    description="Filename for .zip files containing Curves+ output that is not .cda or .lis files",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -68,98 +68,98 @@ output_zip_path = PluginVariable(
 s1range = PluginVariable(
     id="s1range",
     name="s1range",
-    description='Range of first strand. Must be specified in the form "start:end".',
+    description="Range of first strand. Must be specified in the form 'start:end'.",
     type=VariableTypes.STRING
 )
 
 s2range = PluginVariable(
     id="s2range",
     name="s2range",
-    description='Range of second strand. Must be specified in the form "start:end".',
+    description="Range of second strand. Must be specified in the form 'start:end'.",
     type=VariableTypes.STRING
 )
 
 stdlib_path = PluginVariable(
     id="stdlib_path",
     name="stdlib_path",
-    description='Path to Curves' standard library files for nucleotides. If not specified will look for 'standard' files in current directory.',
+    description="Path to Curves' standard library files for nucleotides. If not specified will look for 'standard' files in current directory.",
     type=VariableTypes.STRING
 )
 
 itst = PluginVariable(
     id="itst",
     name="itst",
-    description='Iteration start index.',
+    description="Iteration start index.",
     type=VariableTypes.INTEGER
 )
 
 itnd = PluginVariable(
     id="itnd",
     name="itnd",
-    description='Iteration end index.',
+    description="Iteration end index.",
     type=VariableTypes.INTEGER
 )
 
 itdel = PluginVariable(
     id="itdel",
     name="itdel",
-    description='Iteration delimiter.',
+    description="Iteration delimiter.",
     type=VariableTypes.INTEGER
 )
 
 ions = PluginVariable(
     id="ions",
     name="ions",
-    description='If True, helicoidal analysis of ions (or solvent molecules) around solute is carried out.',
+    description="If True, helicoidal analysis of ions (or solvent molecules) around solute is carried out.",
     type=VariableTypes.BOOLEAN
 )
 
 test = PluginVariable(
     id="test",
     name="test",
-    description='If True, provide addition output in .lis file on fitting and axis generation.',
+    description="If True, provide addition output in .lis file on fitting and axis generation.",
     type=VariableTypes.BOOLEAN
 )
 
 line = PluginVariable(
     id="line",
     name="line",
-    description='if True, find the best linear helical axis.',
+    description="if True, find the best linear helical axis.",
     type=VariableTypes.BOOLEAN
 )
 
 fit = PluginVariable(
     id="fit",
     name="fit",
-    description='if True, fit a standard bases to the input coordinates (important for MD snapshots to avoid base distortions leading to noisy helical parameters).',
+    description="if True, fit a standard bases to the input coordinates (important for MD snapshots to avoid base distortions leading to noisy helical parameters).",
     type=VariableTypes.BOOLEAN
 )
 
 axfrm = PluginVariable(
     id="axfrm",
     name="axfrm",
-    description='if True, generates closely spaced helical axis frames as input for Canal and Canion.',
+    description="if True, generates closely spaced helical axis frames as input for Canal and Canion.",
     type=VariableTypes.BOOLEAN
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Path to Curves+ executable, otherwise the program wil look for Cur+ executable in the binaries folder.',
+    description="Path to Curves+ executable, otherwise the program wil look for Cur+ executable in the binaries folder.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -371,7 +371,7 @@ biobb_curves_block = PluginBlock(
     # The name which will appear on the frontend
     name="biobb_curves",
     # Its description
-    description='Wrapper for the Cur+ executable  that is part of the Curves+ software suite.',
+    description="Wrapper for the Cur+ executable  that is part of the Curves+ software suite.",
     # The action
     action=biobb_curves_action,
     # A list of inputs, variables and outputs

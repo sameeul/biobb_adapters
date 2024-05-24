@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Calculate correlation between helical parameters for a single intra-base pair.
 
 doc: |-
-  None
+  Calculate correlation between helical parameters for a single intra-base pair.
 
 baseCommand: intrahpcorr
 

@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_cmip_pdb_path = PluginVariable(
     id="input_cmip_pdb_path",  # ID of the variable, will allow us to identify the value
     name="input_cmip_pdb_path",  # The name that will appear in the frontend
-    description='Input PDB file path',  # The description that will appear in the frontend
+    description="Input PDB file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_cmip_pdb_path = PluginVariable(
 output_cmip_pdb_path = PluginVariable(
     id="output_cmip_pdb_path",  # ID of the variable, will allow us to identify the value
     name="output_cmip_pdb_path",  # The name that will appear in the frontend
-    description='Output PDB file path',  # The description that will appear in the frontend
+    description="Output PDB file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -38,28 +38,28 @@ output_cmip_pdb_path = PluginVariable(
 residue_list = PluginVariable(
     id="residue_list",
     name="residue_list",
-    description='Residue list in the format "Chain:Resnum" (no spaces between the elements) separated by commas. If no chain is provided all the residues in the pdb file will be market. ie: "A:3".',
+    description="Residue list in the format 'Chain:Resnum' (no spaces between the elements) separated by commas. If no chain is provided all the residues in the pdb file will be market. ie: 'A:3'.",
     type=VariableTypes.STRING
 )
 
 ignore_all = PluginVariable(
     id="ignore_all",
     name="ignore_all",
-    description='Mark all the residues in the PDB file.',
+    description="Mark all the residues in the PDB file.",
     type=VariableTypes.BOOLEAN
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -121,7 +121,7 @@ def cmip_ignore_residues_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_cmip:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_cmip:4.2.0--pyhdfd78af_0",
             "cmip_ignore_residues",
             "--config",
             "/tmp/cmip_ignore_residues.json",
@@ -196,7 +196,7 @@ cmip_ignore_residues_block = PluginBlock(
     # The name which will appear on the frontend
     name="cmip_ignore_residues",
     # Its description
-    description='Class to ignore residues in CMIP potential calculations.',
+    description="Class to ignore residues in CMIP potential calculations.",
     # The action
     action=cmip_ignore_residues_action,
     # A list of inputs, variables and outputs

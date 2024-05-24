@@ -7,7 +7,7 @@ label: Calculate stiffness constants matrix between all six helical parameters f
   a single base pair step.
 
 doc: |-
-  None
+  Calculate stiffness constants matrix between all six helical parameters for a single base pair step.
 
 baseCommand: basepair_stiffness
 

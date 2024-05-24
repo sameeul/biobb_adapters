@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_pdb_path = PluginVariable(
     id="input_pdb_path",  # ID of the variable, will allow us to identify the value
     name="input_pdb_path",  # The name that will appear in the frontend
-    description='Input PDB file path',  # The description that will appear in the frontend
+    description="Input PDB file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_pdb_path = PluginVariable(
 output_pdb_path = PluginVariable(
     id="output_pdb_path",  # ID of the variable, will allow us to identify the value
     name="output_pdb_path",  # The name that will appear in the frontend
-    description='Output PDB file path',  # The description that will appear in the frontend
+    description="Output PDB file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -38,42 +38,42 @@ output_pdb_path = PluginVariable(
 mutation_list = PluginVariable(
     id="mutation_list",
     name="mutation_list",
-    description='Mutation list in the format "Chain:WT_AA_ThreeLeterCode Resnum MUT_AA_ThreeLeterCode" (no spaces between the elements) separated by commas. If no chain is provided as chain code all the chains in the pdb file will be mutated. ie: "A:ALA15CYS"',
+    description="Mutation list in the format 'Chain:WT_AA_ThreeLeterCode Resnum MUT_AA_ThreeLeterCode' (no spaces between the elements) separated by commas. If no chain is provided as chain code all the chains in the pdb file will be mutated. ie: 'A:ALA15CYS'",
     type=VariableTypes.STRING
 )
 
 use_modeller = PluginVariable(
     id="use_modeller",
     name="use_modeller",
-    description='Use Modeller suite to optimize the side chains.',
+    description="Use Modeller suite to optimize the side chains.",
     type=VariableTypes.BOOLEAN
 )
 
 modeller_key = PluginVariable(
     id="modeller_key",
     name="modeller_key",
-    description='Modeller license key.',
+    description="Modeller license key.",
     type=VariableTypes.STRING
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Path to the check_structure executable binary.',
+    description="Path to the check_structure executable binary.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -218,7 +218,7 @@ mutate_block = PluginBlock(
     # The name which will appear on the frontend
     name="mutate",
     # Its description
-    description='Class to mutate one amino acid by another in a 3d structure.',
+    description="Class to mutate one amino acid by another in a 3d structure.",
     # The action
     action=mutate_action,
     # A list of inputs, variables and outputs

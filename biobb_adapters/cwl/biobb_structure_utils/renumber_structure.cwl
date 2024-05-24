@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Class to renumber atomic indexes from a 3D structure.
 
 doc: |-
-  None
+  Renumber atomic indexes from a 3D structure.
 
 baseCommand: renumber_structure
 

@@ -2,7 +2,7 @@
     "name": "biobb_cmip",
     "description": "The Horus adapter for biobb_cmip",
     "author": "Pau Andrio",
-    "version": "4.1.1",
+    "version": "4.2.0",
     "pluginFile": "plugin.py",
     "dependencies": []
 }

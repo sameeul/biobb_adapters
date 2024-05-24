@@ -13,7 +13,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 output_json_path = PluginVariable(
     id="output_json_path",  # ID of the variable, will allow us to identify the value
     name="output_json_path",  # The name that will appear in the frontend
-    description='Path to the output JSON file with all the structure information',  # The description that will appear in the frontend
+    description="Path to the output JSON file with all the structure information",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -28,21 +28,21 @@ output_json_path = PluginVariable(
 pdb_code = PluginVariable(
     id="pdb_code",
     name="pdb_code",
-    description='RSCB PDB structure code.',
+    description="RSCB PDB structure code.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -168,7 +168,7 @@ structure_info_block = PluginBlock(
     # The name which will appear on the frontend
     name="structure_info",
     # Its description
-    description='This class is a wrapper for getting all the available information of a structure from the Protein Data Bank.',
+    description="This class is a wrapper for getting all the available information of a structure from the Protein Data Bank.",
     # The action
     action=structure_info_action,
     # A list of inputs, variables and outputs

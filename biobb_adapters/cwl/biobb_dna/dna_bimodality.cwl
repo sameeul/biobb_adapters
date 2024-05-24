@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Determine binormality/bimodality from a helical parameter series dataset.
 
 doc: |-
-  None
+  Determine binormality/bimodality from a helical parameter series dataset.
 
 baseCommand: dna_bimodality
 

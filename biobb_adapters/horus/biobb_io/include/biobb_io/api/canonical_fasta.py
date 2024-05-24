@@ -13,7 +13,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 output_fasta_path = PluginVariable(
     id="output_fasta_path",  # ID of the variable, will allow us to identify the value
     name="output_fasta_path",  # The name that will appear in the frontend
-    description='Path to the canonical FASTA file',  # The description that will appear in the frontend
+    description="Path to the canonical FASTA file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -28,28 +28,28 @@ output_fasta_path = PluginVariable(
 pdb_code = PluginVariable(
     id="pdb_code",
     name="pdb_code",
-    description='RSCB PDB code.',
+    description="RSCB PDB code.",
     type=VariableTypes.STRING
 )
 
 api_id = PluginVariable(
     id="api_id",
     name="api_id",
-    description='Identifier of the PDB REST API from which the PDB structure will be downloaded. ',
+    description="Identifier of the PDB REST API from which the PDB structure will be downloaded. ",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -179,7 +179,7 @@ canonical_fasta_block = PluginBlock(
     # The name which will appear on the frontend
     name="canonical_fasta",
     # Its description
-    description='This class is a wrapper for downloading a FASTA structure from the Protein Data Bank.',
+    description="This class is a wrapper for downloading a FASTA structure from the Protein Data Bank.",
     # The action
     action=canonical_fasta_action,
     # A list of inputs, variables and outputs

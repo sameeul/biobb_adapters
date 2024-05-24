@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_pdb_path = PluginVariable(
     id="input_pdb_path",  # ID of the variable, will allow us to identify the value
     name="input_pdb_path",  # The name that will appear in the frontend
-    description='Input PDB file',  # The description that will appear in the frontend
+    description="Input PDB file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_pdb_path = PluginVariable(
 output_pdb_path = PluginVariable(
     id="output_pdb_path",  # ID of the variable, will allow us to identify the value
     name="output_pdb_path",  # The name that will appear in the frontend
-    description='Output multi-model PDB file with the generated ensemble',  # The description that will appear in the frontend
+    description="Output multi-model PDB file with the generated ensemble",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -38,49 +38,49 @@ output_pdb_path = PluginVariable(
 num_structs = PluginVariable(
     id="num_structs",
     name="num_structs",
-    description='Number of structures to be generated',
+    description="Number of structures to be generated",
     type=VariableTypes.INTEGER
 )
 
 selection = PluginVariable(
     id="selection",
     name="selection",
-    description='Atoms selection (Prody syntax: http://prody.csb.pitt.edu/manual/reference/atomic/select.html)',
+    description="Atoms selection (Prody syntax: http://prody.csb.pitt.edu/manual/reference/atomic/select.html)",
     type=VariableTypes.STRING
 )
 
 cutoff = PluginVariable(
     id="cutoff",
     name="cutoff",
-    description='Cutoff distance (Å) for pairwise interactions, minimum is 4.0 Å',
+    description="Cutoff distance (Å) for pairwise interactions, minimum is 4.0 Å",
     type=VariableTypes.NUMBER
 )
 
 gamma = PluginVariable(
     id="gamma",
     name="gamma",
-    description='Spring constant',
+    description="Spring constant",
     type=VariableTypes.NUMBER
 )
 
 rmsd = PluginVariable(
     id="rmsd",
     name="rmsd",
-    description='Average RMSD that the conformations will have with respect to the initial conformation',
+    description="Average RMSD that the conformations will have with respect to the initial conformation",
     type=VariableTypes.NUMBER
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -229,7 +229,7 @@ prody_anm_block = PluginBlock(
     # The name which will appear on the frontend
     name="prody_anm",
     # Its description
-    description='Wrapper of the ANM tool from the Prody package.',
+    description="Wrapper of the ANM tool from the Prody package.",
     # The action
     action=prody_anm_action,
     # A list of inputs, variables and outputs

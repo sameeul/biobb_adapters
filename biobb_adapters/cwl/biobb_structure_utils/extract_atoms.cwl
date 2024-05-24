@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Class to extract atoms from a 3D structure.
 
 doc: |-
-  None
+  Extracts all atoms from a 3D structure that match a regular expression pattern.
 
 baseCommand: extract_atoms
 

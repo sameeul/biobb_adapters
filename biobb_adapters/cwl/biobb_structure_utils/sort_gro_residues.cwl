@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Class to sort the selected residues from a GRO 3D structure.
 
 doc: |-
-  None
+  Sorts the selected residues from a GRO 3D structure.
 
 baseCommand: sort_gro_residues
 

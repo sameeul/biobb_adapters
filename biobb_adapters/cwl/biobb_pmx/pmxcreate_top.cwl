@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Wrapper class for the PMX create_top module.
 
 doc: |-
-  None
+  Create a complete ligand topology file from two input topology files.
 
 baseCommand: pmxcreate_top
 

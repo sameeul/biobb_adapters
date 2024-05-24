@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Class to remove the selected ligand atoms from a 3D structure.
 
 doc: |-
-  None
+  Remove the selected ligand atoms from a 3D structure.
 
 baseCommand: remove_ligand
 

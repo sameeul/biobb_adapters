@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_structure_path = PluginVariable(
     id="input_structure_path",  # ID of the variable, will allow us to identify the value
     name="input_structure_path",  # The name that will appear in the frontend
-    description='Input structure file path',  # The description that will appear in the frontend
+    description="Input structure file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_structure_path = PluginVariable(
 output_molecules_path = PluginVariable(
     id="output_molecules_path",  # ID of the variable, will allow us to identify the value
     name="output_molecules_path",  # The name that will appear in the frontend
-    description='Output molcules file path',  # The description that will appear in the frontend
+    description="Output molcules file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -38,21 +38,21 @@ output_molecules_path = PluginVariable(
 molecules = PluginVariable(
     id="molecules",
     name="molecules",
-    description='List of comma separated res_id (will remove all molecules that match the res_id) or list of dictionaries with the name | res_id  | chain | model of the molecules to be removed. Format: [{"name": "HIS", "res_id": "72", "chain": "A", "model": "1"}].',
-    type=VariableTypes.ARRAY
+    description="List of comma separated res_id (will remove all molecules that match the res_id) or list of dictionaries with the name | res_id  | chain | model of the molecules to be removed. Format: [{'name': 'HIS', 'res_id': '72', 'chain': 'A', 'model': '1'}].",
+    type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -185,7 +185,7 @@ remove_molecules_block = PluginBlock(
     # The name which will appear on the frontend
     name="remove_molecules",
     # Its description
-    description='Class to remove molecules from a 3D structure using Biopython.',
+    description="Class to remove molecules from a 3D structure using Biopython.",
     # The action
     action=remove_molecules_action,
     # A list of inputs, variables and outputs

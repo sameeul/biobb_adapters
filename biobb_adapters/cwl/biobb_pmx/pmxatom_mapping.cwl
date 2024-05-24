@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Wrapper class for the PMX atom_mapping module.
 
 doc: |-
-  None
+  Perform atom mapping between two ligand structures.
 
 baseCommand: pmxatom_mapping
 

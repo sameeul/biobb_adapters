@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_structure_path = PluginVariable(
     id="input_structure_path",  # ID of the variable, will allow us to identify the value
     name="input_structure_path",  # The name that will appear in the frontend
-    description='Path to the input structure file',  # The description that will appear in the frontend
+    description="Path to the input structure file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_structure_path = PluginVariable(
 input_traj_path = PluginVariable(
     id="input_traj_path",  # ID of the variable, will allow us to identify the value
     name="input_traj_path",  # The name that will appear in the frontend
-    description='Path to the GROMACS trajectory file',  # The description that will appear in the frontend
+    description="Path to the GROMACS trajectory file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -32,7 +32,7 @@ input_traj_path = PluginVariable(
 input_index_path = PluginVariable(
     id="input_index_path",  # ID of the variable, will allow us to identify the value
     name="input_index_path",  # The name that will appear in the frontend
-    description='Path to the GROMACS index file',  # The description that will appear in the frontend
+    description="Path to the GROMACS index file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -43,7 +43,7 @@ input_index_path = PluginVariable(
 output_pdb_path = PluginVariable(
     id="output_pdb_path",  # ID of the variable, will allow us to identify the value
     name="output_pdb_path",  # The name that will appear in the frontend
-    description='Path to the output cluster file',  # The description that will appear in the frontend
+    description="Path to the output cluster file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -53,7 +53,7 @@ output_pdb_path = PluginVariable(
 output_cluster_log_path = PluginVariable(
     id="output_cluster_log_path",  # ID of the variable, will allow us to identify the value
     name="output_cluster_log_path",  # The name that will appear in the frontend
-    description='Path to the output log file',  # The description that will appear in the frontend
+    description="Path to the output log file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -63,7 +63,7 @@ output_cluster_log_path = PluginVariable(
 output_rmsd_cluster_xpm_path = PluginVariable(
     id="output_rmsd_cluster_xpm_path",  # ID of the variable, will allow us to identify the value
     name="output_rmsd_cluster_xpm_path",  # The name that will appear in the frontend
-    description='Path to the output X PixMap compatible matrix file',  # The description that will appear in the frontend
+    description="Path to the output X PixMap compatible matrix file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -73,7 +73,7 @@ output_rmsd_cluster_xpm_path = PluginVariable(
 output_rmsd_dist_xvg_path = PluginVariable(
     id="output_rmsd_dist_xvg_path",  # ID of the variable, will allow us to identify the value
     name="output_rmsd_dist_xvg_path",  # The name that will appear in the frontend
-    description='Path to xvgr/xmgr file',  # The description that will appear in the frontend
+    description="Path to xvgr/xmgr file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -88,105 +88,105 @@ output_rmsd_dist_xvg_path = PluginVariable(
 fit_selection = PluginVariable(
     id="fit_selection",
     name="fit_selection",
-    description='Group where the fitting will be performed. If **input_index_path** provided, check the file for the accepted values. ',
+    description="Group where the fitting will be performed. If **input_index_path** provided, check the file for the accepted values. ",
     type=VariableTypes.STRING
 )
 
 output_selection = PluginVariable(
     id="output_selection",
     name="output_selection",
-    description='Group that is going to be written in the output trajectory. If **input_index_path** provided, check the file for the accepted values. ',
+    description="Group that is going to be written in the output trajectory. If **input_index_path** provided, check the file for the accepted values. ",
     type=VariableTypes.STRING
 )
 
 dista = PluginVariable(
     id="dista",
     name="dista",
-    description='Use RMSD of distances instead of RMS deviation.',
+    description="Use RMSD of distances instead of RMS deviation.",
     type=VariableTypes.BOOLEAN
 )
 
 nofit = PluginVariable(
     id="nofit",
     name="nofit",
-    description='Do not use least squares fitting before RMSD calculation.',
+    description="Do not use least squares fitting before RMSD calculation.",
     type=VariableTypes.BOOLEAN
 )
 
 method = PluginVariable(
     id="method",
     name="method",
-    description='Method for cluster determination. ',
+    description="Method for cluster determination. ",
     type=VariableTypes.STRING
 )
 
 cutoff = PluginVariable(
     id="cutoff",
     name="cutoff",
-    description='RMSD cut-off (nm) for two structures to be neighbor.',
+    description="RMSD cut-off (nm) for two structures to be neighbor.",
     type=VariableTypes.NUMBER
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Path to the GROMACS executable binary.',
+    description="Path to the GROMACS executable binary.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Container path definition.',
+    description="Container path definition.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container image definition.',
+    description="Container image definition.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Container volume path definition.',
+    description="Container volume path definition.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Container working directory definition.',
+    description="Container working directory definition.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='Container user_id definition.',
+    description="Container user_id definition.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to default shell inside the container.',
+    description="Path to default shell inside the container.",
     type=VariableTypes.STRING
 )
 
@@ -280,7 +280,7 @@ def gmx_cluster_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_analysis:4.1.0--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_analysis:4.2.0--pyhdfd78af_0",
             "gmx_cluster",
             "--config",
             "/tmp/gmx_cluster.json",
@@ -423,7 +423,7 @@ gmx_cluster_block = PluginBlock(
     # The name which will appear on the frontend
     name="gmx_cluster",
     # Its description
-    description='Wrapper of the GROMACS cluster module for clustering structures from a given GROMACS compatible trajectory.',
+    description="Wrapper of the GROMACS cluster module for clustering structures from a given GROMACS compatible trajectory.",
     # The action
     action=gmx_cluster_action,
     # A list of inputs, variables and outputs

@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_pdb_path = PluginVariable(
     id="input_pdb_path",  # ID of the variable, will allow us to identify the value
     name="input_pdb_path",  # The name that will appear in the frontend
-    description='Path to the input PDB file',  # The description that will appear in the frontend
+    description="Path to the input PDB file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_pdb_path = PluginVariable(
 input_topology_path = PluginVariable(
     id="input_topology_path",  # ID of the variable, will allow us to identify the value
     name="input_topology_path",  # The name that will appear in the frontend
-    description='Path to the input topology path',  # The description that will appear in the frontend
+    description="Path to the input topology path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ input_topology_path = PluginVariable(
 output_cmip_pdb_path = PluginVariable(
     id="output_cmip_pdb_path",  # ID of the variable, will allow us to identify the value
     name="output_cmip_pdb_path",  # The name that will appear in the frontend
-    description='Path to the output PDB file',  # The description that will appear in the frontend
+    description="Path to the output PDB file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -48,56 +48,56 @@ output_cmip_pdb_path = PluginVariable(
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Path to the binary executable of your container.',
+    description="Path to the binary executable of your container.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container Image identifier.',
+    description="Container Image identifier.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Path to an internal directory in the container.',
+    description="Path to an internal directory in the container.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Path to the internal CWD in the container.',
+    description="Path to the internal CWD in the container.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='User number id to be mapped inside the container.',
+    description="User number id to be mapped inside the container.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to the binary executable of the container shell.',
+    description="Path to the binary executable of the container shell.",
     type=VariableTypes.STRING
 )
 
@@ -169,7 +169,7 @@ def cmip_prepare_structure_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_cmip:4.1.1--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_cmip:4.2.0--pyhdfd78af_0",
             "cmip_prepare_structure",
             "--config",
             "/tmp/cmip_prepare_structure.json",
@@ -257,7 +257,7 @@ cmip_prepare_structure_block = PluginBlock(
     # The name which will appear on the frontend
     name="cmip_prepare_structure",
     # Its description
-    description='Generate a CMIP suitable PDB input.',
+    description="Generate a CMIP suitable PDB input.",
     # The action
     action=cmip_prepare_structure_action,
     # A list of inputs, variables and outputs

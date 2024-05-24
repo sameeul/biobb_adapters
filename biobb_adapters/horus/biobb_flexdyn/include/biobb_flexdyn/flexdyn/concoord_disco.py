@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_pdb_path = PluginVariable(
     id="input_pdb_path",  # ID of the variable, will allow us to identify the value
     name="input_pdb_path",  # The name that will appear in the frontend
-    description='Input structure file in PDB format',  # The description that will appear in the frontend
+    description="Input structure file in PDB format",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_pdb_path = PluginVariable(
 input_dat_path = PluginVariable(
     id="input_dat_path",  # ID of the variable, will allow us to identify the value
     name="input_dat_path",  # The name that will appear in the frontend
-    description='Input dat with structure interpretation and bond definitions',  # The description that will appear in the frontend
+    description="Input dat with structure interpretation and bond definitions",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ input_dat_path = PluginVariable(
 output_traj_path = PluginVariable(
     id="output_traj_path",  # ID of the variable, will allow us to identify the value
     name="output_traj_path",  # The name that will appear in the frontend
-    description='Output trajectory file',  # The description that will appear in the frontend
+    description="Output trajectory file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -43,7 +43,7 @@ output_traj_path = PluginVariable(
 output_rmsd_path = PluginVariable(
     id="output_rmsd_path",  # ID of the variable, will allow us to identify the value
     name="output_rmsd_path",  # The name that will appear in the frontend
-    description='Output rmsd file',  # The description that will appear in the frontend
+    description="Output rmsd file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -53,7 +53,7 @@ output_rmsd_path = PluginVariable(
 output_bfactor_path = PluginVariable(
     id="output_bfactor_path",  # ID of the variable, will allow us to identify the value
     name="output_bfactor_path",  # The name that will appear in the frontend
-    description='Output B-factor file',  # The description that will appear in the frontend
+    description="Output B-factor file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -68,140 +68,140 @@ output_bfactor_path = PluginVariable(
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Concoord disco binary path to be used.',
+    description="Concoord disco binary path to be used.",
     type=VariableTypes.STRING
 )
 
 vdw = PluginVariable(
     id="vdw",
     name="vdw",
-    description='Select a set of Van der Waals parameters. ',
+    description="Select a set of Van der Waals parameters. ",
     type=VariableTypes.INTEGER
 )
 
 num_structs = PluginVariable(
     id="num_structs",
     name="num_structs",
-    description='Number of structures to be generated',
+    description="Number of structures to be generated",
     type=VariableTypes.INTEGER
 )
 
 num_iterations = PluginVariable(
     id="num_iterations",
     name="num_iterations",
-    description='Maximum number of iterations per structure',
+    description="Maximum number of iterations per structure",
     type=VariableTypes.INTEGER
 )
 
 chirality_check = PluginVariable(
     id="chirality_check",
     name="chirality_check",
-    description='Chirality check. ',
+    description="Chirality check. ",
     type=VariableTypes.INTEGER
 )
 
 bs = PluginVariable(
     id="bs",
     name="bs",
-    description='Number of rounds of triangular bound smoothing (default 0), (if >= 6, tetragonal BS is activated)',
+    description="Number of rounds of triangular bound smoothing (default 0), (if >= 6, tetragonal BS is activated)",
     type=VariableTypes.INTEGER
 )
 
 nofit = PluginVariable(
     id="nofit",
     name="nofit",
-    description='Do not fit generated structures to reference',
+    description="Do not fit generated structures to reference",
     type=VariableTypes.BOOLEAN
 )
 
 seed = PluginVariable(
     id="seed",
     name="seed",
-    description='Initial random seed',
+    description="Initial random seed",
     type=VariableTypes.INTEGER
 )
 
 violation = PluginVariable(
     id="violation",
     name="violation",
-    description='Maximal acceptable sum of violations (nm)',
+    description="Maximal acceptable sum of violations (nm)",
     type=VariableTypes.NUMBER
 )
 
 convergence = PluginVariable(
     id="convergence",
     name="convergence",
-    description='Consider convergence failed after this number of non-productive iterations',
+    description="Consider convergence failed after this number of non-productive iterations",
     type=VariableTypes.INTEGER
 )
 
 trials = PluginVariable(
     id="trials",
     name="trials",
-    description='Maximum number of trials per run',
+    description="Maximum number of trials per run",
     type=VariableTypes.INTEGER
 )
 
 damp = PluginVariable(
     id="damp",
     name="damp",
-    description='Damping factor for distance corrections. ',
+    description="Damping factor for distance corrections. ",
     type=VariableTypes.INTEGER
 )
 
 dyn = PluginVariable(
     id="dyn",
     name="dyn",
-    description='Number of rounds to dynamically set tolerances',
+    description="Number of rounds to dynamically set tolerances",
     type=VariableTypes.INTEGER
 )
 
 bump = PluginVariable(
     id="bump",
     name="bump",
-    description='Do extra bump check',
+    description="Do extra bump check",
     type=VariableTypes.BOOLEAN
 )
 
 pairlist_freq = PluginVariable(
     id="pairlist_freq",
     name="pairlist_freq",
-    description='Pairlist update frequency in steps (only valid together with bump)',
+    description="Pairlist update frequency in steps (only valid together with bump)",
     type=VariableTypes.INTEGER
 )
 
 cutoff = PluginVariable(
     id="cutoff",
     name="cutoff",
-    description='Cut-off radius for pairlist (nm) (only valid together with bump)',
+    description="Cut-off radius for pairlist (nm) (only valid together with bump)",
     type=VariableTypes.NUMBER
 )
 
 ref = PluginVariable(
     id="ref",
     name="ref",
-    description='Use input coordinates instead of random starting coordinates',
+    description="Use input coordinates instead of random starting coordinates",
     type=VariableTypes.BOOLEAN
 )
 
 scale = PluginVariable(
     id="scale",
     name="scale",
-    description='Pre-scale coordinates with this factor',
+    description="Pre-scale coordinates with this factor",
     type=VariableTypes.INTEGER
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -437,7 +437,7 @@ concoord_disco_block = PluginBlock(
     # The name which will appear on the frontend
     name="concoord_disco",
     # Its description
-    description='Wrapper of the Disco tool from the Concoord package.',
+    description="Wrapper of the Disco tool from the Concoord package.",
     # The action
     action=concoord_disco_action,
     # A list of inputs, variables and outputs

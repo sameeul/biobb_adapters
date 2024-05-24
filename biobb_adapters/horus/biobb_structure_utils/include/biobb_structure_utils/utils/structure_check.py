@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_structure_path = PluginVariable(
     id="input_structure_path",  # ID of the variable, will allow us to identify the value
     name="input_structure_path",  # The name that will appear in the frontend
-    description='Input structure file path',  # The description that will appear in the frontend
+    description="Input structure file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_structure_path = PluginVariable(
 output_summary_path = PluginVariable(
     id="output_summary_path",  # ID of the variable, will allow us to identify the value
     name="output_summary_path",  # The name that will appear in the frontend
-    description='Output summary checking results',  # The description that will appear in the frontend
+    description="Output summary checking results",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -38,28 +38,28 @@ output_summary_path = PluginVariable(
 features = PluginVariable(
     id="features",
     name="features",
-    description='Features to summarize. If None, all the features will be computed. ',
-    type=VariableTypes.ARRAY
+    description="Features to summarize. If None, all the features will be computed. ",
+    type=VariableTypes.STRING
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='path to the check_structure application',
+    description="path to the check_structure application",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -196,7 +196,7 @@ structure_check_block = PluginBlock(
     # The name which will appear on the frontend
     name="structure_check",
     # Its description
-    description='This class is a wrapper of the Structure Checking tool to generate summary checking results on a json file.',
+    description="This class is a wrapper of the Structure Checking tool to generate summary checking results on a json file.",
     # The action
     action=structure_check_action,
     # A list of inputs, variables and outputs

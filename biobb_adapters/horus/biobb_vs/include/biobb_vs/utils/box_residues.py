@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_pdb_path = PluginVariable(
     id="input_pdb_path",  # ID of the variable, will allow us to identify the value
     name="input_pdb_path",  # The name that will appear in the frontend
-    description='PDB protein structure for which the box will be build. Its size and center will be set around the 'resid_list' property once mapped against this PDB',  # The description that will appear in the frontend
+    description="PDB protein structure for which the box will be build. Its size and center will be set around the 'resid_list' property once mapped against this PDB",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_pdb_path = PluginVariable(
 output_pdb_path = PluginVariable(
     id="output_pdb_path",  # ID of the variable, will allow us to identify the value
     name="output_pdb_path",  # The name that will appear in the frontend
-    description='PDB including the annotation of the box center and size as REMARKs',  # The description that will appear in the frontend
+    description="PDB including the annotation of the box center and size as REMARKs",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -38,42 +38,42 @@ output_pdb_path = PluginVariable(
 resid_list = PluginVariable(
     id="resid_list",
     name="resid_list",
-    description='List with all the residue numbers to form a cavity or binding site. Mandatory property.',
-    type=VariableTypes.ARRAY
+    description="List with all the residue numbers to form a cavity or binding site. Mandatory property.",
+    type=VariableTypes.STRING
 )
 
 offset = PluginVariable(
     id="offset",
     name="offset",
-    description='Extra distance (Angstroms) between the last residue atom and the box boundary.',
+    description="Extra distance (Angstroms) between the last residue atom and the box boundary.",
     type=VariableTypes.NUMBER
 )
 
 box_coordinates = PluginVariable(
     id="box_coordinates",
     name="box_coordinates",
-    description='Add box coordinates as 8 ATOM records.',
+    description="Add box coordinates as 8 ATOM records.",
     type=VariableTypes.BOOLEAN
 )
 
 residue_offset = PluginVariable(
     id="residue_offset",
     name="residue_offset",
-    description='Residue id offset.',
+    description="Residue id offset.",
     type=VariableTypes.INTEGER
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -218,7 +218,7 @@ box_residues_block = PluginBlock(
     # The name which will appear on the frontend
     name="box_residues",
     # Its description
-    description='This class sets the center and the size of a rectangular parallelepiped box around a set of residues.',
+    description="This class sets the center and the size of a rectangular parallelepiped box around a set of residues.",
     # The action
     action=box_residues_action,
     # A list of inputs, variables and outputs

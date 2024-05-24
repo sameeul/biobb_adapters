@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_path = PluginVariable(
     id="input_path",  # ID of the variable, will allow us to identify the value
     name="input_path",  # The name that will appear in the frontend
-    description='Path to the input file',  # The description that will appear in the frontend
+    description="Path to the input file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_path = PluginVariable(
 output_path = PluginVariable(
     id="output_path",  # ID of the variable, will allow us to identify the value
     name="output_path",  # The name that will appear in the frontend
-    description='Path to the output file',  # The description that will appear in the frontend
+    description="Path to the output file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -38,91 +38,91 @@ output_path = PluginVariable(
 input_format = PluginVariable(
     id="input_format",
     name="input_format",
-    description='Format of input file. If not provided, input_path extension will be taken. ',
+    description="Format of input file. If not provided, input_path extension will be taken. ",
     type=VariableTypes.STRING
 )
 
 output_format = PluginVariable(
     id="output_format",
     name="output_format",
-    description='Format of output file. If not provided, output_path extension will be taken. ',
+    description="Format of output file. If not provided, output_path extension will be taken. ",
     type=VariableTypes.STRING
 )
 
 coordinates = PluginVariable(
     id="coordinates",
     name="coordinates",
-    description='Type of coordinates: 2D or 3D. ',
+    description="Type of coordinates: 2D or 3D. ",
     type=VariableTypes.INTEGER
 )
 
 ph = PluginVariable(
     id="ph",
     name="ph",
-    description='Add hydrogens appropriate for pH.',
+    description="Add hydrogens appropriate for pH.",
     type=VariableTypes.NUMBER
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Path to the obabel executable binary.',
+    description="Path to the obabel executable binary.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Container path definition.',
+    description="Container path definition.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container image definition.',
+    description="Container image definition.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Container volume path definition.',
+    description="Container volume path definition.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Container working directory definition.',
+    description="Container working directory definition.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='Container user_id definition.',
+    description="Container user_id definition.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to default shell inside the container.',
+    description="Path to default shell inside the container.",
     type=VariableTypes.STRING
 )
 
@@ -202,7 +202,7 @@ def babel_add_hydrogens_action(biobb_block: PluginBlock):
             "run",
             "-v",
             ".:/tmp",
-            "quay.io/biocontainers/biobb_chemistry:4.1.0--pyhdfd78af_0",
+            "quay.io/biocontainers/biobb_chemistry:4.2.0--pyhdfd78af_0",
             "babel_add_hydrogens",
             "--config",
             "/tmp/babel_add_hydrogens.json",
@@ -295,7 +295,7 @@ babel_add_hydrogens_block = PluginBlock(
     # The name which will appear on the frontend
     name="babel_add_hydrogens",
     # Its description
-    description='This class is a wrapper of the Open Babel tool.',
+    description="This class is a wrapper of the Open Babel tool.",
     # The action
     action=babel_add_hydrogens_action,
     # A list of inputs, variables and outputs

@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_gro_path = PluginVariable(
     id="input_gro_path",  # ID of the variable, will allow us to identify the value
     name="input_gro_path",  # The name that will appear in the frontend
-    description='Path to the input GROMACS structure GRO file',  # The description that will appear in the frontend
+    description="Path to the input GROMACS structure GRO file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_gro_path = PluginVariable(
 input_top_zip_path = PluginVariable(
     id="input_top_zip_path",  # ID of the variable, will allow us to identify the value
     name="input_top_zip_path",  # The name that will appear in the frontend
-    description='Path to the input GROMACS topology TOP and ITP files in zip format',  # The description that will appear in the frontend
+    description="Path to the input GROMACS topology TOP and ITP files in zip format",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -32,7 +32,7 @@ input_top_zip_path = PluginVariable(
 input_cpt_path = PluginVariable(
     id="input_cpt_path",  # ID of the variable, will allow us to identify the value
     name="input_cpt_path",  # The name that will appear in the frontend
-    description='Path to the input GROMACS checkpoint file CPT',  # The description that will appear in the frontend
+    description="Path to the input GROMACS checkpoint file CPT",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -42,7 +42,7 @@ input_cpt_path = PluginVariable(
 input_ndx_path = PluginVariable(
     id="input_ndx_path",  # ID of the variable, will allow us to identify the value
     name="input_ndx_path",  # The name that will appear in the frontend
-    description='Path to the input GROMACS index files NDX',  # The description that will appear in the frontend
+    description="Path to the input GROMACS index files NDX",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -52,7 +52,7 @@ input_ndx_path = PluginVariable(
 input_mdp_path = PluginVariable(
     id="input_mdp_path",  # ID of the variable, will allow us to identify the value
     name="input_mdp_path",  # The name that will appear in the frontend
-    description='Path to the input GROMACS MDP file',  # The description that will appear in the frontend
+    description="Path to the input GROMACS MDP file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -63,7 +63,7 @@ input_mdp_path = PluginVariable(
 output_trr_path = PluginVariable(
     id="output_trr_path",  # ID of the variable, will allow us to identify the value
     name="output_trr_path",  # The name that will appear in the frontend
-    description='Path to the GROMACS uncompressed raw trajectory file TRR',  # The description that will appear in the frontend
+    description="Path to the GROMACS uncompressed raw trajectory file TRR",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -73,7 +73,7 @@ output_trr_path = PluginVariable(
 output_gro_path = PluginVariable(
     id="output_gro_path",  # ID of the variable, will allow us to identify the value
     name="output_gro_path",  # The name that will appear in the frontend
-    description='Path to the output GROMACS structure GRO file',  # The description that will appear in the frontend
+    description="Path to the output GROMACS structure GRO file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -83,7 +83,7 @@ output_gro_path = PluginVariable(
 output_edr_path = PluginVariable(
     id="output_edr_path",  # ID of the variable, will allow us to identify the value
     name="output_edr_path",  # The name that will appear in the frontend
-    description='Path to the output GROMACS portable energy file EDR',  # The description that will appear in the frontend
+    description="Path to the output GROMACS portable energy file EDR",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -93,7 +93,7 @@ output_edr_path = PluginVariable(
 output_log_path = PluginVariable(
     id="output_log_path",  # ID of the variable, will allow us to identify the value
     name="output_log_path",  # The name that will appear in the frontend
-    description='Path to the output GROMACS trajectory log file LOG',  # The description that will appear in the frontend
+    description="Path to the output GROMACS trajectory log file LOG",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -103,7 +103,7 @@ output_log_path = PluginVariable(
 output_xtc_path = PluginVariable(
     id="output_xtc_path",  # ID of the variable, will allow us to identify the value
     name="output_xtc_path",  # The name that will appear in the frontend
-    description='Path to the GROMACS compressed trajectory file XTC',  # The description that will appear in the frontend
+    description="Path to the GROMACS compressed trajectory file XTC",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -113,7 +113,7 @@ output_xtc_path = PluginVariable(
 output_cpt_path = PluginVariable(
     id="output_cpt_path",  # ID of the variable, will allow us to identify the value
     name="output_cpt_path",  # The name that will appear in the frontend
-    description='Path to the output GROMACS checkpoint file CPT',  # The description that will appear in the frontend
+    description="Path to the output GROMACS checkpoint file CPT",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -123,7 +123,7 @@ output_cpt_path = PluginVariable(
 output_dhdl_path = PluginVariable(
     id="output_dhdl_path",  # ID of the variable, will allow us to identify the value
     name="output_dhdl_path",  # The name that will appear in the frontend
-    description='Path to the output dhdl.xvg file only used when free energy calculation is turned on',  # The description that will appear in the frontend
+    description="Path to the output dhdl.xvg file only used when free energy calculation is turned on",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -138,168 +138,168 @@ output_dhdl_path = PluginVariable(
 mdp = PluginVariable(
     id="mdp",
     name="mdp",
-    description='MDP options specification.',
+    description="MDP options specification.",
     type=VariableTypes.STRING
 )
 
 simulation_type = PluginVariable(
     id="simulation_type",
     name="simulation_type",
-    description='Default options for the mdp file. Each creates a different mdp file. ',
+    description="Default options for the mdp file. Each creates a different mdp file. ",
     type=VariableTypes.STRING
 )
 
 maxwarn = PluginVariable(
     id="maxwarn",
     name="maxwarn",
-    description='Maximum number of allowed warnings.',
+    description="Maximum number of allowed warnings.",
     type=VariableTypes.INTEGER
 )
 
 mpi_bin = PluginVariable(
     id="mpi_bin",
     name="mpi_bin",
-    description='Path to the MPI runner. Usually "mpirun" or "srun".',
+    description="Path to the MPI runner. Usually 'mpirun' or 'srun'.",
     type=VariableTypes.STRING
 )
 
 mpi_np = PluginVariable(
     id="mpi_np",
     name="mpi_np",
-    description='Number of MPI processes. Usually an integer bigger than 1.',
+    description="Number of MPI processes. Usually an integer bigger than 1.",
     type=VariableTypes.STRING
 )
 
 mpi_hostlist = PluginVariable(
     id="mpi_hostlist",
     name="mpi_hostlist",
-    description='Path to the MPI hostlist file.',
+    description="Path to the MPI hostlist file.",
     type=VariableTypes.STRING
 )
 
 checkpoint_time = PluginVariable(
     id="checkpoint_time",
     name="checkpoint_time",
-    description='Checkpoint writing interval in minutes. Only enabled if an output_cpt_path is provided.',
+    description="Checkpoint writing interval in minutes. Only enabled if an output_cpt_path is provided.",
     type=VariableTypes.INTEGER
 )
 
 num_threads = PluginVariable(
     id="num_threads",
     name="num_threads",
-    description='Let GROMACS guess. The number of threads that are going to be used.',
+    description="Let GROMACS guess. The number of threads that are going to be used.",
     type=VariableTypes.INTEGER
 )
 
 num_threads_mpi = PluginVariable(
     id="num_threads_mpi",
     name="num_threads_mpi",
-    description='Let GROMACS guess. The number of GROMACS MPI threads that are going to be used.',
+    description="Let GROMACS guess. The number of GROMACS MPI threads that are going to be used.",
     type=VariableTypes.INTEGER
 )
 
 num_threads_omp = PluginVariable(
     id="num_threads_omp",
     name="num_threads_omp",
-    description='Let GROMACS guess. The number of GROMACS OPENMP threads that are going to be used.',
+    description="Let GROMACS guess. The number of GROMACS OPENMP threads that are going to be used.",
     type=VariableTypes.INTEGER
 )
 
 num_threads_omp_pme = PluginVariable(
     id="num_threads_omp_pme",
     name="num_threads_omp_pme",
-    description='Let GROMACS guess. The number of GROMACS OPENMP_PME threads that are going to be used.',
+    description="Let GROMACS guess. The number of GROMACS OPENMP_PME threads that are going to be used.",
     type=VariableTypes.INTEGER
 )
 
 use_gpu = PluginVariable(
     id="use_gpu",
     name="use_gpu",
-    description='Use settings appropriate for GPU. Adds: -nb gpu -pme gpu',
+    description="Use settings appropriate for GPU. Adds: -nb gpu -pme gpu",
     type=VariableTypes.BOOLEAN
 )
 
 gpu_id = PluginVariable(
     id="gpu_id",
     name="gpu_id",
-    description='List of unique GPU device IDs available to use.',
+    description="List of unique GPU device IDs available to use.",
     type=VariableTypes.STRING
 )
 
 gpu_tasks = PluginVariable(
     id="gpu_tasks",
     name="gpu_tasks",
-    description='List of GPU device IDs, mapping each PP task on each node to a device.',
+    description="List of GPU device IDs, mapping each PP task on each node to a device.",
     type=VariableTypes.STRING
 )
 
 gmx_lib = PluginVariable(
     id="gmx_lib",
     name="gmx_lib",
-    description='Path set GROMACS GMXLIB environment variable.',
+    description="Path set GROMACS GMXLIB environment variable.",
     type=VariableTypes.STRING
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Path to the GROMACS executable binary.',
+    description="Path to the GROMACS executable binary.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
 container_path = PluginVariable(
     id="container_path",
     name="container_path",
-    description='Path to the binary executable of your container.',
+    description="Path to the binary executable of your container.",
     type=VariableTypes.STRING
 )
 
 container_image = PluginVariable(
     id="container_image",
     name="container_image",
-    description='Container Image identifier.',
+    description="Container Image identifier.",
     type=VariableTypes.STRING
 )
 
 container_volume_path = PluginVariable(
     id="container_volume_path",
     name="container_volume_path",
-    description='Path to an internal directory in the container.',
+    description="Path to an internal directory in the container.",
     type=VariableTypes.STRING
 )
 
 container_working_dir = PluginVariable(
     id="container_working_dir",
     name="container_working_dir",
-    description='Path to the internal CWD in the container.',
+    description="Path to the internal CWD in the container.",
     type=VariableTypes.STRING
 )
 
 container_user_id = PluginVariable(
     id="container_user_id",
     name="container_user_id",
-    description='User number id to be mapped inside the container.',
+    description="User number id to be mapped inside the container.",
     type=VariableTypes.STRING
 )
 
 container_shell_path = PluginVariable(
     id="container_shell_path",
     name="container_shell_path",
-    description='Path to the binary executable of the container shell.',
+    description="Path to the binary executable of the container shell.",
     type=VariableTypes.STRING
 )
 
@@ -628,7 +628,7 @@ grompp_mdrun_block = PluginBlock(
     # The name which will appear on the frontend
     name="grompp_mdrun",
     # Its description
-    description='Wrapper of the GROMACS grompp module and the GROMACS mdrun module.',
+    description="Wrapper of the GROMACS grompp module and the GROMACS mdrun module.",
     # The action
     action=grompp_mdrun_action,
     # A list of inputs, variables and outputs

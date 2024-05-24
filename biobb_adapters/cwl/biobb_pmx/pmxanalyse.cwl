@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Wrapper class for the PMX analyse module.
 
 doc: |-
-  None
+  Analyze the work values from the dgdl.xvg files of the A and B states to calculate the free energy difference between two states.
 
 baseCommand: pmxanalyse
 

@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_train_npy_path = PluginVariable(
     id="input_train_npy_path",  # ID of the variable, will allow us to identify the value
     name="input_train_npy_path",  # The name that will appear in the frontend
-    description='Path to the input train data file',  # The description that will appear in the frontend
+    description="Path to the input train data file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_train_npy_path = PluginVariable(
 input_model_pth_path = PluginVariable(
     id="input_model_pth_path",  # ID of the variable, will allow us to identify the value
     name="input_model_pth_path",  # The name that will appear in the frontend
-    description='Path to the input model file',  # The description that will appear in the frontend
+    description="Path to the input model file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ input_model_pth_path = PluginVariable(
 output_model_pth_path = PluginVariable(
     id="output_model_pth_path",  # ID of the variable, will allow us to identify the value
     name="output_model_pth_path",  # The name that will appear in the frontend
-    description='Path to the output model file',  # The description that will appear in the frontend
+    description="Path to the output model file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -43,7 +43,7 @@ output_model_pth_path = PluginVariable(
 output_train_data_npz_path = PluginVariable(
     id="output_train_data_npz_path",  # ID of the variable, will allow us to identify the value
     name="output_train_data_npz_path",  # The name that will appear in the frontend
-    description='Path to the output train data file',  # The description that will appear in the frontend
+    description="Path to the output train data file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -53,7 +53,7 @@ output_train_data_npz_path = PluginVariable(
 output_performance_npz_path = PluginVariable(
     id="output_performance_npz_path",  # ID of the variable, will allow us to identify the value
     name="output_performance_npz_path",  # The name that will appear in the frontend
-    description='Path to the output performance file',  # The description that will appear in the frontend
+    description="Path to the output performance file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -68,112 +68,112 @@ output_performance_npz_path = PluginVariable(
 latent_dimensions = PluginVariable(
     id="latent_dimensions",
     name="latent_dimensions",
-    description='min dimensionality of the latent space.',
+    description="min dimensionality of the latent space.",
     type=VariableTypes.INTEGER
 )
 
 num_layers = PluginVariable(
     id="num_layers",
     name="num_layers",
-    description='number of layers in the encoder/decoder (4 to encode and 4 to decode).',
+    description="number of layers in the encoder/decoder (4 to encode and 4 to decode).",
     type=VariableTypes.INTEGER
 )
 
 num_epochs = PluginVariable(
     id="num_epochs",
     name="num_epochs",
-    description='number of epochs (iterations of whole dataset) for training.',
+    description="number of epochs (iterations of whole dataset) for training.",
     type=VariableTypes.INTEGER
 )
 
 lr = PluginVariable(
     id="lr",
     name="lr",
-    description='learning rate.',
+    description="learning rate.",
     type=VariableTypes.NUMBER
 )
 
 lr_step_size = PluginVariable(
     id="lr_step_size",
     name="lr_step_size",
-    description='Period of learning rate decay.',
+    description="Period of learning rate decay.",
     type=VariableTypes.INTEGER
 )
 
 gamma = PluginVariable(
     id="gamma",
     name="gamma",
-    description='Multiplicative factor of learning rate decay.',
+    description="Multiplicative factor of learning rate decay.",
     type=VariableTypes.NUMBER
 )
 
 checkpoint_interval = PluginVariable(
     id="checkpoint_interval",
     name="checkpoint_interval",
-    description='number of epochs interval to save model checkpoints o 0 to disable.',
+    description="number of epochs interval to save model checkpoints o 0 to disable.",
     type=VariableTypes.INTEGER
 )
 
 output_checkpoint_prefix = PluginVariable(
     id="output_checkpoint_prefix",
     name="output_checkpoint_prefix",
-    description='prefix for the checkpoint files.',
+    description="prefix for the checkpoint files.",
     type=VariableTypes.STRING
 )
 
 partition = PluginVariable(
     id="partition",
     name="partition",
-    description='0.8 = 80% partition of the data for training and validation.',
+    description="0.8 = 80% partition of the data for training and validation.",
     type=VariableTypes.NUMBER
 )
 
 batch_size = PluginVariable(
     id="batch_size",
     name="batch_size",
-    description='number of samples/frames per batch.',
+    description="number of samples/frames per batch.",
     type=VariableTypes.INTEGER
 )
 
 log_interval = PluginVariable(
     id="log_interval",
     name="log_interval",
-    description='number of epochs interval to log the training progress.',
+    description="number of epochs interval to log the training progress.",
     type=VariableTypes.INTEGER
 )
 
 input_dimensions = PluginVariable(
     id="input_dimensions",
     name="input_dimensions",
-    description='input dimensions by default it should be the number of features in the input data (number of atoms * 3 corresponding to x, y, z coordinates).',
+    description="input dimensions by default it should be the number of features in the input data (number of atoms * 3 corresponding to x, y, z coordinates).",
     type=VariableTypes.INTEGER
 )
 
 output_dimensions = PluginVariable(
     id="output_dimensions",
     name="output_dimensions",
-    description='output dimensions by default it should be the number of features in the input data (number of atoms * 3 corresponding to x, y, z coordinates).',
+    description="output dimensions by default it should be the number of features in the input data (number of atoms * 3 corresponding to x, y, z coordinates).",
     type=VariableTypes.INTEGER
 )
 
 loss_function = PluginVariable(
     id="loss_function",
     name="loss_function",
-    description='Loss function to be used. ',
+    description="Loss function to be used. ",
     type=VariableTypes.STRING
 )
 
 optimizer = PluginVariable(
     id="optimizer",
     name="optimizer",
-    description='Optimizer algorithm to be used. ',
+    description="Optimizer algorithm to be used. ",
     type=VariableTypes.STRING
 )
 
 seed = PluginVariable(
     id="seed",
     name="seed",
-    description='Random seed for reproducibility.',
+    description="Random seed for reproducibility.",
     type=VariableTypes.INTEGER
 )
 
@@ -393,7 +393,7 @@ train_mdae_block = PluginBlock(
     # The name which will appear on the frontend
     name="train_mdae",
     # Its description
-    description='Train a Molecular Dynamics AutoEncoder (MDAE) PyTorch model.',
+    description="Train a Molecular Dynamics AutoEncoder (MDAE) PyTorch model.",
     # The action
     action=train_mdae_action,
     # A list of inputs, variables and outputs

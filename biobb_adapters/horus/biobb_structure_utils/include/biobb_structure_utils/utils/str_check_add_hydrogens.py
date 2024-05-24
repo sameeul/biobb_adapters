@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_structure_path = PluginVariable(
     id="input_structure_path",  # ID of the variable, will allow us to identify the value
     name="input_structure_path",  # The name that will appear in the frontend
-    description='Input structure file path',  # The description that will appear in the frontend
+    description="Input structure file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_structure_path = PluginVariable(
 output_structure_path = PluginVariable(
     id="output_structure_path",  # ID of the variable, will allow us to identify the value
     name="output_structure_path",  # The name that will appear in the frontend
-    description='Output structure file path',  # The description that will appear in the frontend
+    description="Output structure file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -38,56 +38,56 @@ output_structure_path = PluginVariable(
 charges = PluginVariable(
     id="charges",
     name="charges",
-    description='Whether or not to add charges to the output file. If True the output is in PDBQT format.',
+    description="Whether or not to add charges to the output file. If True the output is in PDBQT format.",
     type=VariableTypes.BOOLEAN
 )
 
 mode = PluginVariable(
     id="mode",
     name="mode",
-    description='Selection mode. ',
+    description="Selection mode. ",
     type=VariableTypes.STRING
 )
 
 ph = PluginVariable(
     id="ph",
     name="ph",
-    description='Add hydrogens appropriate for pH. Only in case mode ph selected.',
+    description="Add hydrogens appropriate for pH. Only in case mode ph selected.",
     type=VariableTypes.NUMBER
 )
 
 list = PluginVariable(
     id="list",
     name="list",
-    description='List of residues to modify separated by commas (i.e HISA234HID,HISB33HIE). Only in case mode list selected.',
+    description="List of residues to modify separated by commas (i.e HISA234HID,HISB33HIE). Only in case mode list selected.",
     type=VariableTypes.STRING
 )
 
 keep_canonical_resnames = PluginVariable(
     id="keep_canonical_resnames",
     name="keep_canonical_resnames",
-    description='Whether or not keep canonical residue names',
+    description="Whether or not keep canonical residue names",
     type=VariableTypes.BOOLEAN
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='path to the check_structure application',
+    description="path to the check_structure application",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -240,7 +240,7 @@ str_check_add_hydrogens_block = PluginBlock(
     # The name which will appear on the frontend
     name="str_check_add_hydrogens",
     # Its description
-    description='This class is a wrapper of the Structure Checking tool to add hydrogens to a 3D structure.',
+    description="This class is a wrapper of the Structure Checking tool to add hydrogens to a 3D structure.",
     # The action
     action=str_check_add_hydrogens_action,
     # A list of inputs, variables and outputs

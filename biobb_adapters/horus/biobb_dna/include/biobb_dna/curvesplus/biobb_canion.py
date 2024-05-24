@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_cdi_path = PluginVariable(
     id="input_cdi_path",  # ID of the variable, will allow us to identify the value
     name="input_cdi_path",  # The name that will appear in the frontend
-    description='Trajectory input file',  # The description that will appear in the frontend
+    description="Trajectory input file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_cdi_path = PluginVariable(
 input_afr_path = PluginVariable(
     id="input_afr_path",  # ID of the variable, will allow us to identify the value
     name="input_afr_path",  # The name that will appear in the frontend
-    description='Helical axis frames corresponding to the input conformation to be analyzed',  # The description that will appear in the frontend
+    description="Helical axis frames corresponding to the input conformation to be analyzed",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -32,7 +32,7 @@ input_afr_path = PluginVariable(
 input_avg_struc_path = PluginVariable(
     id="input_avg_struc_path",  # ID of the variable, will allow us to identify the value
     name="input_avg_struc_path",  # The name that will appear in the frontend
-    description='Average DNA conformation',  # The description that will appear in the frontend
+    description="Average DNA conformation",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -43,7 +43,7 @@ input_avg_struc_path = PluginVariable(
 output_zip_path = PluginVariable(
     id="output_zip_path",  # ID of the variable, will allow us to identify the value
     name="output_zip_path",  # The name that will appear in the frontend
-    description='Filename for .zip files containing Canion output files',  # The description that will appear in the frontend
+    description="Filename for .zip files containing Canion output files",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -58,112 +58,112 @@ output_zip_path = PluginVariable(
 bases = PluginVariable(
     id="bases",
     name="bases",
-    description='Sequence of bases to be analyzed (default is blank, meaning no specified sequence).',
+    description="Sequence of bases to be analyzed (default is blank, meaning no specified sequence).",
     type=VariableTypes.STRING
 )
 
 type = PluginVariable(
     id="type",
     name="type",
-    description='Ions (or atoms) to be analyzed. Options are 'Na+', 'K', 'K+', 'Cl', 'Cl-', 'CL', 'P', 'C1*', 'NH1', 'NH2', 'NZ', '1' for all cations, '-1' for all anions, '0' for neutral species or '*' for all available data.',
+    description="Ions (or atoms) to be analyzed. Options are 'Na+', 'K', 'K+', 'Cl', 'Cl-', 'CL', 'P', 'C1*', 'NH1', 'NH2', 'NZ', '1' for all cations, '-1' for all anions, '0' for neutral species or '*' for all available data.",
     type=VariableTypes.STRING
 )
 
 dlow = PluginVariable(
     id="dlow",
     name="dlow",
-    description='Select starting segment of the oglimer to analyze. If both dhig and dlow are 0, entire oglimer is analyzed.',
+    description="Select starting segment of the oglimer to analyze. If both dhig and dlow are 0, entire oglimer is analyzed.",
     type=VariableTypes.NUMBER
 )
 
 dhig = PluginVariable(
     id="dhig",
     name="dhig",
-    description='Select ending segment of the oglimer to analyze, being the maximum value the total number of base pairs in the oligomer. If both dhig and dlow are 0, entire oglimer is analyzed.',
+    description="Select ending segment of the oglimer to analyze, being the maximum value the total number of base pairs in the oligomer. If both dhig and dlow are 0, entire oglimer is analyzed.",
     type=VariableTypes.NUMBER
 )
 
 rlow = PluginVariable(
     id="rlow",
     name="rlow",
-    description='Minimal distances from the helical axis taken into account in the analysis.',
+    description="Minimal distances from the helical axis taken into account in the analysis.",
     type=VariableTypes.NUMBER
 )
 
 rhig = PluginVariable(
     id="rhig",
     name="rhig",
-    description='Maximal distances from the helical axis taken into account in the analysis.',
+    description="Maximal distances from the helical axis taken into account in the analysis.",
     type=VariableTypes.NUMBER
 )
 
 alow = PluginVariable(
     id="alow",
     name="alow",
-    description='Minimal angle range to analyze.',
+    description="Minimal angle range to analyze.",
     type=VariableTypes.NUMBER
 )
 
 ahig = PluginVariable(
     id="ahig",
     name="ahig",
-    description='Maximal angle range to analyze.',
+    description="Maximal angle range to analyze.",
     type=VariableTypes.NUMBER
 )
 
 itst = PluginVariable(
     id="itst",
     name="itst",
-    description='Number of first snapshot to be analyzed.',
+    description="Number of first snapshot to be analyzed.",
     type=VariableTypes.INTEGER
 )
 
 itnd = PluginVariable(
     id="itnd",
     name="itnd",
-    description='Number of last snapshot to be analyzed.',
+    description="Number of last snapshot to be analyzed.",
     type=VariableTypes.INTEGER
 )
 
 itdel = PluginVariable(
     id="itdel",
     name="itdel",
-    description='Spacing between analyzed snapshots.',
+    description="Spacing between analyzed snapshots.",
     type=VariableTypes.INTEGER
 )
 
 rmsf = PluginVariable(
     id="rmsf",
     name="rmsf",
-    description='If set to True uses the combination of the helical ion parameters and an average helical axis to map the ions into Cartesian space and then calculates their average position (pdb output) and their root mean square fluctuation values (rmsf output). A single pass rmsf algorithm to make this calculation possible with a single read of the trajectory file. This option is generally used for solute atoms and not for solvent molecules or ions.',
+    description="If set to True uses the combination of the helical ion parameters and an average helical axis to map the ions into Cartesian space and then calculates their average position (pdb output) and their root mean square fluctuation values (rmsf output). A single pass rmsf algorithm to make this calculation possible with a single read of the trajectory file. This option is generally used for solute atoms and not for solvent molecules or ions.",
     type=VariableTypes.BOOLEAN
 )
 
 circ = PluginVariable(
     id="circ",
     name="circ",
-    description='If set to True, minicircles are analyzed.',
+    description="If set to True, minicircles are analyzed.",
     type=VariableTypes.BOOLEAN
 )
 
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='Path to Canion executable, otherwise the program wil look for Canion executable in the binaries folder.',
+    description="Path to Canion executable, otherwise the program wil look for Canion executable in the binaries folder.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -362,7 +362,7 @@ biobb_canion_block = PluginBlock(
     # The name which will appear on the frontend
     name="biobb_canion",
     # Its description
-    description='Wrapper for the Canion executable  that is part of the Curves+ software suite.',
+    description="Wrapper for the Canion executable  that is part of the Curves+ software suite.",
     # The action
     action=biobb_canion_action,
     # A list of inputs, variables and outputs

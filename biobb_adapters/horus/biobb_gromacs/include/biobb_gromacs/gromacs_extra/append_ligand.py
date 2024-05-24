@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_top_zip_path = PluginVariable(
     id="input_top_zip_path",  # ID of the variable, will allow us to identify the value
     name="input_top_zip_path",  # The name that will appear in the frontend
-    description='Path the input topology TOP and ITP files zipball',  # The description that will appear in the frontend
+    description="Path the input topology TOP and ITP files zipball",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_top_zip_path = PluginVariable(
 input_itp_path = PluginVariable(
     id="input_itp_path",  # ID of the variable, will allow us to identify the value
     name="input_itp_path",  # The name that will appear in the frontend
-    description='Path to the ligand ITP file to be inserted in the topology',  # The description that will appear in the frontend
+    description="Path to the ligand ITP file to be inserted in the topology",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -32,7 +32,7 @@ input_itp_path = PluginVariable(
 input_posres_itp_path = PluginVariable(
     id="input_posres_itp_path",  # ID of the variable, will allow us to identify the value
     name="input_posres_itp_path",  # The name that will appear in the frontend
-    description='Path to the position restriction ITP file',  # The description that will appear in the frontend
+    description="Path to the position restriction ITP file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -43,7 +43,7 @@ input_posres_itp_path = PluginVariable(
 output_top_zip_path = PluginVariable(
     id="output_top_zip_path",  # ID of the variable, will allow us to identify the value
     name="output_top_zip_path",  # The name that will appear in the frontend
-    description='Path/Name the output topology TOP and ITP files zipball',  # The description that will appear in the frontend
+    description="Path/Name the output topology TOP and ITP files zipball",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -58,21 +58,21 @@ output_top_zip_path = PluginVariable(
 posres_name = PluginVariable(
     id="posres_name",
     name="posres_name",
-    description='String to be included in the ifdef clause.',
+    description="String to be included in the ifdef clause.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -219,7 +219,7 @@ append_ligand_block = PluginBlock(
     # The name which will appear on the frontend
     name="append_ligand",
     # Its description
-    description='This class takes a ligand ITP file and inserts it in a topology.',
+    description="This class takes a ligand ITP file and inserts it in a topology.",
     # The action
     action=append_ligand_action,
     # A list of inputs, variables and outputs

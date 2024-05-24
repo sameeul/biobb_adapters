@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_structure1 = PluginVariable(
     id="input_structure1",  # ID of the variable, will allow us to identify the value
     name="input_structure1",  # The name that will appear in the frontend
-    description='Input structure 1 file path',  # The description that will appear in the frontend
+    description="Input structure 1 file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_structure1 = PluginVariable(
 input_structure2 = PluginVariable(
     id="input_structure2",  # ID of the variable, will allow us to identify the value
     name="input_structure2",  # The name that will appear in the frontend
-    description='Input structure 2 file path',  # The description that will appear in the frontend
+    description="Input structure 2 file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ input_structure2 = PluginVariable(
 output_structure_path = PluginVariable(
     id="output_structure_path",  # ID of the variable, will allow us to identify the value
     name="output_structure_path",  # The name that will appear in the frontend
-    description='Output protein file path',  # The description that will appear in the frontend
+    description="Output protein file path",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -48,14 +48,14 @@ output_structure_path = PluginVariable(
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -191,7 +191,7 @@ cat_pdb_block = PluginBlock(
     # The name which will appear on the frontend
     name="cat_pdb",
     # Its description
-    description='Class to concat two PDB structures in a single PDB file.',
+    description="Class to concat two PDB structures in a single PDB file.",
     # The action
     action=cat_pdb_action,
     # A list of inputs, variables and outputs

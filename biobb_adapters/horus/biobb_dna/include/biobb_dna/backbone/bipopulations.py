@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_epsilC_path = PluginVariable(
     id="input_epsilC_path",  # ID of the variable, will allow us to identify the value
     name="input_epsilC_path",  # The name that will appear in the frontend
-    description='Path to .ser file for helical parameter 'epsilC'',  # The description that will appear in the frontend
+    description="Path to .ser file for helical parameter 'epsilC'",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_epsilC_path = PluginVariable(
 input_epsilW_path = PluginVariable(
     id="input_epsilW_path",  # ID of the variable, will allow us to identify the value
     name="input_epsilW_path",  # The name that will appear in the frontend
-    description='Path to .ser file for helical parameter 'epsilW'',  # The description that will appear in the frontend
+    description="Path to .ser file for helical parameter 'epsilW'",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -32,7 +32,7 @@ input_epsilW_path = PluginVariable(
 input_zetaC_path = PluginVariable(
     id="input_zetaC_path",  # ID of the variable, will allow us to identify the value
     name="input_zetaC_path",  # The name that will appear in the frontend
-    description='Path to .ser file for helical parameter 'zetaC'',  # The description that will appear in the frontend
+    description="Path to .ser file for helical parameter 'zetaC'",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -42,7 +42,7 @@ input_zetaC_path = PluginVariable(
 input_zetaW_path = PluginVariable(
     id="input_zetaW_path",  # ID of the variable, will allow us to identify the value
     name="input_zetaW_path",  # The name that will appear in the frontend
-    description='Path to .ser file for helical parameter 'zetaW'',  # The description that will appear in the frontend
+    description="Path to .ser file for helical parameter 'zetaW'",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -53,7 +53,7 @@ input_zetaW_path = PluginVariable(
 output_csv_path = PluginVariable(
     id="output_csv_path",  # ID of the variable, will allow us to identify the value
     name="output_csv_path",  # The name that will appear in the frontend
-    description='Path to .csv file where output is saved',  # The description that will appear in the frontend
+    description="Path to .csv file where output is saved",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -63,7 +63,7 @@ output_csv_path = PluginVariable(
 output_jpg_path = PluginVariable(
     id="output_jpg_path",  # ID of the variable, will allow us to identify the value
     name="output_jpg_path",  # The name that will appear in the frontend
-    description='Path to .jpg file where output is saved',  # The description that will appear in the frontend
+    description="Path to .jpg file where output is saved",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -78,28 +78,28 @@ output_jpg_path = PluginVariable(
 sequence = PluginVariable(
     id="sequence",
     name="sequence",
-    description='Nucleic acid sequence corresponding to the input .ser file. Length of sequence is expected to be the same as the total number of columns in the .ser file, minus the index column (even if later on a subset of columns is selected with the *seqpos* option).',
+    description="Nucleic acid sequence corresponding to the input .ser file. Length of sequence is expected to be the same as the total number of columns in the .ser file, minus the index column (even if later on a subset of columns is selected with the *seqpos* option).",
     type=VariableTypes.STRING
 )
 
 seqpos = PluginVariable(
     id="seqpos",
     name="seqpos",
-    description='list of sequence positions (columns indices starting by 0) to analyze.  If not specified it will analyse the complete sequence.',
-    type=VariableTypes.ARRAY
+    description="list of sequence positions (columns indices starting by 0) to analyze.  If not specified it will analyse the complete sequence.",
+    type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -271,7 +271,7 @@ bipopulations_block = PluginBlock(
     # The name which will appear on the frontend
     name="bipopulations",
     # Its description
-    description='Calculate BI/BII populations from epsilon and zeta parameters.',
+    description="Calculate BI/BII populations from epsilon and zeta parameters.",
     # The action
     action=bipopulations_action,
     # A list of inputs, variables and outputs

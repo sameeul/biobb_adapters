@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_pcz_path = PluginVariable(
     id="input_pcz_path",  # ID of the variable, will allow us to identify the value
     name="input_pcz_path",  # The name that will appear in the frontend
-    description='Input compressed trajectory file',  # The description that will appear in the frontend
+    description="Input compressed trajectory file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -23,7 +23,7 @@ input_pcz_path = PluginVariable(
 output_json_path = PluginVariable(
     id="output_json_path",  # ID of the variable, will allow us to identify the value
     name="output_json_path",  # The name that will appear in the frontend
-    description='Output json file with PCA Eigen Vectors',  # The description that will appear in the frontend
+    description="Output json file with PCA Eigen Vectors",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -38,28 +38,28 @@ output_json_path = PluginVariable(
 binary_path = PluginVariable(
     id="binary_path",
     name="binary_path",
-    description='pczdump binary path to be used.',
+    description="pczdump binary path to be used.",
     type=VariableTypes.STRING
 )
 
 mask = PluginVariable(
     id="mask",
     name="mask",
-    description='Residue mask, in the format ":resnum1, resnum2, resnum3" (e.g. ":10,21,33"). See https://mmb.irbbarcelona.org/software/pcasuite/ for the complete format specification.',
+    description="Residue mask, in the format ':resnum1, resnum2, resnum3' (e.g. ':10,21,33'). See https://mmb.irbbarcelona.org/software/pcasuite/ for the complete format specification.",
     type=VariableTypes.STRING
 )
 
 remove_tmp = PluginVariable(
     id="remove_tmp",
     name="remove_tmp",
-    description='Remove temporal files.',
+    description="Remove temporal files.",
     type=VariableTypes.BOOLEAN
 )
 
 restart = PluginVariable(
     id="restart",
     name="restart",
-    description='Do not execute if output files exist.',
+    description="Do not execute if output files exist.",
     type=VariableTypes.BOOLEAN
 )
 
@@ -196,7 +196,7 @@ pcz_lindemann_block = PluginBlock(
     # The name which will appear on the frontend
     name="pcz_lindemann",
     # Its description
-    description='Extract Lindemann coefficient (an estimate of the solid-liquid behaviour of a protein) from a compressed PCZ file.',
+    description="Extract Lindemann coefficient (an estimate of the solid-liquid behaviour of a protein) from a compressed PCZ file.",
     # The action
     action=pcz_lindemann_action,
     # A list of inputs, variables and outputs

@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Calculate BI/BII populations from epsilon and zeta parameters.
 
 doc: |-
-  None
+  Calculate BI/BII populations from epsilon and zeta parameters.
 
 baseCommand: bipopulations
 

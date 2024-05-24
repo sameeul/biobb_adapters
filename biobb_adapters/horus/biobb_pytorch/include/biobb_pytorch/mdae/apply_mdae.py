@@ -12,7 +12,7 @@ from HorusAPI import PluginBlock, PluginVariable, VariableTypes
 input_data_npy_path = PluginVariable(
     id="input_data_npy_path",  # ID of the variable, will allow us to identify the value
     name="input_data_npy_path",  # The name that will appear in the frontend
-    description='Path to the input data file',  # The description that will appear in the frontend
+    description="Path to the input data file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -22,7 +22,7 @@ input_data_npy_path = PluginVariable(
 input_model_pth_path = PluginVariable(
     id="input_model_pth_path",  # ID of the variable, will allow us to identify the value
     name="input_model_pth_path",  # The name that will appear in the frontend
-    description='Path to the input model file',  # The description that will appear in the frontend
+    description="Path to the input model file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -33,7 +33,7 @@ input_model_pth_path = PluginVariable(
 output_reconstructed_data_npy_path = PluginVariable(
     id="output_reconstructed_data_npy_path",  # ID of the variable, will allow us to identify the value
     name="output_reconstructed_data_npy_path",  # The name that will appear in the frontend
-    description='Path to the output reconstructed data file',  # The description that will appear in the frontend
+    description="Path to the output reconstructed data file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -43,7 +43,7 @@ output_reconstructed_data_npy_path = PluginVariable(
 output_latent_space_npy_path = PluginVariable(
     id="output_latent_space_npy_path",  # ID of the variable, will allow us to identify the value
     name="output_latent_space_npy_path",  # The name that will appear in the frontend
-    description='Path to the reduced dimensionality file',  # The description that will appear in the frontend
+    description="Path to the reduced dimensionality file",  # The description that will appear in the frontend
     type=VariableTypes.FILE,  # The type. This will render the variable accrodingly
     # The allowedValues parameter depends on the type of variable,
     # in the case of files, they denote the allowed extensions.
@@ -58,35 +58,35 @@ output_latent_space_npy_path = PluginVariable(
 batch_size = PluginVariable(
     id="batch_size",
     name="batch_size",
-    description='number of samples/frames per batch.',
+    description="number of samples/frames per batch.",
     type=VariableTypes.INTEGER
 )
 
 latent_dimensions = PluginVariable(
     id="latent_dimensions",
     name="latent_dimensions",
-    description='min dimensionality of the latent space.',
+    description="min dimensionality of the latent space.",
     type=VariableTypes.INTEGER
 )
 
 num_layers = PluginVariable(
     id="num_layers",
     name="num_layers",
-    description='number of layers in the encoder/decoder (4 to encode and 4 to decode).',
+    description="number of layers in the encoder/decoder (4 to encode and 4 to decode).",
     type=VariableTypes.INTEGER
 )
 
 input_dimensions = PluginVariable(
     id="input_dimensions",
     name="input_dimensions",
-    description='input dimensions by default it should be the number of features in the input data (number of atoms * 3 corresponding to x, y, z coordinates).',
+    description="input dimensions by default it should be the number of features in the input data (number of atoms * 3 corresponding to x, y, z coordinates).",
     type=VariableTypes.INTEGER
 )
 
 output_dimensions = PluginVariable(
     id="output_dimensions",
     name="output_dimensions",
-    description='output dimensions by default it should be the number of features in the input data (number of atoms * 3 corresponding to x, y, z coordinates).',
+    description="output dimensions by default it should be the number of features in the input data (number of atoms * 3 corresponding to x, y, z coordinates).",
     type=VariableTypes.INTEGER
 )
 
@@ -248,7 +248,7 @@ apply_mdae_block = PluginBlock(
     # The name which will appear on the frontend
     name="apply_mdae",
     # Its description
-    description='Apply a Molecular Dynamics AutoEncoder (MDAE) PyTorch model.',
+    description="Apply a Molecular Dynamics AutoEncoder (MDAE) PyTorch model.",
     # The action
     action=apply_mdae_action,
     # A list of inputs, variables and outputs

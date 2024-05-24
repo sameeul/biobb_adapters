@@ -6,7 +6,7 @@ class: CommandLineTool
 label: Wrapper class for the PMX merge_ff module.
 
 doc: |-
-  None
+  Merge ligand topology files.
 
 baseCommand: pmxmerge_ff
 
