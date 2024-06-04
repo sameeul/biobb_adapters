@@ -12,7 +12,7 @@ baseCommand: apply_mdae
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_pytorch:4.1.3--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_pytorch:4.2.1--pyhad2cae4_0
 
 inputs:
   input_data_npy_path:
@@ -79,7 +79,7 @@ inputs:
   config:
     label: Advanced configuration options for biobb_pytorch ApplyMDAE
     doc: |-
-      Advanced configuration options for biobb_pytorch ApplyMDAE. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pytorch ApplyMDAE documentation: https://biobb-pytorch.readthedocs.io/en/latest/pytorch.html#module-mdae.apply_mdae
+      Advanced configuration options for biobb_pytorch ApplyMDAE. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pytorch ApplyMDAE documentation: https://biobb-pytorch.readthedocs.io/en/latest/mdae.html#module-mdae.apply_mdae
     type: string?
     inputBinding:
       prefix: --config

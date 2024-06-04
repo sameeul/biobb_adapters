@@ -12,7 +12,7 @@ baseCommand: train_mdae
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_pytorch:4.1.3--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_pytorch:4.2.1--pyhad2cae4_0
 
 inputs:
   input_train_npy_path:
@@ -93,7 +93,7 @@ inputs:
   config:
     label: Advanced configuration options for biobb_pytorch TrainMDAE
     doc: |-
-      Advanced configuration options for biobb_pytorch TrainMDAE. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pytorch TrainMDAE documentation: https://biobb-pytorch.readthedocs.io/en/latest/pytorch.html#module-mdae.train_mdae
+      Advanced configuration options for biobb_pytorch TrainMDAE. This should be passed as a string containing a dict. The possible options to include here are listed under 'properties' in the biobb_pytorch TrainMDAE documentation: https://biobb-pytorch.readthedocs.io/en/latest/mdae.html#mdae.train_mdae.TrainMDAE
     type: string?
     inputBinding:
       prefix: --config

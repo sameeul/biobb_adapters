@@ -1,8 +1,0 @@
-{
-    "name": "biobb_flexserv",
-    "description": "The Horus adapter for biobb_flexserv",
-    "author": "Pau Andrio",
-    "version": "4.1.0",
-    "pluginFile": "plugin.py",
-    "dependencies": []
-}

@@ -1,8 +1,0 @@
-{
-    "name": "biobb_pytorch",
-    "description": "The Horus adapter for biobb_pytorch",
-    "author": "Pau Andrio",
-    "version": "4.1.3",
-    "pluginFile": "plugin.py",
-    "dependencies": []
-}
