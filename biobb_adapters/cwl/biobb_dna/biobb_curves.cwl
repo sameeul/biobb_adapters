@@ -12,7 +12,7 @@ baseCommand: biobb_curves
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_dna:4.2.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_dna:4.2.2--pyhdfd78af_0
 
 inputs:
   input_struc_path:
@@ -71,11 +71,12 @@ inputs:
       Topology file, needed along with .trj file (optional)
       Type: string
       File type: input
-      Accepted formats: top
+      Accepted formats: top, pdb
       Example file: https://raw.githubusercontent.com/bioexcel/biobb_dna/master/biobb_dna/test/data/curvesplus/structure.stripped.top
     type: File?
     format:
     - edam:format_3881
+    - edam:format_1476
     inputBinding:
       prefix: --input_top_path
 
@@ -87,7 +88,7 @@ inputs:
       Type: string
       File type: output
       Accepted formats: zip
-      Example file: null
+      Example file: https://raw.githubusercontent.com/bioexcel/biobb_dna/master/biobb_dna/test/reference/curvesplus/curves_trj_output.zip
     type: string
     format:
     - edam:format_3987

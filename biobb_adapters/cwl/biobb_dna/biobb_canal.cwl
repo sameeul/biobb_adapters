@@ -12,7 +12,7 @@ baseCommand: biobb_canal
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_dna:4.2.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_dna:4.2.2--pyhdfd78af_0
 
 inputs:
   input_cda_file:

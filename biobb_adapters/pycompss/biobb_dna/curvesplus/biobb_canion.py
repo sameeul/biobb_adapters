@@ -29,7 +29,7 @@ def _canion(input_cdi_path, input_afr_path, input_avg_struc_path, output_zip_pat
         sys.stderr.flush()
 
 
-def biobb_canion(input_cdi_path, input_afr_path, input_avg_struc_path, output_zip_path=None, properties=None, **kwargs):
+def biobb_canion(input_cdi_path, input_afr_path, input_avg_struc_path, output_zip_path, properties=None, **kwargs):
 
     if (output_zip_path is None or (os.path.exists(output_zip_path) and os.stat(output_zip_path).st_size > 0)) and \
        True:

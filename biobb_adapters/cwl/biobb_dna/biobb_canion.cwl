@@ -12,7 +12,7 @@ baseCommand: biobb_canion
 
 hints:
   DockerRequirement:
-    dockerPull: quay.io/biocontainers/biobb_dna:4.2.0--pyhdfd78af_0
+    dockerPull: quay.io/biocontainers/biobb_dna:4.2.2--pyhdfd78af_0
 
 inputs:
   input_cdi_path:
@@ -72,6 +72,7 @@ inputs:
     format:
     - edam:format_3987
     inputBinding:
+      position: 4
       prefix: --output_zip_path
     default: system.zip
 
@@ -88,7 +89,7 @@ outputs:
     label: Filename for .zip files containing Canion output files
     doc: |-
       Filename for .zip files containing Canion output files
-    type: File?
+    type: File
     outputBinding:
       glob: $(inputs.output_zip_path)
     format: edam:format_3987
