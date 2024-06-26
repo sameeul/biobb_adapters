@@ -1,5 +1,5 @@
 <tool id="biobb_gromacs_pdb2gmx" name="Pdb2gmx" version="4.2.0" >
-  <description>: Wrapper class for the GROMACS pdb2gmx module.</description>
+  <description>Wrapper class for the GROMACS pdb2gmx module.</description>
 
   <requirements>
     <requirement type="package" version="4.2.0">biobb_gromacs</requirement>

@@ -1,0 +1,101 @@
+{
+    "summary": {
+        "num_errors": 0,
+        "num_failures": 0,
+        "num_skips": 0,
+        "num_tests": 1
+    },
+    "tests": [
+        {
+            "data": {
+                "inputs": {
+                    "config_json": {
+                        "id": "61640a1fe08e318f",
+                        "src": "hda"
+                    },
+                    "input_train_npy_path": {
+                        "id": "ccb792e780151e8b",
+                        "src": "hda"
+                    },
+                    "outname_output_model_pth_path": "output_model.pth",
+                    "outname_output_performance_npz_path": "output_performance.npz",
+                    "outname_output_train_data_npz_path": "output_train_data.npz"
+                },
+                "job": {
+                    "command_line": "ln -s /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/files/1/c/3/dataset_1c35fca3-49b4-4456-a024-e089b85877c6.dat ./input_train_npy_path.npy; ln -s /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/files/0/7/1/dataset_071b9a68-8859-4a69-82b7-2ff736eb0699.dat ./config_json.json;  train_mdae  --config ./config_json.json  --input_train_npy_path ./input_train_npy_path.npy --output_model_pth_path output_model.pth --output_train_data_npz_path output_train_data.npz --output_performance_npz_path output_performance.npz ;  if test -f output_model.pth; then mv output_model.pth /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/job_working_directory/000/3/outputs/dataset_ecbf7397-4169-4f00-8263-0cc7f6cbaa8b.dat; fi; if test -f output_train_data.npz; then mv output_train_data.npz /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/job_working_directory/000/3/outputs/dataset_ec521c7f-61c0-4593-99e2-a0afd23f4876.dat; fi; if test -f output_performance.npz; then mv output_performance.npz /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/job_working_directory/000/3/outputs/dataset_ad8bbfe0-a75d-47a1-85f9-9158dbf88982.dat; fi;",
+                    "command_version": "",
+                    "copied_from_job_id": null,
+                    "create_time": "2024-06-26T13:32:20.586047",
+                    "dependencies": [],
+                    "exit_code": 0,
+                    "external_id": "20972",
+                    "galaxy_version": "24.0",
+                    "handler": null,
+                    "history_id": "ccb792e780151e8b",
+                    "id": "131d3fe9a007d5ef",
+                    "inputs": {
+                        "config_json": {
+                            "id": "61640a1fe08e318f",
+                            "src": "hda",
+                            "uuid": "071b9a68-8859-4a69-82b7-2ff736eb0699"
+                        },
+                        "input_train_npy_path": {
+                            "id": "ccb792e780151e8b",
+                            "src": "hda",
+                            "uuid": "1c35fca3-49b4-4456-a024-e089b85877c6"
+                        }
+                    },
+                    "job_messages": [],
+                    "job_metrics": [],
+                    "job_runner_name": null,
+                    "job_stderr": "",
+                    "job_stdout": "",
+                    "model_class": "Job",
+                    "output_collections": {},
+                    "outputs": {
+                        "output_model_pth_path": {
+                            "id": "131d3fe9a007d5ef",
+                            "src": "hda",
+                            "uuid": "ecbf7397-4169-4f00-8263-0cc7f6cbaa8b"
+                        },
+                        "output_performance_npz_path": {
+                            "id": "936d8e6f3ab07695",
+                            "src": "hda",
+                            "uuid": "ad8bbfe0-a75d-47a1-85f9-9158dbf88982"
+                        },
+                        "output_train_data_npz_path": {
+                            "id": "35cf3d906f417f16",
+                            "src": "hda",
+                            "uuid": "ec521c7f-61c0-4593-99e2-a0afd23f4876"
+                        }
+                    },
+                    "params": {
+                        "__input_ext": "\"npy\"",
+                        "chromInfo": "\"/Users/pau/projects/galaxy/tool-data/shared/ucsc/chrom/?.len\"",
+                        "dbkey": "\"?\"",
+                        "input_model_pth_path": null,
+                        "outname_output_model_pth_path": "\"output_model.pth\"",
+                        "outname_output_performance_npz_path": "\"output_performance.npz\"",
+                        "outname_output_train_data_npz_path": "\"output_train_data.npz\""
+                    },
+                    "state": "ok",
+                    "stderr": "",
+                    "stdout": "2024-06-26 15:32:28,675 [MainThread  ] [INFO ]  Executing biobb_pytorch.mdae.train_mdae Version: 4.2.1\n2024-06-26 15:32:28,676 [MainThread  ] [INFO ]  Copy: ./input_train_npy_path.npy to /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/job_working_directory/000/3/working/56294387-6128-47a9-bcec-9384435ee40e\n2024-06-26 15:32:28,677 [MainThread  ] [INFO ]  Start Training:\n2024-06-26 15:32:28,677 [MainThread  ] [INFO ]    Device: cpu\n2024-06-26 15:32:28,677 [MainThread  ] [INFO ]    Train input file: /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/job_working_directory/000/3/working/56294387-6128-47a9-bcec-9384435ee40e/input_train_npy_path.npy\n2024-06-26 15:32:28,677 [MainThread  ] [INFO ]      File size: 119.66 KB\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Number of atoms: 102\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Number of frames for training: 80 Total number of frames: 100\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Number of epochs: 50\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Partition: 0.8\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Batch size: 1\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Learning rate: 0.0001\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Learning rate step size: 100\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Learning rate gamma: 0.1\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Number of layers: 4\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Input dimensions: 306\n2024-06-26 15:32:28,679 [MainThread  ] [INFO ]    Latent dimensions: 2\n2024-06-26 15:32:28,679 [MainThread  ] [INFO ]    Loss function: MSELoss\n2024-06-26 15:32:28,679 [MainThread  ] [INFO ]    Optimizer: Adam \n2024-06-26 15:32:28,679 [MainThread  ] [INFO ]    Seed: 1\n2024-06-26 15:32:28,679 [MainThread  ] [INFO ]    Checkpoint interval: 25\n2024-06-26 15:32:28,679 [MainThread  ] [INFO ]    Log interval: 10\n\n2024-06-26 15:32:28,957 [MainThread  ] [INFO ]  Epoch 1/50, Train Loss: 0.042, Validation Loss: 0.040, LR: 0.00010, Duration: 00s, ETA: 13s\n2024-06-26 15:32:28,957 [MainThread  ] [INFO ]  Saving:  /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/job_working_directory/000/3/working/56294387-6128-47a9-bcec-9384435ee40e/checkpoint_epoch__0.pth\n2024-06-26 15:32:31,351 [MainThread  ] [INFO ]  Epoch 11/50, Train Loss: 0.026, Validation Loss: 0.025, LR: 0.00010, Duration: 00s, ETA: 10s\n2024-06-26 15:32:34,076 [MainThread  ] [INFO ]  Epoch 21/50, Train Loss: 0.024, Validation Loss: 0.024, LR: 0.00010, Duration: 00s, ETA: 07s\n2024-06-26 15:32:35,558 [MainThread  ] [INFO ]  Saving:  /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/job_working_directory/000/3/working/56294387-6128-47a9-bcec-9384435ee40e/checkpoint_epoch__25.pth\n2024-06-26 15:32:36,910 [MainThread  ] [INFO ]  Epoch 31/50, Train Loss: 0.023, Validation Loss: 0.023, LR: 0.00010, Duration: 00s, ETA: 05s\n2024-06-26 15:32:39,551 [MainThread  ] [INFO ]  Epoch 41/50, Train Loss: 0.023, Validation Loss: 0.023, LR: 0.00010, Duration: 00s, ETA: 02s\n2024-06-26 15:32:41,915 [MainThread  ] [INFO ]  Epoch 50/50, Train Loss: 0.022, Validation Loss: 0.022, LR: 0.00010, Duration: 00s, ETA: 00s\n2024-06-26 15:32:41,915 [MainThread  ] [INFO ]  Saving:  /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/job_working_directory/000/3/working/56294387-6128-47a9-bcec-9384435ee40e/checkpoint_epoch__49.pth\n2024-06-26 15:32:41,920 [MainThread  ] [INFO ]  End Training, total time: 13s\n2024-06-26 15:32:41,926 [MainThread  ] [INFO ]  Saving train data to: /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/job_working_directory/000/3/working/56294387-6128-47a9-bcec-9384435ee40e/output_train_data.npz\n2024-06-26 15:32:41,926 [MainThread  ] [INFO ]    File size: 1.31 KB\n2024-06-26 15:32:41,962 [MainThread  ] [INFO ]  Saving evaluation data to: /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/job_working_directory/000/3/working/56294387-6128-47a9-bcec-9384435ee40e/output_performance.npz\n2024-06-26 15:32:41,963 [MainThread  ] [INFO ]    File size: 121.13 KB\n2024-06-26 15:32:41,967 [MainThread  ] [INFO ]  Saving best model to: /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/job_working_directory/000/3/working/56294387-6128-47a9-bcec-9384435ee40e/output_model.pth\n2024-06-26 15:32:41,967 [MainThread  ] [INFO ]    Best model epoch: 49\n2024-06-26 15:32:41,967 [MainThread  ] [INFO ]    File size: 931.57 KB\n2024-06-26 15:32:41,970 [MainThread  ] [INFO ]  Removed: []\n",
+                    "tool_id": "biobb_pytorch_train_mdae",
+                    "tool_stderr": "",
+                    "tool_stdout": "2024-06-26 15:32:28,675 [MainThread  ] [INFO ]  Executing biobb_pytorch.mdae.train_mdae Version: 4.2.1\n2024-06-26 15:32:28,676 [MainThread  ] [INFO ]  Copy: ./input_train_npy_path.npy to /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/job_working_directory/000/3/working/56294387-6128-47a9-bcec-9384435ee40e\n2024-06-26 15:32:28,677 [MainThread  ] [INFO ]  Start Training:\n2024-06-26 15:32:28,677 [MainThread  ] [INFO ]    Device: cpu\n2024-06-26 15:32:28,677 [MainThread  ] [INFO ]    Train input file: /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/job_working_directory/000/3/working/56294387-6128-47a9-bcec-9384435ee40e/input_train_npy_path.npy\n2024-06-26 15:32:28,677 [MainThread  ] [INFO ]      File size: 119.66 KB\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Number of atoms: 102\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Number of frames for training: 80 Total number of frames: 100\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Number of epochs: 50\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Partition: 0.8\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Batch size: 1\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Learning rate: 0.0001\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Learning rate step size: 100\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Learning rate gamma: 0.1\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Number of layers: 4\n2024-06-26 15:32:28,678 [MainThread  ] [INFO ]    Input dimensions: 306\n2024-06-26 15:32:28,679 [MainThread  ] [INFO ]    Latent dimensions: 2\n2024-06-26 15:32:28,679 [MainThread  ] [INFO ]    Loss function: MSELoss\n2024-06-26 15:32:28,679 [MainThread  ] [INFO ]    Optimizer: Adam \n2024-06-26 15:32:28,679 [MainThread  ] [INFO ]    Seed: 1\n2024-06-26 15:32:28,679 [MainThread  ] [INFO ]    Checkpoint interval: 25\n2024-06-26 15:32:28,679 [MainThread  ] [INFO ]    Log interval: 10\n\n2024-06-26 15:32:28,957 [MainThread  ] [INFO ]  Epoch 1/50, Train Loss: 0.042, Validation Loss: 0.040, LR: 0.00010, Duration: 00s, ETA: 13s\n2024-06-26 15:32:28,957 [MainThread  ] [INFO ]  Saving:  /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/job_working_directory/000/3/working/56294387-6128-47a9-bcec-9384435ee40e/checkpoint_epoch__0.pth\n2024-06-26 15:32:31,351 [MainThread  ] [INFO ]  Epoch 11/50, Train Loss: 0.026, Validation Loss: 0.025, LR: 0.00010, Duration: 00s, ETA: 10s\n2024-06-26 15:32:34,076 [MainThread  ] [INFO ]  Epoch 21/50, Train Loss: 0.024, Validation Loss: 0.024, LR: 0.00010, Duration: 00s, ETA: 07s\n2024-06-26 15:32:35,558 [MainThread  ] [INFO ]  Saving:  /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/job_working_directory/000/3/working/56294387-6128-47a9-bcec-9384435ee40e/checkpoint_epoch__25.pth\n2024-06-26 15:32:36,910 [MainThread  ] [INFO ]  Epoch 31/50, Train Loss: 0.023, Validation Loss: 0.023, LR: 0.00010, Duration: 00s, ETA: 05s\n2024-06-26 15:32:39,551 [MainThread  ] [INFO ]  Epoch 41/50, Train Loss: 0.023, Validation Loss: 0.023, LR: 0.00010, Duration: 00s, ETA: 02s\n2024-06-26 15:32:41,915 [MainThread  ] [INFO ]  Epoch 50/50, Train Loss: 0.022, Validation Loss: 0.022, LR: 0.00010, Duration: 00s, ETA: 00s\n2024-06-26 15:32:41,915 [MainThread  ] [INFO ]  Saving:  /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/job_working_directory/000/3/working/56294387-6128-47a9-bcec-9384435ee40e/checkpoint_epoch__49.pth\n2024-06-26 15:32:41,920 [MainThread  ] [INFO ]  End Training, total time: 13s\n2024-06-26 15:32:41,926 [MainThread  ] [INFO ]  Saving train data to: /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/job_working_directory/000/3/working/56294387-6128-47a9-bcec-9384435ee40e/output_train_data.npz\n2024-06-26 15:32:41,926 [MainThread  ] [INFO ]    File size: 1.31 KB\n2024-06-26 15:32:41,962 [MainThread  ] [INFO ]  Saving evaluation data to: /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/job_working_directory/000/3/working/56294387-6128-47a9-bcec-9384435ee40e/output_performance.npz\n2024-06-26 15:32:41,963 [MainThread  ] [INFO ]    File size: 121.13 KB\n2024-06-26 15:32:41,967 [MainThread  ] [INFO ]  Saving best model to: /private/var/folders/yy/x7prx15n63zdp_f5jxc3z6pr0000gn/T/tmpxlnimykn/job_working_directory/000/3/working/56294387-6128-47a9-bcec-9384435ee40e/output_model.pth\n2024-06-26 15:32:41,967 [MainThread  ] [INFO ]    Best model epoch: 49\n2024-06-26 15:32:41,967 [MainThread  ] [INFO ]    File size: 931.57 KB\n2024-06-26 15:32:41,970 [MainThread  ] [INFO ]  Removed: []\n",
+                    "update_time": "2024-06-26T13:32:47.712489",
+                    "user_email": "planemo@galaxyproject.org"
+                },
+                "status": "success",
+                "test_index": 0,
+                "time_seconds": 39.035139083862305,
+                "tool_id": "biobb_pytorch_train_mdae",
+                "tool_version": "4.2.1"
+            },
+            "has_data": true,
+            "id": "biobb_pytorch_train_mdae-0"
+        }
+    ],
+    "version": "0.1"
+}
