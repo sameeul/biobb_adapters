@@ -1,6 +1,0 @@
-{
-  "properties": {
-    "num_epochs": 50,
-    "seed": 1
-  }
-}
