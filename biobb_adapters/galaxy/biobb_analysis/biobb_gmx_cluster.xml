@@ -1,0 +1,116 @@
+<tool id="biobb_analysis_gmx_cluster" name="GmxCluster" version="@TOOL_VERSION@" >
+    <description>Wrapper of the GROMACS cluster module for clustering structures from a given GROMACS compatible trajectory.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.0</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_analysis</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_structure_path ./input_structure_path.$input_structure_path.ext;
+      ln -s $input_traj_path ./input_traj_path.$input_traj_path.ext;
+      #if $input_index_path:
+        ln -s $input_index_path ./input_index_path.$input_index_path.ext;
+      #end if
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      gmx_cluster
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_structure_path ./input_structure_path.$input_structure_path.ext
+      --input_traj_path ./input_traj_path.$input_traj_path.ext
+      #if $input_index_path:
+        --input_index_path ./input_index_path.$input_index_path.ext
+      #end if
+      --output_pdb_path $outname_output_pdb_path
+      #if $outname_output_cluster_log_path:
+        --output_cluster_log_path $outname_output_cluster_log_path
+      #end if
+      #if $outname_output_rmsd_cluster_xpm_path:
+        --output_rmsd_cluster_xpm_path $outname_output_rmsd_cluster_xpm_path
+      #end if
+      #if $outname_output_rmsd_dist_xvg_path:
+        --output_rmsd_dist_xvg_path $outname_output_rmsd_dist_xvg_path
+      #end if
+      ;
+      
+      mv $outname_output_pdb_path $output_pdb_path;
+      if test -f $outname_output_cluster_log_path; then mv $outname_output_cluster_log_path $output_cluster_log_path; fi;
+      if test -f $outname_output_rmsd_cluster_xpm_path; then mv $outname_output_rmsd_cluster_xpm_path $output_rmsd_cluster_xpm_path; fi;
+      if test -f $outname_output_rmsd_dist_xvg_path; then mv $outname_output_rmsd_dist_xvg_path $output_rmsd_dist_xvg_path; fi;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="input_structure_path" type="data" format="tpr" optional="false" help="Path to the input structure file"/>
+      <param name="input_traj_path" type="data" format="xtc" optional="false" help="Path to the GROMACS trajectory file"/>
+      <param name="input_index_path" type="data" format="ndx" optional="true" help="Path to the GROMACS index file"/>
+      <param name="outname_output_pdb_path" type="text" optional="false" help="Path to the output cluster file"/>
+      <param name="outname_output_cluster_log_path" type="text" optional="true" help="Path to the output log file"/>
+      <param name="outname_output_rmsd_cluster_xpm_path" type="text" optional="true" help="Path to the output X PixMap compatible matrix file"/>
+      <param name="outname_output_rmsd_dist_xvg_path" type="text" optional="true" help="Path to xvgr/xmgr file"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="output_pdb_path" format="xtc" />
+      <data name="output_cluster_log_path" format="log" />
+      <data name="output_rmsd_cluster_xpm_path" format="xpm" />
+      <data name="output_rmsd_dist_xvg_path" format="xvg" />
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_gmx_cluster.json" ftype="json" />
+          <param name="input_structure_path" value="topology.tpr" ftype="tpr" />
+          <param name="input_traj_path" value="trajectory.trr" ftype="trr" />
+          <param name="input_index_path" value="index.ndx" ftype="ndx" />
+          <param name="outname_output_pdb_path" value="output_pdb.pdb" />
+          <output name="output_pdb_path" ftype="pdb">
+            <assert_contents>
+              <has_size value="25645059" delta="6411264"/>
+            </assert_contents>
+          </output>
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-analysis.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

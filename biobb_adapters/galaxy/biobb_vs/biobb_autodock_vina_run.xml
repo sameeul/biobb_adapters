@@ -1,0 +1,106 @@
+<tool id="biobb_vs_autodock_vina_run" name="AutodockVinaRun" version="@TOOL_VERSION@" >
+    <description>Wrapper of the AutoDock Vina software.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.0</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_vs</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_ligand_pdbqt_path ./input_ligand_pdbqt_path.$input_ligand_pdbqt_path.ext;
+      ln -s $input_receptor_pdbqt_path ./input_receptor_pdbqt_path.$input_receptor_pdbqt_path.ext;
+      ln -s $input_box_path ./input_box_path.$input_box_path.ext;
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      autodock_vina_run
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_ligand_pdbqt_path ./input_ligand_pdbqt_path.$input_ligand_pdbqt_path.ext
+      --input_receptor_pdbqt_path ./input_receptor_pdbqt_path.$input_receptor_pdbqt_path.ext
+      --input_box_path ./input_box_path.$input_box_path.ext
+      --output_pdbqt_path $outname_output_pdbqt_path
+      #if $outname_output_log_path:
+        --output_log_path $outname_output_log_path
+      #end if
+      ;
+      
+      mv $outname_output_pdbqt_path $output_pdbqt_path;
+      if test -f $outname_output_log_path; then mv $outname_output_log_path $output_log_path; fi;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="input_ligand_pdbqt_path" type="data" format="pdbqt" optional="false" help="Path to the input PDBQT ligand"/>
+      <param name="input_receptor_pdbqt_path" type="data" format="pdbqt" optional="false" help="Path to the input PDBQT receptor"/>
+      <param name="input_box_path" type="data" format="pdb" optional="false" help="Path to the PDB containig the residues belonging to the binding site"/>
+      <param name="outname_output_pdbqt_path" type="text" optional="false" help="Path to the output PDBQT file"/>
+      <param name="outname_output_log_path" type="text" optional="true" help="Path to the log file"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="output_pdbqt_path" format="pdbqt" />
+      <data name="output_log_path" format="log" />
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_autodock_vina_run.json" ftype="json" />
+          <param name="input_ligand_pdbqt_path" value="vina_ligand.pdbqt" ftype="pdbqt" />
+          <param name="input_receptor_pdbqt_path" value="vina_receptor.pdbqt" ftype="pdbqt" />
+          <param name="input_box_path" value="vina_box.pdb" ftype="pdb" />
+          <param name="outname_output_pdbqt_path" value="output_pdbqt_path.pdbqt" />
+          <param name="outname_output_log_path" value="output_log_path.log" />
+          <output name="output_pdbqt_path" ftype="pdbqt">
+            <assert_contents>
+              <has_size value="44766" delta="11191"/>
+            </assert_contents>
+          </output>
+          <output name="output_log_path" ftype="log">
+            <assert_contents>
+              <has_size value="2194" delta="548"/>
+            </assert_contents>
+          </output>
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-vs.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

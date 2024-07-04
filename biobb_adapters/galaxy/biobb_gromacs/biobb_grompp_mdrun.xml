@@ -1,0 +1,144 @@
+<tool id="biobb_gromacs_grompp_mdrun" name="GromppMdrun" version="@TOOL_VERSION@" >
+    <description>Wrapper of the GROMACS grompp module and the GROMACS mdrun module.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.0</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_gromacs</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_gro_path ./input_gro_path.$input_gro_path.ext;
+      ln -s $input_top_zip_path ./input_top_zip_path.$input_top_zip_path.ext;
+      #if $input_cpt_path:
+        ln -s $input_cpt_path ./input_cpt_path.$input_cpt_path.ext;
+      #end if
+      #if $input_ndx_path:
+        ln -s $input_ndx_path ./input_ndx_path.$input_ndx_path.ext;
+      #end if
+      #if $input_mdp_path:
+        ln -s $input_mdp_path ./input_mdp_path.$input_mdp_path.ext;
+      #end if
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      grompp_mdrun
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_gro_path ./input_gro_path.$input_gro_path.ext
+      --input_top_zip_path ./input_top_zip_path.$input_top_zip_path.ext
+      #if $input_cpt_path:
+        --input_cpt_path ./input_cpt_path.$input_cpt_path.ext
+      #end if
+      #if $input_ndx_path:
+        --input_ndx_path ./input_ndx_path.$input_ndx_path.ext
+      #end if
+      #if $input_mdp_path:
+        --input_mdp_path ./input_mdp_path.$input_mdp_path.ext
+      #end if
+      --output_trr_path $outname_output_trr_path
+      --output_gro_path $outname_output_gro_path
+      --output_edr_path $outname_output_edr_path
+      --output_log_path $outname_output_log_path
+      #if $outname_output_xtc_path:
+        --output_xtc_path $outname_output_xtc_path
+      #end if
+      #if $outname_output_cpt_path:
+        --output_cpt_path $outname_output_cpt_path
+      #end if
+      #if $outname_output_dhdl_path:
+        --output_dhdl_path $outname_output_dhdl_path
+      #end if
+      ;
+      
+      mv $outname_output_trr_path $output_trr_path;
+      mv $outname_output_gro_path $output_gro_path;
+      mv $outname_output_edr_path $output_edr_path;
+      mv $outname_output_log_path $output_log_path;
+      if test -f $outname_output_xtc_path; then mv $outname_output_xtc_path $output_xtc_path; fi;
+      if test -f $outname_output_cpt_path; then mv $outname_output_cpt_path $output_cpt_path; fi;
+      if test -f $outname_output_dhdl_path; then mv $outname_output_dhdl_path $output_dhdl_path; fi;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="input_gro_path" type="data" format="gro" optional="false" help="Path to the input GROMACS structure GRO file"/>
+      <param name="input_top_zip_path" type="data" format="zip" optional="false" help="Path to the input GROMACS topology TOP and ITP files in zip format"/>
+      <param name="input_cpt_path" type="data" format="cpt" optional="true" help="Path to the input GROMACS checkpoint file CPT"/>
+      <param name="input_ndx_path" type="data" format="ndx" optional="true" help="Path to the input GROMACS index files NDX"/>
+      <param name="input_mdp_path" type="data" format="mdp" optional="true" help="Path to the input GROMACS MDP file"/>
+      <param name="outname_output_trr_path" type="text" optional="false" help="Path to the GROMACS uncompressed raw trajectory file TRR"/>
+      <param name="outname_output_gro_path" type="text" optional="false" help="Path to the output GROMACS structure GRO file"/>
+      <param name="outname_output_edr_path" type="text" optional="false" help="Path to the output GROMACS portable energy file EDR"/>
+      <param name="outname_output_log_path" type="text" optional="false" help="Path to the output GROMACS trajectory log file LOG"/>
+      <param name="outname_output_xtc_path" type="text" optional="true" help="Path to the GROMACS compressed trajectory file XTC"/>
+      <param name="outname_output_cpt_path" type="text" optional="true" help="Path to the output GROMACS checkpoint file CPT"/>
+      <param name="outname_output_dhdl_path" type="text" optional="true" help="Path to the output dhdl.xvg file only used when free energy calculation is turned on"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="output_trr_path" format="trr" />
+      <data name="output_gro_path" format="gro" />
+      <data name="output_edr_path" format="edr" />
+      <data name="output_log_path" format="log" />
+      <data name="output_xtc_path" format="xtc" />
+      <data name="output_cpt_path" format="cpt" />
+      <data name="output_dhdl_path" format="xvg" />
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_grompp_mdrun.json" ftype="json" />
+          <param name="input_gro_path" value="grompp.gro" ftype="gro" />
+          <param name="input_top_zip_path" value="grompp.zip" ftype="zip" />
+          <param name="outname_output_trr_path" value="output_trr_path.trr" />
+          <param name="outname_output_gro_path" value="output_gro_path.gro" />
+          <param name="outname_output_edr_path" value="output_edr_path.edr" />
+          <param name="outname_output_log_path" value="output_log_path.log" />
+          <output name="output_trr_path" ftype="trr">
+            <assert_contents>
+              <has_size value="3441936" delta="860484"/>
+            </assert_contents>
+          </output>
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-gromacs.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

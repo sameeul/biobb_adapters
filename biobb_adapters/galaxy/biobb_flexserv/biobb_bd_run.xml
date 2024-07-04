@@ -1,0 +1,96 @@
+<tool id="biobb_flexserv_bd_run" name="BdRun" version="@TOOL_VERSION@" >
+    <description>Wrapper of the Browian Dynamics tool from the FlexServ module.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.0</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_flexserv</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_pdb_path ./input_pdb_path.$input_pdb_path.ext;
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      bd_run
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_pdb_path ./input_pdb_path.$input_pdb_path.ext
+      --output_log_path $outname_output_log_path
+      --output_crd_path $outname_output_crd_path
+      ;
+      
+      mv $outname_output_log_path $output_log_path;
+      mv $outname_output_crd_path $output_crd_path;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="input_pdb_path" type="data" format="pdb" optional="false" help="Input PDB file"/>
+      <param name="outname_output_log_path" type="text" optional="false" help="Output log file"/>
+      <param name="outname_output_crd_path" type="text" optional="false" help="Output ensemble"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="output_log_path" format="log" />
+      <data name="output_crd_path" format="crd" />
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_bd_run.json" ftype="json" />
+          <param name="input_pdb_path" value="structure.ca.pdb" ftype="pdb" />
+          <param name="outname_output_log_path" value="bd_run_out.log" />
+          <param name="outname_output_crd_path" value="bd_run_out.crd" />
+          <output name="output_log_path" ftype="log">
+            <assert_contents>
+              <has_size value="103" delta="25"/>
+            </assert_contents>
+          </output>
+          <output name="output_crd_path" ftype="crd">
+            <assert_contents>
+              <has_size value="206602" delta="51650"/>
+            </assert_contents>
+          </output>
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-flexserv.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

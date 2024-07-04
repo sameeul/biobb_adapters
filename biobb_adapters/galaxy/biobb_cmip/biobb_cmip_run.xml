@@ -1,0 +1,173 @@
+<tool id="biobb_cmip_cmip_run" name="CmipRun" version="@TOOL_VERSION@" >
+    <description>Wrapper class for the CMIP cmip module.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.0</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_cmip</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_pdb_path ./input_pdb_path.$input_pdb_path.ext;
+      #if $input_probe_pdb_path:
+        ln -s $input_probe_pdb_path ./input_probe_pdb_path.$input_probe_pdb_path.ext;
+      #end if
+      #if $input_rst_path:
+        ln -s $input_rst_path ./input_rst_path.$input_rst_path.ext;
+      #end if
+      #if $input_vdw_params_path:
+        ln -s $input_vdw_params_path ./input_vdw_params_path.$input_vdw_params_path.ext;
+      #end if
+      #if $input_params_path:
+        ln -s $input_params_path ./input_params_path.$input_params_path.ext;
+      #end if
+      #if $input_json_box_path:
+        ln -s $input_json_box_path ./input_json_box_path.$input_json_box_path.ext;
+      #end if
+      #if $input_json_external_box_path:
+        ln -s $input_json_external_box_path ./input_json_external_box_path.$input_json_external_box_path.ext;
+      #end if
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      cmip_run
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_pdb_path ./input_pdb_path.$input_pdb_path.ext
+      #if $input_probe_pdb_path:
+        --input_probe_pdb_path ./input_probe_pdb_path.$input_probe_pdb_path.ext
+      #end if
+      #if $input_rst_path:
+        --input_rst_path ./input_rst_path.$input_rst_path.ext
+      #end if
+      #if $input_vdw_params_path:
+        --input_vdw_params_path ./input_vdw_params_path.$input_vdw_params_path.ext
+      #end if
+      #if $input_params_path:
+        --input_params_path ./input_params_path.$input_params_path.ext
+      #end if
+      #if $input_json_box_path:
+        --input_json_box_path ./input_json_box_path.$input_json_box_path.ext
+      #end if
+      #if $input_json_external_box_path:
+        --input_json_external_box_path ./input_json_external_box_path.$input_json_external_box_path.ext
+      #end if
+      #if $outname_output_pdb_path:
+        --output_pdb_path $outname_output_pdb_path
+      #end if
+      #if $outname_output_grd_path:
+        --output_grd_path $outname_output_grd_path
+      #end if
+      #if $outname_output_cube_path:
+        --output_cube_path $outname_output_cube_path
+      #end if
+      #if $outname_output_rst_path:
+        --output_rst_path $outname_output_rst_path
+      #end if
+      #if $outname_output_byat_path:
+        --output_byat_path $outname_output_byat_path
+      #end if
+      #if $outname_output_log_path:
+        --output_log_path $outname_output_log_path
+      #end if
+      #if $outname_output_json_box_path:
+        --output_json_box_path $outname_output_json_box_path
+      #end if
+      #if $outname_output_json_external_box_path:
+        --output_json_external_box_path $outname_output_json_external_box_path
+      #end if
+      ;
+      
+      if test -f $outname_output_pdb_path; then mv $outname_output_pdb_path $output_pdb_path; fi;
+      if test -f $outname_output_grd_path; then mv $outname_output_grd_path $output_grd_path; fi;
+      if test -f $outname_output_cube_path; then mv $outname_output_cube_path $output_cube_path; fi;
+      if test -f $outname_output_rst_path; then mv $outname_output_rst_path $output_rst_path; fi;
+      if test -f $outname_output_byat_path; then mv $outname_output_byat_path $output_byat_path; fi;
+      if test -f $outname_output_log_path; then mv $outname_output_log_path $output_log_path; fi;
+      if test -f $outname_output_json_box_path; then mv $outname_output_json_box_path $output_json_box_path; fi;
+      if test -f $outname_output_json_external_box_path; then mv $outname_output_json_external_box_path $output_json_external_box_path; fi;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="input_pdb_path" type="data" format="pdb" optional="false" help="Path to the input PDB file"/>
+      <param name="input_probe_pdb_path" type="data" format="pdb" optional="true" help="Path to the input probe file in PDB format"/>
+      <param name="input_rst_path" type="data" format="txt" optional="true" help="Path to the input restart file"/>
+      <param name="input_vdw_params_path" type="data" format="txt" optional="true" help="Path to the CMIP input Van der Waals force parameters, if not provided the CMIP conda installation one is used ('$CONDA_PREFIX/share/cmip/dat/vdwprm')"/>
+      <param name="input_params_path" type="data" format="txt" optional="true" help="Path to the CMIP input parameters file"/>
+      <param name="input_json_box_path" type="data" format="json" optional="true" help="Path to the input CMIP box in JSON format"/>
+      <param name="input_json_external_box_path" type="data" format="json" optional="true" help="Path to the input CMIP box in JSON format"/>
+      <param name="outname_output_pdb_path" type="text" optional="true" help="Path to the output PDB file"/>
+      <param name="outname_output_grd_path" type="text" optional="true" help="Path to the output grid file in GRD format"/>
+      <param name="outname_output_cube_path" type="text" optional="true" help="Path to the output grid file in cube format"/>
+      <param name="outname_output_rst_path" type="text" optional="true" help="Path to the output restart file"/>
+      <param name="outname_output_byat_path" type="text" optional="true" help="Path to the output atom by atom energy file"/>
+      <param name="outname_output_log_path" type="text" optional="true" help="Path to the output CMIP log file LOG"/>
+      <param name="outname_output_json_box_path" type="text" optional="true" help="Path to the output CMIP box in JSON format"/>
+      <param name="outname_output_json_external_box_path" type="text" optional="true" help="Path to the output external CMIP box in JSON format"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="output_pdb_path" format="pdb" />
+      <data name="output_grd_path" format="grd" />
+      <data name="output_cube_path" format="cube" />
+      <data name="output_rst_path" format="txt" />
+      <data name="output_byat_path" format="txt" />
+      <data name="output_log_path" format="log" />
+      <data name="output_json_box_path" format="json" />
+      <data name="output_json_external_box_path" format="json" />
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_cmip_run.json" ftype="json" />
+          <param name="input_pdb_path" value="RBD-hACE2.hACE2.cmip.pdb" ftype="pdb" />
+          <param name="input_probe_pdb_path" value="RBD-hACE2.RBD.cmip.pdb" ftype="pdb" />
+          <param name="outname_output_byat_path" value="output_byat.out" />
+          <output name="output_byat_path" ftype="out">
+            <assert_contents>
+              <has_size value="252000" delta="63000"/>
+            </assert_contents>
+          </output>
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-cmip.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

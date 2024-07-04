@@ -1,0 +1,90 @@
+<tool id="biobb_amber_amber_to_pdb" name="AmberToPdb" version="@TOOL_VERSION@" >
+    <description>Wrapper of the AmberTools (AMBER MD Package) ambpdb tool module.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.0</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_amber</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_top_path ./input_top_path.$input_top_path.ext;
+      ln -s $input_crd_path ./input_crd_path.$input_crd_path.ext;
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      amber_to_pdb
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_top_path ./input_top_path.$input_top_path.ext
+      --input_crd_path ./input_crd_path.$input_crd_path.ext
+      --output_pdb_path $outname_output_pdb_path
+      ;
+      
+      mv $outname_output_pdb_path $output_pdb_path;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="input_top_path" type="data" format="top" optional="false" help="AMBER topology file"/>
+      <param name="input_crd_path" type="data" format="crd" optional="false" help="AMBER coordinates file"/>
+      <param name="outname_output_pdb_path" type="text" optional="false" help="Structure PDB file"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="output_pdb_path" format="pdb" />
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_amber_to_pdb.json" ftype="json" />
+          <param name="input_top_path" value="structure.leap.top" ftype="top" />
+          <param name="input_crd_path" value="structure.leap.crd" ftype="crd" />
+          <param name="outname_output_pdb_path" value="output.pdb" />
+          <output name="output_pdb_path" ftype="pdb">
+            <assert_contents>
+              <has_size value="107793" delta="26948"/>
+            </assert_contents>
+          </output>
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-amber.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

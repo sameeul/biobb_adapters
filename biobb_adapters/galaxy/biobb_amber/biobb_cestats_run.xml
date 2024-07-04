@@ -1,0 +1,120 @@
+<tool id="biobb_amber_cestats_run" name="CestatsRun" version="@TOOL_VERSION@" >
+    <description>Wrapper of the AmberTools (AMBER MD Package) cestats tool module.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.0</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_amber</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_cein_path ./input_cein_path.$input_cein_path.ext;
+      ln -s $input_ceout_path ./input_ceout_path.$input_ceout_path.ext;
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      cestats_run
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_cein_path ./input_cein_path.$input_cein_path.ext
+      --input_ceout_path ./input_ceout_path.$input_ceout_path.ext
+      --output_dat_path $outname_output_dat_path
+      #if $outname_output_population_path:
+        --output_population_path $outname_output_population_path
+      #end if
+      #if $outname_output_chunk_path:
+        --output_chunk_path $outname_output_chunk_path
+      #end if
+      #if $outname_output_cumulative_path:
+        --output_cumulative_path $outname_output_cumulative_path
+      #end if
+      #if $outname_output_conditional_path:
+        --output_conditional_path $outname_output_conditional_path
+      #end if
+      #if $outname_output_chunk_conditional_path:
+        --output_chunk_conditional_path $outname_output_chunk_conditional_path
+      #end if
+      ;
+      
+      mv $outname_output_dat_path $output_dat_path;
+      if test -f $outname_output_population_path; then mv $outname_output_population_path $output_population_path; fi;
+      if test -f $outname_output_chunk_path; then mv $outname_output_chunk_path $output_chunk_path; fi;
+      if test -f $outname_output_cumulative_path; then mv $outname_output_cumulative_path $output_cumulative_path; fi;
+      if test -f $outname_output_conditional_path; then mv $outname_output_conditional_path $output_conditional_path; fi;
+      if test -f $outname_output_chunk_conditional_path; then mv $outname_output_chunk_conditional_path $output_chunk_conditional_path; fi;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="input_cein_path" type="data" format="cein" optional="false" help="Input cein or cpein file (from pmemd or sander) with titrating residue information"/>
+      <param name="input_ceout_path" type="data" format="ceout" optional="false" help="Output ceout file (AMBER ceout)"/>
+      <param name="outname_output_dat_path" type="text" optional="false" help="Output file to which the standard calceo-type statistics are written"/>
+      <param name="outname_output_population_path" type="text" optional="true" help="Output file where protonation state populations are printed for every state of every residue"/>
+      <param name="outname_output_chunk_path" type="text" optional="true" help="Output file where the time series data calculated over chunks of the simulation are printed"/>
+      <param name="outname_output_cumulative_path" type="text" optional="true" help="Output file where the cumulative time series data is printed"/>
+      <param name="outname_output_conditional_path" type="text" optional="true" help="Output file with requested conditional probabilities"/>
+      <param name="outname_output_chunk_conditional_path" type="text" optional="true" help="Output file with a time series of the conditional probabilities over a trajectory split up into chunks"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="output_dat_path" format="dat" />
+      <data name="output_population_path" format="dat" />
+      <data name="output_chunk_path" format="dat" />
+      <data name="output_cumulative_path" format="dat" />
+      <data name="output_conditional_path" format="dat" />
+      <data name="output_chunk_conditional_path" format="dat" />
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_cestats_run.json" ftype="json" />
+          <param name="input_cein_path" value="structure.cein" ftype="cein" />
+          <param name="input_ceout_path" value="sander.ceout.gz" ftype="gz" />
+          <param name="outname_output_dat_path" value="output.dat" />
+          <output name="output_dat_path" ftype="dat">
+            <assert_contents>
+              <has_size value="192" delta="48"/>
+            </assert_contents>
+          </output>
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-amber.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

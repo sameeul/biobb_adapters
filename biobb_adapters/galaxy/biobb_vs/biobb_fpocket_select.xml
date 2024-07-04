@@ -1,0 +1,96 @@
+<tool id="biobb_vs_fpocket_select" name="FpocketSelect" version="@TOOL_VERSION@" >
+    <description>Selects a single pocket in the outputs of the fpocket building block.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.0</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_vs</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_pockets_zip ./input_pockets_zip.$input_pockets_zip.ext;
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      fpocket_select
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_pockets_zip ./input_pockets_zip.$input_pockets_zip.ext
+      --output_pocket_pdb $outname_output_pocket_pdb
+      --output_pocket_pqr $outname_output_pocket_pqr
+      ;
+      
+      mv $outname_output_pocket_pdb $output_pocket_pdb;
+      mv $outname_output_pocket_pqr $output_pocket_pqr;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="input_pockets_zip" type="data" format="zip" optional="false" help="Path to the pockets found by fpocket"/>
+      <param name="outname_output_pocket_pdb" type="text" optional="false" help="Path to the PDB file with the cavity found by fpocket"/>
+      <param name="outname_output_pocket_pqr" type="text" optional="false" help="Path to the PQR file with the pocket found by fpocket"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="output_pocket_pdb" format="pdb" />
+      <data name="output_pocket_pqr" format="pqr" />
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_fpocket_select.json" ftype="json" />
+          <param name="input_pockets_zip" value="input_pockets.zip" ftype="zip" />
+          <param name="outname_output_pocket_pdb" value="output_pocket.pdb" />
+          <param name="outname_output_pocket_pqr" value="output_pocket.pqr" />
+          <output name="output_pocket_pdb" ftype="pdb">
+            <assert_contents>
+              <has_size value="3155" delta="788"/>
+            </assert_contents>
+          </output>
+          <output name="output_pocket_pqr" ftype="pqr">
+            <assert_contents>
+              <has_size value="3892" delta="973"/>
+            </assert_contents>
+          </output>
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-vs.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

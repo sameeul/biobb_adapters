@@ -1,0 +1,96 @@
+<tool id="biobb_vs_fpocket_run" name="FpocketRun" version="@TOOL_VERSION@" >
+    <description>Wrapper of the fpocket software.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.0</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_vs</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_pdb_path ./input_pdb_path.$input_pdb_path.ext;
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      fpocket_run
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_pdb_path ./input_pdb_path.$input_pdb_path.ext
+      --output_pockets_zip $outname_output_pockets_zip
+      --output_summary $outname_output_summary
+      ;
+      
+      mv $outname_output_pockets_zip $output_pockets_zip;
+      mv $outname_output_summary $output_summary;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="input_pdb_path" type="data" format="pdb" optional="false" help="Path to the PDB structure where the binding site is to be found"/>
+      <param name="outname_output_pockets_zip" type="text" optional="false" help="Path to all the pockets found by fpocket in the input_pdb_path structure"/>
+      <param name="outname_output_summary" type="text" optional="false" help="Path to the JSON summary file"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="output_pockets_zip" format="zip" />
+      <data name="output_summary" format="json" />
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_fpocket_run.json" ftype="json" />
+          <param name="input_pdb_path" value="fpocket_input.pdb" ftype="pdb" />
+          <param name="outname_output_pockets_zip" value="output_pockets.zip" />
+          <param name="outname_output_summary" value="output_summary.json" />
+          <output name="output_pockets_zip" ftype="zip">
+            <assert_contents>
+              <has_size value="114854" delta="28713"/>
+            </assert_contents>
+          </output>
+          <output name="output_summary" ftype="json">
+            <assert_contents>
+              <has_size value="8670" delta="2167"/>
+            </assert_contents>
+          </output>
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-vs.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

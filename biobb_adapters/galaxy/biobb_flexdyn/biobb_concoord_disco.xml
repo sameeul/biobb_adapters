@@ -1,0 +1,110 @@
+<tool id="biobb_flexdyn_concoord_disco" name="ConcoordDisco" version="@TOOL_VERSION@" >
+    <description>Wrapper of the Disco tool from the Concoord package.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.0</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_flexdyn</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_pdb_path ./input_pdb_path.$input_pdb_path.ext;
+      ln -s $input_dat_path ./input_dat_path.$input_dat_path.ext;
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      concoord_disco
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_pdb_path ./input_pdb_path.$input_pdb_path.ext
+      --input_dat_path ./input_dat_path.$input_dat_path.ext
+      --output_traj_path $outname_output_traj_path
+      --output_rmsd_path $outname_output_rmsd_path
+      --output_bfactor_path $outname_output_bfactor_path
+      ;
+      
+      mv $outname_output_traj_path $output_traj_path;
+      mv $outname_output_rmsd_path $output_rmsd_path;
+      mv $outname_output_bfactor_path $output_bfactor_path;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="input_pdb_path" type="data" format="pdb" optional="false" help="Input structure file in PDB format"/>
+      <param name="input_dat_path" type="data" format="dat" optional="false" help="Input dat with structure interpretation and bond definitions"/>
+      <param name="outname_output_traj_path" type="text" optional="false" help="Output trajectory file"/>
+      <param name="outname_output_rmsd_path" type="text" optional="false" help="Output rmsd file"/>
+      <param name="outname_output_bfactor_path" type="text" optional="false" help="Output B-factor file"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="output_traj_path" format="pdb" />
+      <data name="output_rmsd_path" format="dat" />
+      <data name="output_bfactor_path" format="pdb" />
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_concoord_disco.json" ftype="json" />
+          <param name="input_pdb_path" value="structure.pdb" ftype="pdb" />
+          <param name="input_dat_path" value="dist.dat" ftype="dat" />
+          <param name="outname_output_traj_path" value="concoord_disco.pdb" />
+          <param name="outname_output_rmsd_path" value="concoord_disco_rmsd.dat" />
+          <param name="outname_output_bfactor_path" value="concoord_disco_bfactor.pdb" />
+          <output name="output_traj_path" ftype="pdb">
+            <assert_contents>
+              <has_size value="1229111" delta="307277"/>
+            </assert_contents>
+          </output>
+          <output name="output_rmsd_path" ftype="dat">
+            <assert_contents>
+              <has_size value="400" delta="100"/>
+            </assert_contents>
+          </output>
+          <output name="output_bfactor_path" ftype="pdb">
+            <assert_contents>
+              <has_size value="51972" delta="12993"/>
+            </assert_contents>
+          </output>
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-flexdyn.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>

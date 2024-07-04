@@ -1,0 +1,147 @@
+<tool id="biobb_pmx_pmxatom_mapping" name="PmxatomMapping" version="@TOOL_VERSION@" >
+    <description>Wrapper class for the PMX atom_mapping module.</description>
+    <macros>
+      <token name="@TOOL_VERSION@">4.2.1</token>
+    </macros>
+
+    <requirements>
+      <requirement type="package" version="@TOOL_VERSION@">biobb_pmx</requirement>
+    </requirements>
+
+    <command detect_errors="exit_code"><![CDATA[
+      
+      ln -s $input_structure1_path ./input_structure1_path.$input_structure1_path.ext;
+      ln -s $input_structure2_path ./input_structure2_path.$input_structure2_path.ext;
+      #if $config_json:
+        ln -s $config_json ./config_json.$config_json.ext;
+      #end if
+
+      pmxatom_mapping
+
+      #if $config_json:
+        --config ./config_json.$config_json.ext
+      #end if
+      
+      --input_structure1_path ./input_structure1_path.$input_structure1_path.ext
+      --input_structure2_path ./input_structure2_path.$input_structure2_path.ext
+      --output_pairs1_path $outname_output_pairs1_path
+      --output_pairs2_path $outname_output_pairs2_path
+      --output_log_path $outname_output_log_path
+      #if $outname_output_structure1_path:
+        --output_structure1_path $outname_output_structure1_path
+      #end if
+      #if $outname_output_structure2_path:
+        --output_structure2_path $outname_output_structure2_path
+      #end if
+      #if $outname_output_morph1_path:
+        --output_morph1_path $outname_output_morph1_path
+      #end if
+      #if $outname_output_morph2_path:
+        --output_morph2_path $outname_output_morph2_path
+      #end if
+      #if $outname_output_scaffold1_path:
+        --output_scaffold1_path $outname_output_scaffold1_path
+      #end if
+      #if $outname_output_scaffold2_path:
+        --output_scaffold2_path $outname_output_scaffold2_path
+      #end if
+      #if $outname_output_score_path:
+        --output_score_path $outname_output_score_path
+      #end if
+      ;
+      
+      mv $outname_output_pairs1_path $output_pairs1_path;
+      mv $outname_output_pairs2_path $output_pairs2_path;
+      mv $outname_output_log_path $output_log_path;
+      if test -f $outname_output_structure1_path; then mv $outname_output_structure1_path $output_structure1_path; fi;
+      if test -f $outname_output_structure2_path; then mv $outname_output_structure2_path $output_structure2_path; fi;
+      if test -f $outname_output_morph1_path; then mv $outname_output_morph1_path $output_morph1_path; fi;
+      if test -f $outname_output_morph2_path; then mv $outname_output_morph2_path $output_morph2_path; fi;
+      if test -f $outname_output_scaffold1_path; then mv $outname_output_scaffold1_path $output_scaffold1_path; fi;
+      if test -f $outname_output_scaffold2_path; then mv $outname_output_scaffold2_path $output_scaffold2_path; fi;
+      if test -f $outname_output_score_path; then mv $outname_output_score_path $output_score_path; fi;
+      ]]>
+    </command>
+
+    <inputs>
+      <param name="input_structure1_path" type="data" format="pdb" optional="false" help="Path to the input ligand structure file 1"/>
+      <param name="input_structure2_path" type="data" format="pdb" optional="false" help="Path to the input ligand structure file 2"/>
+      <param name="outname_output_pairs1_path" type="text" optional="false" help="Path to the output pairs for the ligand structure 1"/>
+      <param name="outname_output_pairs2_path" type="text" optional="false" help="Path to the output pairs for the ligand structure 2"/>
+      <param name="outname_output_log_path" type="text" optional="false" help="Path to the log file"/>
+      <param name="outname_output_structure1_path" type="text" optional="true" help="Path to the superimposed structure for the ligand structure 1"/>
+      <param name="outname_output_structure2_path" type="text" optional="true" help="Path to the superimposed structure for the ligand structure 2"/>
+      <param name="outname_output_morph1_path" type="text" optional="true" help="Path to the morphable atoms for the ligand structure 1"/>
+      <param name="outname_output_morph2_path" type="text" optional="true" help="Path to the morphable atoms for the ligand structure 2"/>
+      <param name="outname_output_scaffold1_path" type="text" optional="true" help="Path to the index of atoms to consider for the ligand structure 1"/>
+      <param name="outname_output_scaffold2_path" type="text" optional="true" help="Path to the index of atoms to consider for the ligand structure 2"/>
+      <param name="outname_output_score_path" type="text" optional="true" help="Path to the morphing score"/>
+      <param name="config_json" type="data" format="json" optional="true" label="Configuration file" help="File containing tool settings. See below for the syntax"/>
+    </inputs>
+
+    <outputs>
+      <data name="output_pairs1_path" format="dat" />
+      <data name="output_pairs2_path" format="dat" />
+      <data name="output_log_path" format="log" />
+      <data name="output_structure1_path" format="pdb" />
+      <data name="output_structure2_path" format="pdb" />
+      <data name="output_morph1_path" format="pdb" />
+      <data name="output_morph2_path" format="pdb" />
+      <data name="output_scaffold1_path" format="ndx" />
+      <data name="output_scaffold2_path" format="ndx" />
+      <data name="output_score_path" format="dat" />
+    </outputs>
+
+    <tests>
+        <test>
+          <param name="config_json" value="config_pmxatom_mapping.json" ftype="json" />
+          <param name="input_structure1_path" value="lig1.pdb" ftype="pdb" />
+          <param name="input_structure2_path" value="lig2.pdb" ftype="pdb" />
+          <param name="outname_output_pairs1_path" value="pairs1.dat" />
+          <param name="outname_output_pairs2_path" value="pairs2.dat" />
+          <param name="outname_output_log_path" value="atom_mapping.log" />
+          <output name="output_pairs1_path" ftype="dat">
+            <assert_contents>
+              <has_size value="279" delta="69"/>
+            </assert_contents>
+          </output>
+          <output name="output_pairs2_path" ftype="dat">
+            <assert_contents>
+              <has_size value="279" delta="69"/>
+            </assert_contents>
+          </output>
+        </test>
+    </tests>
+
+    <help>
+.. class:: infomark
+
+Check the syntax for the tool parameters at the original library documentation: https://biobb-pmx.readthedocs.io/en/latest
+
+-----
+
+.. image:: http://mmb.irbbarcelona.org/biobb/assets/layouts/layout3/img/logo.png
+    :width: 150
+
+**https://mmb.irbbarcelona.org/biobb**
+
+.. image:: https://bioexcel.eu/wp-content/uploads/2019/08/Bioexcel_logo_no_subheading_660px.png
+        :width: 150
+
+**https://bioexcel.eu**
+   </help>
+
+    <citations>
+        <citation type="bibtex">
+            @misc{githubbiobb,
+            author = {Andrio P, Bayarri, G., Hospital A, Gelpi JL},
+            year = {2019-21},
+            title = {biobb: BioExcel building blocks },
+            publisher = {GitHub},
+            journal = {GitHub repository},
+            url = {https://github.com/bioexcel/biobb_pytorch},
+            }
+        </citation>
+        <citation type="doi">10.1038/s41597-019-0177-4</citation>
+    </citations>
+</tool>
